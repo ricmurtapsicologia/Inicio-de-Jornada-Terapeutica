@@ -317,17 +317,17 @@
         }
 
         /* Responsividade */
-        @media (max-width: 1024px) {
+        @media (min-width: 600px) {
             .banner-content, .video-description, .content-description {
                 max-width: 800px;
             }
 
             h1 {
-                font-size: 2.5em;
+                font-size: 3.5em;
             }
 
             p, .content-description, .final-words {
-                font-size: 1.2em;
+                font-size: 1.4em;
             }
 
             .service {
@@ -335,49 +335,40 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 900px) {
             .banner-content, .video-description, .content-description {
-                max-width: 600px;
+                max-width: 900px;
             }
 
-            h1 {
-                font-size: 2em;
+            .form-links {
+                flex-wrap: nowrap;
             }
 
             .service {
-                width: calc(100% - 20px);
-            }
-
-            .form-links a {
-                flex: 1 1 calc(100% - 20px);
-                max-width: 100%;
-                font-size: 0.9em;
-                padding: 15px;
-            }
-
-            .whatsapp-button, .instagram-button {
-                max-width: 100%;
-                padding: 15px;
-                font-size: 1em;
+                width: calc(25% - 20px);
             }
         }
 
-        @media (max-width: 480px) {
-            .banner-content, .video-description, .content-description {
-                max-width: 400px;
+        @media (max-width: 599px) {
+            .banner-content h1 {
+                font-size: 2em;
             }
 
-            h1 {
-                font-size: 1.5em;
-            }
-
-            p, .content-description, .final-words {
+            .banner-content p {
                 font-size: 1em;
             }
 
+            .service img {
+                height: 150px;
+            }
+
+            .form-links a {
+                flex: 1 1 100%;
+                max-width: none;
+            }
+
             .whatsapp-button, .instagram-button {
-                font-size: 0.9em;
-                padding: 12px;
+                width: 100%;
             }
         }
 
@@ -473,4 +464,5 @@
     </script>
 </body>
 </html>
+
 
