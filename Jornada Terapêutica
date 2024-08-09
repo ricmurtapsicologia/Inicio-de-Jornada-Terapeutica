@@ -163,8 +163,19 @@
         }
 
         .video-container {
-            max-width: 900px;
+            max-width: 100%;
             margin: 0 auto 30px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         .video-description {
@@ -385,7 +396,7 @@
                 <div class="service" onclick="showServiceText(this)">
                     <img src="https://i.pinimg.com/originals/c4/13/5f/c4135fa75b6a0f990413a9f0b8c5e14c.jpg" alt="Avaliação Psicológica">
                     <h3>Avaliação Psicológica</h3>
-                    <p>A Avaliação Psicológica é realizada pela Dra. Thaís Campos Murta, Psicóloga especialista em Avaliação Psicológica. Para agendar, clique no <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20psicol%C3%B3gica" target="_blank"><i class="fab fa-whatsapp"></i></a>.</p>
+                    <p>A Avaliação Psicológica é realizada pela Dra. Thaís Campos Murta, Psicóloga especialista em Avaliação Psicológica. Para agendar, <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20psicol%C3%B3gica" target="_blank"><i class="fab fa-whatsapp"></i> clique aqui</a>.</p>
                 </div>
                 <div class="service" onclick="showServiceText(this)">
                     <img src="https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Produtividade 2.0">
@@ -399,7 +410,7 @@
     <section class="video-section">
         <h2>O que é Terapia Cognitivo-Comportamental?</h2>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/AMTl32SS7Sc" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/AMTl32SS7Sc" title="YouTube video" frameborder="0" allowfullscreen></iframe>
         </div>
         <p class="video-description">A Terapia Cognitivo-Comportamental (TCC) é uma abordagem terapêutica baseada na premissa de que nossos pensamentos, emoções e comportamentos estão interconectados. Ao identificar e modificar padrões de pensamento disfuncionais, a TCC visa promover mudanças comportamentais positivas e melhorar o bem-estar emocional. Esta terapia é eficaz no tratamento de uma ampla gama de problemas, incluindo ansiedade, depressão, estresse, fobias e muito mais. Suas aplicações são vastas e eficazes para qualquer pessoa buscando melhor saúde mental.</p>
     </section>
