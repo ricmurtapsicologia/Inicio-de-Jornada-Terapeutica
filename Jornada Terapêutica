@@ -331,23 +331,22 @@
 
         /* Responsividade */
         @media (max-width: 1024px) {
-            .banner-content, .video-description, .content-description {
-                max-width: 800px;
-            }
+    .banner-content, .video-container, .video-description, .content-description {
+        max-width: 800px; /* Ajuste para telas de notebook */
+    }
 
-            h1 {
-                font-size: 2.5em;
-            }
+    h1 {
+        font-size: 2.5em;
+    }
 
-            p, .content-description, .final-words {
-                font-size: 1.2em;
-            }
+    p, .content-description, .final-words {
+        font-size: 1.2em;
+    }
 
-            .service {
-                width: calc(50% - 20px);
-            }
-        }
-
+    .service {
+        width: calc(50% - 20px);
+    }
+}
         @media (max-width: 768px) {
             .banner-content, .video-description, .content-description {
                 max-width: 600px;
