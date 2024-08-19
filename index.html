@@ -489,14 +489,12 @@
             <span>Richelmy Murta - 2024 - Todos os direitos reservados</span>
         </div>
     </footer>
-
-    <script>
-        function showServiceText(element) {
-            const text = element.querySelector('p');
-            text.style.display = text.style.display === 'block' ? 'none' : 'block';
+<script>
+        window.onload = function() {
+            // Sempre faz o scroll para o topo da página ao carregar
+            window.scrollTo(0, 0);
         }
     </script>
-    <script>
     window.onload = function() {
         if (window.location.hash) {
             window.scrollTo(0, 0);
