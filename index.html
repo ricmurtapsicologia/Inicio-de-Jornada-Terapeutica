@@ -496,5 +496,12 @@
             text.style.display = text.style.display === 'block' ? 'none' : 'block';
         }
     </script>
+    <script>
+    window.onload = function() {
+        if (window.location.hash) {
+            window.scrollTo(0, 0);
+        }
+    }
+</script>
 </body>
 </html>
