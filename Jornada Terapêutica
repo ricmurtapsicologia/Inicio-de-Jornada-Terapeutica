@@ -2,492 +2,526 @@
 <html lang="pt-BR">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Richelmy Murta - Psicólogo Clínico</title>
-	<meta name="description" content="Proporcionando o melhor cuidado em saúde mental com Terapia Cognitivo-Comportamental, avaliação psicológica e outros serviços especializados. Entre em contato para um tratamento personalizado.">
-	<meta property="og:title" content="Richelmy Murta - Psicólogo Clínico" />
-	<meta property="og:description" content="Proporcionando o melhor cuidado em saúde mental com Terapia Cognitivo-Comportamental, avaliação psicológica e outros serviços especializados. Entre em contato para um tratamento personalizado." />
-	<meta property="og:image" content="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" />
-	<meta property="og:url" content="https://ricmurtapsicologia.github.io/In-cio-de-Jornada-Terap-utica/" />
-	<meta property="og:type" content="website" />
-	<style>
-		/* Reset de CSS */
-		* {
-		    margin: 0;
-		    padding: 0;
-		    box-sizing: border-box;
-		}
-		
-		body {
-		    font-family: 'Lato', sans-serif;
-		    background-color: #f4f8f9;
-		    color: #333;
-		    line-height: 1.6;
-		}
-		
-		/* Banner Principal */
-		.banner {
-		    background-image: url('https://i.pinimg.com/originals/e5/90/fb/e590fbd1977be482ddfeacba0803bd65.jpg');
-		    background-size: cover;
-		    background-position: center;
-		    color: white;
-		    text-align: center;
-		    padding: 80px 20px;
-		    position: relative;
-		    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-		}
-		
-		.banner::before {
-		    content: '';
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    right: 0;
-		    bottom: 0;
-		    background-color: rgba(0, 0, 0, 0.85);
-		    z-index: 1;
-		}
-		
-		.banner-content {
-		    position: relative;
-		    z-index: 2;
-		    max-width: 900px;
-		    margin: 0 auto;
-		}
-		
-		h1 {
-		    font-size: 3em;
-		    margin-bottom: 20px;
-		    text-transform: uppercase;
-		    font-weight: 700;
-		}
-		
-		p {
-		    font-size: 1.2em;
-		    margin-bottom: 30px;
-		    text-align: justify;
-		    max-width: 700px;
-		    margin-left: auto;
-		    margin-right: auto;
-		}
-		
-		/* Botões */
-		.button-3d {
-		    background-color: #1b7f79;
-		    color: white;
-		    padding: 10px 15px;
-		    text-align: center;
-		    text-decoration: none;
-		    border-radius: 30px;
-		    transition: transform 0.2s ease, box-shadow 0.2s ease;
-		    display: inline-block;
-		    width: 250px;
-		    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-		    font-size: 1.1em;
-		    display: flex;
-		    align-items: center;
-		    justify-content: center;
-		    margin: 10px auto;
-		}
-		
-		.button-3d:hover {
-		    transform: translateY(-5px);
-		    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-		}
-		
-		.button-3d i {
-		    margin-right: 10px;
-		    font-size: 1.5em;
-		}
-		
-		/* Seção de Serviços */
-		.services {
-		    background-color: rgba(240, 245, 245, 0.95);
-		    padding: 50px 20px;
-		    text-align: center;
-		}
-		
-		.service-container {
-		    max-width: 1200px;
-		    margin: 0 auto;
-		}
-		
-		.services-list {
-		    display: flex;
-		    flex-wrap: wrap;
-		    justify-content: space-between;
-		    gap: 20px;
-		    margin-top: 40px;
-		}
-		
-		.service {
-		    background-color: white;
-		    padding: 20px;
-		    border-radius: 10px;
-		    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-		    width: calc(25% - 20px);
-		    box-sizing: border-box;
-		    text-align: center;
-		    cursor: pointer;
-		    transition: transform 0.2s ease, box-shadow 0.2s ease;
-		}
-		
-		.service img {
-		    width: 100%;
-		    border-radius: 10px;
-		    margin-bottom: 20px;
-		    height: 220px;
-		    object-fit: cover;
-		}
-		
-		.service h3 {
-		    font-size: 1.5em;
-		    margin: 15px 0;
-		}
-		
-		.service p {
-		    font-size: 1.1em;
-		    text-align: justify;
-		    display: none;
-		}
-		
-		.service:hover {
-		    transform: translateY(-5px);
-		    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-		}
-		
-		.service:hover p {
-		    display: block;
-		}
-		
-		/* Seção de Vídeo */
-		.video-section {
-		    background-color: rgba(244, 248, 249, 0.95);
-		    padding: 40px 20px;
-		    text-align: center;
-		}
-		
-		.video-container {
-		    max-width: 900px;
-		    width: 100%;
-		    margin: 0 auto 30px;
-		    position: relative;
-		    padding-bottom: 56.25%;
-		    height: 0;
-		    overflow: hidden;
-		}
-		
-		.video-container iframe {
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    width: 100%;
-		    height: 100%;
-		    border: 0;
-		}
-		
-		.video-description {
-		    max-width: 900px;
-		    margin: 0 auto;
-		    text-align: justify;
-		}
-		
-		/* Conteúdo Principal */
-		.content {
-		    padding: 40px 20px;
-		    background-color: rgba(255, 255, 255, 0.95);
-		    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-		    margin-top: -20px;
-		    text-align: center;
-		}
-		
-		h2 {
-		    color: #333;
-		    font-size: 2.5em;
-		    margin-bottom: 20px;
-		    font-weight: 700;
-		}
-		
-		.content-description,
-		.final-words {
-		    max-width: 900px;
-		    margin: 0 auto 40px;
-		    text-align: justify;
-		    font-size: 1.2em;
-		}
-		
-		.form-links {
-		    display: flex;
-		    flex-wrap: wrap;
-		    justify-content: center;
-		    gap: 20px;
-		    margin-bottom: 40px;
-		}
-		
-		.form-links a {
-		    flex: 1 1 calc(25% - 20px);
-		    display: flex;
-		    justify-content: center;
-		    align-items: center;
-		    text-align: center;
-		    padding: 10px;
-		    font-size: 1em;
-		    color: white;
-		    background-color: #1b7f79;
-		    border-radius: 10px;
-		    text-decoration: none;
-		    transition: transform 0.2s ease, box-shadow 0.2s ease;
-		    height: 100px;
-		    max-width: 250px;
-		}
-		
-		.form-links a:hover {
-		    transform: translateY(-5px);
-		    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-		}
-		
-		.signature {
-		    text-align: center;
-		    font-size: 1.3em;
-		}
-		
-		/* Botão WhatsApp */
-		.whatsapp-button {
-		    background-color: #25D366;
-		    color: white;
-		    padding: 10px 20px;
-		    text-align: center;
-		    text-decoration: none;
-		    border-radius: 30px;
-		    transition: transform 0.2s ease, box-shadow 0.2s ease;
-		    display: inline-block;
-		    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-		    margin-top: 20px;
-		    font-size: 1.1em;
-		    display: flex;
-		    align-items: center;
-		    justify-content: center;
-		    max-width: 300px;
-		    margin-left: auto;
-		    margin-right: auto;
-		}
-		
-		.whatsapp-button i {
-		    margin-right: 10px;
-		    font-size: 1.5em;
-		}
-		
-		.instagram-button {
-		    background-color: #E4405F;
-		    color: white;
-		    padding: 10px 20px;
-		    text-align: center;
-		    text-decoration: none;
-		    border-radius: 30px;
-		    transition: transform 0.2s ease, box-shadow 0.2s ease;
-		    display: inline-block;
-		    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-		    margin-top: 10px;
-		    font-size: 1.1em;
-		    display: flex;
-		    align-items: center;
-		    justify-content: center;
-		    max-width: 300px;
-		    margin-left: auto;
-		    margin-right: auto;
-		}
-		
-		.instagram-button i {
-		    margin-right: 10px;
-		    font-size: 1.5em;
-		}
-		
-		.whatsapp-button:hover, .instagram-button:hover {
-		    transform: translateY(-5px);
-		    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-		}
-		
-		/* Rodapé */
-		.footer {
-		    background-color: rgba(100, 197, 193, 0.9);
-		    color: white;
-		    padding: 20px 0;
-		    text-align: center;
-		}
-		
-		.footer-content {
-		    max-width: 900px;
-		    margin: 0 auto;
-		    display: flex;
-		    justify-content: center;
-		    gap: 20px;
-		    align-items: center;
-		}
-		
-		.footer-content a {
-		    color: white;
-		    display: flex;
-		    align-items: center;
-		}
-		
-		.footer-content a i {
-		    font-size: 1.5em;
-		    margin-right: 8px;
-		}
-		
-		/* Responsividade */
-		@media (max-width: 1024px) {
-		    .video-container {
-		        max-width: 1000px; /* Aumenta a largura máxima do vídeo em desktops */
-		    }
-		
-		    h1 {
-		        font-size: 2.5em;
-		    }
-		
-		    p, .content-description, .final-words {
-		        font-size: 1.2em;
-		    }
-		
-		    .service {
-		        width: calc(50% - 20px);
-		    }
-		}
-		
-		@media (max-width: 768px) {
-		    .banner-content, .video-description, .content-description {
-		        max-width: 600px;
-		        margin: 0 auto; /* Centraliza o conteúdo na tela */
-		    }
-		
-		    h1 {
-		        font-size: 2em;
-		        line-height: 1.2;
-		    }
-		
-		    .service {
-		        width: calc(100% - 20px);
-		        margin: 10px auto;
-		    }
-		
-		    .form-links a {
-		        flex: 1 1 calc(100% - 20px);
-		        max-width: 100%;
-		        font-size: 0.9em;
-		        padding: 15px;
-		    }
-		
-		    .whatsapp-button, .instagram-button {
-		        max-width: 100%;
-		        padding: 15px;
-		        font-size: 1em;
-		    }
-		}
-		
-		@media (max-width: 480px) {
-		    .banner-content, .video-description, .content-description {
-		        max-width: 400px;
-		    }
-		
-		    h1 {
-		        font-size: 1.5em;
-		    }
-		
-		    p, .content-description, .final-words {
-		        font-size: 1em;
-		    }
-		
-		    .whatsapp-button, .instagram-button {
-		        font-size: 0.9em;
-		        padding: 12px;
-		    }
-		}
-		
-		/* Performance */
-		img {
-		    max-width: 100%;
-		    height: auto;
-		}
-	</style>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap">
-	<!-- FontAwesome Icons -->
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Richelmy Murta - Psicólogo Clínico</title>
+    <meta name="description" content="Proporcionando o melhor cuidado em saúde mental com Terapia Cognitivo-Comportamental, avaliação psicológica e outros serviços especializados. Entre em contato para um tratamento personalizado.">
+    <meta property="og:title" content="Richelmy Murta - Psicólogo Clínico" />
+    <meta property="og:description" content="Proporcionando o melhor cuidado em saúde mental com Terapia Cognitivo-Comportamental, avaliação psicológica e outros serviços especializados. Entre em contato para um tratamento personalizado." />
+    <meta property="og:image" content="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" />
+    <meta property="og:url" content="https://ricmurtapsicologia.github.io/In-cio-de-Jornada-Terap-utica/" />
+    <meta property="og:type" content="website" />
+    <style>
+        /* Reset de CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f4f8f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Banner Principal */
+        .banner {
+            background-image: url('https://i.pinimg.com/originals/e5/90/fb/e590fbd1977be482ddfeacba0803bd65.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            text-align: justify;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botões */
+        .button-3d {
+            background-color: #1b7f79;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+            width: 250px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto;
+        }
+
+        .button-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-3d i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        /* Seção de Serviços */
+        .services {
+            background-color: rgba(240, 245, 245, 0.95);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .service-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .service {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            width: calc(25% - 20px);
+            box-sizing: border-box;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .service img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service h3 {
+            font-size: 1.5em;
+            margin: 15px 0;
+        }
+
+        .service p {
+            font-size: 1.1em;
+            text-align: justify;
+            display: none;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service:hover p {
+            display: block;
+        }
+
+        /* Seção de Vídeo */
+        .video-section {
+            background-color: rgba(244, 248, 249, 0.95);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto 30px;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-description {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        /* Conteúdo Principal */
+        .content {
+            padding: 40px 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: -20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .content-description,
+        .final-words {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            text-align: justify;
+            font-size: 1.2em;
+        }
+
+        .form-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .form-links a {
+            flex: 1 1 calc(25% - 20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            font-size: 1em;
+            color: white;
+            background-color: #1b7f79;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            height: 100px;
+            max-width: 250px;
+        }
+
+        .form-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .signature {
+            text-align: center;
+            font-size: 1.3em;
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .whatsapp-button i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .instagram-button {
+            background-color: #E4405F;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .instagram-button i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .whatsapp-button:hover,
+        .instagram-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Rodapé */
+        .footer {
+            background-color: rgba(100, 197, 193, 0.9);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-content a {
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-content a i {
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .video-container {
+                max-width: 1000px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p,
+            .content-description,
+            .final-words {
+                font-size: 1.2em;
+            }
+
+            .service {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-content,
+            .video-description,
+            .content-description {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: 2em;
+                line-height: 1.2;
+            }
+
+            .service {
+                width: calc(100% - 20px);
+                margin: 10px auto;
+            }
+
+            .form-links a {
+                flex: 1 1 calc(100% - 20px);
+                max-width: 100%;
+                font-size: 0.9em;
+                padding: 15px;
+            }
+
+            .whatsapp-button,
+            .instagram-button {
+                max-width: 100%;
+                padding: 15px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-content,
+            .video-description,
+            .content-description {
+                max-width: 400px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p,
+            .content-description,
+            .final-words {
+                font-size: 1em;
+            }
+
+            .whatsapp-button,
+            .instagram-button {
+                font-size: 0.9em;
+                padding: 12px;
+            }
+        }
+
+        /* Performance */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
-	<header class="banner">
-		<div class="banner-content">
-			<h1>Proporcionando o Melhor Cuidado em Saúde Mental</h1>
-			<p>Bem-vindo à sua jornada de autoconhecimento e crescimento pessoal. Sou Richelmy Murta, psicólogo clínico especializado em Terapia Cognitivo-Comportamental (TCC). Explore abaixo para saber mais sobre como a TCC pode ajudar você e preencha os formulários para que possamos criar juntos um plano de tratamento personalizado.</p>
-			<a href="#forms" class="button-3d"><i class="fas fa-play"></i> Começar</a>
-		</div>
-	</header>
-	<section class="services">
-		<div class="service-container">
-			<h2>Nossos Serviços</h2>
-			<div class="services-list">
-				<div class="service" onclick="showServiceText(this)">
-					<img src="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" alt="Psicoterapia Individual">
-					<h3>Psicoterapia Individual</h3>
-					<p>Terapia personalizada para ajudar a lidar com questões emocionais e comportamentais.</p>
-				</div>
-				<div class="service" onclick="showServiceText(this)">
-					<img src="https://i.pinimg.com/originals/a5/34/0b/a5340bc6c723203b8a4b3d0196c3f1a4.jpg" alt="Terapia de Casal">
-					<h3>Terapia de Casal</h3>
-					<p>Fortaleça o relacionamento com sessões terapêuticas focadas na comunicação e compreensão mútua.</p>
-				</div>
-				<div class="service" onclick="showServiceText(this)">
-					<img src="https://i.pinimg.com/originals/c4/13/5f/c4135fa75b6a0f990413a9f0b8c5e14c.jpg" alt="Avaliação Psicológica">
-					<h3>Avaliação Psicológica</h3>
-					<p>A Avaliação Psicológica é realizada pela Dra. Thaís Campos Murta, Psicóloga especialista em Avaliação Psicológica. Para agendar, <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20psicol%C3%B3gica" target="_blank">clique aqui</a>.</p>
-				</div>
-				<div class="service" onclick="showServiceText(this)">
-					<img src="https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Produtividade 2.0">
-					<h3>Produtividade 2.0</h3>
-					<p>Produtividade para alta performance em ambientes organizacionais.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="video-section">
-		<h2>O que é Terapia Cognitivo-Comportamental?</h2>
-		<div class="video-container">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/AMTl32SS7Sc" title="YouTube video" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<p class="video-description">A Terapia Cognitivo-Comportamental (TCC) é uma abordagem terapêutica baseada na premissa de que nossos pensamentos, emoções e comportamentos estão interconectados. Ao identificar e modificar padrões de pensamento disfuncionais, a TCC visa promover mudanças comportamentais positivas e melhorar o bem-estar emocional. Esta terapia é eficaz no tratamento de uma ampla gama de problemas, incluindo ansiedade, depressão, estresse, fobias e muito mais. Suas aplicações são vastas e eficazes para qualquer pessoa buscando melhor saúde mental.</p>
-	</section>
-	<section class="content" id="forms">
-		<h2>Plano de Tratamento Personalizado</h2>
-		<p class="content-description">Para trabalharmos de forma eficaz, preencha os formulários abaixo. Eles são essenciais para a criação de um plano de tratamento customizado às suas necessidades. O preenchimento desses formulários é o primeiro passo em direção ao seu bem-estar.</p>
-		<div class="form-links">
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSfvrCtU4hn72xCYHPizP60GMIiRAm45KM-1k3z5_8VIOj6dMQ/viewform"><i class="fas fa-edit"></i> Formulário de Controle para Atendimento Clínico</a>
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSfOwfOe9OAx_XgnsEMa8FzV2QJR8-ZkHmGD2gWEOcBeK41Odw/viewform"><i class="fas fa-heart"></i> Avaliação de Humor</a>
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLScu5CuRbE_UB829g4GqzMJyfm6J6sEdfw_xPUPEA3yMy6-6aw/viewform"><i class="fas fa-smile"></i> Escala de Autoestima</a>
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSdCuc1WnzTjMbRSyNmS5kuyG1NsaG95zMDO0v0GMABH8zodhg/viewform"><i class="fas fa-exclamation-circle"></i> Escala de Ansiedade</a>
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSd3VTOenTa4cqrePvGKt2-uGCzNDxpqf_A6PRwbO6llOXXnqA/viewform"><i class="fas fa-list"></i> Ficha de Anamnese</a>
-			<a href="https://ricmurtapsicologia.github.io/Escala-de-Co-Depen-ncia-Emocional/ESCALA%20DE%20(CO)DEPEND%C3%8ANCIA.html"><i class="fas fa-handshake"></i> Escala de (Co)Dependência Emocional</a>
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLSc8B4QhyTdDEfFg7XpinA2kEtlSPZAmKhHp2jfcUFgkbLYHQw/viewform"><i class="fas fa-brain"></i> Rastreio de Soft Skills</a>
-			<a href="https://ricmurtapsicologia.github.io/Guia-de-Apoio-a-Saude-Mental/?fbclid=PAZXh0bgNhZW0CMTEAAabs2pb3HO71Nyv5xo3TfPXc63vPsFpuCYvsfxO7snkDy7LTm_8_ovSEW-8_aem_QzQOCVx1rz8H2BNXvGliWQ"><i class="fas fa-book"></i> Guia de Apoio à Saúde Mental</a>
-			<!-- Novo botão inserido -->
-			<a href="https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/"><i class="fas fa-tachometer-alt"></i> Rastreio de Impulsividade</a>
-		</div>
-		<a href="https://api.whatsapp.com/send?phone=5535984640729&text=Gostaria%20de%20mais%20informa%C3%A7%C3%B5es" target="_blank" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Fale Conosco via WhatsApp</a>
-		<a href="https://www.instagram.com/ricmurtapsicologia/?theme=dark" target="_blank" class="instagram-button"><i class="fab fa-instagram"></i> Siga no Instagram</a>
-		<p class="final-words">Espero que possamos avançar juntos para melhorar sua saúde mental. Preencha os formulários e vamos iniciar esse processo com um plano de tratamento personalizado.</p>
-		<p class="signature">Abraços,<br><strong>Richelmy Murta</strong></p>
-	</section>
-	<footer class="footer">
-		<div class="footer-content">
-			<span>Richelmy Murta - 2024 - Todos os direitos reservados</span>
-		</div>
-	</footer>
-	<script>
-		window.onload = function() {
-		    // Força o scroll para o topo da página ao carregar, independente do hash
-		    window.scrollTo(0, 0);
-		}
-	</script>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Proporcionando o Melhor Cuidado em Saúde Mental</h1>
+            <p>Bem-vindo à sua jornada de autoconhecimento e crescimento pessoal. Sou Richelmy Murta, psicólogo clínico especializado em Terapia Cognitivo-Comportamental (TCC). Explore abaixo para saber mais sobre como a TCC pode ajudar você e preencha os formulários para que possamos criar juntos um plano de tratamento personalizado.</p>
+            <a href="#forms" class="button-3d"><i class="fas fa-play"></i> Começar</a>
+        </div>
+    </header>
+    <section class="services">
+        <div class="service-container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-list">
+                <div class="service" onclick="showServiceText(this)">
+                    <img src="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" alt="Psicoterapia Individual">
+                    <h3>Psicoterapia Individual</h3>
+                    <p>Terapia personalizada para ajudar a lidar com questões emocionais e comportamentais.</p>
+                </div>
+                <div class="service" onclick="showServiceText(this)">
+                    <img src="https://i.pinimg.com/originals/a5/34/0b/a5340bc6c723203b8a4b3d0196c3f1a4.jpg" alt="Terapia de Casal">
+                    <h3>Terapia de Casal</h3>
+                    <p>Fortaleça o relacionamento com sessões terapêuticas focadas na comunicação e compreensão mútua.</p>
+                </div>
+                <div class="service" onclick="showServiceText(this)">
+                    <img src="https://i.pinimg.com/originals/c4/13/5f/c4135fa75b6a0f990413a9f0b8c5e14c.jpg" alt="Avaliação Psicológica">
+                    <h3>Avaliação Psicológica</h3>
+                    <p>A Avaliação Psicológica é realizada pela Dra. Thaís Campos Murta, Psicóloga especialista em Avaliação Psicológica. Para agendar, <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20psicol%C3%B3gica" target="_blank">clique aqui</a>.</p>
+                </div>
+                <div class="service" onclick="showServiceText(this)">
+                    <img src="https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Produtividade 2.0">
+                    <h3>Produtividade 2.0</h3>
+                    <p>Produtividade para alta performance em ambientes organizacionais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="video-section">
+        <h2>O que é Terapia Cognitivo-Comportamental?</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/AMTl32SS7Sc" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-description">A Terapia Cognitivo-Comportamental (TCC) é uma abordagem terapêutica baseada na premissa de que nossos pensamentos, emoções e comportamentos estão interconectados. Ao identificar e modificar padrões de pensamento disfuncionais, a TCC visa promover mudanças comportamentais positivas e melhorar o bem-estar emocional. Esta terapia é eficaz no tratamento de uma ampla gama de problemas, incluindo ansiedade, depressão, estresse, fobias e muito mais. Suas aplicações são vastas e eficazes para qualquer pessoa buscando melhor saúde mental.</p>
+    </section>
+    <section class="content" id="forms">
+        <h2>Plano de Tratamento Personalizado</h2>
+        <p class="content-description">Para trabalharmos de forma eficaz, preencha os formulários abaixo. Eles são essenciais para a criação de um plano de tratamento customizado às suas necessidades. O preenchimento desses formulários é o primeiro passo em direção ao seu bem-estar.</p>
+        <div class="form-links">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvrCtU4hn72xCYHPizP60GMIiRAm45KM-1k3z5_8VIOj6dMQ/viewform"><i class="fas fa-edit"></i> Formulário de Controle para Atendimento Clínico</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfOwfOe9OAx_XgnsEMa8FzV2QJR8-ZkHmGD2gWEOcBeK41Odw/viewform"><i class="fas fa-heart"></i> Avaliação de Humor</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScu5CuRbE_UB829g4GqzMJyfm6J6sEdfw_xPUPEA3yMy6-6aw/viewform"><i class="fas fa-smile"></i> Escala de Autoestima</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCuc1WnzTjMbRSyNmS5kuyG1NsaG95zMDO0v0GMABH8zodhg/viewform"><i class="fas fa-exclamation-circle"></i> Escala de Ansiedade</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd3VTOenTa4cqrePvGKt2-uGCzNDxpqf_A6PRwbO6llOXXnqA/viewform"><i class="fas fa-list"></i> Ficha de Anamnese</a>
+            <a href="https://ricmurtapsicologia.github.io/Escala-de-Co-Depen-ncia-Emocional/ESCALA%20DE%20(CO)DEPEND%C3%8ANCIA.html"><i class="fas fa-handshake"></i> Escala de (Co)Dependência Emocional</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8B4QhyTdDEfFg7XpinA2kEtlSPZAmKhHp2jfcUFgkbLYHQw/viewform"><i class="fas fa-brain"></i> Rastreio de Soft Skills</a>
+            <a href="https://ricmurtapsicologia.github.io/Guia-de-Apoio-a-Saude-Mental/?fbclid=PAZXh0bgNhZW0CMTEAAabs2pb3HO71Nyv5xo3TfPXc63vPsFpuCYvsfxO7snkDy7LTm_8_ovSEW-8_aem_QzQOCVx1rz8H2BNXvGliWQ"><i class="fas fa-book"></i> Guia de Apoio à Saúde Mental</a>
+            <a href="https://ricmurtapsicologia.github.io/Invent-rio-de-Tra-os-Borderline/"><i class="fas fa-tachometer-alt"></i> Rastreio de Traços Borderline</a>
+            <a href="https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/"><i class="fas fa-tachometer-alt"></i> Rastreio de Impulsividade</a>
+        </div>
+        <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Gostaria%20de%20mais%20informa%C3%A7%C3%B5es" target="_blank" class="whatsapp-button"><i class="fab fa-whatsapp"></i> Fale Conosco via WhatsApp</a>
+        <a href="https://www.instagram.com/ricmurtapsicologia/?theme=dark" target="_blank" class="instagram-button"><i class="fab fa-instagram"></i> Siga no Instagram</a>
+        <p class="final-words">Espero que possamos avançar juntos para melhorar sua saúde mental. Preencha os formulários e vamos iniciar esse processo com um plano de tratamento personalizado.</p>
+        <p class="signature">Abraços,<br><strong>Richelmy Murta</strong></p>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <span>Richelmy Murta - 2024 - Todos os direitos reservados</span>
+        </div>
+    </footer>
+    <script>
+        // Função para mostrar descrição dos serviços
+        function showServiceText(serviceElement) {
+            const description = serviceElement.querySelector('p');
+            if (description.style.display === 'block') {
+                description.style.display = 'none';
+            } else {
+                description.style.display = 'block';
+            }
+        }
+
+        // Garantir que a página sempre carregue no topo, ignorando o hash inicial
+        window.addEventListener('load', function() {
+            if (window.location.hash) {
+                const hash = window.location.hash;
+                window.scrollTo(0, 0); // Força o scroll para o topo
+                setTimeout(function() {
+                    document.querySelector(hash).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 10); // Scroll suave para o hash após o carregamento completo
+            }
+        });
+    </script>
 </body>
 
 </html>
+
