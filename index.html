@@ -507,8 +507,20 @@
                 description.style.display = 'block';
             }
         }
+
+        // Garantir que a página sempre carregue no topo, ignorando o hash inicial
+        window.addEventListener('load', function() {
+            if (window.location.hash) {
+                const hash = window.location.hash;
+                window.scrollTo(0, 0); // Força o scroll para o topo
+                setTimeout(function() {
+                    document.querySelector(hash).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 10); // Scroll suave para o hash após o carregamento completo
+            }
+        });
     </script>
 </body>
 
 </html>
-
