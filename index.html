@@ -38,8 +38,8 @@
 		    background-position: center;
 		    color: white;
 		    text-align: center;
-		    padding: 50px 20px;
-		    height: 70vh;
+		    padding: 20px;
+		    height: 60vh;
 		    display: flex;
 		    flex-direction: column;
 		    justify-content: center;
@@ -55,7 +55,7 @@
 		}
 		
 		.banner h1 {
-		    font-size: 2.8em;
+		    font-size: 2em;
 		    font-weight: 700;
 		    margin-bottom: 20px;
 		    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
@@ -110,6 +110,14 @@
 		    padding: 20px 20px; 
 		    text-align: center;
 		}
+		.service::after {
+		    content: "Clique para mais detalhes";
+		    display: block;
+		    font-size: 0.9em;
+		    color: #58706F;
+		    margin-top: 10px;
+		}
+		
 		
 		.service-container {
 		    max-width: 1200px;
@@ -193,9 +201,10 @@
 		    width: 100%;
 		    margin: 0 auto 30px;
 		    position: relative;
-		    padding-bottom: 28.125%;
+		    padding-bottom: 56.25%;
 		    height: 0;
 		    overflow: hidden;
+		 width: 100%;
 		}
 		
 		.video-container iframe {
@@ -245,7 +254,7 @@
 		}
 		
 		.form-links a {
-		    flex: 1 1 calc(25% - 20px);
+		    flex: 1 1 calc(90% - 20px);
 		    display: flex;
 		    justify-content: center;
 		    align-items: center;
@@ -258,7 +267,8 @@
 		    text-decoration: none;
 		    transition: transform 0.2s ease, box-shadow 0.2s ease;
 		    height: 100px;
-		    max-width: 250px;
+		    max-width: 300px;
+		                    margin: 0 auto;
 		}
 		
 		.form-links a:hover {
@@ -359,21 +369,25 @@
 		
 		    @media (max-width: 1024px) {
 		    .video-container {
-		        max-width: 1000px;
+		        max-width: 100%; /* Corrige o vídeo para ocupar a largura disponível */
+		        padding-bottom: 56.25%; /* Proporção 16:9 para vídeo */
 		    }
 		
 		    h1 {
-		        font-size: 2.5em;
+		        font-size: 2.2em; /* Ajusta o tamanho do título */
+		        line-height: 1.3; /* Melhora o espaçamento */
 		    }
 		
 		    p,
 		    .content-description,
 		    .final-words {
 		        font-size: 1.2em;
+		        line-height: 1.5; /* Melhora a legibilidade */
 		    }
 		
 		    .service {
-		        width: calc(50% - 20px);
+		        width: calc(50% - 20px); /* Permite que os serviços ocupem 50% da tela */
+		        margin-bottom: 20px; /* Adiciona espaçamento entre os cards */
 		    }
 		}
 		
@@ -381,18 +395,29 @@
 		    .banner-content,
 		    .video-description,
 		    .content-description {
-		        max-width: 600px;
-		        margin: 0 auto;
+		        max-width: 90%; /* Adapta o conteúdo para telas menores */
+		        margin: 0 auto; /* Centraliza o conteúdo */
 		    }
 		
 		    h1 {
-		        font-size: 2em;
+		        font-size: 1.8em; /* Reduz o tamanho do título */
 		        line-height: 1.2;
 		    }
 		
+		    .banner h1 {
+		        font-size: 1.8em; /* Reduz o tamanho do título no banner */
+		        line-height: 1.2;
+		    }
+		
+		    .banner p {
+		        font-size: 1em; /* Reduz o tamanho do texto */
+		        max-width: 90%; /* Garante que o texto caiba na tela */
+		        margin: 0 auto;
+		    }
+		
 		    .service {
-		        width: calc(100% - 20px);
-		        margin: 10px auto;
+		        width: calc(100% - 20px); /* Cada serviço ocupa 100% da largura */
+		        margin: 10px auto; /* Centraliza os cards e adiciona espaçamento */
 		    }
 		
 		    .form-links a {
@@ -404,7 +429,7 @@
 		
 		    .whatsapp-button,
 		    .instagram-button {
-		        max-width: 100%;
+		        max-width: 90%; /* Botões ocupam 90% da tela */
 		        padding: 15px;
 		        font-size: 1em;
 		    }
@@ -414,23 +439,53 @@
 		    .banner-content,
 		    .video-description,
 		    .content-description {
-		        max-width: 400px;
+		        max-width: 95%; /* Ajusta a largura do conteúdo */
+		        margin: 0 auto;
 		    }
 		
 		    h1 {
-		        font-size: 1.5em;
+		        font-size: 1.5em; /* Reduz o título para caber em telas menores */
+		        line-height: 1.3;
 		    }
 		
 		    p,
 		    .content-description,
 		    .final-words {
 		        font-size: 1em;
+		        line-height: 1.5;
+		    }
+		
+		    .service {
+		        width: calc(100% - 20px); /* Ocupa toda a largura com margem */
+		        margin-bottom: 20px; /* Espaçamento entre os serviços */
+		    }
+		
+		    .form-links a {
+		        width: 90%; /* Botões ocupam 90% da largura */
+		        max-width: 300px; /* Define um limite para telas maiores */
+		        font-size: 0.9em;
+		        padding: 12px;
+		        margin: 0 auto;
+		    }
+		
+		    .footer-links {
+		        flex-direction: column; /* Botões empilhados verticalmente */
+		        align-items: center;
+		        gap: 15px; /* Espaçamento entre os botões */
+		    }
+		
+		    .footer-links a {
+		        width: 90%; /* Botões ocupam 90% da largura */
+		        max-width: 300px;
+		        text-align: center;
 		    }
 		
 		    .whatsapp-button,
 		    .instagram-button {
-		        font-size: 0.9em;
-		        padding: 12px;
+		        font-size: 0.9em; /* Reduz o tamanho do texto */
+		        padding: 12px; /* Reduz o padding */
+		        width: 90%; /* Botões ocupam 90% da largura */
+		        margin: 0 auto; /* Centraliza os botões */
 		    }
 		}
 		
