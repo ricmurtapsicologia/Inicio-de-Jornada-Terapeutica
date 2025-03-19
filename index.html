@@ -677,101 +677,114 @@
 		  });
 	</script>
 	<style>
-		/* Rodapé */
-		  .footer {
-		    background-color: #1b7f79;
-		    color: white;
-		    padding: 30px 15px;
-		    text-align: center;
-		    font-size: 0.9em;
-		    line-height: 1.6;
-		    transition: all 0.3s ease;
-		  }
-		
-		  .footer-container {
-		    max-width: 1200px;
-		    margin: 0 auto;
-		    display: flex;
-		    flex-wrap: wrap;
-		    justify-content: center;
-		    align-items: center;
-		    gap: 20px;
-		    text-align: center; /* Garantir que o texto fique centralizado */
-		  }
-		
-		  .footer-title {
-		    font-size: 1.3em;
-		    font-weight: bold;
-		    color: #ffffff;
-		    margin-bottom: 20px;
-		    width: 100%;
-		  }
-		
-		  .footer-links {
-		    display: flex;
-		    justify-content: center;
-		    flex-wrap: wrap;
-		    gap: 20px;
-		    width: 100%;
-		    margin-bottom: 20px;
-		    text-align: center; /* Centralizar os links */
-		  }
-		
-		  .footer-link {
-		    color: white;
-		    text-decoration: none;
-		    font-size: 1em;
-		    padding: 10px 30px;
-		    border: 1px solid rgba(255, 255, 255, 0.3);
-		    border-radius: 5px;
-		    transition: all 0.3s ease;
-		    text-align: center;
-		    width: 200px; /* Garantir que os links tenham tamanho consistente */
-		    height: 50px;
-		    display: flex;
-		    align-items: center;
-		    justify-content: center;
-		  }
-		
-		  .footer-link:hover {
-		    background-color: rgba(255, 255, 255, 0.1);
-		    border-color: rgba(255, 255, 255, 0.5);
-		    transform: translateY(-3px);
-		  }
-		
-		  .footer-text {
-		    font-size: 0.85em;
-		    color: rgba(255, 255, 255, 0.7);
-		    margin-top: 10px;
-		    text-align: center;
-		    line-height: 1.5;
-		  }
-		
-		  /* Responsividade */
-		  @media (max-width: 768px) {
-		    .footer-links {
-		      flex-direction: column;
-		      gap: 15px;
-		      justify-content: center; /* Centralizar os links em telas pequenas */
-		    }
-		
-		    .footer-link {
-		      width: 90%;
-		      max-width: 300px;
-		      text-align: center; /* Manter os links centralizados */
-		    }
-		  }
-		
-		  @media (max-width: 480px) {
-		    .footer-container {
-		      flex-direction: column;
-		      align-items: center;
-		      gap: 10px;
-		    }
-		
-		    .footer-link {
-		      width: 100%;
-		      max-width: 300px;
-		    }
-		  }
-	</style>
+  /* Rodapé */
+  .footer {
+    background-color: #1b7f79;
+    color: white;
+    padding: 30px 15px;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center; /* Garantir que o texto fique centralizado */
+  }
+
+  .footer-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center; /* Centralizar os links */
+  }
+
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 200px; /* Garantir que os links tenham tamanho consistente */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Garantir que o padding não quebre o layout */
+  }
+
+  .footer-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+  }
+
+  .footer-text {
+    font-size: 0.85em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* Responsividade */
+  @media (max-width: 1024px) {
+    .footer-links {
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .footer-link {
+      width: 45%; /* Ajuste para telas médias, como tablets */
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-links {
+      flex-direction: column;
+      gap: 15px;
+      justify-content: center; /* Centralizar os links em telas pequenas */
+    }
+
+    .footer-link {
+      width: 80%; /* Reduzir o tamanho dos links em telas pequenas */
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-link {
+      width: 90%; /* Ajuste para telas muito pequenas */
+      max-width: 280px;
+    }
+  }
+</style>
+
