@@ -2,24 +2,26 @@
 <html lang="pt-BR">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Psicólogo clínico Richelmy Murta, especializado em Terapia Cognitivo-Comportamental (TCC) e Terapia do Esquema. Experiência em ansiedade, depressão, codependência, comportamentos autolesivos e suicida. Agende uma consulta agora.">
-	<meta name="keywords" content="Psicologia, Terapia Cognitivo-Comportamental, Terapia do Esquema, Saúde Mental, Ansiedade, Codependência, Depressão, Comportamentos Suicidas, Richelmy Murta">
-	<meta name="author" content="Richelmy Murta">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Richelmy Murta - Psicólogo Clínico">
-	<meta property="og:description" content="Psicólogo especializado em TCC e Terapia do Esquema. Atendimento para ansiedade, depressão, codependência, suicídio e mais.">
-	<meta property="og:image" content="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg">
-	<meta property="og:url" content="https://ricmurtapsicologia.github.io/OnePage-Terapia/">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Psicólogo clínico Richelmy Murta, especializado em Terapia Cognitivo-Comportamental (TCC) e Terapia do Esquema. Experiência em ansiedade, depressão, codependência, comportamentos autolesivos e suicida. Agende uma consulta agora." />
+	<meta name="keywords" content="Psicologia, Terapia Cognitivo-Comportamental, Terapia do Esquema, Saúde Mental, Ansiedade, Codependência, Depressão, Comportamentos Suicidas, Richelmy Murta" />
+	<meta name="author" content="Richelmy Murta" />
+	<!-- Open Graph -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Richelmy Murta - Psicólogo Clínico" />
+	<meta property="og:description" content="Psicólogo especializado em TCC e Terapia do Esquema. Atendimento para ansiedade, depressão, codependência, suicídio e mais." />
+	<meta property="og:image" content="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" />
+	<meta property="og:url" content="https://ricmurtapsicologia.github.io/OnePage-Terapia/" />
 	<title>Richelmy Murta - Psicólogo Clínico</title>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+	<!-- Fonts e Ícones -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-	<!-- CSS Consolidado e Animações -->
+	<!-- CSS Consolidado e Responsivo -->
 	<style>
-		/* RESET E TRANSIÇÃO GLOBAL */
-		* {
+		/* RESET & GLOBAL */
+		*, *::before, *::after {
 		  margin: 0;
 		  padding: 0;
 		  box-sizing: border-box;
@@ -27,42 +29,93 @@
 		}
 		html {
 		  scroll-behavior: smooth;
+		  font-size: 16px;
 		}
 		body {
 		  font-family: 'Lato', sans-serif;
 		  background: #f7f7f7;
 		  color: #333;
 		  line-height: 1.6;
-		  animation: fadeIn 1s ease-out;
+		  overflow-x: hidden;
 		}
 		
-		/* KEYFRAMES */
+		/* ANIMAÇÕES */
 		@keyframes fadeIn {
-		  0% { opacity: 0; transform: translateY(20px); }
-		  100% { opacity: 1; transform: translateY(0); }
+		  from {
+		    opacity: 0;
+		    transform: translateY(20px);
+		  }
+		  to {
+		    opacity: 1;
+		    transform: translateY(0);
+		  }
+		}
+		@keyframes splashOut {
+		  from {
+		    opacity: 1;
+		  }
+		  to {
+		    opacity: 0;
+		    visibility: hidden;
+		  }
 		}
 		@keyframes sway {
-		  0% { transform: rotate(0deg); }
-		  50% { transform: rotate(3deg); }
-		  100% { transform: rotate(0deg); }
+		  0% {
+		    transform: rotate(0deg);
+		  }
+		  50% {
+		    transform: rotate(3deg);
+		  }
+		  100% {
+		    transform: rotate(0deg);
+		  }
 		}
 		
-		/* SEÇÃO DE BOAS-VINDAS */
-		.welcome-header {
-		  background: url('https://i.pinimg.com/736x/21/c8/7e/21c87e56bbf43d40dc3605b175fafca3.jpg') no-repeat center center;
-		  background-size: cover;
+		/* SPLASH SCREEN */
+		#splash {
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100vh;
+		  background: #1b7f79;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		  align-items: center;
+		  text-align: center;
+		  color: #fff;
+		  z-index: 9999;
+		}
+		#splash h1 {
+		  font-size: 2.5rem;
+		  margin-bottom: 1rem;
+		}
+		#splash p {
+		  font-size: 1.2rem;
+		  max-width: 600px;
+		  line-height: 1.4;
+		}
+		
+		/* HEADER / BOAS-VINDAS */
+		header.welcome-header {
+		  background: url('https://i.pinimg.com/736x/21/c8/7e/21c87e56bbf43d40dc3605b175fafca3.jpg')
+		    no-repeat center center/cover;
 		  height: 70vh;
 		  display: flex;
 		  align-items: center;
 		  justify-content: center;
 		  text-align: center;
-		  color: #fff;
 		  position: relative;
+		  color: #fff;
 		}
-		.welcome-header::before {
+		header.welcome-header::before {
 		  content: "";
 		  position: absolute;
-		  top: 0; left: 0; right: 0; bottom: 0;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
 		  background-color: rgba(27, 127, 121, 0.7);
 		}
 		.welcome-content {
@@ -70,6 +123,7 @@
 		  z-index: 2;
 		  max-width: 800px;
 		  padding: 20px;
+		  animation: fadeIn 1s ease-out;
 		}
 		.welcome-content h1 {
 		  font-size: 2.5em;
@@ -92,12 +146,16 @@
 		}
 		.cta-button:hover {
 		  background-color: #d35400;
-		  /* Efeito sway ao passar o mouse */
 		  animation: sway 0.5s ease-in-out;
 		}
 		
+		/* MAIN */
+		main {
+		  animation: fadeIn 1s ease-out;
+		}
+		
 		/* SEÇÃO BIOGRAFIA */
-		.biography {
+		section.biography {
 		  max-width: 1000px;
 		  margin: 40px auto;
 		  background: #fff;
@@ -127,8 +185,8 @@
 		  margin-bottom: 20px;
 		}
 		
-		/* SEÇÃO DE TERAPIA */
-		.approaches {
+		/* SEÇÃO TERAPIA */
+		section.approaches {
 		  max-width: 1000px;
 		  margin: 40px auto;
 		  background: #fff;
@@ -136,7 +194,7 @@
 		  border-radius: 5px;
 		  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 		}
-		.approaches h2 {
+		section.approaches h2 {
 		  text-align: center;
 		  font-size: 2em;
 		  margin-bottom: 30px;
@@ -159,15 +217,15 @@
 		}
 		
 		/* SEÇÃO SERVIÇOS */
-		.services {
+		section.services {
 		  background-color: #ffffff;
 		  padding: 40px 20px;
 		  text-align: center;
 		}
-		.services h2 {
+		section.services h2 {
 		  font-size: 2.5em;
 		  font-weight: bold;
-		  color: #58706F;
+		  color: #58706f;
 		  margin-bottom: 40px;
 		}
 		.service-container {
@@ -181,7 +239,7 @@
 		  gap: 20px;
 		}
 		.service {
-		  background-color: white;
+		  background-color: #fff;
 		  padding: 20px;
 		  border-radius: 10px;
 		  border: 1px solid #ddd;
@@ -194,14 +252,14 @@
 		}
 		.service:hover {
 		  transform: translateY(-5px);
-		  border: 1px solid #58706F;
+		  border: 1px solid #58706f;
 		}
 		.service img {
 		  width: 100%;
-		  border-radius: 10px;
-		  margin-bottom: 20px;
 		  height: 220px;
 		  object-fit: cover;
+		  border-radius: 10px;
+		  margin-bottom: 20px;
 		}
 		.service h3 {
 		  font-size: 1.4em;
@@ -220,9 +278,16 @@
 		.service:hover p {
 		  display: block;
 		}
+		.service a.cta-btn {
+		  display: block;
+		  margin-top: 15px;
+		  text-decoration: none;
+		  font-weight: bold;
+		  color: #1b7f79;
+		}
 		
 		/* SEÇÃO FORMULÁRIOS */
-		.content {
+		section.content {
 		  padding: 40px 20px;
 		  background-color: rgba(255, 255, 255, 0.95);
 		  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -231,7 +296,7 @@
 		  max-width: 1200px;
 		  border-radius: 5px;
 		}
-		.content h2 {
+		section.content h2 {
 		  color: #355e3b;
 		  font-weight: bold;
 		  text-align: center;
@@ -250,8 +315,6 @@
 		  text-align: center;
 		  font-size: 1.2em;
 		}
-		
-		/* FORM LINKS */
 		.form-links {
 		  display: flex;
 		  flex-wrap: wrap;
@@ -264,10 +327,9 @@
 		  display: flex;
 		  align-items: center;
 		  justify-content: center;
-		  text-align: center;
 		  padding: 15px;
 		  font-size: 1.1em;
-		  color: white;
+		  color: #fff;
 		  background-color: #1b7f79;
 		  border-radius: 10px;
 		  text-decoration: none;
@@ -284,9 +346,9 @@
 		}
 		
 		/* RODAPÉ */
-		.footer {
+		footer.footer {
 		  background-color: #1b7f79;
-		  color: white;
+		  color: #fff;
 		  padding: 30px 15px;
 		  text-align: center;
 		  font-size: 0.9em;
@@ -300,12 +362,11 @@
 		  justify-content: center;
 		  align-items: center;
 		  gap: 20px;
-		  text-align: center;
 		}
 		.footer-title {
 		  font-size: 1.3em;
 		  font-weight: bold;
-		  color: #ffffff;
+		  color: #fff;
 		  margin-bottom: 20px;
 		  width: 100%;
 		}
@@ -318,7 +379,7 @@
 		  margin-bottom: 20px;
 		}
 		.footer-link {
-		  color: white;
+		  color: #fff;
 		  text-decoration: none;
 		  font-size: 1em;
 		  padding: 10px 30px;
@@ -330,8 +391,6 @@
 		  display: flex;
 		  align-items: center;
 		  justify-content: center;
-		  box-sizing: border-box;
-		  flex: 0 1 auto;
 		}
 		.footer-link:hover {
 		  background-color: rgba(255, 255, 255, 0.1);
@@ -343,7 +402,6 @@
 		  color: rgba(255, 255, 255, 0.7);
 		  margin-top: 10px;
 		  text-align: center;
-		  line-height: 1.5;
 		}
 		
 		/* TÍTULOS DE SEÇÕES */
@@ -386,8 +444,7 @@
 		  .footer-link {
 		    width: 70%;
 		    max-width: 300px;
-		    margin-left: auto;
-		    margin-right: auto;
+		    margin: 0 auto;
 		  }
 		}
 		@media (max-width: 480px) {
@@ -397,38 +454,30 @@
 		  .section-title {
 		    font-size: 2em;
 		  }
-		  .footer-container {
-		    flex-direction: column;
-		    align-items: center;
-		    gap: 10px;
-		  }
-		  .footer-link {
-		    width: 80%;
-		    max-width: 280px;
-		    margin-left: auto;
-		    margin-right: auto;
-		  }
-		  .form-links {
-		    justify-content: center;
-		    gap: 15px;
-		  }
 		}
 	</style>
 </head>
 
 <body>
-	<!-- SEÇÃO DE BOAS-VINDAS -->
-	<header class="welcome-header">
-		<div class="welcome-content">
-			<h1>Bem-vindo à Sua Jornada Terapêutica</h1>
-			<p>Aqui você encontra acolhimento, profissionalismo com as melhores intervenções em saúde mental.</p>
-			<a href="#biografia" class="cta-button">Saiba Mais</a>
-		</div>
-	</header>
-	<!-- SEÇÃO BIOGRAFIA -->
+	<!-- Splash Screen -->
+	<div id="splash">
+		<h1>Seja bem-vindo à sua Jornada de Transformação</h1>
+		<p>Aguarde um instante enquanto preparamos um espaço acolhedor para o seu bem-estar.</p>
+	</div>
+</body>
+<!-- CONTEÚDO DA PÁGINA -->
+<header class="welcome-header">
+	<div class="welcome-content">
+		<h1>Bem-vindo à Sua Jornada Terapêutica</h1>
+		<p> Aqui você encontra acolhimento, profissionalismo com as melhores intervenções em saúde mental. </p>
+		<a href="#biografia" class="cta-button">Saiba Mais</a>
+	</div>
+</header>
+<main>
+	<!-- Seção Biografia -->
 	<section class="biography" id="biografia">
 		<div class="biography-container">
-			<img src="https://i.pinimg.com/736x/da/b5/63/dab56383e5343799dcd4df87a4675918.jpg" alt="Richelmy Murta">
+			<img src="https://i.pinimg.com/736x/da/b5/63/dab56383e5343799dcd4df87a4675918.jpg" alt="Richelmy Murta" />
 			<div>
 				<h2>Sobre Mim</h2>
 				<p> Olá, sou <strong>Richelmy Murta</strong>, psicólogo clínico pós-graduado em Terapia Cognitivo-Comportamental (TCC), com formação complementar em Terapia do Esquema. Meu trabalho é ajudar pessoas como você a superar desafios emocionais e encontrar formas de viver de maneira mais saudável e equilibrada. </p>
@@ -437,7 +486,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- SEÇÃO DE TERAPIA -->
+	<!-- Seção Terapia -->
 	<section class="approaches" id="terapia">
 		<h2 class="section-title">Minhas Intervenções Terapêuticas</h2>
 		<div class="approach-box">
@@ -449,39 +498,39 @@
 			<p> A Terapia do Esquema é uma forma aprofundada da TCC, focada nos padrões emocionais e comportamentais que se formam ainda na infância e continuam a impactar sua vida adulta. Esses esquemas podem prejudicar seus relacionamentos e a maneira como você lida com dificuldades. Ao identificá-los, trabalhamos juntos para mudá-los e ajudar você a lidar de forma mais saudável com suas emoções e interações. </p>
 		</div>
 	</section>
-	<!-- SEÇÃO SERVIÇOS -->
+	<!-- Seção Serviços -->
 	<section class="services" id="servicos">
 		<div class="service-container">
 			<h2 class="section-title">Nossos Serviços Terapêuticos</h2>
 			<div class="services-list">
-				<div class="service">
-					<img src="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" alt="Psicoterapia Individual">
+				<article class="service">
+					<img src="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" alt="Psicoterapia Individual" />
 					<h3>Psicoterapia Individual</h3>
 					<p> A Psicoterapia Individual oferece um espaço seguro para você trabalhar questões emocionais e comportamentais, ajudando a lidar com ansiedade, tristeza, traumas e outros desafios da vida cotidiana. Juntos, vamos desenvolver estratégias para superar esses obstáculos e promover o seu bem-estar emocional. </p>
 					<a href="https://api.whatsapp.com/send?phone=5535984647323&text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20consulta%20de%20psicoterapia%20individual" class="cta-btn">Clique aqui para saber mais</a>
-				</div>
-				<div class="service">
-					<img src="https://i.pinimg.com/originals/a5/34/0b/a5340bc6c723203b8a4b3d0196c3f1a4.jpg" alt="Terapia de Casal">
+				</article>
+				<article class="service">
+					<img src="https://i.pinimg.com/originals/a5/34/0b/a5340bc6c723203b8a4b3d0196c3f1a4.jpg" alt="Terapia de Casal" />
 					<h3>Terapia de Casal</h3>
 					<p> A Terapia de Casal visa melhorar a comunicação e fortalecer a relação, tratando de conflitos e dificuldades emocionais que afetam a convivência. Ajudamos a encontrar soluções para melhorar a convivência e a intimidade entre os parceiros, tornando o relacionamento mais saudável e satisfatório. </p>
 					<a href="https://api.whatsapp.com/send?phone=5535984647323&text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20consulta%20de%20terapia%20de%20casal" class="cta-btn">Clique aqui para saber mais</a>
-				</div>
-				<div class="service">
-					<img src="https://i.pinimg.com/originals/c4/13/5f/c4135fa75b6a0f990413a9f0b8c5e14c.jpg" alt="Avaliação Psicológica">
+				</article>
+				<article class="service">
+					<img src="https://i.pinimg.com/originals/c4/13/5f/c4135fa75b6a0f990413a9f0b8c5e14c.jpg" alt="Avaliação Psicológica" />
 					<h3>Avaliação Psicológica</h3>
 					<p> A Avaliação Psicológica, realizada pela Dra. Thaís Campos, é essencial para identificar e compreender os fatores emocionais, comportamentais e cognitivos que impactam sua vida. É um processo detalhado e personalizado, que ajuda a definir o melhor caminho para o seu tratamento. </p>
 					<a href="https://api.whatsapp.com/send?phone=5535984647323&text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20psicol%C3%B3gica!" class="cta-btn">Clique aqui para saber mais</a>
-				</div>
-				<div class="service">
-					<img src="https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Produtividade 2.0">
+				</article>
+				<article class="service">
+					<img src="https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Produtividade 2.0" />
 					<h3>Produtividade 2.0</h3>
 					<p> O serviço de Produtividade 2.0 é focado em melhorar seu desempenho tanto no trabalho quanto nos estudos. Através de técnicas de organização, gestão do tempo e regulação emocional, ajudamos você a alcançar alta performance e equilíbrio, sem sobrecarregar sua saúde mental. </p>
 					<a href="https://api.whatsapp.com/send?phone=5535984647323&text=Ol%C3%A1,%20gostaria%20de%20agendar%20uma%20consulta%20de%20produtividade%202.0" class="cta-btn">Clique aqui para saber mais</a>
-				</div>
+				</article>
 			</div>
 		</div>
 	</section>
-	<!-- SEÇÃO FORMULÁRIOS -->
+	<!-- Seção Formulários -->
 	<section class="content" id="forms">
 		<h2>Plano de Tratamento Personalizado</h2>
 		<p class="content-description"> Para iniciarmos sua jornada terapêutica, preencha os formulários abaixo. Cada um deles é um passo importante para criarmos um plano de tratamento adequado às suas necessidades. Com isso, vamos juntos trabalhar no seu bem-estar. </p>
@@ -518,37 +567,47 @@
 			</a>
 		</div>
 		<p class="final-words"> Preencha os formulários com cuidado. Esses passos são fundamentais para personalizarmos o seu tratamento e para começarmos o processo de transformação juntos. Estou aqui para te ajudar a alcançar uma vida mais equilibrada e plena. </p>
-		<p class="signature"> Abraços, <br><strong>Richelmy Murta</strong>
+		<p class="signature"> Abraços, <br /><strong>Richelmy Murta</strong>
 		</p>
 	</section>
-	<!-- RODAPÉ -->
-	<footer class="footer">
-		<div class="footer-container">
-			<p class="footer-title">Acesse esses conteúdos também!</p>
-			<div class="footer-links">
-				<a href="#biografia" class="footer-link">Biografia</a>
-				<a href="#servicos" class="footer-link">Serviços</a>
-				<a href="#forms" class="footer-link">Formulários</a>
-				<a href="https://www.instagram.com/ricmurtapsicologia/" target="_blank" class="footer-link">Instagram</a>
-				<a href="https://api.whatsapp.com/send?phone=5535984640729&text=Ol%C3%A1,%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!" target="_blank" class="footer-link">WhatsApp</a>
-			</div>
-			<p class="footer-text">© 2025 Richelmy Murta - Psicólogo Clínico. Todos os direitos reservados.</p>
-		</div>
-	</footer>
-	<!-- JavaScript Moderno -->
-	<script>
-		// Aguarda o carregamento completo do DOM para adicionar eventos
-		document.addEventListener("DOMContentLoaded", function() {
-		  document.querySelectorAll('.service').forEach(function(card) {
-		    card.addEventListener('click', function() {
-		      var description = this.querySelector('p');
-		      if (description) {
-		        description.style.display = (description.style.display === 'block') ? 'none' : 'block';
-		      }
-		    });
-		  });
-		});
-	</script>
+</main>
+<!-- RODAPÉ -->
+<footer class="footer">
+	<div class="footer-container">
+		<p class="footer-title">Acesse esses conteúdos também!</p>
+		<nav class="footer-links">
+			<a href="#biografia" class="footer-link">Biografia</a>
+			<a href="#servicos" class="footer-link">Serviços</a>
+			<a href="#forms" class="footer-link">Formulários</a>
+			<a href="https://www.instagram.com/ricmurtapsicologia/" target="_blank" class="footer-link">Instagram</a>
+			<a href="https://api.whatsapp.com/send?phone=5535984640729&text=Ol%C3%A1,%20gostaria%20de%20agendar%20um%20hor%C3%A1rio!" target="_blank" class="footer-link">WhatsApp</a>
+		</nav>
+		<p class="footer-text">© 2025 Richelmy Murta - Psicólogo Clínico. Todos os direitos reservados.</p>
+	</div>
+</footer>
+<!-- JavaScript Moderno com ES6+ (Módulo) -->
+<script type="module">
+	// Função para remover a splash screen após o carregamento do conteúdo
+	const removeSplash = () => {
+	  const splash = document.getElementById("splash");
+	  splash.style.animation = "splashOut 1s forwards";
+	};
+	
+	// Aguarda o carregamento completo dos recursos
+	window.addEventListener("load", () => {
+	  setTimeout(removeSplash, 1500);
+	});
+	
+	// Adiciona o comportamento dos cards de serviço
+	document.addEventListener("DOMContentLoaded", () => {
+	  document.querySelectorAll(".service").forEach(card => {
+	    card.addEventListener("click", () => {
+	      const description = card.querySelector("p");
+	      description.style.display = description.style.display === "block" ? "none" : "block";
+	    });
+	  });
+	});
+</script>
 </body>
 
 </html>
