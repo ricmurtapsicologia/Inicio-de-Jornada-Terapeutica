@@ -1,1350 +1,1474 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <!-- Meta Tags Essenciais -->
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Psicólogo Clínico | TCC & Terapia do Esquema</title>
-  <meta name="description" content="Atendimento psicológico acolhedor em TCC e Terapia do Esquema para ansiedade, depressão, codependência emocional, comportamentos autolesivos e comportamento suicida. Consultas online." />
-
-  <!-- Bloquear indexação em buscadores -->
-  <meta name="robots" content="noindex, nofollow, noimageindex" />
-  <meta name="googlebot" content="noindex, nofollow, noimageindex" />
-
-  <!-- Open Graph para pré-visualização em WhatsApp / Redes -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Psicólogo Clínico | TCC & Terapia do Esquema" />
-  <meta property="og:description" content="Atendimento psicológico especializado, com foco em segurança emocional, clareza clínica e estratégias práticas para o seu dia a dia." />
-  <meta property="og:image" content="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" />
-  <meta property="og:url" content="https://ricmurtapsicologia.github.io/OnePage-Terapia/" />
-
-  <link rel="icon" href="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" />
-
-  <!-- Fonts e Ícones -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  <!-- CSS Consolidado -->
-  <style>
-    /* RESET & GLOBAL */
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
-        transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      font-family: "Lato", sans-serif;
-      background: #f4f6f7;
-      color: #333333;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    /* Animações */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes splashOut {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    @keyframes sway {
-      0% {
-        transform: rotate(0deg);
-      }
-      50% {
-        transform: rotate(3deg);
-      }
-      100% {
-        transform: rotate(0deg);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-      }
-    }
-
-    /* LINK PULAR CONTEÚDO */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: #1b7f79;
-      color: #ffffff;
-      padding: 8px 16px;
-      z-index: 10000;
-      text-decoration: none;
-      border-radius: 0 0 4px 4px;
-      font-size: 0.9rem;
-    }
-
-    .skip-link:focus-visible {
-      top: 0;
-    }
-
-    /* SPLASH SCREEN */
-    #splash {
-      position: fixed;
-      inset: 0;
-      background: #1b7f79;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #ffffff;
-      z-index: 9999;
-      padding: 0 1.5rem;
-    }
-
-    #splash h1 {
-      font-size: 2.1rem;
-      margin-bottom: 1rem;
-    }
-
-    #splash p {
-      font-size: 1rem;
-      max-width: 520px;
-      line-height: 1.4;
-    }
-
-    /* HEADER / HERO */
-    header.hero {
-      background: url("https://i.pinimg.com/736x/21/c8/7e/21c87e56bbf43d40dc3605b175fafca3.jpg") no-repeat center center / cover;
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      color: #ffffff;
-    }
-
-    header.hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(27, 127, 121, 0.78);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      padding: 1.5rem;
-      text-align: center;
-      animation: fadeIn 1s ease-out;
-    }
-
-    .hero-tagline {
-      font-size: 0.95rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-      opacity: 0.9;
-    }
-
-    .hero-content h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    }
-
-    .hero-content p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    .cta-button {
-      background-color: #e67e22;
-      color: #ffffff;
-      padding: 0.9rem 2.4rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-size: 1.05rem;
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-    }
-
-    .cta-button:hover,
-    .cta-button:focus-visible {
-      background-color: #d35400;
-      animation: sway 0.5s ease-in-out;
-      outline: none;
-    }
-
-    .cta-button:focus-visible {
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.7);
-    }
-
-    /* LAYOUT GERAL */
-    main {
-      padding: 2.5rem 1rem 3rem;
-    }
-
-    .section-shell {
-      background: #ffffff;
-      margin: 0 auto 2.5rem;
-      padding: 2.5rem 1.5rem;
-      max-width: 1200px;
-      border-radius: 6px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
-    }
-
-    .section-shell--narrow {
-      max-width: 1000px;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      color: #355e3b;
-      margin-bottom: 1rem;
-      text-align: center;
-      font-weight: 700;
-    }
-
-    .section-subtitle {
-      font-size: 1.05rem;
-      margin: 0 auto 1.75rem;
-      max-width: 900px;
-      text-align: center;
-    }
-
-    /* BENEFÍCIOS */
-    .value-proposition .benefits {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.25rem;
-      margin-top: 1.5rem;
-    }
-
-    .benefit {
-      flex: 1 1 calc(33.33% - 1.25rem);
-      background: #f7f9f9;
-      padding: 1.5rem 1.25rem;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .benefit i {
-      font-size: 2rem;
-      color: #1b7f79;
-      margin-bottom: 0.75rem;
-    }
-
-    .benefit h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.6rem;
-      color: #355e3b;
-    }
-
-    .benefit p {
-      font-size: 0.98rem;
-      color: #555555;
-    }
-
-    /* BIOGRAFIA */
-    .biography {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .biography img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .biography-content {
-      flex: 1;
-      min-width: 240px;
-    }
-
-    .biography-content h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #355e3b;
-      font-weight: 700;
-    }
-
-    .biography-content p {
-      font-size: 1.02rem;
-      text-align: justify;
-      margin-bottom: 0.9rem;
-    }
-
-    .bio-note {
-      font-size: 0.9rem;
-      color: #666666;
-      margin-top: 0.4rem;
-    }
-
-    /* INTERVENÇÕES */
-    .approach-box + .approach-box {
-      margin-top: 1.5rem;
-    }
-
-    .approach-box h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      color: #333333;
-      font-weight: 700;
-    }
-
-    .approach-box p {
-      font-size: 1.02rem;
-      line-height: 1.7;
-      text-align: justify;
-    }
-
-    /* SERVIÇOS */
-    .services-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1.25rem;
-      margin-top: 1.5rem;
-    }
-
-    .service {
-      background: #ffffff;
-      padding: 1.25rem;
-      border-radius: 14px;
-      border: 1px solid #e1e4e5;
-      flex: 1 1 calc(25% - 1.25rem);
-      cursor: pointer;
-      position: relative;
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.06);
-      outline: none;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .service:focus-visible {
-      box-shadow: 0 0 0 3px rgba(27, 127, 121, 0.7);
-      border-color: #1b7f79;
-    }
-
-    .service:hover {
-      transform: translateY(-5px);
-      border-color: #58706f;
-      box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.12);
-    }
-
-    .service img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-
-    .service h3 {
-      font-size: 1.3rem;
-      margin: 0.6rem 0 0.3rem;
-      color: #355e3b;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .service .service-tip {
-      font-size: 0.86rem;
-      text-align: center;
-      color: #777777;
-      margin-bottom: 0.4rem;
-    }
-
-    .service p {
-      font-size: 0.96rem;
-      text-align: justify;
-      margin-top: 0.4rem;
-      line-height: 1.6;
-      color: #555555;
-      display: none;
-    }
-
-    .service.is-open p {
-      display: block;
-    }
-
-    .service-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: auto;
-      text-decoration: none;
-      font-weight: 700;
-      color: #1b7f79;
-      font-size: 0.98rem;
-      padding-top: 0.8rem;
-    }
-
-    .service-cta:hover,
-    .service-cta:focus-visible {
-      text-decoration: underline;
-      outline: none;
-    }
-
-    /* FORMULÁRIOS */
-    .content-description,
-    .final-words {
-      max-width: 900px;
-      margin: 0 auto 1.75rem;
-      text-align: justify;
-      font-size: 1.02rem;
-      line-height: 1.7;
-    }
-
-    .form-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.25rem;
-      margin: 1.5rem 0 2rem;
-    }
-
-    .form-btn {
-      flex: 1 1 calc(33.33% - 1.25rem);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      font-size: 1.02rem;
-      color: #ffffff;
-      background-color: #1b7f79;
-      border-radius: 10px;
-      text-decoration: none;
-      height: 100px;
-      max-width: 350px;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12);
-    }
-
-    .form-btn:hover,
-    .form-btn:focus-visible {
-      transform: translateY(-5px);
-      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
-      outline: none;
-    }
-
-    .form-btn.active {
-      background-color: #155f65;
-      box-shadow: 0px 18px 26px rgba(0, 0, 0, 0.25);
-    }
-
-    .form-btn strong {
-      font-weight: 700;
-    }
-
-    .forms-detail-area {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: #f7f9f9;
-      border-radius: 10px;
-      padding: 1.75rem 1.5rem 2rem;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.06);
-    }
-
-    .forms-hint {
-      text-align: center;
-      font-size: 0.98rem;
-      color: #555555;
-    }
-
-    .forms-hint.hidden {
-      display: none;
-    }
-
-    .form-detail {
-      display: none;
-    }
-
-    .form-detail.active {
-      display: block;
-    }
-
-    .form-detail h3 {
-      font-size: 1.3rem;
-      color: #355e3b;
-      margin-bottom: 0.75rem;
-      text-align: center;
-    }
-
-    .form-iframe-wrapper {
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .form-iframe-wrapper iframe {
-      width: 100%;
-      border: none;
-    }
-
-    .external-form-text {
-      font-size: 0.98rem;
-      margin-top: 0.75rem;
-      text-align: center;
-    }
-
-    .external-form-link {
-      display: inline-block;
-      margin-top: 0.9rem;
-      padding: 0.7rem 1.6rem;
-      border-radius: 999px;
-      background-color: #1b7f79;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.96rem;
-    }
-
-    .external-form-link:hover,
-    .external-form-link:focus-visible {
-      background-color: #155f65;
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    /* OBSERVAÇÕES -> WHATSAPP */
-    .observations p {
-      font-size: 1.05rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .obs-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      align-items: center;
-    }
-
-    .obs-form textarea {
-      width: 100%;
-      max-width: 600px;
-      padding: 0.9rem;
-      border: 1px solid #cccccc;
-      border-radius: 5px;
-      font-size: 0.98rem;
-      min-height: 130px;
-      font-family: "Lato", sans-serif;
-      resize: vertical;
-    }
-
-    .obs-form textarea:focus-visible {
-      outline: none;
-      border-color: #1b7f79;
-      box-shadow: 0 0 0 3px rgba(27, 127, 121, 0.3);
-    }
-
-    .obs-form button {
-      background-color: #1b7f79;
-      color: #ffffff;
-      padding: 0.75rem 2.4rem;
-      border: none;
-      border-radius: 999px;
-      font-size: 1.02rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
-    }
-
-    .obs-form button:hover,
-    .obs-form button:focus-visible {
-      background-color: #155f65;
-      animation: sway 0.5s ease-in-out;
-      outline: none;
-    }
-
-    .obs-note {
-      margin-top: 1rem;
-      font-size: 0.88rem;
-      color: #666666;
-      text-align: center;
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
-    /* RODAPÉ */
-    footer.footer {
-      background: #1b7f79;
-      color: #ffffff;
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .footer-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .footer-links {
-      display: inline-block;
-      margin-bottom: 1.3rem;
-    }
-
-    .footer-link {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      padding: 0.6rem 1.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 5px;
-      margin: 0.25rem;
-      display: inline-block;
-    }
-
-    .footer-link:hover,
-    .footer-link:focus-visible {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-3px);
-      outline: none;
-    }
-
-    .footer-text {
-      margin-top: 0.7rem;
-    }
-
-    /* BOTÃO FLUTUANTE VOLTAR AO TOPO */
-    #scrollTopBtn {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      border-radius: 999px;
-      border: none;
-      background-color: #1b7f79;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.45rem 0.9rem;
-      gap: 0.35rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      z-index: 9000;
-      font-size: 0.85rem;
-    }
-
-    #scrollTopBtn:hover,
-    #scrollTopBtn:focus-visible {
-      background-color: #155f65;
-      outline: none;
-      transform: translateY(-2px);
-    }
-
-    #scrollTopBtn.show {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .scroll-label {
-      font-weight: 600;
-      font-size: 0.8rem;
-    }
-
-    /* RESPONSIVIDADE */
-    @media (max-width: 1024px) {
-      .service {
-        flex: 1 1 calc(50% - 1.25rem);
-      }
-
-      .benefit {
-        flex: 1 1 calc(50% - 1.25rem);
-      }
-    }
-
-    @media (max-width: 900px) {
-      .form-btn {
-        flex: 1 1 calc(50% - 1.25rem);
-        max-width: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      main {
-        padding: 2rem 0.9rem 2.5rem;
-      }
-
-      .section-shell {
-        padding: 2rem 1rem;
-      }
-
-      .service,
-      .benefit {
-        flex: 1 1 100%;
-      }
-
-      .cta-button {
-        font-size: 0.98rem;
-        padding: 0.75rem 1.8rem;
-      }
-
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero-content p {
-        font-size: 1.02rem;
-      }
-
-      .biography-content p {
-        font-size: 0.98rem;
-        line-height: 1.5;
-        margin-bottom: 0.7rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .form-btn {
-        flex: 1 1 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header.hero {
-        min-height: 65vh;
-      }
-
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-
-      .hero-content p {
-        font-size: 0.96rem;
-      }
-
-      .biography {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .biography img {
-        margin: 0 auto 1rem;
-      }
-
-      .biography-content {
-        padding: 0 0.5rem;
-      }
-
-      .biography-content h2 {
-        font-size: 1.7rem;
-        margin-bottom: 0.9rem;
-      }
-
-      .biography-content p {
-        font-size: 0.94rem;
-        line-height: 1.4;
-      }
-    }
-  </style>
+    <!--
+    CHANGELOG (refatoração premium)
+    - UI/UX: tipografia com hierarchy (clamp), grid/spacing consistente, cards mais “premium”, footer refeito (mantendo texto obrigatório literal).
+    - Acessibilidade: foco visível, melhorias de semântica, aria-expanded/aria-controls onde faz sentido, skip-link mantido, reduced-motion respeitado.
+    - Performance: transições removidas do “*” global (evita custo), imagens com width/height (reduz CLS), Font Awesome com fallback via CDN, JS com guard-clauses.
+    - Robustez (antifrágil): fallbacks de abertura do WhatsApp (popup-blocker), validações defensivas, degradação graciosa (noscript).
+    - Preservado: splash (3s + fade), toggle cards de serviços (click/teclado), lógica de formulários (abrir/fechar + lazy-load iframe via data-src), envio de observações ao WhatsApp, botão “voltar ao topo”, IDs/âncoras e links originais.
+  -->
+
+    <!-- Meta Tags Essenciais -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Psicólogo Clínico | TCC & Terapia do Esquema</title>
+    <meta name="description" content="Atendimento psicológico acolhedor em TCC e Terapia do Esquema para ansiedade, depressão, codependência emocional, comportamentos autolesivos e comportamento suicida. Consultas online." />
+
+    <!-- Bloquear indexação em buscadores -->
+    <meta name="robots" content="noindex, nofollow, noimageindex" />
+    <meta name="googlebot" content="noindex, nofollow, noimageindex" />
+
+    <!-- Open Graph para pré-visualização em WhatsApp / Redes -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Psicólogo Clínico | TCC & Terapia do Esquema" />
+    <meta property="og:description" content="Atendimento psicológico especializado, com foco em segurança emocional, clareza clínica e estratégias práticas para o seu dia a dia." />
+    <meta property="og:image" content="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" />
+    <meta property="og:url" content="https://ricmurtapsicologia.github.io/OnePage-Terapia/" />
+
+    <meta name="theme-color" content="#1b7f79" />
+    <link rel="icon" href="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome (fallback robusto via CDN + kit, sem depender de build) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+
+    <!-- CSS Consolidado (premium + simetria) -->
+    <style>
+        /* =========================
+       1) Design Tokens (TOC visual)
+    ========================= */
+        :root {
+            --bg: #f4f6f7;
+            --surface: #ffffff;
+            --surface-2: #f7f9f9;
+
+            --text: #1f2a2e;
+            --muted: #5b666b;
+
+            --brand: #1b7f79;
+            --brand-2: #155f65;
+
+            --accent: #e67e22;
+            --accent-2: #d35400;
+
+            --ok: rgba(27, 127, 121, 0.16);
+            --ring: rgba(27, 127, 121, 0.35);
+
+            --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.12);
+
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-xl: 20px;
+
+            --container: 1200px;
+            --container-narrow: 1000px;
+
+            /* Sistema de espaçamento consistente */
+            --s-1: 4px;
+            --s-2: 8px;
+            --s-3: 12px;
+            --s-4: 16px;
+            --s-5: 24px;
+            --s-6: 32px;
+            --s-7: 40px;
+
+            /* Tipografia */
+            --h1: clamp(2rem, 4vw, 3rem);
+            --h2: clamp(1.6rem, 2.8vw, 2.2rem);
+            --h3: clamp(1.15rem, 2.1vw, 1.4rem);
+            --p: clamp(0.98rem, 1.15vw, 1.05rem);
+            --small: 0.92rem;
+        }
+
+        /* =========================
+       2) Reset + Base
+    ========================= */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Lato", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-underline-offset: 3px;
+        }
+
+        /* Transições: apenas onde agrega (evita custo global) */
+        .tfx,
+        a,
+        button,
+        .service,
+        .benefit,
+        .footer-link,
+        .form-btn,
+        .external-form-link {
+            transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+        }
+
+        /* Preferência de movimento reduzido */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .tfx,
+            a,
+            button,
+            .service,
+            .benefit,
+            .footer-link,
+            .form-btn,
+            .external-form-link {
+                transition: none !important;
+            }
+
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+
+        /* =========================
+       3) Utilitários
+    ========================= */
+        .container {
+            width: min(100% - 2rem, var(--container));
+            margin: 0 auto;
+        }
+
+        .container--narrow {
+            width: min(100% - 2rem, var(--container-narrow));
+            margin: 0 auto;
+        }
+
+        .sr-only {
+            position: absolute !important;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Foco visível consistente */
+        :focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 4px var(--ring);
+            border-radius: 10px;
+        }
+
+        /* =========================
+       4) Skip link
+    ========================= */
+        .skip-link {
+            position: absolute;
+            top: -48px;
+            left: 0;
+            background: var(--brand);
+            color: #fff;
+            padding: 10px 16px;
+            z-index: 10000;
+            text-decoration: none;
+            border-radius: 0 0 10px 0;
+            font-size: 0.92rem;
+        }
+
+        .skip-link:focus-visible {
+            top: 0;
+        }
+
+        /* =========================
+       5) Splash
+    ========================= */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes splashOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes sway {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(2deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        #splash {
+            position: fixed;
+            inset: 0;
+            background: var(--brand);
+            display: grid;
+            place-items: center;
+            text-align: center;
+            color: #fff;
+            z-index: 9999;
+            padding: 0 1.5rem;
+        }
+
+        #splash .splash-inner {
+            max-width: 620px;
+            animation: fadeIn 0.9s ease-out;
+        }
+
+        #splash h1 {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            margin: 0 0 var(--s-3);
+            letter-spacing: -0.01em;
+        }
+
+        #splash p {
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: .95;
+        }
+
+        /* =========================
+       6) Hero
+    ========================= */
+        header.hero {
+            background: url("https://i.pinimg.com/736x/21/c8/7e/21c87e56bbf43d40dc3605b175fafca3.jpg") no-repeat center/cover;
+            min-height: 70vh;
+            display: grid;
+            place-items: center;
+            position: relative;
+            color: #fff;
+        }
+
+        header.hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(27, 127, 121, .85), rgba(27, 127, 121, .78));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: min(900px, 100% - 2rem);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-tagline {
+            font-size: 0.95rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin: 0 0 var(--s-3);
+            opacity: 0.92;
+        }
+
+        .hero-content h1 {
+            font-size: var(--h1);
+            margin: 0 0 var(--s-3);
+            text-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 1.4vw, 1.12rem);
+            margin: 0 0 var(--s-5);
+            text-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            opacity: 0.98;
+        }
+
+        .cta-button {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 0.9rem 2.4rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backface-visibility: hidden;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus-visible {
+            background-color: var(--accent-2);
+            transform: translateY(-1px);
+            animation: sway .5s ease-in-out;
+        }
+
+        /* =========================
+       7) Seções / Cards
+    ========================= */
+        main {
+            padding: var(--s-6) 0 calc(var(--s-7) + var(--s-4));
+        }
+
+        .section-shell {
+            background: var(--surface);
+            margin: 0 auto var(--s-6);
+            padding: var(--s-6) var(--s-5);
+            max-width: var(--container);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .section-shell--narrow {
+            max-width: var(--container-narrow);
+        }
+
+        .section-title {
+            font-size: var(--h2);
+            color: #355e3b;
+            margin: 0 0 var(--s-3);
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: var(--p);
+            margin: 0 auto var(--s-5);
+            max-width: 900px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        /* Benefícios */
+        .value-proposition .benefits {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--s-5);
+            margin-top: var(--s-5);
+        }
+
+        .benefit {
+            background: var(--surface-2);
+            padding: var(--s-5);
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(27, 127, 121, 0.10);
+        }
+
+        .benefit i {
+            font-size: 2rem;
+            color: var(--brand);
+            margin-bottom: var(--s-3);
+        }
+
+        .benefit h3 {
+            font-size: var(--h3);
+            margin: 0 0 var(--s-2);
+            color: #355e3b;
+        }
+
+        .benefit p {
+            font-size: var(--p);
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* Biografia */
+        .biography {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: var(--s-5);
+            align-items: center;
+        }
+
+        .biography img {
+            width: 160px;
+            height: 160px;
+            border-radius: 999px;
+            object-fit: cover;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+            border: 4px solid rgba(255, 255, 255, 0.7);
+            background: #fff;
+        }
+
+        .biography-content h2 {
+            font-size: clamp(1.45rem, 2.2vw, 2rem);
+            margin: 0 0 var(--s-4);
+            color: #355e3b;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .biography-content p {
+            font-size: var(--p);
+            text-align: justify;
+            margin: 0 0 var(--s-3);
+            color: var(--text);
+        }
+
+        .bio-note {
+            font-size: var(--small);
+            color: #586469;
+            margin-top: var(--s-2);
+            padding: var(--s-3) var(--s-4);
+            border-radius: 12px;
+            background: rgba(27, 127, 121, 0.08);
+            border: 1px solid rgba(27, 127, 121, 0.12);
+        }
+
+        /* Intervenções */
+        .approach-box+.approach-box {
+            margin-top: var(--s-5);
+        }
+
+        .approach-box h3 {
+            font-size: var(--h3);
+            margin: 0 0 var(--s-2);
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .approach-box p {
+            font-size: var(--p);
+            line-height: 1.75;
+            text-align: justify;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* =========================
+       8) Serviços
+    ========================= */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: var(--s-5);
+            margin-top: var(--s-5);
+            align-items: stretch;
+        }
+
+        .service {
+            background: var(--surface);
+            padding: var(--s-4);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            outline: none;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 100%;
+            transform: translateZ(0);
+        }
+
+        .service:hover {
+            transform: translateY(-4px);
+            border-color: rgba(27, 127, 121, 0.35);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service:focus-visible {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 4px rgba(27, 127, 121, 0.18), var(--shadow-md);
+        }
+
+        .service img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: var(--s-4);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .service h3 {
+            font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+            margin: 0 0 var(--s-2);
+            color: #355e3b;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        /* Correção premium (sem alterar lógica): tip visível e texto detalhado mantém o toggle */
+        .service .service-tip {
+            font-size: 0.9rem;
+            text-align: center;
+            color: #6b757a;
+            margin: 0 0 var(--s-2);
+        }
+
+        /* Detalhes do serviço: apenas este parágrafo abre/fecha */
+        .service .service-detail {
+            font-size: 0.98rem;
+            text-align: justify;
+            margin: var(--s-2) 0 0;
+            line-height: 1.65;
+            color: var(--muted);
+            display: none;
+        }
+
+        .service.is-open .service-detail {
+            display: block;
+        }
+
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto;
+            text-decoration: none;
+            font-weight: 700;
+            color: var(--brand);
+            font-size: 0.98rem;
+            padding-top: var(--s-4);
+            gap: 0.35rem;
+        }
+
+        .service-cta:hover,
+        .service-cta:focus-visible {
+            text-decoration: underline;
+        }
+
+        /* =========================
+       9) Formulários
+    ========================= */
+        .content-description,
+        .final-words {
+            max-width: 900px;
+            margin: 0 auto var(--s-5);
+            text-align: justify;
+            font-size: var(--p);
+            line-height: 1.75;
+            color: var(--muted);
+        }
+
+        .form-links {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--s-5);
+            margin: var(--s-5) 0 var(--s-6);
+        }
+
+        .form-btn {
+            display: grid;
+            place-items: center;
+            padding: 1rem 1rem;
+            font-size: 1.02rem;
+            color: #ffffff;
+            background-color: var(--brand);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            min-height: 96px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+            width: 100%;
+        }
+
+        .form-btn:hover,
+        .form-btn:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 26px rgba(0, 0, 0, 0.18);
+            background-color: var(--brand-2);
+        }
+
+        .form-btn.active {
+            background-color: var(--brand-2);
+            box-shadow: 0 18px 28px rgba(0, 0, 0, 0.22);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .form-btn strong {
+            font-weight: 700;
+        }
+
+        .forms-detail-area {
+            max-width: var(--container-narrow);
+            margin: 0 auto;
+            background: var(--surface-2);
+            border-radius: var(--radius-xl);
+            padding: var(--s-6) var(--s-5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(27, 127, 121, 0.10);
+        }
+
+        .forms-hint {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .forms-hint.hidden {
+            display: none;
+        }
+
+        .form-detail {
+            display: none;
+        }
+
+        .form-detail.active {
+            display: block;
+        }
+
+        .form-detail h3 {
+            font-size: clamp(1.15rem, 1.6vw, 1.3rem);
+            color: #355e3b;
+            margin: 0 0 var(--s-4);
+            text-align: center;
+        }
+
+        .form-iframe-wrapper {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: #fff;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .form-iframe-wrapper iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+
+        .external-form-text {
+            font-size: 1rem;
+            margin: 0 0 var(--s-3);
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .external-form-link {
+            display: inline-block;
+            margin-top: var(--s-3);
+            padding: 0.75rem 1.7rem;
+            border-radius: 999px;
+            background-color: var(--brand);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.98rem;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .external-form-link:hover,
+        .external-form-link:focus-visible {
+            background-color: var(--brand-2);
+            transform: translateY(-2px);
+            box-shadow: 0 18px 26px rgba(0, 0, 0, 0.18);
+        }
+
+        /* =========================
+       10) Observações (WhatsApp)
+    ========================= */
+        .observations p {
+            font-size: var(--p);
+            margin: 0 auto var(--s-5);
+            max-width: 900px;
+            color: var(--muted);
+        }
+
+        .obs-form {
+            display: grid;
+            gap: var(--s-4);
+            justify-items: center;
+        }
+
+        .obs-form textarea {
+            width: min(600px, 100%);
+            padding: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.18);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            min-height: 140px;
+            font-family: "Lato", sans-serif;
+            resize: vertical;
+            background: #fff;
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .obs-form textarea:focus-visible {
+            border-color: rgba(27, 127, 121, 0.7);
+            box-shadow: 0 0 0 4px rgba(27, 127, 121, 0.14), 0 10px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .obs-form button {
+            background-color: var(--brand);
+            color: #ffffff;
+            padding: 0.85rem 2.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            font-size: 1.02rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            font-weight: 700;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+        }
+
+        .obs-form button:hover,
+        .obs-form button:focus-visible {
+            background-color: var(--brand-2);
+            transform: translateY(-2px);
+            animation: sway 0.5s ease-in-out;
+        }
+
+        .obs-note {
+            margin-top: var(--s-4);
+            font-size: var(--small);
+            color: #586469;
+            text-align: center;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: var(--s-3) var(--s-4);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* =========================
+       11) Footer premium (texto obrigatório literal mantido)
+    ========================= */
+        footer.footer {
+            background: radial-gradient(1200px 800px at 10% 10%, rgba(255, 255, 255, 0.08), transparent 45%),
+                radial-gradient(900px 650px at 90% 30%, rgba(255, 255, 255, 0.06), transparent 55%),
+                var(--brand);
+            color: #ffffff;
+            padding: var(--s-7) 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .footer-container {
+            max-width: var(--container);
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            gap: var(--s-4);
+            justify-items: center;
+            margin-bottom: var(--s-5);
+        }
+
+        .footer-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--s-3);
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.65rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-link:hover,
+        .footer-link:focus-visible {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .footer-divider {
+            height: 1px;
+            width: min(820px, 100%);
+            margin: var(--s-5) auto var(--s-4);
+            background: rgba(255, 255, 255, 0.18);
+            border: 0;
+        }
+
+        .footer-text {
+            margin: 0;
+            opacity: 0.95;
+        }
+
+        /* =========================
+       12) Botão flutuante topo
+    ========================= */
+        #scrollTopBtn {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background-color: var(--brand);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.55rem 0.95rem;
+            gap: 0.5rem;
+            box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9000;
+            font-size: 0.9rem;
+            transform: translateY(6px);
+        }
+
+        #scrollTopBtn:hover,
+        #scrollTopBtn:focus-visible {
+            background-color: var(--brand-2);
+            transform: translateY(2px);
+        }
+
+        #scrollTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+       13) Responsividade
+    ========================= */
+        @media (max-width: 1024px) {
+            .services-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .value-proposition .benefits {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 900px) {
+            .form-links {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .section-shell {
+                padding: var(--s-6) var(--s-4);
+            }
+
+            .biography {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+
+            .biography-content p {
+                text-align: justify;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header.hero {
+                min-height: 65vh;
+            }
+
+            .form-links {
+                grid-template-columns: 1fr;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+
+            .value-proposition .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            #scrollTopBtn {
+                right: 18px;
+                bottom: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <a href="#conteudo-principal" class="skip-link">Ir direto para o conteúdo</a>
+    <a href="#conteudo-principal" class="skip-link">Ir direto para o conteúdo</a>
 
-  <!-- SPLASH SCREEN -->
-  <div id="splash" aria-label="Tela de carregamento inicial">
-    <h1>Bem-vindo(a) ao cuidado com a sua mente</h1>
-    <p>Aguarde um instante enquanto preparamos um espaço seguro, acolhedor e focado em você.</p>
-  </div>
+    <noscript>
+        <div style="background:#fff3cd;color:#664d03;border:1px solid #ffecb5;padding:14px 16px;margin:16px;border-radius:12px;width:min(100% - 2rem, 1000px);margin-left:auto;margin-right:auto;">
+            Para abrir formulários incorporados e enviar observações pelo WhatsApp, é necessário ativar o JavaScript no seu navegador.
+        </div>
+    </noscript>
 
-  <!-- HEADER / HERO -->
-  <header class="hero" role="banner">
-    <div class="hero-content">
-      <p class="hero-tagline">Atendimento psicológico clínico online</p>
-      <h1>Transforme Sua Vida Hoje!</h1>
-      <p>Supere desafios emocionais com intervenções práticas e personalizadas que promovem equilíbrio e bem-estar.</p>
-      <a href="#forms" class="cta-button">
-        <span>Agende Sua Consulta Agora</span>
-        <i class="fas fa-arrow-down" aria-hidden="true"></i>
-      </a>
+    <!-- SPLASH SCREEN -->
+    <div id="splash" aria-label="Tela de carregamento inicial">
+        <div class="splash-inner">
+            <h1>Bem-vindo(a) ao cuidado com a sua mente</h1>
+            <p>Aguarde um instante enquanto preparamos um espaço seguro, acolhedor e focado em você.</p>
+        </div>
     </div>
-  </header>
 
-  <main id="conteudo-principal">
-    <!-- PROPOSTA DE VALOR / BENEFÍCIOS -->
-    <section class="section-shell value-proposition" aria-labelledby="sec-beneficios">
-      <h2 id="sec-beneficios" class="section-title">Por que buscar este atendimento psicológico?</h2>
-      <p class="section-subtitle">
-        Mais do que “conversar sobre problemas”, trabalhamos juntos para organizar pensamentos, regular emoções e construir respostas novas diante de situações antigas.
-      </p>
-      <div class="benefits">
-        <div class="benefit">
-          <i class="fas fa-brain" aria-hidden="true"></i>
-          <h3>Estratégias práticas e aplicáveis</h3>
-          <p>Ferramentas específicas para compreender padrões de pensamento e comportamento, com exercícios que podem ser levados para a rotina.</p>
-        </div>
-        <div class="benefit">
-          <i class="fas fa-heart" aria-hidden="true"></i>
-          <h3>Cuidado personalizado</h3>
-          <p>Atendimento individual, respeitando seu ritmo, sua história e seus limites. Cada plano terapêutico é construído em conjunto.</p>
-        </div>
-        <div class="benefit">
-          <i class="fas fa-chart-line" aria-hidden="true"></i>
-          <h3>Foco em mudanças sustentáveis</h3>
-          <p>Trabalhamos por avanços possíveis e consistentes ao longo do tempo, sem promessas mágicas, mas com compromisso real com o seu processo.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE / BIOGRAFIA -->
-    <section class="section-shell section-shell--narrow biography" id="biografia" aria-labelledby="sec-sobre">
-      <img src="https://i.pinimg.com/736x/da/b5/63/dab56383e5343799dcd4df87a4675918.jpg" alt="Foto do psicólogo clínico Richelmy Murta" />
-      <div class="biography-content">
-        <h2 id="sec-sobre">Sobre mim</h2>
-        <p>Olá, sou <strong>Richelmy Murta</strong>, psicólogo clínico especializado em Terapia Cognitivo-Comportamental (TCC) e Terapia do Esquema. Minha atuação é voltada para pessoas que desejam compreender melhor suas emoções e construir respostas mais saudáveis diante da vida.</p>
-        <p>Tenho experiência no tratamento de depressão, transtorno bipolar, ansiedade, fobias, dependência emocional, codependência, comportamentos autolesivos e comportamento suicida, entre outros. O foco do consultório é oferecer um ambiente seguro, técnico e humano para que você possa falar sem julgamento.</p>
-        <p>Unimos psicoeducação, estratégias práticas e um olhar atento à sua história para promover mudanças reais e sustentáveis.</p>
-        <p class="bio-note">Este atendimento online não substitui serviços de urgência. Em situações de risco imediato, procure o SAMU (192), Corpo de Bombeiros (193) ou a emergência mais próxima.</p>
-      </div>
-    </section>
-
-    <!-- INTERVENÇÕES TERAPÊUTICAS -->
-    <section class="section-shell section-shell--narrow approaches" id="terapia" aria-labelledby="sec-intervencoes">
-      <h2 id="sec-intervencoes" class="section-title">Como trabalhamos em sessão</h2>
-      <p class="section-subtitle">
-        As intervenções são estruturadas, mas sempre adaptadas à sua realidade. Abaixo, duas das abordagens que orientam o processo.
-      </p>
-      <div class="approach-box">
-        <h3>Terapia Cognitivo-Comportamental (TCC)</h3>
-        <p>Inspirada nos princípios de Aaron Beck, a TCC é uma abordagem focada em identificar e reestruturar pensamentos disfuncionais. Ao observar a relação entre pensamentos, emoções e comportamentos, construímos alternativas mais realistas e funcionais. O objetivo é reduzir sofrimento, melhorar o manejo do humor e ampliar a sensação de controle sobre a própria vida.</p>
-      </div>
-      <div class="approach-box">
-        <h3>Terapia do Esquema</h3>
-        <p>Desenvolvida por Jeffrey Young, a Terapia do Esquema aprofunda a compreensão de padrões emocionais e relacionais que se formaram ao longo da vida, especialmente na infância e adolescência. Esses esquemas podem manter ciclos de culpa, abandono, rejeição ou autocobrança. O trabalho busca fortalecer modos saudáveis, reorganizar vínculos internos e favorecer relações mais seguras consigo e com os outros.</p>
-      </div>
-    </section>
-
-    <!-- SERVIÇOS TERAPÊUTICOS -->
-    <section class="section-shell services" id="servicos" aria-labelledby="sec-servicos">
-      <h2 id="sec-servicos" class="section-title">Nossos Serviços Terapêuticos</h2>
-      <p class="section-subtitle">
-        Os atendimentos são realizados exclusivamente <strong>online</strong>, em ambiente seguro e sigiloso. Clique nos cards para ver detalhes de cada serviço.
-      </p>
-      <div class="services-list">
-        <article class="service" tabindex="0" aria-label="Psicoterapia individual, clique para ver mais detalhes">
-          <img src="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" alt="Pessoa em ambiente acolhedor durante sessão de psicoterapia individual" />
-          <h3>Psicoterapia Individual</h3>
-          <p class="service-tip">Clique no card para saber mais.</p>
-          <p>Atendimento focado em sua história, seus sintomas e seus objetivos. Ideal para trabalhar ansiedade, depressão, luto, traumas, regulação emocional e tomadas de decisão importantes.</p>
-          <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20de%20psicoterapia%20individual%20online." class="service-cta">Agende Agora</a>
-        </article>
-
-        <article class="service" tabindex="0" aria-label="Terapia de casal, clique para ver mais detalhes">
-          <img src="https://i.pinimg.com/originals/a5/34/0b/a5340bc6c723203b8a4b3d0196c3f1a4.jpg" alt="Casal conversando em ambiente de terapia de casal" />
-          <h3>Terapia de Casal</h3>
-          <p class="service-tip">Clique no card para saber mais.</p>
-          <p>Espaço online para qualificar a comunicação, reorganizar acordos e revisar padrões de conflito. Indicado para casais que desejam resgatar conexão, tomar decisões ou encerrar ciclos com mais consciência.</p>
-          <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20online%20de%20terapia%20de%20casal." class="service-cta">Agende Agora</a>
-        </article>
-
-        <article class="service" tabindex="0" aria-label="Avaliação psicológica com a Dra. Thaís Campos, clique para ver mais detalhes">
-          <img src="https://i.pinimg.com/originals/c4/13/5f/c4135fa75b6a0f990413a9f0b8c5e14c.jpg" alt="Materiais de avaliação psicológica em mesa de trabalho" />
-          <h3>Avaliação Psicológica<br />(Dra. Thaís Campos)</h3>
-          <p class="service-tip">Clique no card para saber mais.</p>
-          <p>Avaliação estruturada para investigar fatores emocionais, cognitivos e comportamentais. Útil para hipóteses diagnósticas, planejamento terapêutico e tomada de decisões em conjunto com outros profissionais.</p>
-          <a href="https://api.whatsapp.com/send?phone=5535984647323&text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20psicológica%20online." class="service-cta">Agende Agora</a>
-        </article>
-
-        <article class="service" tabindex="0" aria-label="Programa Produtividade 2.0, clique para ver mais detalhes">
-          <img src="https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Pessoa organizando tarefas em ambiente de trabalho" />
-          <h3>Produtividade 2.0</h3>
-          <p class="service-tip">Clique no card para saber mais.</p>
-          <p>Programa voltado para desempenho profissional e acadêmico, unindo organização de rotinas, manejo de atenção, limites saudáveis e prevenção de esgotamento emocional.</p>
-          <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20online%20do%20programa%20Produtividade%202.0." class="service-cta">Agende Agora</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Seção de Formulários -->
-    <section class="section-shell content" id="forms" aria-labelledby="sec-formularios">
-      <h2 id="sec-formularios" class="section-title">Formulários para continuidade do tratamento</h2>
-      <p class="content-description">
-        Alguns questionários ajudam a organizar informações importantes e acompanhar sua evolução ao longo das sessões. Use os botões abaixo para escolher o instrumento desejado. Quando um formulário for selecionado, ele aparecerá logo abaixo desta grade. Clique novamente no mesmo botão para fechar o formulário.
-      </p>
-
-      <!-- BOTÕES EM GRADE -->
-      <div class="form-links">
-        <button class="form-btn" data-target="form-controle">
-          <strong>Formulário de Controle para Atendimento Clínico</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-humor">
-          <strong>Avaliação de Humor</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-autoestima">
-          <strong>Escala de Autoestima (Rosemberg)</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-ansiedade">
-          <strong>Escala de Ansiedade</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-anamnese2">
-          <strong>Ficha de Anamnese II</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-codep">
-          <strong>Escala de (Co)Dependência Emocional</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-tab">
-          <strong>Rastreio de Transtorno Afetivo-Bipolar</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-guia">
-          <strong>Guia de Apoio à Saúde Mental</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-borderline">
-          <strong>Rastreio de Traços Borderline</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-tdah">
-          <strong>Rastreio de TDAH em Adultos</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-icaps">
-          <strong>Rastreio de Prontidão para Separação (ICAPS)</strong>
-        </button>
-
-        <button class="form-btn" data-target="form-narcisismo">
-          <strong>Rastreio de Traços Narcisistas</strong>
-        </button>
-      </div>
-
-      <!-- ÁREA DE EXIBIÇÃO DOS FORMULÁRIOS -->
-      <div class="forms-detail-area" id="formsDetailArea">
-        <p class="forms-hint" id="formsHint">
-          Clique em um dos botões acima para abrir o formulário ou rastreio nesta área.
-        </p>
-
-        <!-- Formulário de Controle -->
-        <div class="form-detail" id="form-controle">
-          <h3>Formulário de Controle para Atendimento Clínico</h3>
-          <div class="form-iframe-wrapper">
-            <iframe
-              title="Formulário de Controle para Atendimento Clínico"
-              data-src="https://docs.google.com/forms/d/e/1FAIpQLSfvrCtU4hn72xCYHPizP60GMIiRAm45KM-1k3z5_8VIOj6dMQ/viewform?embedded=true"
-              height="520"
-              marginheight="0"
-              marginwidth="0"
-              loading="lazy">
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Avaliação de Humor -->
-        <div class="form-detail" id="form-humor">
-          <h3>Avaliação de Humor</h3>
-          <div class="form-iframe-wrapper">
-            <iframe
-              title="Avaliação de Humor"
-              data-src="https://docs.google.com/forms/d/e/1FAIpQLSfOwfOe9OAx_XgnsEMa8FzV2QJR8-ZkHmGD2gWEOcBeK41Odw/viewform?embedded=true"
-              height="1400"
-              marginheight="0"
-              marginwidth="0"
-              loading="lazy">
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Autoestima -->
-        <div class="form-detail" id="form-autoestima">
-          <h3>Escala de Autoestima de Rosemberg</h3>
-          <div class="form-iframe-wrapper">
-            <iframe
-              title="Escala de Autoestima de Rosemberg"
-              data-src="https://docs.google.com/forms/d/e/1FAIpQLScu5CuRbE_UB829g4GqzMJyfm6J6sEdfw_xPUPEA3yMy6-6aw/viewform?embedded=true"
-              height="1400"
-              marginheight="0"
-              marginwidth="0"
-              loading="lazy">
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Ansiedade -->
-        <div class="form-detail" id="form-ansiedade">
-          <h3>Escala de Ansiedade</h3>
-          <div class="form-iframe-wrapper">
-            <iframe
-              title="Escala de Ansiedade"
-              data-src="https://docs.google.com/forms/d/e/1FAIpQLSdCuc1WnzTjMbRSyNmS5kuyG1NsaG95zMDO0v0GMABH8zodhg/viewform?embedded=true"
-              height="1400"
-              marginheight="0"
-              marginwidth="0"
-              loading="lazy">
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Anamnese II -->
-        <div class="form-detail" id="form-anamnese2">
-          <h3>Ficha de Anamnese II</h3>
-          <div class="form-iframe-wrapper">
-            <iframe
-              title="Ficha de Anamnese II"
-              data-src="https://docs.google.com/forms/d/e/1FAIpQLSd3VTOenTa4cqrePvGKt2-uGCzNDxpqf_A6PRwbO6llOXXnqA/viewform?embedded=true"
-              height="1400"
-              marginheight="0"
-              marginwidth="0"
-              loading="lazy">
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Escala de (Co)Dependência Emocional -->
-        <div class="form-detail" id="form-codep">
-          <h3>Escala de (Co)Dependência Emocional</h3>
-          <p class="external-form-text">
-            Este formulário é aberto em uma página dedicada, para melhor visualização.
-          </p>
-          <div style="text-align:center;">
-            <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/" target="_blank" rel="noopener noreferrer">
-              Abrir Escala de (Co)Dependência Emocional
+    <!-- HEADER / HERO -->
+    <header class="hero" role="banner">
+        <div class="hero-content">
+            <p class="hero-tagline">Atendimento psicológico clínico online</p>
+            <h1>Transforme Sua Vida Hoje!</h1>
+            <p>Supere desafios emocionais com intervenções práticas e personalizadas que promovem equilíbrio e bem-estar.</p>
+            <a href="#forms" class="cta-button">
+                <span>Agende Sua Consulta Agora</span>
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
             </a>
-          </div>
         </div>
+    </header>
 
-        <!-- TAB -->
-        <div class="form-detail" id="form-tab">
-          <h3>Rastreio de Transtorno Afetivo-Bipolar</h3>
-          <p class="external-form-text">
-            O rastreio completo para Transtorno Afetivo-Bipolar é realizado em uma página específica.
-          </p>
-          <div style="text-align:center;">
-            <a class="external-form-link" href="https://ricmurtapsicologia.github.io/tab-bateria-integrada/" target="_blank" rel="noopener noreferrer">
-              Abrir Rastreio de TAB
-            </a>
-          </div>
+    <main id="conteudo-principal" class="container">
+        <!-- PROPOSTA DE VALOR / BENEFÍCIOS -->
+        <section class="section-shell value-proposition" aria-labelledby="sec-beneficios">
+            <h2 id="sec-beneficios" class="section-title">Por que buscar este atendimento psicológico?</h2>
+            <p class="section-subtitle">
+                Mais do que “conversar sobre problemas”, trabalhamos juntos para organizar pensamentos, regular emoções e construir respostas novas diante de situações antigas.
+            </p>
+            <div class="benefits">
+                <div class="benefit">
+                    <i class="fas fa-brain" aria-hidden="true"></i>
+                    <h3>Estratégias práticas e aplicáveis</h3>
+                    <p>Ferramentas específicas para compreender padrões de pensamento e comportamento, com exercícios que podem ser levados para a rotina.</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                    <h3>Cuidado personalizado</h3>
+                    <p>Atendimento individual, respeitando seu ritmo, sua história e seus limites. Cada plano terapêutico é construído em conjunto.</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-chart-line" aria-hidden="true"></i>
+                    <h3>Foco em mudanças sustentáveis</h3>
+                    <p>Trabalhamos por avanços possíveis e consistentes ao longo do tempo, sem promessas mágicas, mas com compromisso real com o seu processo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE / BIOGRAFIA -->
+        <section class="section-shell section-shell--narrow biography container--narrow" id="biografia" aria-labelledby="sec-sobre">
+            <img src="https://i.pinimg.com/736x/da/b5/63/dab56383e5343799dcd4df87a4675918.jpg" alt="Foto do psicólogo clínico Richelmy Murta" width="160" height="160" loading="lazy" decoding="async" />
+            <div class="biography-content">
+                <h2 id="sec-sobre">Sobre mim</h2>
+                <p>Olá, sou <strong>Richelmy Murta</strong>, psicólogo clínico especializado em Terapia Cognitivo-Comportamental (TCC) e Terapia do Esquema. Minha atuação é voltada para pessoas que desejam compreender melhor suas emoções e construir respostas mais saudáveis diante da vida.</p>
+                <p>Tenho experiência no tratamento de depressão, transtorno bipolar, ansiedade, fobias, dependência emocional, codependência, comportamentos autolesivos e comportamento suicida, entre outros. O foco do consultório é oferecer um ambiente seguro, técnico e humano para que você possa falar sem julgamento.</p>
+                <p>Unimos psicoeducação, estratégias práticas e um olhar atento à sua história para promover mudanças reais e sustentáveis.</p>
+                <p class="bio-note">Este atendimento online não substitui serviços de urgência. Em situações de risco imediato, procure o SAMU (192), Corpo de Bombeiros (193) ou a emergência mais próxima.</p>
+            </div>
+        </section>
+
+        <!-- INTERVENÇÕES TERAPÊUTICAS -->
+        <section class="section-shell section-shell--narrow approaches container--narrow" id="terapia" aria-labelledby="sec-intervencoes">
+            <h2 id="sec-intervencoes" class="section-title">Como trabalhamos em sessão</h2>
+            <p class="section-subtitle">
+                As intervenções são estruturadas, mas sempre adaptadas à sua realidade. Abaixo, duas das abordagens que orientam o processo.
+            </p>
+            <div class="approach-box">
+                <h3>Terapia Cognitivo-Comportamental (TCC)</h3>
+                <p>Inspirada nos princípios de Aaron Beck, a TCC é uma abordagem focada em identificar e reestruturar pensamentos disfuncionais. Ao observar a relação entre pensamentos, emoções e comportamentos, construímos alternativas mais realistas e funcionais. O objetivo é reduzir sofrimento, melhorar o manejo do humor e ampliar a sensação de controle sobre a própria vida.</p>
+            </div>
+            <div class="approach-box">
+                <h3>Terapia do Esquema</h3>
+                <p>Desenvolvida por Jeffrey Young, a Terapia do Esquema aprofunda a compreensão de padrões emocionais e relacionais que se formaram ao longo da vida, especialmente na infância e adolescência. Esses esquemas podem manter ciclos de culpa, abandono, rejeição ou autocobrança. O trabalho busca fortalecer modos saudáveis, reorganizar vínculos internos e favorecer relações mais seguras consigo e com os outros.</p>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS TERAPÊUTICOS -->
+        <section class="section-shell services" id="servicos" aria-labelledby="sec-servicos">
+            <h2 id="sec-servicos" class="section-title">Nossos Serviços Terapêuticos</h2>
+            <p class="section-subtitle">
+                Os atendimentos são realizados exclusivamente <strong>online</strong>, em ambiente seguro e sigiloso. Clique nos cards para ver detalhes de cada serviço.
+            </p>
+
+            <div class="services-list">
+                <article class="service" tabindex="0" aria-label="Psicoterapia individual, clique para ver mais detalhes" aria-expanded="false">
+                    <img src="https://i.pinimg.com/originals/8b/f8/ff/8bf8ff364dc447b4e60a9e8d92acbba3.jpg" alt="Pessoa em ambiente acolhedor durante sessão de psicoterapia individual" width="640" height="420" loading="lazy" decoding="async" />
+                    <h3>Psicoterapia Individual</h3>
+                    <p class="service-tip">Clique no card para saber mais.</p>
+                    <p class="service-detail" aria-hidden="true">Atendimento focado em sua história, seus sintomas e seus objetivos. Ideal para trabalhar ansiedade, depressão, luto, traumas, regulação emocional e tomadas de decisão importantes.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20de%20psicoterapia%20individual%20online." class="service-cta">
+                        <span>Agende Agora</span>
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="service" tabindex="0" aria-label="Terapia de casal, clique para ver mais detalhes" aria-expanded="false">
+                    <img src="https://i.pinimg.com/originals/a5/34/0b/a5340bc6c723203b8a4b3d0196c3f1a4.jpg" alt="Casal conversando em ambiente de terapia de casal" width="640" height="420" loading="lazy" decoding="async" />
+                    <h3>Terapia de Casal</h3>
+                    <p class="service-tip">Clique no card para saber mais.</p>
+                    <p class="service-detail" aria-hidden="true">Espaço online para qualificar a comunicação, reorganizar acordos e revisar padrões de conflito. Indicado para casais que desejam resgatar conexão, tomar decisões ou encerrar ciclos com mais consciência.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20uma%20sessão%20online%20de%20terapia%20de%20casal." class="service-cta">
+                        <span>Agende Agora</span>
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="service" tabindex="0" aria-label="Avaliação psicológica com a Dra. Thaís Campos, clique para ver mais detalhes" aria-expanded="false">
+                    <img src="https://i.pinimg.com/originals/c4/13/5f/c4135fa75b6a0f990413a9f0b8c5e14c.jpg" alt="Materiais de avaliação psicológica em mesa de trabalho" width="640" height="420" loading="lazy" decoding="async" />
+                    <h3>Avaliação Psicológica<br />(Dra. Thaís Campos)</h3>
+                    <p class="service-tip">Clique no card para saber mais.</p>
+                    <p class="service-detail" aria-hidden="true">Avaliação estruturada para investigar fatores emocionais, cognitivos e comportamentais. Útil para hipóteses diagnósticas, planejamento terapêutico e tomada de decisões em conjunto com outros profissionais.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5535984647323&text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20psicológica%20online." class="service-cta">
+                        <span>Agende Agora</span>
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="service" tabindex="0" aria-label="Programa Produtividade 2.0, clique para ver mais detalhes" aria-expanded="false">
+                    <img src="https://images.pexels.com/photos/2102416/pexels-photo-2102416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Pessoa organizando tarefas em ambiente de trabalho" width="640" height="420" loading="lazy" decoding="async" />
+                    <h3>Produtividade 2.0</h3>
+                    <p class="service-tip">Clique no card para saber mais.</p>
+                    <p class="service-detail" aria-hidden="true">Programa voltado para desempenho profissional e acadêmico, unindo organização de rotinas, manejo de atenção, limites saudáveis e prevenção de esgotamento emocional.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20online%20do%20programa%20Produtividade%202.0." class="service-cta">
+                        <span>Agende Agora</span>
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Seção de Formulários -->
+        <section class="section-shell content" id="forms" aria-labelledby="sec-formularios">
+            <h2 id="sec-formularios" class="section-title">Formulários para continuidade do tratamento</h2>
+            <p class="content-description">
+                Alguns questionários ajudam a organizar informações importantes e acompanhar sua evolução ao longo das sessões. Use os botões abaixo para escolher o instrumento desejado. Quando um formulário for selecionado, ele aparecerá logo abaixo desta grade. Clique novamente no mesmo botão para fechar o formulário.
+            </p>
+
+            <!-- BOTÕES EM GRADE -->
+            <div class="form-links">
+                <button class="form-btn" type="button" data-target="form-controle"><strong>Formulário de Controle para Atendimento Clínico</strong></button>
+                <button class="form-btn" type="button" data-target="form-humor"><strong>Avaliação de Humor</strong></button>
+                <button class="form-btn" type="button" data-target="form-autoestima"><strong>Escala de Autoestima (Rosemberg)</strong></button>
+                <button class="form-btn" type="button" data-target="form-ansiedade"><strong>Escala de Ansiedade</strong></button>
+                <button class="form-btn" type="button" data-target="form-anamnese2"><strong>Ficha de Anamnese II</strong></button>
+                <button class="form-btn" type="button" data-target="form-codep"><strong>Escala de (Co)Dependência Emocional</strong></button>
+                <button class="form-btn" type="button" data-target="form-tab"><strong>Rastreio de Transtorno Afetivo-Bipolar</strong></button>
+                <button class="form-btn" type="button" data-target="form-guia"><strong>Guia de Apoio à Saúde Mental</strong></button>
+                <button class="form-btn" type="button" data-target="form-borderline"><strong>Rastreio de Traços Borderline</strong></button>
+                <button class="form-btn" type="button" data-target="form-tdah"><strong>Rastreio de TDAH em Adultos</strong></button>
+                <button class="form-btn" type="button" data-target="form-icaps"><strong>Rastreio de Prontidão para Separação (ICAPS)</strong></button>
+                <button class="form-btn" type="button" data-target="form-narcisismo"><strong>Rastreio de Traços Narcisistas</strong></button>
+            </div>
+
+            <!-- ÁREA DE EXIBIÇÃO DOS FORMULÁRIOS -->
+            <div class="forms-detail-area" id="formsDetailArea">
+                <p class="forms-hint" id="formsHint">Clique em um dos botões acima para abrir o formulário ou rastreio nesta área.</p>
+
+                <!-- Formulário de Controle -->
+                <div class="form-detail" id="form-controle">
+                    <h3>Formulário de Controle para Atendimento Clínico</h3>
+                    <div class="form-iframe-wrapper">
+                        <iframe title="Formulário de Controle para Atendimento Clínico" data-src="https://docs.google.com/forms/d/e/1FAIpQLSfvrCtU4hn72xCYHPizP60GMIiRAm45KM-1k3z5_8VIOj6dMQ/viewform?embedded=true" height="520" marginheight="0" marginwidth="0" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Avaliação de Humor -->
+                <div class="form-detail" id="form-humor">
+                    <h3>Avaliação de Humor</h3>
+                    <div class="form-iframe-wrapper">
+                        <iframe title="Avaliação de Humor" data-src="https://docs.google.com/forms/d/e/1FAIpQLSfOwfOe9OAx_XgnsEMa8FzV2QJR8-ZkHmGD2gWEOcBeK41Odw/viewform?embedded=true" height="1400" marginheight="0" marginwidth="0" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Autoestima -->
+                <div class="form-detail" id="form-autoestima">
+                    <h3>Escala de Autoestima de Rosemberg</h3>
+                    <div class="form-iframe-wrapper">
+                        <iframe title="Escala de Autoestima de Rosemberg" data-src="https://docs.google.com/forms/d/e/1FAIpQLScu5CuRbE_UB829g4GqzMJyfm6J6sEdfw_xPUPEA3yMy6-6aw/viewform?embedded=true" height="1400" marginheight="0" marginwidth="0" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Ansiedade -->
+                <div class="form-detail" id="form-ansiedade">
+                    <h3>Escala de Ansiedade</h3>
+                    <div class="form-iframe-wrapper">
+                        <iframe title="Escala de Ansiedade" data-src="https://docs.google.com/forms/d/e/1FAIpQLSdCuc1WnzTjMbRSyNmS5kuyG1NsaG95zMDO0v0GMABH8zodhg/viewform?embedded=true" height="1400" marginheight="0" marginwidth="0" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Anamnese II -->
+                <div class="form-detail" id="form-anamnese2">
+                    <h3>Ficha de Anamnese II</h3>
+                    <div class="form-iframe-wrapper">
+                        <iframe title="Ficha de Anamnese II" data-src="https://docs.google.com/forms/d/e/1FAIpQLSd3VTOenTa4cqrePvGKt2-uGCzNDxpqf_A6PRwbO6llOXXnqA/viewform?embedded=true" height="1400" marginheight="0" marginwidth="0" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Escala de (Co)Dependência Emocional -->
+                <div class="form-detail" id="form-codep">
+                    <h3>Escala de (Co)Dependência Emocional</h3>
+                    <p class="external-form-text">Este formulário é aberto em uma página dedicada, para melhor visualização.</p>
+                    <div style="text-align:center;">
+                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/" target="_blank" rel="noopener noreferrer">
+                            Abrir Escala de (Co)Dependência Emocional
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TAB -->
+                <div class="form-detail" id="form-tab">
+                    <h3>Rastreio de Transtorno Afetivo-Bipolar</h3>
+                    <p class="external-form-text">O rastreio completo para Transtorno Afetivo-Bipolar é realizado em uma página específica.</p>
+                    <div style="text-align:center;">
+                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/tab-bateria-integrada/" target="_blank" rel="noopener noreferrer">
+                            Abrir Rastreio de TAB
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Guia de Apoio -->
+                <div class="form-detail" id="form-guia">
+                    <h3>Guia de Apoio à Saúde Mental</h3>
+                    <p class="external-form-text">Material psicoeducativo em formato de guia interativo.</p>
+                    <div style="text-align:center;">
+                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Guia-de-Apoio-a-Saude-Mental/" target="_blank" rel="noopener noreferrer">
+                            Abrir Guia de Apoio à Saúde Mental
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Borderline -->
+                <div class="form-detail" id="form-borderline">
+                    <h3>Rastreio de Traços Borderline</h3>
+                    <p class="external-form-text">Inventário clínico para rastreio de traços de personalidade borderline.</p>
+                    <div style="text-align:center;">
+                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/" target="_blank" rel="noopener noreferrer">
+                            Abrir Rastreio de Traços Borderline
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TDAH -->
+                <div class="form-detail" id="form-tdah">
+                    <h3>Rastreio de TDAH em Adultos</h3>
+                    <p class="external-form-text">Bateria integrada para rastreio clínico de TDAH em adultos.</p>
+                    <div style="text-align:center;">
+                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/rastreioTDAH/" target="_blank" rel="noopener noreferrer">
+                            Abrir Rastreio de TDAH em Adultos
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ICAPS -->
+                <div class="form-detail" id="form-icaps">
+                    <h3>Rastreio de Prontidão para Separação (ICAPS)</h3>
+                    <p class="external-form-text">Instrumento clínico para avaliação de prontidão para separação de casais.</p>
+                    <div style="text-align:center;">
+                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/ICAPS/" target="_blank" rel="noopener noreferrer">
+                            Abrir ICAPS
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Narcisismo -->
+                <div class="form-detail" id="form-narcisismo">
+                    <h3>Rastreio de Traços Narcisistas</h3>
+                    <p class="external-form-text">Bateria clínica para rastreio de traços narcisistas, com devolutivas psicoeducativas.</p>
+                    <div style="text-align:center;">
+                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/bateria.narcisismo/" target="_blank" rel="noopener noreferrer">
+                            Abrir Rastreio de Traços Narcisistas
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="final-words">
+                Em caso de dúvidas sobre qual instrumento utilizar, envie uma mensagem antes da sessão ou traga a questão para conversarmos com calma durante o atendimento.
+            </p>
+        </section>
+
+        <!-- Seção Observações -> Envio para WhatsApp -->
+        <section class="section-shell section-shell--narrow observations container--narrow" id="observacoes" aria-labelledby="sec-observacoes">
+            <h2 id="sec-observacoes" class="section-title">Envie observações antes da sessão</h2>
+            <p>
+                Se desejar, você pode escrever um breve resumo sobre como tem se sentido, principais queixas ou pontos que não quer esquecer de falar. Ao enviar, o texto será encaminhado diretamente para o WhatsApp profissional.
+            </p>
+            <form class="obs-form" id="obsForm">
+                <label class="sr-only" for="observacoesText">Campo para escrever suas observações</label>
+                <textarea id="observacoesText" placeholder="Ex.: como você tem se sentido, situações gatilho recentes, dúvidas sobre o processo terapêutico..." required></textarea>
+                <button type="submit">
+                    <span>Enviar observações pelo WhatsApp</span>
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                </button>
+            </form>
+            <p class="obs-note">
+                Este canal não substitui atendimento de urgência, avaliação médica ou suporte em crise aguda. Em situações de risco, procure imediatamente os serviços de emergência da sua região.
+            </p>
+        </section>
+    </main>
+
+    <!-- FOOTER (premium) -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-top">
+                <p class="footer-title">Acesse também</p>
+
+                <nav class="footer-links" aria-label="Links rápidos do rodapé">
+                    <a href="#biografia" class="footer-link"><i class="fas fa-user" aria-hidden="true"></i><span>Biografia</span></a>
+                    <a href="#servicos" class="footer-link"><i class="fas fa-briefcase" aria-hidden="true"></i><span>Serviços</span></a>
+                    <a href="#forms" class="footer-link"><i class="fas fa-file-alt" aria-hidden="true"></i><span>Formulários</span></a>
+                    <a href="https://www.instagram.com/ricmurtapsicologia/" target="_blank" rel="noopener noreferrer" class="footer-link"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+                    <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20um%20horário%20online!" target="_blank" rel="noopener noreferrer" class="footer-link"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
+                </nav>
+            </div>
+
+            <hr class="footer-divider" />
+
+            <!-- Texto obrigatório literal e intocável -->
+            <p class="footer-text">© 2026 | Richelmy Murta - Psicólogo Clínico | Pós-graduado em Terapias Cognitivo-Comportamentais</p>
         </div>
+    </footer>
 
-        <!-- Guia de Apoio -->
-        <div class="form-detail" id="form-guia">
-          <h3>Guia de Apoio à Saúde Mental</h3>
-          <p class="external-form-text">
-            Material psicoeducativo em formato de guia interativo.
-          </p>
-          <div style="text-align:center;">
-            <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Guia-de-Apoio-a-Saude-Mental/" target="_blank" rel="noopener noreferrer">
-              Abrir Guia de Apoio à Saúde Mental
-            </a>
-          </div>
-        </div>
+    <!-- BOTÃO FLUTUANTE VOLTAR AO TOPO -->
+    <button id="scrollTopBtn" aria-label="Voltar para o topo da página" type="button">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        <span class="scroll-label">Voltar ao topo</span>
+    </button>
 
-        <!-- Borderline -->
-        <div class="form-detail" id="form-borderline">
-          <h3>Rastreio de Traços Borderline</h3>
-          <p class="external-form-text">
-            Inventário clínico para rastreio de traços de personalidade borderline.
-          </p>
-          <div style="text-align:center;">
-            <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/" target="_blank" rel="noopener noreferrer">
-              Abrir Rastreio de Traços Borderline
-            </a>
-          </div>
-        </div>
+    <!-- JavaScript (ES6+), preservando funcionalidades + redundâncias antifrágeis -->
+    <script type="module">
+        // =========================
+        // Splash (preservado: 3s + fade)
+        // =========================
+        const removeSplash = () => {
+            const splash = document.getElementById("splash");
+            if (!splash) return;
+            splash.style.animation = "splashOut 0.6s forwards";
+            setTimeout(() => splash?.remove?.(), 650);
+        };
 
-        <!-- TDAH -->
-        <div class="form-detail" id="form-tdah">
-          <h3>Rastreio de TDAH em Adultos</h3>
-          <p class="external-form-text">
-            Bateria integrada para rastreio clínico de TDAH em adultos.
-          </p>
-          <div style="text-align:center;">
-            <a class="external-form-link" href="https://ricmurtapsicologia.github.io/rastreioTDAH/" target="_blank" rel="noopener noreferrer">
-              Abrir Rastreio de TDAH em Adultos
-            </a>
-          </div>
-        </div>
-
-        <!-- ICAPS -->
-        <div class="form-detail" id="form-icaps">
-          <h3>Rastreio de Prontidão para Separação (ICAPS)</h3>
-          <p class="external-form-text">
-            Instrumento clínico para avaliação de prontidão para separação de casais.
-          </p>
-          <div style="text-align:center;">
-            <a class="external-form-link" href="https://ricmurtapsicologia.github.io/ICAPS/" target="_blank" rel="noopener noreferrer">
-              Abrir ICAPS
-            </a>
-          </div>
-        </div>
-
-        <!-- Narcisismo -->
-        <div class="form-detail" id="form-narcisismo">
-          <h3>Rastreio de Traços Narcisistas</h3>
-          <p class="external-form-text">
-            Bateria clínica para rastreio de traços narcisistas, com devolutivas psicoeducativas.
-          </p>
-          <div style="text-align:center;">
-            <a class="external-form-link" href="https://ricmurtapsicologia.github.io/bateria.narcisismo/" target="_blank" rel="noopener noreferrer">
-              Abrir Rastreio de Traços Narcisistas
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <p class="final-words">
-        Em caso de dúvidas sobre qual instrumento utilizar, envie uma mensagem antes da sessão ou traga a questão para conversarmos com calma durante o atendimento.
-      </p>
-    </section>
-
-    <!-- Seção Observações -> Envio para WhatsApp -->
-    <section class="section-shell section-shell--narrow observations" id="observacoes" aria-labelledby="sec-observacoes">
-      <h2 id="sec-observacoes" class="section-title">Envie observações antes da sessão</h2>
-      <p>
-        Se desejar, você pode escrever um breve resumo sobre como tem se sentido, principais queixas ou pontos que não quer esquecer de falar. Ao enviar, o texto será encaminhado diretamente para o WhatsApp profissional.
-      </p>
-      <form class="obs-form" id="obsForm">
-        <label class="sr-only" for="observacoesText">Campo para escrever suas observações</label>
-        <textarea id="observacoesText" placeholder="Ex.: como você tem se sentido, situações gatilho recentes, dúvidas sobre o processo terapêutico..." required></textarea>
-        <button type="submit">
-          <span>Enviar observações pelo WhatsApp</span>
-          <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        </button>
-      </form>
-      <p class="obs-note">
-        Este canal não substitui atendimento de urgência, avaliação médica ou suporte em crise aguda. Em situações de risco, procure imediatamente os serviços de emergência da sua região.
-      </p>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer-container">
-      <p class="footer-title">Acesse também</p>
-      <nav class="footer-links" aria-label="Links rápidos do rodapé">
-        <a href="#biografia" class="footer-link">Biografia</a>
-        <a href="#servicos" class="footer-link">Serviços</a>
-        <a href="#forms" class="footer-link">Formulários</a>
-        <a href="https://www.instagram.com/ricmurtapsicologia/" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
-        <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20um%20horário%20online!" target="_blank" rel="noopener noreferrer" class="footer-link">WhatsApp</a>
-      </nav>
-      <p class="footer-text">© 2026 Psicólogo Clínico. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-  <!-- BOTÃO FLUTUANTE VOLTAR AO TOPO -->
-  <button id="scrollTopBtn" aria-label="Voltar para o topo da página">
-    <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    <span class="scroll-label">Voltar ao topo</span>
-  </button>
-
-  <!-- JavaScript Moderno com ES6+ -->
-  <script type="module">
-    // Remoção da splash screen com 3s e fade
-    const removeSplash = () => {
-      const splash = document.getElementById("splash");
-      if (!splash) return;
-      splash.style.animation = "splashOut 0.6s forwards";
-      setTimeout(() => {
-        splash.remove();
-      }, 650);
-    };
-
-    window.addEventListener("load", () => {
-      setTimeout(removeSplash, 3000);
-    });
-
-    // Alterna descrição dos cards de serviço (click e teclado)
-    const toggleServiceCard = (card) => {
-      if (!card) return;
-      card.classList.toggle("is-open");
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const serviceCards = document.querySelectorAll(".service");
-      serviceCards.forEach((card) => {
-        card.addEventListener("click", () => toggleServiceCard(card));
-
-        card.addEventListener("keydown", (event) => {
-          const isEnter = event.key === "Enter";
-          const isSpace = event.key === " ";
-          if (isEnter || isSpace) {
-            event.preventDefault();
-            toggleServiceCard(card);
-          }
+        window.addEventListener("load", () => {
+            setTimeout(removeSplash, 3000);
         });
-      });
 
-      // Envio de observações diretamente para o WhatsApp
-      const obsForm = document.getElementById("obsForm");
-      if (obsForm) {
-        obsForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-          const textarea = document.getElementById("observacoesText");
-          if (!textarea) return;
-          const text = textarea.value.trim();
-
-          if (text.length === 0) {
-            alert("Por favor, escreva ao menos uma frase sobre como você está antes de enviar.");
-            return;
-          }
-
-          const url = `https://api.whatsapp.com/send?phone=5535984640729&text=${encodeURIComponent(text)}`;
-          window.open(url, "_blank");
-          textarea.value = "";
-        });
-      }
-
-      // Lógica dos formulários: abrir/fechar iframe ou links
-      const formButtons = document.querySelectorAll(".form-btn");
-      const formDetails = document.querySelectorAll(".form-detail");
-      const formsHint = document.getElementById("formsHint");
-      const formsDetailArea = document.getElementById("formsDetailArea");
-
-      const openFormDetail = (targetId) => {
-        let anyActive = false;
-
-        formDetails.forEach((detail) => {
-          if (detail.id === targetId) {
-            detail.classList.add("active");
-            anyActive = true;
-
-            const iframe = detail.querySelector("iframe[data-src]");
-            if (iframe && !iframe.src) {
-              iframe.src = iframe.dataset.src;
+        // =========================
+        // Helpers antifrágeis
+        // =========================
+        const safeOpen = (url) => {
+            // Tolerância a falhas: se popup bloquear, degradar para navegação normal
+            try {
+                const w = window.open(url, "_blank", "noopener,noreferrer");
+                if (!w) window.location.href = url;
+            } catch {
+                window.location.href = url;
             }
-          } else {
-            detail.classList.remove("active");
-          }
+        };
+
+        const qs = (sel, root = document) => root.querySelector(sel);
+        const qsa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+        // =========================
+        // DOM Ready
+        // =========================
+        document.addEventListener("DOMContentLoaded", () => {
+            // -------------------------
+            // Serviços: toggle (click + teclado) preservado
+            // -------------------------
+            const serviceCards = qsa(".service");
+
+            const toggleServiceCard = (card) => {
+                if (!card) return;
+                const willOpen = !card.classList.contains("is-open");
+                card.classList.toggle("is-open", willOpen);
+
+                // acessibilidade: estado do card
+                card.setAttribute("aria-expanded", String(willOpen));
+
+                const detail = qs(".service-detail", card);
+                if (detail) detail.setAttribute("aria-hidden", String(!willOpen));
+            };
+
+            serviceCards.forEach((card) => {
+                card.addEventListener("click", () => toggleServiceCard(card));
+                card.addEventListener("keydown", (event) => {
+                    const isEnter = event.key === "Enter";
+                    const isSpace = event.key === " ";
+                    if (isEnter || isSpace) {
+                        event.preventDefault();
+                        toggleServiceCard(card);
+                    }
+                });
+            });
+
+            // -------------------------
+            // Observações -> WhatsApp (preservado)
+            // -------------------------
+            const obsForm = qs("#obsForm");
+            if (obsForm) {
+                obsForm.addEventListener("submit", (event) => {
+                    event.preventDefault();
+
+                    const textarea = qs("#observacoesText");
+                    if (!textarea) return;
+
+                    const text = textarea.value.trim();
+                    if (text.length === 0) {
+                        alert("Por favor, escreva ao menos uma frase sobre como você está antes de enviar.");
+                        return;
+                    }
+
+                    const url = `https://api.whatsapp.com/send?phone=5535984640729&text=${encodeURIComponent(text)}`;
+                    safeOpen(url);
+                    textarea.value = "";
+                });
+            }
+
+            // -------------------------
+            // Formulários: abrir/fechar + lazy-load iframe (preservado)
+            // -------------------------
+            const formButtons = qsa(".form-btn");
+            const formDetails = qsa(".form-detail");
+            const formsHint = qs("#formsHint");
+            const formsDetailArea = qs("#formsDetailArea");
+
+            const closeAllForms = () => {
+                formButtons.forEach((b) => b.classList.remove("active"));
+                formDetails.forEach((d) => d.classList.remove("active"));
+                formsHint?.classList.remove("hidden");
+            };
+
+            const openFormDetail = (targetId) => {
+                let anyActive = false;
+
+                formDetails.forEach((detail) => {
+                    const isTarget = detail.id === targetId;
+                    detail.classList.toggle("active", isTarget);
+                    if (isTarget) {
+                        anyActive = true;
+                        const iframe = detail.querySelector("iframe[data-src]");
+                        if (iframe && !iframe.src) iframe.src = iframe.dataset.src;
+                    }
+                });
+
+                if (formsHint) formsHint.classList.toggle("hidden", anyActive);
+
+                if (formsDetailArea && anyActive) {
+                    formsDetailArea.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            };
+
+            formButtons.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const targetId = btn.dataset.target;
+                    if (!targetId) return;
+
+                    const isAlreadyActive = btn.classList.contains("active");
+
+                    if (isAlreadyActive) {
+                        closeAllForms();
+                        return;
+                    }
+
+                    formButtons.forEach((b) => b.classList.toggle("active", b === btn));
+                    openFormDetail(targetId);
+                });
+            });
+
+            // -------------------------
+            // Botão flutuante "voltar ao topo" (preservado)
+            // -------------------------
+            const scrollBtn = qs("#scrollTopBtn");
+
+            const toggleScrollBtn = () => {
+                if (!scrollBtn) return;
+                scrollBtn.classList.toggle("show", window.scrollY > 300);
+            };
+
+            window.addEventListener("scroll", toggleScrollBtn, {
+                passive: true
+            });
+            toggleScrollBtn();
+
+            scrollBtn?.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
         });
-
-        if (formsHint) {
-          formsHint.classList.toggle("hidden", anyActive);
-        }
-
-        if (formsDetailArea && anyActive) {
-          formsDetailArea.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      };
-
-      formButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const targetId = btn.dataset.target;
-          if (!targetId) return;
-
-          const isAlreadyActive = btn.classList.contains("active");
-
-          if (isAlreadyActive) {
-            // Fecha o formulário atual
-            formButtons.forEach((b) => b.classList.remove("active"));
-            formDetails.forEach((detail) => detail.classList.remove("active"));
-            if (formsHint) formsHint.classList.remove("hidden");
-            return;
-          }
-
-          formButtons.forEach((b) => b.classList.toggle("active", b === btn));
-          openFormDetail(targetId);
-        });
-      });
-
-      // Botão flutuante de "voltar ao topo"
-      const scrollBtn = document.getElementById("scrollTopBtn");
-
-      const toggleScrollBtn = () => {
-        if (!scrollBtn) return;
-        if (window.scrollY > 300) {
-          scrollBtn.classList.add("show");
-        } else {
-          scrollBtn.classList.remove("show");
-        }
-      };
-
-      window.addEventListener("scroll", toggleScrollBtn);
-
-      if (scrollBtn) {
-        scrollBtn.addEventListener("click", () => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      }
-    });
-  </script>
+    </script>
 </body>
+
 </html>
-
-
