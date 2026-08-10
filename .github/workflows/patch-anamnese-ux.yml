@@ -18,8 +18,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Corrigir literal do patch no runner
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/patch-anamnese-ux.mjs')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace(r"\`${Date.now()}-", r"\`\${Date.now()}-")
+          p.write_text(s, encoding='utf-8')
+          PY
       - name: Aplicar patch
         run: node scripts/patch-anamnese-ux.mjs
+      - name: Restaurar script temporário
+        run: git checkout -- scripts/patch-anamnese-ux.mjs
       - name: Validar estrutura antes do commit
         run: |
           node tests/validate-anamnese.mjs
@@ -35,5 +46,3 @@ jobs:
           git add anamnese.html
           git commit -m "fix: melhora UX visual e confirmação da anamnese"
           git push origin HEAD:main
-
-# trigger: 2026-08-10
