@@ -30,6 +30,7 @@ if(index.includes(OLD_FORM)) throw new Error('URL da anamnese antiga ainda está
 if(!page.includes(FORM_ID)||!bridge.includes(FORM_ID)) throw new Error('Form ID oficial não está consistente entre página e bridge');
 if(!page.includes('anamnese-config.js')) throw new Error('Configuração da ponte não é carregada');
 if(!config.includes('ANAMNESE_BRIDGE_URL')) throw new Error('Configuração da URL da ponte ausente');
+if(!/ANAMNESE_BRIDGE_URL\s*=\s*['"]https:\/\/script\.google\.com\/macros\/s\/[^'"]+\/exec['"]/.test(config)) throw new Error('Endpoint /exec publicado da anamnese não está configurado');
 if(!page.includes('<progress class="progress" id="progressBar"')) throw new Error('Progresso nativo acessível ausente');
 if(!page.includes('id="nativeSubmitGuard"')||!page.includes('id="transportSubmitGuard"')) throw new Error('Semântica de submit estático ausente');
 if(/<(?:meta|link|input)\b[^>]*\s\/>/i.test(page)) throw new Error('Markup XHTML autocontido ainda presente em elemento vazio');
@@ -38,4 +39,4 @@ const successPos=bridge.indexOf("return bridgeHtml_({ ok: true, submissionId: pa
 if(submitPos<0||successPos<0||submitPos>successPos) throw new Error('Bridge sinaliza sucesso antes de salvar no Forms');
 if(!bridge.includes('HtmlService.XFrameOptionsMode.ALLOWALL')) throw new Error('Bridge não está liberado para iframe de transporte');
 if(!bridge.includes("CacheService.getScriptCache()")) throw new Error('Idempotência por submissionId ausente');
-console.log('Anamnese gate: PASS — 38 perguntas, Forms oficial, anamnese antiga removida, markup acessível e bridge consistente.');
+console.log('Anamnese gate: PASS — 38 perguntas, Forms oficial, anamnese antiga removida, endpoint /exec configurado, markup acessível e bridge consistente.');
