@@ -1,0 +1,32 @@
+name: Anamnese nativa — qualidade
+
+on:
+  pull_request:
+    paths:
+      - index.html
+      - anamnese.html
+      - anamnese-config.js
+      - apps-script/AnamneseBridge.gs
+      - tests/validate-anamnese.mjs
+  push:
+    branches:
+      - feat/anamnese-nativa
+    paths:
+      - index.html
+      - anamnese.html
+      - anamnese-config.js
+      - apps-script/AnamneseBridge.gs
+      - tests/validate-anamnese.mjs
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Gate estrutural da anamnese
+        run: node tests/validate-anamnese.mjs
+      - name: Validar HTML
+        run: npx --yes html-validate@9 anamnese.html
