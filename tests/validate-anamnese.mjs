@@ -25,6 +25,7 @@ if(expected.length!==38) throw new Error(`Esperadas 38 perguntas respondíveis; 
 for(const title of expected){if(!page.includes(title)) throw new Error(`Pergunta ausente: ${title}`)}
 if(!index.includes('href="./anamnese.html"')) throw new Error('Botão da Jornada não aponta para anamnese.html');
 if(index.includes('data-target="form-anamnese2"')) throw new Error('Botão antigo de Anamnese II ainda está ativo');
+if(index.includes('Ficha de Anamnese II')) throw new Error('Rótulo da anamnese antiga reapareceu no fluxo');
 if(index.includes(OLD_FORM)) throw new Error('URL da anamnese antiga ainda está no index.html');
 if(!page.includes(FORM_ID)||!bridge.includes(FORM_ID)) throw new Error('Form ID oficial não está consistente entre página e bridge');
 if(!page.includes('anamnese-config.js')) throw new Error('Configuração da ponte não é carregada');
