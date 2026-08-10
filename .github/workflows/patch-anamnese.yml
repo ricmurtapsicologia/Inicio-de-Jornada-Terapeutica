@@ -31,6 +31,7 @@ jobs:
       - name: Validar HTML básico
         run: |
           test -f anamnese.html
+          test -f apps-script/AnamneseBridge.gs
           grep -q 'href="./anamnese.html"' index.html || true
       - name: Commitar patch, se houver
         run: |
@@ -40,6 +41,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html anamnese.html
+          git add index.html anamnese.html apps-script/AnamneseBridge.gs
           git commit -m "feat: liga jornada a anamnese nativa"
           git push origin HEAD:feat/anamnese-nativa
