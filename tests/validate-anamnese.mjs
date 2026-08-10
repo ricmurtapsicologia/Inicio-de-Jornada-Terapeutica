@@ -34,9 +34,19 @@ if(!/ANAMNESE_BRIDGE_URL\s*=\s*['"]https:\/\/script\.google\.com\/macros\/s\/[^'
 if(!page.includes('<progress class="progress" id="progressBar"')) throw new Error('Progresso nativo acessível ausente');
 if(!page.includes('id="nativeSubmitGuard"')||!page.includes('id="transportSubmitGuard"')) throw new Error('Semântica de submit estático ausente');
 if(/<(?:meta|link|input)\b[^>]*\s\/>/i.test(page)) throw new Error('Markup XHTML autocontido ainda presente em elemento vazio');
+
+if(!page.includes('class="hero-shell"')||!page.includes('class="hero-side"')) throw new Error('Hero profissional da anamnese ausente');
+if(page.includes('Sem interface do Google Forms')) throw new Error('Copy técnica interna voltou a aparecer para o paciente');
+if(!page.includes('let activeSubmissionId = null;')) throw new Error('Idempotência de reenvio no frontend ausente');
+if(!page.includes('hardTimeoutTimer=window.setTimeout')) throw new Error('Timeout progressivo da confirmação ausente');
+if(!page.includes('},60000);')) throw new Error('Janela de confirmação ampliada não está configurada');
+if(page.includes('O envio demorou mais que o esperado. Suas respostas continuam nesta tela; tente novamente.')) throw new Error('Falso-timeout antigo reapareceu');
+if(!page.includes("setStatus('waiting','O envio está levando um pouco mais que o habitual.")) throw new Error('Estado intermediário de envio ausente');
+if(!page.includes("const googleOrigin=event.origin==='https://script.google.com'")) throw new Error('Aceite seguro do retorno tardio do Apps Script ausente');
+
 const submitPos=bridge.indexOf('formResponse.submit();');
 const successPos=bridge.indexOf("return bridgeHtml_({ ok: true, submissionId: payload.submissionId });");
 if(submitPos<0||successPos<0||submitPos>successPos) throw new Error('Bridge sinaliza sucesso antes de salvar no Forms');
 if(!bridge.includes('HtmlService.XFrameOptionsMode.ALLOWALL')) throw new Error('Bridge não está liberado para iframe de transporte');
 if(!bridge.includes("CacheService.getScriptCache()")) throw new Error('Idempotência por submissionId ausente');
-console.log('Anamnese gate: PASS — 38 perguntas, Forms oficial, anamnese antiga removida, endpoint /exec configurado, markup acessível e bridge consistente.');
+console.log('Anamnese gate: PASS — 38 perguntas, hero refinado, Forms oficial, endpoint /exec, reenvio idempotente, timeout progressivo e bridge consistente.');
