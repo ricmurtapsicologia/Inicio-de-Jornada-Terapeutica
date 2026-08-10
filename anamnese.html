@@ -71,6 +71,7 @@
   const answers = Object.create(null);
   let currentVisibleIndex = 0;
   let sending = false;
+  let submitted = false;
 
   const steps = [
     {id:'sobre', title:'Um pouco sobre você', help:'Primeiro, algumas informações simples para eu saber quem está chegando.', fields:[
@@ -181,7 +182,7 @@
   }
 
   function validate(step){
-    let first=null; step.fields.forEach(f=>{const holder=document.querySelector(`.field[data-title="${CSS.escape(f.title)}"]`); if(!holder)return; let invalid=false; const v=answers[f.title]; if(f.required) invalid=Array.isArray(v)?v.length===0:!String(v??'').trim(); holder.classList.toggle('invalid',invalid); if(invalid&&!first)first=holder;});
+    let first=null; step.fields.forEach(f=>{const holder=[...document.querySelectorAll('.field')].find(el=>el.dataset.title===f.title); if(!holder)return; let invalid=false; const v=answers[f.title]; if(f.required) invalid=Array.isArray(v)?v.length===0:!String(v??'').trim(); holder.classList.toggle('invalid',invalid); if(invalid&&!first)first=holder;});
     if(first){first.scrollIntoView({behavior:'smooth',block:'center'});const focusable=first.querySelector('input,textarea');focusable?.focus();return false;} return true;
   }
 
@@ -201,11 +202,11 @@
 
   window.addEventListener('message',(event)=>{
     const iframe=document.getElementById('anamneseTransport'); if(event.source!==iframe?.contentWindow)return; const data=event.data||{}; if(data.type!=='ANAMNESE_SUBMIT_RESULT')return; sending=false;
-    if(data.ok){document.getElementById('anamneseForm').classList.add('hidden');document.querySelector('.progress-wrap').classList.add('hidden');const s=document.getElementById('successPanel');s.classList.remove('hidden');s.focus();}
+    if(data.ok){submitted=true;document.getElementById('anamneseForm').classList.add('hidden');document.querySelector('.progress-wrap').classList.add('hidden');const s=document.getElementById('successPanel');s.classList.remove('hidden');s.focus();}
     else{const btn=document.getElementById('nextBtn');if(btn){btn.disabled=false;btn.textContent='Enviar anamnese';}setStatus('error',data.message||'Não foi possível concluir o envio. Suas respostas permanecem nesta tela.');}
   });
 
-  window.addEventListener('beforeunload',(e)=>{if(Object.keys(answers).some(k=>Array.isArray(answers[k])?answers[k].length:String(answers[k]||'').trim())){e.preventDefault();e.returnValue='';}});
+  window.addEventListener('beforeunload',(e)=>{if(!submitted && Object.keys(answers).some(k=>Array.isArray(answers[k])?answers[k].length:String(answers[k]||'').trim())){e.preventDefault();e.returnValue='';}});
   render();
 })();
 </script>
