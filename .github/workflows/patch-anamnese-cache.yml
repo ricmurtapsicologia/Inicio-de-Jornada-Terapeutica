@@ -1,0 +1,40 @@
+name: Aplicar cache-busting da anamnese
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/patch-anamnese-cache.mjs
+      - .github/workflows/patch-anamnese-cache.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Aplicar patch
+        run: node scripts/patch-anamnese-cache.mjs
+      - name: Validar
+        run: |
+          node tests/validate-anamnese.mjs
+          npx --yes html-validate@9 anamnese.html
+          grep -q 'anamnese.html?v=20260810-3' index.html
+          ! grep -q 'O envio demorou mais que o esperado' anamnese.html
+          grep -q "const APP_BUILD = '20260810-3'" anamnese.html
+      - name: Commitar
+        run: |
+          if git diff --quiet; then
+            echo "Nada a alterar"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html anamnese.html
+          git commit -m "fix: força versão atual da anamnese no navegador"
+          git push origin HEAD:main
