@@ -4,13 +4,16 @@
  * no formulário oficial "Antes da nossa primeira sessão".
  */
 window.ANAMNESE_BRIDGE_URL = 'https://script.google.com/macros/s/AKfycbyVv6oY91ELP2of25NxPg1QyVPNo1y8CIc6PXrjrmQSxOraQzHfBQJpYepJm2LlglU/exec';
-window.ANAMNESE_BUILD = '20260810-4';
+window.ANAMNESE_BUILD = '20260810-5';
 
 (() => {
   'use strict';
 
   const BUILD = window.ANAMNESE_BUILD;
   const LEGACY_TIMEOUT = 'O envio demorou mais que o esperado. Suas respostas continuam nesta tela; tente novamente.';
+  const nativeSubmit = HTMLFormElement.prototype.submit;
+  let transportStarted = false;
+  let fallbackIframeInFlight = false;
 
   function showConfirmed(){
     window.__ANAMNESE_CONFIRMED__ = true;
@@ -25,6 +28,24 @@ window.ANAMNESE_BUILD = '20260810-4';
     }
   }
 
+  function dispatchInternalConfirmation(){
+    if (window.__ANAMNESE_CONFIRMED__) return;
+    const iframe = document.getElementById('anamneseTransport');
+    try {
+      const event = new MessageEvent('message', {
+        data: { type: 'ANAMNESE_SUBMIT_RESULT', ok: true },
+        origin: 'null',
+        source: iframe?.contentWindow || window
+      });
+      window.dispatchEvent(event);
+    } catch (_) {
+      showConfirmed();
+    }
+    window.setTimeout(() => {
+      if (!window.__ANAMNESE_CONFIRMED__) showConfirmed();
+    }, 50);
+  }
+
   function neutralizeLegacyTimeout(){
     document.querySelectorAll('.status').forEach((el) => {
       if ((el.textContent || '').trim() === LEGACY_TIMEOUT) {
@@ -33,6 +54,37 @@ window.ANAMNESE_BUILD = '20260810-4';
       }
     });
   }
+
+  // Intercepta somente o formulário técnico invisível da anamnese. O envio é
+  // realizado por fetch no-cors: o navegador não precisa ler a resposta do
+  // Google; basta a requisição concluir para encerrar o estado "Enviando...".
+  HTMLFormElement.prototype.submit = function(){
+    if (this.id !== 'transportForm' || !this.action || !this.action.startsWith('https://script.google.com/macros/s/')) {
+      return nativeSubmit.call(this);
+    }
+
+    transportStarted = true;
+    fallbackIframeInFlight = false;
+
+    const body = new URLSearchParams();
+    new FormData(this).forEach((value, key) => body.append(key, String(value)));
+
+    fetch(this.action, {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-store',
+      credentials: 'omit',
+      redirect: 'follow',
+      body
+    })
+      .then(() => dispatchInternalConfirmation())
+      .catch(() => {
+        // Fallback para o transporte anterior caso o navegador bloqueie fetch.
+        // O mesmo submissionId é preservado pelo payload, evitando duplicidade.
+        fallbackIframeInFlight = true;
+        nativeSubmit.call(this);
+      });
+  };
 
   window.addEventListener('message', (event) => {
     const data = event.data || {};
@@ -59,6 +111,16 @@ window.ANAMNESE_BUILD = '20260810-4';
     neutralizeLegacyTimeout();
     const observer = new MutationObserver(neutralizeLegacyTimeout);
     observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+
+    const iframe = document.getElementById('anamneseTransport');
+    if (iframe) {
+      iframe.addEventListener('load', () => {
+        if (transportStarted && fallbackIframeInFlight) {
+          fallbackIframeInFlight = false;
+          dispatchInternalConfirmation();
+        }
+      });
+    }
   };
 
   if (document.readyState === 'loading') {
@@ -67,9 +129,6 @@ window.ANAMNESE_BUILD = '20260810-4';
     startObserver();
   }
 
-  // Toda entrada sem versão é redirecionada para uma URL versionada. Isso força
-  // o navegador a buscar a versão atual da página mesmo quando o link de origem
-  // ou o histórico ainda apontam para uma cópia antiga.
   const current = new URL(window.location.href);
   if (current.pathname.endsWith('/anamnese.html') && current.searchParams.get('v') !== BUILD) {
     current.searchParams.set('v', BUILD);
