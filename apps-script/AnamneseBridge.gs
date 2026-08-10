@@ -184,7 +184,7 @@ function bridgeHtml_(data) {
   const message = Object.assign({ type: ANAMNESE.MESSAGE_TYPE }, data || {});
   const json = JSON.stringify(message).replace(/</g, '\\u003c');
   const html = '<!doctype html><html><head><meta charset="utf-8"></head><body>' +
-    '<script>try{parent.postMessage(' + json + ',"*");}catch(e){}<\\/script>' +
+    '<script>try{parent.postMessage(' + json + ',"*");}catch(e){}</script>' +
     '</body></html>';
   return HtmlService.createHtmlOutput(html)
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
