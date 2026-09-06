@@ -1,0 +1,62 @@
+name: Hotfix definitivo imagem codependência
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/hotfix-codependencia-cache.yml
+
+permissions:
+  contents: write
+
+jobs:
+  hotfix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validar novo JPEG e atualizar referência com cache-busting
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import sys
+
+          img = Path('assets/dependencia-codependencia-casal-v2.jpg')
+          html = Path('index.html')
+          if not img.exists():
+              raise SystemExit('Novo JPEG não encontrado.')
+          data = img.read_bytes()
+          if len(data) < 20000 or not data.startswith(b'\xff\xd8') or not data.endswith(b'\xff\xd9'):
+              raise SystemExit(f'JPEG inválido ou truncado: {len(data)} bytes')
+
+          text = html.read_text(encoding='utf-8')
+          old = 'assets/dependencia-codependencia-casal.jpg'
+          new = 'assets/dependencia-codependencia-casal-v2.jpg?v=2026090603'
+          if text.count(old) != 1:
+              raise SystemExit(f'Referência antiga esperada exatamente 1 vez; encontrado {text.count(old)}.')
+          text = text.replace(old, new, 1)
+          html.write_text(text, encoding='utf-8')
+          if new not in html.read_text(encoding='utf-8'):
+              raise SystemExit('Falha ao gravar nova referência.')
+          print(f'JPEG válido: {len(data)} bytes; SOI/EOI OK; cache-busting aplicado.')
+          PY
+
+      - name: Smoke test estrutural
+        shell: bash
+        run: |
+          grep -q 'dependencia-codependencia-casal-v2.jpg?v=2026090603' index.html
+          grep -q 'Dependência e Codependência Emocional' index.html
+          test -s assets/dependencia-codependencia-casal-v2.jpg
+          echo 'Smoke test: PASS'
+
+      - name: Publicar e remover workflow temporário
+        shell: bash
+        run: |
+          rm -f .github/workflows/hotfix-codependencia-cache.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html .github/workflows/hotfix-codependencia-cache.yml
+          git commit -m 'Corrige referência e cache da imagem de codependência'
+          git push
