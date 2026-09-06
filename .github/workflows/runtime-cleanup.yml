@@ -1,0 +1,31 @@
+name: Runtime cleanup
+on:
+  push:
+    branches: [fix/hidden-form-engine-20260906]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/hidden-form-engine-20260906
+      - name: Remove empty layout container
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('assets/monitoramentos-v2.js')
+          s=p.read_text(encoding='utf-8')
+          start=s.index('<div class="identity-grid">')
+          marker='</div>${fields}<aside'
+          stop=s.index(marker,start)+len('</div>${fields}')
+          s=s[:start]+'${fields}'+s[stop:]
+          p.write_text(s,encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/monitoramentos-v2.js
+          git commit -m 'fix: remove empty questionnaire layout container [skip ci]'
+          git push origin HEAD:fix/hidden-form-engine-20260906
