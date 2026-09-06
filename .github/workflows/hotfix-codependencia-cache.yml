@@ -16,39 +16,55 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Validar novo JPEG e atualizar referência com cache-busting
+
+      - name: Baixar fotografia orgânica validada
+        shell: bash
+        run: |
+          mkdir -p assets
+          curl --fail --location --retry 3 --connect-timeout 20 \
+            'https://images.pexels.com/photos/3958822/pexels-photo-3958822.jpeg?auto=compress&cs=tinysrgb&w=1200' \
+            -o assets/dependencia-codependencia-casal-v2.jpg
+
+      - name: Validar JPEG e atualizar referência com cache-busting
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import sys
 
           img = Path('assets/dependencia-codependencia-casal-v2.jpg')
           html = Path('index.html')
-          if not img.exists():
-              raise SystemExit('Novo JPEG não encontrado.')
           data = img.read_bytes()
-          if len(data) < 20000 or not data.startswith(b'\xff\xd8') or not data.endswith(b'\xff\xd9'):
-              raise SystemExit(f'JPEG inválido ou truncado: {len(data)} bytes')
+          if len(data) < 20000:
+              raise SystemExit(f'JPEG pequeno/truncado: {len(data)} bytes')
+          if not data.startswith(b'\xff\xd8') or not data.endswith(b'\xff\xd9'):
+              raise SystemExit('Arquivo baixado não é JPEG íntegro.')
 
           text = html.read_text(encoding='utf-8')
-          old = 'assets/dependencia-codependencia-casal.jpg'
-          new = 'assets/dependencia-codependencia-casal-v2.jpg?v=2026090603'
-          if text.count(old) != 1:
-              raise SystemExit(f'Referência antiga esperada exatamente 1 vez; encontrado {text.count(old)}.')
-          text = text.replace(old, new, 1)
+          old_variants = [
+              'assets/dependencia-codependencia-casal.jpg',
+              'assets/dependencia-codependencia-casal-v2.jpg?v=2026090603',
+          ]
+          found = [v for v in old_variants if v in text]
+          if len(found) != 1:
+              raise SystemExit(f'Referência esperada não encontrada de forma unívoca: {found}')
+
+          new = 'assets/dependencia-codependencia-casal-v2.jpg?v=2026090604'
+          text = text.replace(found[0], new, 1)
           html.write_text(text, encoding='utf-8')
-          if new not in html.read_text(encoding='utf-8'):
-              raise SystemExit('Falha ao gravar nova referência.')
-          print(f'JPEG válido: {len(data)} bytes; SOI/EOI OK; cache-busting aplicado.')
+
+          card = text.split('<h3>Dependência e Codependência Emocional</h3>')[0][-1200:]
+          if new not in card:
+              raise SystemExit('Nova imagem não ficou associada ao card correto.')
+          print(f'JPEG válido: {len(data)} bytes; referência atualizada: {new}')
           PY
 
-      - name: Smoke test estrutural
+      - name: Smoke test final
         shell: bash
         run: |
-          grep -q 'dependencia-codependencia-casal-v2.jpg?v=2026090603' index.html
-          grep -q 'Dependência e Codependência Emocional' index.html
           test -s assets/dependencia-codependencia-casal-v2.jpg
+          grep -q 'dependencia-codependencia-casal-v2.jpg?v=2026090604' index.html
+          grep -q 'Dependência e Codependência Emocional' index.html
+          grep -q 'Agende Agora' index.html
           echo 'Smoke test: PASS'
 
       - name: Publicar e remover workflow temporário
@@ -57,6 +73,6 @@ jobs:
           rm -f .github/workflows/hotfix-codependencia-cache.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html .github/workflows/hotfix-codependencia-cache.yml
-          git commit -m 'Corrige referência e cache da imagem de codependência'
+          git add index.html assets/dependencia-codependencia-casal-v2.jpg .github/workflows/hotfix-codependencia-cache.yml
+          git commit -m 'Substitui imagem de codependência por fotografia orgânica validada'
           git push
