@@ -17,26 +17,29 @@ jobs:
             ansiedade: 'https://docs.google.com/forms/d/e/1FAIpQLSdCuc1WnzTjMbRSyNmS5kuyG1NsaG95zMDO0v0GMABH8zodhg/viewform',
             autoestima: 'https://docs.google.com/forms/d/e/1FAIpQLScu5CuRbE_UB829g4GqzMJyfm6J6sEdfw_xPUPEA3yMy6-6aw/viewform'
           };
+          const simplifyChoices = raw => {
+            if (!Array.isArray(raw)) return [];
+            return raw.map(x => Array.isArray(x) ? x[0] : x).filter(x => typeof x === 'string');
+          };
           for (const [id,url] of Object.entries(forms)) {
             const html = await (await fetch(url)).text();
-            console.log(`=== ${id.toUpperCase()} status-bytes=${html.length} ===`);
-            const entries = [...html.matchAll(/entry\.(\d+)/g)].map(m => m[1]);
-            console.log('ENTRY_IDS', [...new Set(entries)].join(','));
             const match = html.match(/FB_PUBLIC_LOAD_DATA_\s*=\s*(\[.*?\]);\s*<\/script>/s);
-            if (!match) { console.log('NO_FB_PUBLIC_LOAD_DATA'); continue; }
+            if (!match) throw new Error(`NO_FB_PUBLIC_LOAD_DATA:${id}`);
             const data = JSON.parse(match[1]);
-            const strings=[];
-            const walk=(x,path='')=>{
-              if(typeof x==='string'){
-                const s=x.replace(/\s+/g,' ').trim();
-                if(s && s.length<500) strings.push([path,s]);
-              } else if(Array.isArray(x)) x.forEach((v,i)=>walk(v,`${path}[${i}]`));
-            };
-            walk(data);
-            const useful = strings.filter(([,s]) => !/^https?:\/\//.test(s) && !/^[\w-]{20,}$/.test(s));
-            console.log('STRINGS_START');
-            for (const [path,s] of useful.slice(0,260)) console.log(path, JSON.stringify(s));
-            console.log('STRINGS_END');
+            const items = data?.[1]?.[1] || [];
+            const fields = items.map((item,index) => ({
+              index,
+              itemId: item?.[0] ?? null,
+              title: item?.[1] ?? '',
+              description: item?.[2] ?? '',
+              type: item?.[3] ?? null,
+              entryId: item?.[4]?.[0]?.[0] ?? null,
+              choices: simplifyChoices(item?.[4]?.[0]?.[1]),
+              required: Boolean(item?.[4]?.[0]?.[2])
+            }));
+            console.log(`===SCHEMA:${id}===`);
+            console.log(JSON.stringify({id,title:data?.[1]?.[8]||'',description:data?.[1]?.[0]||'',fields},null,2));
+            console.log(`===ENDSCHEMA:${id}===`);
           }
           EOF
           node /tmp/inspect.mjs
