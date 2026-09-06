@@ -8,38 +8,19 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect public Google Forms definitions
+      - name: Inspect public control form definition
         shell: bash
         run: |
           cat > /tmp/inspect.mjs <<'EOF'
-          const forms = {
-            humor: 'https://docs.google.com/forms/d/e/1FAIpQLSfOwfOe9OAx_XgnsEMa8FzV2QJR8-ZkHmGD2gWEOcBeK41Odw/viewform',
-            ansiedade: 'https://docs.google.com/forms/d/e/1FAIpQLSdCuc1WnzTjMbRSyNmS5kuyG1NsaG95zMDO0v0GMABH8zodhg/viewform',
-            autoestima: 'https://docs.google.com/forms/d/e/1FAIpQLScu5CuRbE_UB829g4GqzMJyfm6J6sEdfw_xPUPEA3yMy6-6aw/viewform'
-          };
-          const simplifyChoices = raw => {
-            if (!Array.isArray(raw)) return [];
-            return raw.map(x => Array.isArray(x) ? x[0] : x).filter(x => typeof x === 'string');
-          };
-          for (const [id,url] of Object.entries(forms)) {
-            const html = await (await fetch(url)).text();
-            const match = html.match(/FB_PUBLIC_LOAD_DATA_\s*=\s*(\[.*?\]);\s*<\/script>/s);
-            if (!match) throw new Error(`NO_FB_PUBLIC_LOAD_DATA:${id}`);
-            const data = JSON.parse(match[1]);
-            const items = data?.[1]?.[1] || [];
-            const fields = items.map((item,index) => ({
-              index,
-              itemId: item?.[0] ?? null,
-              title: item?.[1] ?? '',
-              description: item?.[2] ?? '',
-              type: item?.[3] ?? null,
-              entryId: item?.[4]?.[0]?.[0] ?? null,
-              choices: simplifyChoices(item?.[4]?.[0]?.[1]),
-              required: Boolean(item?.[4]?.[0]?.[2])
-            }));
-            console.log(`===SCHEMA:${id}===`);
-            console.log(JSON.stringify({id,title:data?.[1]?.[8]||'',description:data?.[1]?.[0]||'',fields},null,2));
-            console.log(`===ENDSCHEMA:${id}===`);
-          }
+          const id='controle';
+          const url='https://docs.google.com/forms/d/e/1FAIpQLSfvrCtU4hn72xCYHPizP60GMIiRAm45KM-1k3z5_8VIOj6dMQ/viewform';
+          const html = await (await fetch(url)).text();
+          const match = html.match(/FB_PUBLIC_LOAD_DATA_\s*=\s*(\[.*?\]);\s*<\/script>/s);
+          if (!match) throw new Error('NO_FB_PUBLIC_LOAD_DATA');
+          const data = JSON.parse(match[1]);
+          const simplifyChoices = raw => Array.isArray(raw) ? raw.map(x => Array.isArray(x) ? x[0] : x).filter(x => typeof x === 'string') : [];
+          const items = data?.[1]?.[1] || [];
+          const fields = items.map((item,index) => ({index,itemId:item?.[0]??null,title:item?.[1]??'',description:item?.[2]??'',type:item?.[3]??null,entryId:item?.[4]?.[0]?.[0]??null,choices:simplifyChoices(item?.[4]?.[0]?.[1]),required:Boolean(item?.[4]?.[0]?.[2])}));
+          console.log(JSON.stringify({id,title:data?.[1]?.[8]||'',description:data?.[1]?.[0]||'',fields},null,2));
           EOF
           node /tmp/inspect.mjs
