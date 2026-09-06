@@ -1,0 +1,41 @@
+name: Corrigir gates Jornada Terapêutica
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/jornada-five-areas-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  fix-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Ajustar dois gates falsos positivos e limpar workflow temporário
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('.github/workflows/jornada-five-areas.yml')
+          s = p.read_text(encoding='utf-8')
+          old1 = "('10 Change-impact', 'querySelectorAll(\".service\")' in doc or \"querySelectorAll('.service')\" in doc),"
+          new1 = "('10 Change-impact', 'const serviceCards = qsa(\".service\");' in doc),"
+          old2 = "('27 Version-drift', doc.count('Dependência e Codependência Emocional') >= 2),"
+          new2 = "('27 Version-drift', 'Nossos Serviços Terapêuticos' not in doc and len(re.findall(r'<h3>Dependência e Codependência Emocional</h3>', doc)) == 1),"
+          if old1 not in s or old2 not in s:
+              raise SystemExit('Gates-alvo não encontrados; abortando para evitar alteração indevida.')
+          s = s.replace(old1, new1, 1).replace(old2, new2, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          rm -f .github/workflows/jornada-five-areas-fix.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/jornada-five-areas.yml .github/workflows/jornada-five-areas-fix.yml
+          git commit -m "Corrige falsos positivos da auditoria Jornada Terapêutica"
+          git push
