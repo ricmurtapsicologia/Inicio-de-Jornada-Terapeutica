@@ -1,0 +1,49 @@
+name: Fix bipolar MDQ impact label RC
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/fix-bipolar-mdq-label-rc.yml']
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Correct canonical MDQ impact label and refresh lock
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),crypto=require('crypto');
+          const p='audits/mirror-specs/bipolar.json';
+          const s=JSON.parse(fs.readFileSync(p,'utf8'));
+          const q=s.questions.find(x=>Number(x.order)===18);
+          if(!q) throw new Error('BIPOLAR_ORDER_18_NOT_FOUND');
+          q.title='Grau de prejuízo causado por esses sintomas';
+          fs.writeFileSync(p,JSON.stringify(s,null,2)+'\n');
+          const stable=x=>JSON.stringify(x,(k,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b))):v);
+          const canonical=s.questions.map(q=>({order:q.order,title:q.title,type:q.type,required:q.required,options:(q.options||[]).map(o=>({label:o.label,value:o.value}))}));
+          const locks=JSON.parse(fs.readFileSync('audits/content-locks/content-locks-rc-20260907.json','utf8'));
+          locks.instruments.bipolar={...locks.instruments.bipolar,questionCount:s.questionCount,sha256:crypto.createHash('sha256').update(stable(canonical),'utf8').digest('hex'),status:'LOCKED_RC',sourceVerifiedLabelFix:'MDQ impact label verified against tab-bateria-integrada/index.html'};
+          fs.writeFileSync('audits/content-locks/content-locks-rc-20260907.json',JSON.stringify(locks,null,2)+'\n');
+          const csvp='audits/forms-factory/perguntas-final.csv';
+          const lines=fs.readFileSync(csvp,'utf8').split(/\r?\n/);
+          let hit=0;
+          for(let i=0;i<lines.length;i++){
+            if(lines[i].startsWith('FORM-2026-0006,18,,DROPDOWN,Os sintomas marcados “Sim” aconteceram ao mesmo tempo?')){
+              lines[i]=lines[i].replace('Os sintomas marcados “Sim” aconteceram ao mesmo tempo?','Grau de prejuízo causado por esses sintomas');
+              hit++;
+            }
+          }
+          if(hit!==1) throw new Error('CSV_LABEL_HITS:'+hit);
+          fs.writeFileSync(csvp,lines.join('\n'));
+          console.log('BIPOLAR_MDQ_IMPACT_LABEL_PASS');
+          NODE
+      - name: Commit fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add audits/mirror-specs/bipolar.json audits/content-locks/content-locks-rc-20260907.json audits/forms-factory/perguntas-final.csv
+          git commit -m 'Corrige rótulo de prejuízo do MDQ no espelho clínico'
+          git push
