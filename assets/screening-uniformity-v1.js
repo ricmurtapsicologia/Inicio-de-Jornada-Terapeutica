@@ -1,6 +1,8 @@
 (()=>{
 'use strict';
+window.RM_SCREENING_V3_CLIENT=true;
 const SRC='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-system-v2.js?v=2.2.1-decoupled';
+const SUBMIT='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-submit-v3.js?v=3.1.0';
 window.__RM_PENDING_DELIVERY=window.__RM_PENDING_DELIVERY||[];
 if(!window.RMScreeningUI){
   window.RMScreeningUI={
@@ -15,5 +17,12 @@ if(!document.querySelector('script[data-rm-screening-v2]')){
   s.defer=true;
   s.dataset.rmScreeningV2='true';
   document.head.appendChild(s);
+}
+if(!document.querySelector('script[data-rm-submit-v3]')){
+  const t=document.createElement('script');
+  t.src=SUBMIT;
+  t.defer=true;
+  t.dataset.rmSubmitV3='true';
+  document.head.appendChild(t);
 }
 })();
