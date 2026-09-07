@@ -23,9 +23,9 @@ const SCREENING_INSTRUMENT_META_V3 = Object.freeze({
 });
 
 function runScreeningPostProcessingV3_(context) {
-  if (!context || !context.form || !context.payload || !context.formResponseId) throw new Error('ORCHESTRATOR_CONTEXT_INVALID');
+  if(!context||!context.form||!context.payload||!context.formResponseId) throw new Error('ORCHESTRATOR_CONTEXT_INVALID');
   const payload=context.payload;
-  const records=screeningScoringRecords_(context.form,payload.answers);
+  const records=context.records||screeningScoringRecordsOrdered_(buildScreeningOrderedContract_(context.form).clinical,payload.responses);
   const scored=scoreScreeningV3_(payload.instrumentId,records);
   const reportInput=screeningReportInputFromScoreV3_(payload,scored,records);
   enqueueScreeningPipeline_({submissionId:payload.submissionId,instrumentId:payload.instrumentId,formResponseId:context.formResponseId});
@@ -39,7 +39,7 @@ function runScreeningPostProcessingV3_(context) {
 }
 
 function screeningReportInputFromScoreV3_(payload,score,records) {
-  const a=payload.answers||{};
+  const a=payload.identity||{};
   const meta=SCREENING_INSTRUMENT_META_V3[payload.instrumentId]||{name:payload.instrumentId,shortName:payload.instrumentId,version:'vigente'};
   const sub=(score.subscales||[]).map(function(x){
     const val=x.rawScore!=null?x.rawScore:(x.score!=null?x.score:(x.mean!=null?x.mean:(x.percent!=null?x.percent+'%':'—')));
@@ -49,17 +49,25 @@ function screeningReportInputFromScoreV3_(payload,score,records) {
   const urgent=flags.some(function(f){return ['CLINICAL_ALERT_REQUIRED','SUICIDE_ITEM_ENDORSED','SUICIDE_ITEM_HIGH','CRITICAL_ITEM_4','RECENT_ATTEMPT_D2_HIGH','SUICIDAL_IDEATION_PRESENT'].indexOf(f)>=0;});
   return {
     submissionId:payload.submissionId,
-    patient:{name:String(a['Nome completo']||'').trim(),birthDate:String(a['Data de nascimento']||'').trim()},
+    patient:{name:String(a.name||'').trim(),birthDate:String(a.birthDate||'').trim()},
     instrument:{id:payload.instrumentId,name:meta.name,shortName:meta.shortName,version:meta.version},
-    applicationDate:String(a['Data de aplicação do rastreio']||'').trim(),
+    applicationDate:String(a.applicationDate||'').trim(),
     generatedAt:new Date().toISOString(),
     result:{
-      valid:true,answeredCount:records.filter(function(x){return !x.identity;}).length,totalCount:records.filter(function(x){return !x.identity;}).length,
-      rawScore:score.rawScore,normalizedScore:score.normalizedScore,classification:score.classification,
-      summary:score.clinicalMeaning||'',subscales:sub,indicators:flags,
-      clinicalMeaning:score.clinicalMeaning||'',limitations:(score.caveats||[]).slice(),
+      valid:true,
+      answeredCount:records.length,
+      totalCount:records.length,
+      rawScore:score.rawScore,
+      normalizedScore:score.normalizedScore,
+      classification:score.classification,
+      summary:score.clinicalMeaning||'',
+      subscales:sub,
+      indicators:flags,
+      clinicalMeaning:score.clinicalMeaning||'',
+      limitations:(score.caveats||[]).slice(),
       scoringContract:(score.sourceMode||'UNSPECIFIED')+' · '+(score.scoringVersion||SCREENING_SCORING_VERSION),
-      technicalNote:'Processamento automatizado após persistência confirmada no Google Forms.',urgent:urgent
+      technicalNote:'Processamento automatizado após persistência confirmada no Google Forms.',
+      urgent:urgent
     }
   };
 }
