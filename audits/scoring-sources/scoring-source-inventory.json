@@ -1,0 +1,1728 @@
+{
+  "generatedAt": "2026-09-07",
+  "policy": "Use only pre-existing scoring rules; never invent psychometric rules.",
+  "instruments": {
+    "geral": {
+      "repo": "Rastreioclinico",
+      "status": "HISTORICAL_RULES_FOUND",
+      "currentStrongMatches": 0,
+      "currentFiles": [
+        {
+          "path": ".github/workflows/remove-whatsapp-v2.yml",
+          "matches": [
+            {
+              "line": 1,
+              "text": "name: Remover WhatsApp de resultados v2",
+              "strong": false
+            },
+            {
+              "line": 26,
+              "text": "s=re.sub(r'\\s*const\\s+enviarResultado\\s*=\\s*\\(\\)\\s*=>\\s*\\{.*?window\\.open\\(`https://wa\\.me/.*?\\);\\s*\\};\\s*','\\n',s,count=1,flags=re.S)",
+              "strong": false
+            },
+            {
+              "line": 27,
+              "text": "s=re.sub(r'\\s*btnEnv\\.addEventListener\\([\"\\']click[\"\\'],\\s*enviarResultado\\);','',s,count=1)",
+              "strong": false
+            },
+            {
+              "line": 37,
+              "text": "if re.search(r'wa\\.me|btnEnviar|send-whatsapp|enviarResultado|whatsapp',s,re.I): raise SystemExit('WHATSAPP_RESIDUE')",
+              "strong": false
+            },
+            {
+              "line": 45,
+              "text": "git commit -m 'Remove compartilhamento de resultados por WhatsApp'",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/sanitize-patient-results-v3.yml",
+          "matches": [
+            {
+              "line": 44,
+              "text": "git commit -m 'Remove resultados diagnósticos do fluxo do paciente'",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "88e37a2 Update index.html",
+        "835733b Create index.html"
+      ]
+    },
+    "tdah": {
+      "repo": "rastreioTDAH",
+      "status": "HISTORICAL_RULES_FOUND",
+      "currentStrongMatches": 0,
+      "currentFiles": [
+        {
+          "path": ".github/workflows/remove-whatsapp-v2.yml",
+          "matches": [
+            {
+              "line": 1,
+              "text": "name: Remover WhatsApp de resultados v2",
+              "strong": false
+            },
+            {
+              "line": 43,
+              "text": "git commit -m 'Remove compartilhamento de resultados por WhatsApp'",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/sanitize-patient-results-v3.yml",
+          "matches": [
+            {
+              "line": 42,
+              "text": "git commit -m 'Remove interpretação DSM-like do fluxo do paciente'",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "99b7001 Remove interpretação DSM-like do fluxo do paciente",
+        "fb4b1bc Update index.html",
+        "4eeabc1 Update index.html",
+        "fb95a20 Create index.html"
+      ]
+    },
+    "bipolar": {
+      "repo": "tab-bateria-integrada",
+      "status": "HISTORICAL_RULES_FOUND",
+      "currentStrongMatches": 0,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 19,
+              "text": "<meta property=\"og:description\" content=\"Aplicação integrada de MDQ, HCL-32, BSDS e MINI para triagem clínica. Resultados claros e relatório justificado.\">",
+              "strong": false
+            },
+            {
+              "line": 134,
+              "text": "sua experiência habitual (ao longo da vida, não um dia isolado). O resultado aponta probabilidade e não substitui",
+              "strong": false
+            },
+            {
+              "line": 329,
+              "text": "document.getElementById('mdq-out').innerHTML = `MDQ: ${r.yes}/13 “Sim”. Simultaneidade: ${r.simult?'Sim':'Não'}. Prejuízo: ${r.imp||'—'}. ${tag}\\nInterpretação objetiva: ${r.meets?'Triagem positiva no MDQ (critério BR).':(r.yes>=7?'Resultado limítrofe/atencional.':'Triagem negativa; correlacionar com clínica.')}`;",
+              "strong": false
+            },
+            {
+              "line": 366,
+              "text": "document.getElementById('hcl-out').innerHTML = `HCL-32: ${r.yes}/32 “Sim”. ${tag}\\nInterpretação objetiva: ${r.tier==='compatível'?'Padrão compatível com traços hipomaníacos.':(r.tier==='atenção'?'Faixa atencional (14–18), correlacionar com clínica.':'Abaixo do corte principal; considerar contexto.')}`;",
+              "strong": false
+            },
+            {
+              "line": 408,
+              "text": "document.getElementById('bsds-out').innerHTML = `BSDS: base ${r.yes}/19 + ajuste = **${r.total}**. ${tag}\\nInterpretação objetiva: ${r.tier==='provavel'?'Perfil compatível com espectro bipolar.':(r.tier==='possivel'?'Perfil possível; aprofundar avaliação.':'Improvável pelo BSDS, considerar contexto.')}`;",
+              "strong": false
+            },
+            {
+              "line": 469,
+              "text": "const p1 = `Avaliado(a): ${idVal('nome')}, ${idVal('idade')?idVal('idade')+' anos, ':''}aplicação em ${idVal('data')}. Instrumentos: MDQ, HCL-32, BSDS e MINI (módulo bipolar). Resultados interpretados como *triagem*, devendo ser correlacionados com entrevista clínica, curso temporal e comorbidades.`;",
+              "strong": false
+            },
+            {
+              "line": 472,
+              "text": "(mdq.meets?'Padrão compatível com triagem positiva.':(mdq.yes>=7?'Resultado limítrofe; atenção clínica.':'Abaixo do corte principal.')))",
+              "strong": false
+            },
+            {
+              "line": 480,
+              "text": "(bsds.tier==='provavel'?'Interpretação: provável espectro bipolar.':(bsds.tier==='possivel'?'Interpretação: possível.':'Interpretação: *improvável*.')))",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/remove-whatsapp-v2.yml",
+          "matches": [
+            {
+              "line": 1,
+              "text": "name: Remover WhatsApp de resultados v2",
+              "strong": false
+            },
+            {
+              "line": 43,
+              "text": "git commit -m 'Remove envio de resultados por WhatsApp'",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "e6e6098 Update fmt.Println message from 'Hello' to 'Goodbye'"
+      ]
+    },
+    "borderline": {
+      "repo": "Inventario-de-Tracos-Borderline",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 13,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 135,
+              "text": "<li>O resultado indica <strong>níveis de traços</strong>; <u>não é diagnóstico</u>. Em caso de sofrimento intenso ou risco, use o botão 188.</li>",
+              "strong": false
+            },
+            {
+              "line": 141,
+              "text": "<div class=\"disclaimer\">Este instrumento é apenas <em>rastreio</em>. Escores e cortes são provisórios e dependem de validação psicométrica. Utilize sempre em conjunto com entrevista clínica e critérios do DSM‑5‑TR.</div>",
+              "strong": true
+            },
+            {
+              "line": 247,
+              "text": "const REVERSE = new Set([4, 10, 16, 30, 36]);",
+              "strong": true
+            },
+            {
+              "line": 259,
+              "text": "const MIN_SCORE = TOTAL_ITEMS * 1; // 47",
+              "strong": false
+            },
+            {
+              "line": 260,
+              "text": "const MAX_SCORE = TOTAL_ITEMS * 4; // 188",
+              "strong": false
+            },
+            {
+              "line": 272,
+              "text": "let lastScore = null;",
+              "strong": false
+            },
+            {
+              "line": 284,
+              "text": "lab.textContent = `${qn}. ${text}${REVERSE.has(qn) ? ' *' : ''}`;",
+              "strong": true
+            },
+            {
+              "line": 326,
+              "text": "function invertIfNeeded(qn, val){",
+              "strong": true
+            },
+            {
+              "line": 327,
+              "text": "return REVERSE.has(qn) ? (5 - val) : val;",
+              "strong": true
+            },
+            {
+              "line": 330,
+              "text": "function computeScore(){",
+              "strong": true
+            },
+            {
+              "line": 349,
+              "text": "sum += invertIfNeeded(i, v);",
+              "strong": true
+            },
+            {
+              "line": 367,
+              "text": "function interpretation(key){",
+              "strong": false
+            },
+            {
+              "line": 383,
+              "text": "lines.push(`• Escore bruto: ${scoreRaw} (mín ${MIN_SCORE}, máx ${MAX_SCORE}).`);",
+              "strong": true
+            },
+            {
+              "line": 385,
+              "text": "lines.push(`• Classificação orientativa: ${classLabel}.`);",
+              "strong": true
+            },
+            {
+              "line": 387,
+              "text": "lines.push(`\\nInterpretação clínica (uso orientativo):`);",
+              "strong": false
+            },
+            {
+              "line": 388,
+              "text": "lines.push(interpretation(classLabelToKey(classLabel)));",
+              "strong": false
+            },
+            {
+              "line": 390,
+              "text": "lines.push(`1) Este resultado não confirma diagnóstico. Deve ser integrado à entrevista clínica (critérios DSM‑5‑TR) e ao contexto de vida.`);",
+              "strong": false
+            },
+            {
+              "line": 395,
+              "text": "lines.push(`• Escores podem variar com humor, estresse e contexto. Repetir quando necessário.`);",
+              "strong": true
+            },
+            {
+              "line": 416,
+              "text": "const score = computeScore();",
+              "strong": true
+            },
+            {
+              "line": 417,
+              "text": "if (score == null) return;",
+              "strong": false
+            },
+            {
+              "line": 418,
+              "text": "lastScore = score;",
+              "strong": false
+            },
+            {
+              "line": 426,
+              "text": "<h2>Resultados</h2>",
+              "strong": false
+            },
+            {
+              "line": 428,
+              "text": "<div><strong>Escore bruto:</strong> ${score} (min ${MIN_SCORE}, máx ${MAX_SCORE})</div>",
+              "strong": true
+            },
+            {
+              "line": 429,
+              "text": "<div style=\"margin-top:4px\"><strong>Classificação orientativa:</strong> ${c.label}</div>",
+              "strong": true
+            },
+            {
+              "line": 430,
+              "text": "<div style=\"margin-top:8px\">${interpretation(c.key)}</div>",
+              "strong": false
+            },
+            {
+              "line": 432,
+              "text": "<div style=\"margin-top:8px; font-size:13px; color:#475569\">*Este resultado não confirma diagnóstico. Utilize com critérios do DSM‑5‑TR e entrevista clínica.</div>",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/remove-whatsapp-v2.yml",
+          "matches": [
+            {
+              "line": 1,
+              "text": "name: Remover WhatsApp de resultados v2",
+              "strong": false
+            },
+            {
+              "line": 43,
+              "text": "git commit -m 'Remove compartilhamento de resultados por WhatsApp'",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "af9ba78 Update print statement from 'Hello' to 'Goodbye'",
+        "61b6ef1 Update index.html",
+        "e9df3e6 Create index.html"
+      ]
+    },
+    "narcisismo": {
+      "repo": "bateria.narcisismo",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 3,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 9,
+              "text": "<meta name=\"description\" content=\"Bateria de Rastreio – Traços Narcisistas: NPI-16, PID-5-BF (25), FFNI-SF (60) e MINI (DSM-5-TR). Resultados claros e relatório integrado.\">",
+              "strong": false
+            },
+            {
+              "line": 236,
+              "text": "Esta é uma <strong>bateria de rastreio</strong>. Resultados elevados sugerem traços relevantes e <strong>orientam investigação clínica estruturada</strong>, mas <strong>não substituem</strong> uma avaliação presencial com psicólogo",
+              "strong": false
+            },
+            {
+              "line": 237,
+              "text": "ou equipe multiprofissional. A interpretação deve considerar curso temporal, contexto, comorbidades, história de desenvolvimento e impacto no funcionamento interpessoal, ocupacional e acadêmico.",
+              "strong": false
+            },
+            {
+              "line": 321,
+              "text": "Interpretação clínica:",
+              "strong": false
+            },
+            {
+              "line": 461,
+              "text": "const ffniReverse = new Set([19,27,38]); // inversões (não exibidas visualmente)",
+              "strong": true
+            },
+            {
+              "line": 468,
+              "text": "// sem marcar visualmente itens invertidos",
+              "strong": true
+            },
+            {
+              "line": 480,
+              "text": "ffniReverse.forEach(n1=>{ const i=n1-1; vals[i] = 6 - vals[i]; }); // inversão aplicada silenciosamente",
+              "strong": true
+            },
+            {
+              "line": 545,
+              "text": "let interpretacao = `",
+              "strong": false
+            },
+            {
+              "line": 555,
+              "text": "interpretacao = `",
+              "strong": false
+            },
+            {
+              "line": 565,
+              "text": "interpretacao = `",
+              "strong": false
+            },
+            {
+              "line": 577,
+              "text": "${interpretacao}`;",
+              "strong": false
+            },
+            {
+              "line": 606,
+              "text": "Resultados apresentados como triagem dimensional e devem ser integrados à avaliação clínica.`;",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/remove-whatsapp-v2.yml",
+          "matches": [
+            {
+              "line": 1,
+              "text": "name: Remover WhatsApp de resultados v2",
+              "strong": false
+            },
+            {
+              "line": 24,
+              "text": "s=s.replace('<li>Ao final, clique em <strong>Gerar Relatório Integrado</strong>. Você poderá <strong>copiar o resultado</strong> e também <strong>enviá-lo ao seu psicólogo</strong> usando o botão do WhatsApp.</li>', '<li>Ao final, conclua todos os itens. A análise do conjunto será realizada pelo psicólogo responsável.</li>')",
+              "strong": false
+            },
+            {
+              "line": 44,
+              "text": "git commit -m 'Remove envio de resultados por WhatsApp'",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "808ef8b Update index.html",
+        "79f73c4 Update fmt.Println message from 'Hello' to 'Goodbye'"
+      ]
+    },
+    "impulsividade": {
+      "repo": "Rastreio-de-Impulsividade",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 1,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 152,
+              "text": "<p>Sua honestidade é essencial para garantir a validade dos resultados. Não há respostas corretas ou erradas.</p>",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/remove-whatsapp-v2.yml",
+          "matches": [
+            {
+              "line": 1,
+              "text": "name: Remover WhatsApp de resultados v2",
+              "strong": false
+            },
+            {
+              "line": 34,
+              "text": "for marker in ['id=\"scaleForm\"','name=\"q1\"','name=\"q30\"','function calculateScore','function determinePercentile']:",
+              "strong": true
+            },
+            {
+              "line": 42,
+              "text": "git commit -m 'Remove compartilhamento de resultados por WhatsApp'",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/sanitize-patient-results-v3.yml",
+          "matches": [
+            {
+              "line": 29,
+              "text": "for token in ('determinePercentile(', 'interpretPercentile(', 'JustGage', 'Percentil:', 'id=\"results\"'):",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "c600922 Remove scorer e percentis simulados do fluxo do paciente",
+        "da16f17 Adiciona saneamento protegido da Impulsividade",
+        "8d861e1 Automatiza remoção do compartilhamento de resultados por WhatsApp no rastreio de impulsividade",
+        "24a1550 Update index.html",
+        "92bbf29 Create index.html"
+      ]
+    },
+    "esquemas": {
+      "repo": "rastreio.de.esquemas",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 8,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 752,
+              "text": "<span class=\"hero-pill\">Resultados para reflexão em terapia</span>",
+              "strong": false
+            },
+            {
+              "line": 796,
+              "text": "Eles não são “defeitos de caráter”, mas formas de interpretar o mundo que fizeram sentido em algum momento",
+              "strong": false
+            },
+            {
+              "line": 818,
+              "text": "<li>os resultados são indicativos, não um diagnóstico;</li>",
+              "strong": false
+            },
+            {
+              "line": 820,
+              "text": "<li>você é responsável por decidir se compartilha ou não seus resultados.</li>",
+              "strong": false
+            },
+            {
+              "line": 824,
+              "text": "o resultado apenas como apoio à conversa com seu psicólogo(a)/psiquiatra.",
+              "strong": false
+            },
+            {
+              "line": 863,
+              "text": "Você poderá revisar todas as respostas antes de gerar seus resultados. Nome completo, data de nascimento e data de aplicação identificam corretamente o rastreio",
+              "strong": false
+            },
+            {
+              "line": 919,
+              "text": "<button type=\"button\" class=\"btn btn-primary\" id=\"calculateResults\">Corrigir e gerar resultados</button>",
+              "strong": false
+            },
+            {
+              "line": 925,
+              "text": "<div class=\"card-title\">Seus resultados</div>",
+              "strong": false
+            },
+            {
+              "line": 952,
+              "text": "<div class=\"section-title\">Gráfico de escores por esquema</div>",
+              "strong": true
+            },
+            {
+              "line": 997,
+              "text": "O resultado será integrado à análise clínica pelo psicólogo responsável.",
+              "strong": false
+            },
+            {
+              "line": 1259,
+              "text": "definicao: 'Expectativa de que, cedo ou tarde, alguém irá machucar, enganar, humilhar ou se aproveitar. A tendência é interpretar o mundo como perigoso e hostil.',",
+              "strong": false
+            },
+            {
+              "line": 1372,
+              "text": "origem: 'Comum em famílias muito exigentes, críticas, competitivas ou centradas em produtividade e resultados.',",
+              "strong": false
+            },
+            {
+              "line": 2364,
+              "text": "'Todos os itens estão respondidos. Você pode gerar seus resultados com segurança.';",
+              "strong": false
+            },
+            {
+              "line": 2372,
+              "text": "alert('Ainda há itens sem resposta. Idealmente, complete todos antes de gerar os resultados.');",
+              "strong": false
+            },
+            {
+              "line": 2396,
+              "text": "styleScores: {",
+              "strong": true
+            },
+            {
+              "line": 2402,
+              "text": "interpretacao: ''",
+              "strong": false
+            },
+            {
+              "line": 2413,
+              "text": "if (q.styleHint === 'R') entry.styleScores.resignado += val;",
+              "strong": true
+            },
+            {
+              "line": 2414,
+              "text": "if (q.styleHint === 'E') entry.styleScores.evitativo += val;",
+              "strong": true
+            },
+            {
+              "line": 2415,
+              "text": "if (q.styleHint === 'H') entry.styleScores.hipercompensador += val;",
+              "strong": true
+            },
+            {
+              "line": 2432,
+              "text": "const ss = entry.styleScores;",
+              "strong": true
+            },
+            {
+              "line": 2453,
+              "text": "entry.interpretacao =",
+              "strong": false
+            },
+            {
+              "line": 2457,
+              "text": "entry.interpretacao =",
+              "strong": false
+            },
+            {
+              "line": 2461,
+              "text": "entry.interpretacao =",
+              "strong": false
+            },
+            {
+              "line": 2504,
+              "text": "<th>Escore médio</th>",
+              "strong": true
+            },
+            {
+              "line": 2832,
+              "text": "return 'Os resultados sugerem que este padrão pode ser explorado em psicoterapia com atenção aos gatilhos, emoções, pensamentos e respostas comportamentais associadas.';",
+              "strong": false
+            },
+            {
+              "line": 3126,
+              "text": "const intro = `Domínio: ${entry.schema.dominio}. ${entry.interpretacao}`;",
+              "strong": false
+            },
+            {
+              "line": 3277,
+              "text": "const maxScore = 6;",
+              "strong": false
+            },
+            {
+              "line": 3353,
+              "text": "alert('Gere os resultados antes de baixar o relatório.');",
+              "strong": false
+            },
+            {
+              "line": 3386,
+              "text": "'Este relatório tem finalidade psicoeducativa e serve como apoio à reflexão clínica em psicoterapia. Os resultados são indicativos e não constituem diagnóstico psicológico, psiquiátrico ou médico. A interpretação adequada depende da integração com entrevista clínica, história de vida, contexto atual e acompanhamento profissional. Em caso de sofrimento intenso, risco à integridade ou urgência emocional, recomenda-se buscar imediatamente serviços de saúde, emergência ou rede de apoio local.',",
+              "strong": false
+            },
+            {
+              "line": 3409,
+              "text": "y = addSectionTitle(doc, '2. Síntese interpretativa', y);",
+              "strong": false
+            },
+            {
+              "line": 3413,
+              "text": "`${synthesisName} apresentou ${data.active.length} esquema(s) ativo(s) e ${data.latent.length} esquema(s) latente(s). Entre os esquemas ativos, a distribuição de estilos predominantes foi: ${styleSummary}. Esses dados sugerem hipóteses clínicas iniciais e devem ser interpretados com cautela, considerando história de vida, contexto atual, sofrimento relatado, vínculos significativos e objetivos terapêuticos.\\n\\nA presença de esquemas ativos não deve ser compreendida como diagnóstico. Ela pode ind",
+              "strong": false
+            },
+            {
+              "line": 3424,
+              "text": "'Resultado',",
+              "strong": false
+            },
+            {
+              "line": 3477,
+              "text": "y = addSectionTitle(doc, '5. Tabela completa dos resultados', y);",
+              "strong": false
+            },
+            {
+              "line": 3480,
+              "text": "y = addSectionTitle(doc, '6. Representação visual dos escores', y);",
+              "strong": true
+            },
+            {
+              "line": 3486,
+              "text": "'Os Esquemas Iniciais Desadaptativos costumam se formar a partir da interação entre temperamento, experiências repetidas e necessidades emocionais básicas que não foram suficientemente atendidas. Eles funcionam como mapas internos de previsão: ajudam a interpretar o mundo, mas podem manter respostas antigas mesmo quando a situação atual já é diferente.\\n\\nUm esquema ativo indica maior frequência ou intensidade do padrão no momento da aplicação. Um esquema latente sugere uma vulnerabilidade que p",
+              "strong": false
+            },
+            {
+              "line": 3534,
+              "text": "'Este instrumento possui finalidade psicoeducativa e de rastreio. Seus resultados não substituem avaliação psicológica formal, entrevista clínica, psicoterapia, consulta médica ou psiquiátrica. A interpretação deve considerar história de vida, contexto atual, sofrimento relatado, funcionamento global e objetivos terapêuticos. Em situações de risco, urgência emocional ou sofrimento intenso, recomenda-se buscar atendimento imediato em serviços de saúde, emergência ou rede de apoio local.',",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/remove-whatsapp-v2.yml",
+          "matches": [
+            {
+              "line": 1,
+              "text": "name: Remover WhatsApp de resultados v2",
+              "strong": false
+            },
+            {
+              "line": 21,
+              "text": "s=s.replace('Você pode enviar um resumo dos seus resultados diretamente para seu psicólogo via WhatsApp, compartilhar a página\\n                ou baixar um relatório psicoeducativo em PDF para reflexão e discussão em terapia.', 'O resultado será integrado à análise clínica pelo psicólogo responsável.')",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "1a74ba2 Update index.html",
+        "3b87ddb Create index.html"
+      ]
+    },
+    "modos": {
+      "repo": "rastreiomodosesquematicos",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 3,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 12,
+              "text": "<meta name=\"description\" content=\"Autoavaliação clínica baseada na Terapia dos Esquemas. Identifique seus modos de enfrentamento, visualize os resultados e gere um PDF para acompanhamento terapêutico.\">",
+              "strong": false
+            },
+            {
+              "line": 26,
+              "text": "<meta property=\"og:description\" content=\"Entenda seus padrões emocionais e modos disfuncionais com base na Terapia dos Esquemas. Resultados destinados à análise clínica pelo psicólogo responsável.\">",
+              "strong": false
+            },
+            {
+              "line": 273,
+              "text": "<span aria-hidden=\"true\">📊</span> Gerar Resultados </button>",
+              "strong": false
+            },
+            {
+              "line": 278,
+              "text": "<!-- Resultados -->",
+              "strong": false
+            },
+            {
+              "line": 456,
+              "text": "\"Recusa regras, rotinas e limites. Quer fazer apenas o que tem vontade. Normalmente é resultado de carência de orientação firme na infância ou de frustrações não validadas.\",",
+              "strong": false
+            },
+            {
+              "line": 480,
+              "text": "\"É o modo que cobra perfeição, sucesso e alto desempenho o tempo todo. Nunca está satisfeito. Costuma nascer de pais exigentes, valorização exagerada de resultados ou medo de falhar e ser rejeitado.\",",
+              "strong": false
+            },
+            {
+              "line": 498,
+              "text": "// Classificação de severidade",
+              "strong": true
+            },
+            {
+              "line": 499,
+              "text": "const getSeverity = pct =>",
+              "strong": true
+            },
+            {
+              "line": 531,
+              "text": "// Calcula os resultados",
+              "strong": false
+            },
+            {
+              "line": 536,
+              "text": "let [color, label] = getSeverity(pct);",
+              "strong": true
+            },
+            {
+              "line": 548,
+              "text": "// Exibe resultados",
+              "strong": false
+            },
+            {
+              "line": 596,
+              "text": "doc.setFont('Times','Bold').text('Modos com gravidade identificada:', margin, y);",
+              "strong": false
+            },
+            {
+              "line": 615,
+              "text": "doc.text('A partir desses resultados, o processo clínico será direcionado para fortalecer o Adulto Saudável, reduzir comportamentos disfuncionais e promover novas formas de enfrentamento.', margin, y, { maxWidth:180 });",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/remove-whatsapp-v2.yml",
+          "matches": [
+            {
+              "line": 1,
+              "text": "name: Remover WhatsApp de resultados v2",
+              "strong": false
+            },
+            {
+              "line": 21,
+              "text": "s=s.replace('Resultados visuais, PDF personalizado e envio via WhatsApp.','Resultados destinados à análise clínica pelo psicólogo responsável.')",
+              "strong": false
+            },
+            {
+              "line": 48,
+              "text": "git commit -m 'Remove envio de resultados por WhatsApp'",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": []
+    },
+    "necessidades": {
+      "repo": "Escala-de-Necessidades-Emocionais",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 15,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 6,
+              "text": "<meta name=\"description\" content=\"Escala de rastreio de necessidades emocionais com devolutiva clínica por domínios e envio dos resultados ao psicólogo.\" />",
+              "strong": false
+            },
+            {
+              "line": 351,
+              "text": ".interpretation {",
+              "strong": false
+            },
+            {
+              "line": 444,
+              "text": "<p>Este rastreio não substitui psicoterapia, avaliação psicológica ou diagnóstico clínico. Ele funciona como uma fotografia inicial: ajuda paciente e psicólogo a identificarem domínios sensíveis, possíveis estilos parentais associados, aspectos cognitivos, emoções predominantes e comportamentos prováveis. O resultado deve ser usado como apoio ao processo terapêutico, e não como sentença sobre a pessoa.</p>",
+              "strong": false
+            },
+            {
+              "line": 496,
+              "text": "const MAX_DOMAIN_SCORE = 20;",
+              "strong": false
+            },
+            {
+              "line": 526,
+              "text": "{ id: \"security\", title: \"Segurança e Estabilidade\", description: \"Proteção, previsibilidade e confiança básica.\", questions: [{ text: \"Eu sinto que as pessoas ao meu redor estão presentes quando eu mais preciso.\", reverse: false }, { text: \"Muitas vezes tenho medo de que algo ruim aconteça, mesmo sem razão aparente.\", reverse: true }, { text: \"Meu ambiente de vida me proporciona segurança e estabilidade.\", reverse: false }, { text: \"Frequentemente sinto que estou em risco ou vulnerável.\", rever",
+              "strong": true
+            },
+            {
+              "line": 527,
+              "text": "{ id: \"connection\", title: \"Afeto e Conexão\", description: \"Vínculo, pertencimento e intimidade emocional.\", questions: [{ text: \"Sinto que sou valorizado e amado pelas pessoas mais próximas.\", reverse: false }, { text: \"Tenho dificuldade em me conectar emocionalmente com as pessoas.\", reverse: true }, { text: \"As pessoas com quem me importo demonstram que gostam de mim.\", reverse: false }, { text: \"Frequentemente me sinto emocionalmente distante ou isolado dos outros.\", reverse: true }] },",
+              "strong": true
+            },
+            {
+              "line": 528,
+              "text": "{ id: \"validation\", title: \"Validação\", description: \"Reconhecimento e acolhimento da experiência interna.\", questions: [{ text: \"Minhas realizações são frequentemente reconhecidas por quem me rodeia.\", reverse: false }, { text: \"Preciso da aprovação constante de outros para me sentir bem.\", reverse: true }, { text: \"Sinto que sou valorizado pelos meus esforços e realizações.\", reverse: false }, { text: \"Mesmo quando faço algo importante, sinto que os outros não percebem.\", reverse: true }] },",
+              "strong": true
+            },
+            {
+              "line": 529,
+              "text": "{ id: \"autonomy\", title: \"Autonomia\", description: \"Autodireção e confiança para conduzir a vida.\", questions: [{ text: \"Sinto que tenho controle sobre as decisões importantes da minha vida.\", reverse: false }, { text: \"Muitas vezes sinto que dependo dos outros para tomar decisões importantes.\", reverse: true }, { text: \"Tenho autonomia para escolher meu próprio caminho.\", reverse: false }, { text: \"Costumo seguir as decisões dos outros, mesmo quando discordo.\", reverse: true }] },",
+              "strong": true
+            },
+            {
+              "line": 530,
+              "text": "{ id: \"purpose\", title: \"Propósito e Direção\", description: \"Construção de sentido e metas existenciais.\", questions: [{ text: \"Eu tenho um propósito claro que me guia.\", reverse: false }, { text: \"Às vezes sinto que minha vida não tem direção ou propósito.\", reverse: true }, { text: \"Minhas ações diárias têm um sentido e valor para mim.\", reverse: false }, { text: \"Frequentemente me pergunto se estou realmente seguindo o caminho certo na vida.\", reverse: true }] },",
+              "strong": true
+            },
+            {
+              "line": 531,
+              "text": "{ id: \"support\", title: \"Apoio e Suporte\", description: \"Rede de apoio e confiança interpessoal.\", questions: [{ text: \"Tenho pessoas em quem confio para compartilhar meus problemas.\", reverse: false }, { text: \"Quando estou angustiado, sinto que não tenho ninguém para falar.\", reverse: true }, { text: \"Minhas opiniões e sentimentos são ouvidos e compreendidos pelos outros.\", reverse: false }, { text: \"Muitas vezes sinto que não sou compreendido pelos outros.\", reverse: true }] },",
+              "strong": true
+            },
+            {
+              "line": 532,
+              "text": "{ id: \"expression\", title: \"Expressão e Comunicação\", description: \"Liberdade para expressar sentimentos e limites.\", questions: [{ text: \"Posso expressar minhas opiniões e sentimentos sem medo.\", reverse: false }, { text: \"Costumo me segurar para não expressar minhas verdadeiras opiniões.\", reverse: true }, { text: \"Sinto-me à vontade para ser quem eu sou em qualquer ambiente.\", reverse: false }, { text: \"Tenho receio de me abrir e falar o que penso.\", reverse: true }] },",
+              "strong": true
+            },
+            {
+              "line": 533,
+              "text": "{ id: \"novelty\", title: \"Novidade e Desafios\", description: \"Abertura para experiências novas e flexibilidade.\", questions: [{ text: \"Tenho acesso a experiências novas e desafiadoras regularmente.\", reverse: false }, { text: \"Às vezes me sinto entediado com a rotina da minha vida.\", reverse: true }, { text: \"Eu busco ativamente novos aprendizados e experiências.\", reverse: false }, { text: \"Costumo evitar mudanças, mesmo quando elas podem ser positivas.\", reverse: true }] },",
+              "strong": true
+            },
+            {
+              "line": 534,
+              "text": "{ id: \"growth\", title: \"Crescimento e Desenvolvimento\", description: \"Progresso pessoal e sensação de evolução.\", questions: [{ text: \"Tenho oportunidades frequentes de crescimento pessoal e profissional.\", reverse: false }, { text: \"Muitas vezes sinto que minha vida está estagnada.\", reverse: true }, { text: \"Estou sempre buscando melhorar minhas habilidades e conhecimentos.\", reverse: false }, { text: \"Tenho dificuldade em progredir em minha vida ou carreira.\", reverse: true }] }",
+              "strong": true
+            },
+            {
+              "line": 555,
+              "text": "<select id=\"${name}\" name=\"${name}\" data-domain=\"${domain.id}\" data-reverse=\"${question.reverse}\" required>",
+              "strong": true
+            },
+            {
+              "line": 576,
+              "text": "const calculateScores = (formData) => {",
+              "strong": true
+            },
+            {
+              "line": 583,
+              "text": "const isReverse = field.dataset.reverse === \"true\";",
+              "strong": true
+            },
+            {
+              "line": 585,
+              "text": "const calcVal = isReverse ? 6 - val : val;",
+              "strong": true
+            },
+            {
+              "line": 587,
+              "text": "answers[key] = { originalScore: val, calculatedScore: calcVal };",
+              "strong": true
+            },
+            {
+              "line": 598,
+              "text": "const score = scores[domain.id];",
+              "strong": false
+            },
+            {
+              "line": 608,
+              "text": "`*RESULTADOS:*`,",
+              "strong": false
+            },
+            {
+              "line": 611,
+              "text": "`_Resultado detalhado disponível no painel do paciente._`",
+              "strong": false
+            },
+            {
+              "line": 619,
+              "text": "const score = scores[domain.id];",
+              "strong": false
+            },
+            {
+              "line": 621,
+              "text": "return `[${domain.title.toUpperCase()}] Score: ${score}/20\\nNível: ${feedback.label}\\nCognitivo: ${feedback.cognitive}\\nEmocional: ${feedback.emotional}\\nComportamento: ${feedback.behavior}`;",
+              "strong": false
+            },
+            {
+              "line": 631,
+              "text": "const score = scores[domain.id];",
+              "strong": false
+            },
+            {
+              "line": 636,
+              "text": "low: { label: \"Necessidade parcialmente fragilizada\", cognitive: \"Podem existir dúvidas recorrentes sobre valor pessoal, pertencimento, competência ou segurança. A pessoa ainda consegue funcionar, mas interpreta algumas situações com viés de ameaça, crítica ou abandono.\", emotional: \"As emoções tendem a oscilar entre insegurança e busca de controle. Podem aparecer ansiedade, frustração, ressentimento, desânimo ou sensação de precisar se esforçar demais para ser aceito.\", behavior: \"Podem ocorrer",
+              "strong": false
+            },
+            {
+              "line": 638,
+              "text": "high: { label: \"Necessidade bem atendida\", cognitive: \"A pessoa tende a apresentar crenças mais flexíveis sobre si, os outros e o futuro. Consegue reconhecer dificuldades sem transformar falhas pontuais em conclusões globais sobre valor pessoal.\", emotional: \"Há maior estabilidade emocional, tolerância à frustração, capacidade de pedir apoio e menor tendência a interpretar conflitos como prova de rejeição ou incapacidade.\", behavior: \"São prováveis assertividade, autonomia, busca equilibrada por",
+              "strong": false
+            },
+            {
+              "line": 645,
+              "text": "<span class=\"interpretation\">${feedback.label}</span>",
+              "strong": false
+            },
+            {
+              "line": 674,
+              "text": "const { scores, answers } = calculateScores(formData);",
+              "strong": true
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "0d1990d Update index.html",
+        "5c029a0 Update index.html",
+        "c29e9d3 Update index.html",
+        "328d6b3 Update index.html",
+        "262029b Update index.html",
+        "7db441b Update index.html",
+        "d4c8693 Update index.html",
+        "da755fd Update index.html",
+        "6ba70dd Update index.html",
+        "cfb07b2 Create index.html"
+      ]
+    },
+    "codependencia": {
+      "repo": "Escala-de-Co-Depenpencia-Emocional",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 6,
+      "currentFiles": [
+        {
+          "path": "docs/psychometric-status-v1.md",
+          "matches": [
+            {
+              "line": 13,
+              "text": "- interpretação automatizada de gravidade: **NÃO VALIDADA**;",
+              "strong": false
+            },
+            {
+              "line": 15,
+              "text": "- escore/diagnóstico para o paciente: **PROIBIDO**;",
+              "strong": true
+            },
+            {
+              "line": 22,
+              "text": "Essa coerência aritmética não demonstra validade dos pontos de corte nem autoriza rótulos de gravidade.",
+              "strong": false
+            },
+            {
+              "line": 51,
+              "text": "2. retirar a interpretação automática categórica do paciente;",
+              "strong": false
+            },
+            {
+              "line": 63,
+              "text": "- itens invertidos, se houver;",
+              "strong": true
+            },
+            {
+              "line": 66,
+              "text": "- interpretação tecnicamente defensável;",
+              "strong": false
+            },
+            {
+              "line": 68,
+              "text": "- testes unitários de mínimo, máximo, limites, itens invertidos e casos incompletos;",
+              "strong": true
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/e2e-live-v1.yml",
+          "matches": [
+            {
+              "line": 42,
+              "text": "not re.search(r'JustGage|calculateScore|wa\\.me|whatsappLink|id=[\"\\']splash', s, re.I),",
+              "strong": true
+            },
+            {
+              "line": 106,
+              "text": "if(await page.getByText(/Normal:|Leve|Moderada|Alta|Resultados da Avaliação/i).count()) throw new Error('PATIENT_INTERPRETATION_PRESENT');",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": ".github/workflows/sanitize-public-screening-v2.yml",
+          "matches": [
+            {
+              "line": 66,
+              "text": "s = re.sub(r'\\s*/\\*\\s*(?:Header|Seção de Resultados|Informações sobre LGPD integradas à introdução)\\s*\\*/\\s*', '\\n', s, flags=re.I)",
+              "strong": false
+            },
+            {
+              "line": 98,
+              "text": "s = re.sub(r'\\s*<!--\\s*Botão para calcular\\s*-->\\s*<button[^>]*onclick=[\"\\']calculateScore\\(\\)[\"\\'][^>]*>.*?</button>\\s*', '\\n', s, count=1, flags=re.S|re.I)",
+              "strong": true
+            },
+            {
+              "line": 99,
+              "text": "s = re.sub(r'\\s*</form>\\s*<!--\\s*Seção de resultados\\s*-->\\s*<section\\s+id=[\"\\']result[\"\\'][^>]*>.*?</section>', '\\n\\t\\t\\t<button type=\"submit\" id=\"screening-submit\">Concluir rastreio</button>\\n\\t\\t</form>', s, count=1, flags=re.S|re.I)",
+              "strong": false
+            },
+            {
+              "line": 103,
+              "text": "# No patient-side scorer, interpretation, report sharing or WhatsApp.",
+              "strong": false
+            },
+            {
+              "line": 138,
+              "text": "r'calculateScore', r'getResultDescription', r'displayResults', r'score\\s*<=', r'\\.result-section',",
+              "strong": true
+            },
+            {
+              "line": 139,
+              "text": "r'Resultados da Avaliação', r'wa\\.me', r'whatsappLink', r'WhatsApp', r'\\.gauge-container',",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "82ed619 Corrige gate de publicação do E2E da Codependência",
+        "2a1f0f6 Adiciona E2E live dedicado da Codependência",
+        "b43b1c4 Consolida branding canônico da Codependência",
+        "415d297 Sanitiza frontend da Codependência sem alterar itens",
+        "c538a7b Remove scoring legado e neutraliza superfície da Codependência",
+        "6d4134c Registra governança psicométrica da Codependência",
+        "8b0a284 Update index.html",
+        "5c1f861 Update index.html",
+        "4c440ad Delete ESCALA DE (CO)DEPENDÊNCIA.html",
+        "1ba723d Update index.html",
+        "33f72f6 Update index.html",
+        "72bcd16 Update ESCALA DE (CO)DEPENDÊNCIA.html",
+        "d577615 Update index.html",
+        "302cfd1 Update ESCALA DE (CO)DEPENDÊNCIA.html",
+        "4346165 Update index.html",
+        "d6d96c8 Update index.html",
+        "39ddf02 Update ESCALA DE (CO)DEPENDÊNCIA.html",
+        "eec4303 Update index.html",
+        "d4b9ef1 Update ESCALA DE (CO)DEPENDÊNCIA.html"
+      ]
+    },
+    "icaps": {
+      "repo": "ICAPS",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 33,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 44,
+              "text": "<p>As respostas podem conter informações pessoais e de saúde. Elas são coletadas exclusivamente para apoio ao atendimento psicológico e à análise clínica pelo profissional responsável. O resultado não é exibido nesta página nem compartilhado por WhatsApp.</p>",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "privacidade.html",
+          "matches": [
+            {
+              "line": 26,
+              "text": "<p>O envio utiliza um gateway técnico hospedado na Vercel para validar a estrutura da resposta e confirmar a persistência antes de informar sucesso ao paciente. Após a validação, os dados são encaminhados ao ambiente Google utilizado pelo fluxo clínico, incluindo Google Forms/Sheets e, para o relatório profissional, Gmail. O resultado clínico não é exibido na página pública nem compartilhado automaticamente por WhatsApp.</p>",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "README.md",
+          "matches": [
+            {
+              "line": 1,
+              "text": "# ICAPS 2.0 — scoring/interpretação 2.1",
+              "strong": false
+            },
+            {
+              "line": 9,
+              "text": "- Interpretação: `2.1.0` — faixas tratadas como **descritivas e operacionais**, não como pontos de corte psicométricos validados.",
+              "strong": false
+            },
+            {
+              "line": 10,
+              "text": "- `data/icaps-v2.json`: definição canônica dos 60 itens, escala, dimensões, faixas e linguagem interpretativa.",
+              "strong": false
+            },
+            {
+              "line": 11,
+              "text": "- `js/scoring.js`: motor determinístico de pontuação.",
+              "strong": true
+            },
+            {
+              "line": 15,
+              "text": "- `docs/NOTA-TECNICA-ICAPS-2.1.md`: limites, rastreabilidade e regras de interpretação.",
+              "strong": false
+            },
+            {
+              "line": 16,
+              "text": "- `docs/MATRIZ-FONTE-ALEGACAO.md`: matriz construto → itens → cálculo → interpretação → nível de sustentação.",
+              "strong": false
+            },
+            {
+              "line": 20,
+              "text": "O ICAPS é um instrumento clínico estruturado de apoio. **Não constitui teste psicológico diagnóstico, não possui pontos de corte psicométricos validados e não deve determinar isoladamente continuidade ou término da relação.** Os escores e faixas organizam respostas autorreferidas para discussão clínica.",
+              "strong": true
+            },
+            {
+              "line": 22,
+              "text": "A alternativa `3 — Nem concordo, nem discordo` corresponde a 50/100. Na versão de interpretação 2.1, 50 pertence deliberadamente a uma **faixa intermediária** em todas as dimensões, evitando transformar neutralidade em classificação clinicamente elevada.",
+              "strong": true
+            }
+          ]
+        },
+        {
+          "path": "tests/scoring.test.mjs",
+          "matches": [
+            {
+              "line": 24,
+              "text": "assert.equal(definition.meta.interpretationVersion, '2.1.0');",
+              "strong": false
+            },
+            {
+              "line": 25,
+              "text": "assert.equal(definition.meta.bandNature, 'descriptive_operational_not_psychometric_cutoff');",
+              "strong": true
+            },
+            {
+              "line": 53,
+              "text": "test('risk dimensions invert protective score without changing construct score', () => {",
+              "strong": true
+            },
+            {
+              "line": 58,
+              "text": "assert.equal(d.protectiveScore, 0);",
+              "strong": true
+            },
+            {
+              "line": 67,
+              "text": "assert.equal(d.protectiveScore, 100);",
+              "strong": true
+            },
+            {
+              "line": 91,
+              "text": "assert.doesNotMatch(html, /Calcular resultado/i);",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "tests/monte-carlo.test.mjs",
+          "matches": [
+            {
+              "line": 32,
+              "text": "assert.ok(d.protectiveScore >= 0 && d.protectiveScore <= 100);",
+              "strong": true
+            }
+          ]
+        },
+        {
+          "path": "data/icaps-v2.json",
+          "matches": [
+            {
+              "line": 7,
+              "text": "\"interpretationVersion\": \"2.1.0\",",
+              "strong": false
+            },
+            {
+              "line": 10,
+              "text": "\"bandNature\": \"descriptive_operational_not_psychometric_cutoff\",",
+              "strong": true
+            },
+            {
+              "line": 21,
+              "text": "{\"id\":\"D1\",\"title\":\"Satisfação Conjugal Atual\",\"orientation\":\"positive\",\"scoreLabel\":\"Satisfação conjugal\",\"bands\":[{\"min\":0,\"max\":24,\"label\":\"Muito baixa\",\"key\":\"very_low\",\"text\":\"Faixa descritiva de satisfação conjugal muito reduzida. Deve ser interpretada em conjunto com a entrevista clínica, sem inferir isoladamente prognóstico ou decisão relacional.\"},{\"min\":25,\"max\":49,\"label\":\"Baixa\",\"key\":\"low\",\"text\":\"Faixa descritiva de satisfação conjugal reduzida. Pode ser útil explorar necessidades ",
+              "strong": true
+            },
+            {
+              "line": 22,
+              "text": "{\"id\":\"D2\",\"title\":\"Ambivalência Decisional\",\"orientation\":\"risk\",\"scoreLabel\":\"Ambivalência decisional\",\"bands\":[{\"min\":0,\"max\":24,\"label\":\"Baixa\",\"key\":\"low\",\"text\":\"Faixa descritiva de baixa ambivalência decisional no momento. Não indica qual decisão deve ser tomada.\"},{\"min\":25,\"max\":49,\"label\":\"Baixa a moderada\",\"key\":\"low_moderate\",\"text\":\"Faixa descritiva de ambivalência baixa a moderada. Pode ser útil explorar dúvidas, receios, esperança e custos percebidos de cada alternativa.\"},{\"min\":",
+              "strong": true
+            },
+            {
+              "line": 24,
+              "text": "{\"id\":\"D4\",\"title\":\"Traição e Impacto Emocional\",\"orientation\":\"risk\",\"scoreLabel\":\"Impacto emocional associado à traição\",\"bands\":[{\"min\":0,\"max\":24,\"label\":\"Reduzido\",\"key\":\"low\",\"text\":\"Faixa descritiva de impacto emocional atualmente reduzido nos itens contemplados. Não permite concluir que o tema esteja totalmente elaborado.\"},{\"min\":25,\"max\":49,\"label\":\"Leve a moderado\",\"key\":\"low_moderate\",\"text\":\"Faixa descritiva de impacto leve a moderado. Pode ser útil diferenciar efeitos atuais sobre ",
+              "strong": true
+            },
+            {
+              "line": 25,
+              "text": "{\"id\":\"D5\",\"title\":\"Rede de Apoio e Medos Contextuais\",\"orientation\":\"risk\",\"scoreLabel\":\"Interferência de medos e fatores contextuais\",\"bands\":[{\"min\":0,\"max\":24,\"label\":\"Baixa interferência\",\"key\":\"low\",\"text\":\"Faixa descritiva de baixa interferência atual dos fatores contextuais contemplados pelos itens.\"},{\"min\":25,\"max\":49,\"label\":\"Baixa a moderada\",\"key\":\"low_moderate\",\"text\":\"Faixa descritiva de interferência baixa a moderada. Pode ser útil mapear rede de apoio, finanças, família, filhos,",
+              "strong": true
+            },
+            {
+              "line": 26,
+              "text": "{\"id\":\"D6\",\"title\":\"Recursos Internos e Prontidão para a Mudança\",\"orientation\":\"positive\",\"scoreLabel\":\"Recursos internos\",\"bands\":[{\"min\":0,\"max\":24,\"label\":\"Frágeis\",\"key\":\"very_low\",\"text\":\"Faixa descritiva de percepção reduzida de recursos internos para lidar com mudanças ou decisões difíceis. Pode ser útil priorizar estabilização, autocuidado e apoio.\"},{\"min\":25,\"max\":49,\"label\":\"Emergentes\",\"key\":\"low\",\"text\":\"Faixa descritiva de recursos internos em desenvolvimento, com possível oscilaç",
+              "strong": true
+            }
+          ]
+        },
+        {
+          "path": "apps-script/README.md",
+          "matches": [
+            {
+              "line": 7,
+              "text": "- Interpretação: 2.1.0",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "apps-script/ICAPSProcessor.gs",
+          "matches": [
+            {
+              "line": 3,
+              "text": "* Processor 2.2.0 · Scoring 2.1.0 · Interpretação 2.1.0",
+              "strong": false
+            },
+            {
+              "line": 14,
+              "text": "INTERPRETATION_VERSION: '2.1.0',",
+              "strong": false
+            },
+            {
+              "line": 26,
+              "text": "[0,24,'Muito baixa','Faixa descritiva de satisfação conjugal muito reduzida. Deve ser interpretada em conjunto com a entrevista clínica, sem inferir isoladamente prognóstico ou decisão relacional.'],",
+              "strong": false
+            },
+            {
+              "line": 28,
+              "text": "[50,74,'Intermediária','Faixa descritiva intermediária. Respostas neutras ou mistas podem produzir escores nesta região; a leitura clínica deve privilegiar o padrão item a item e o contexto.'],",
+              "strong": true
+            },
+            {
+              "line": 29,
+              "text": "[75,100,'Elevada','Faixa descritiva de satisfação conjugal elevada. Eventuais dificuldades específicas devem ser contextualizadas e não são excluídas pelo escore global.']]},",
+              "strong": true
+            },
+            {
+              "line": 33,
+              "text": "[50,74,'Intermediária','Faixa descritiva intermediária. Respostas neutras ou mistas podem produzir escores nesta região; não deve ser rotulada automaticamente como ambivalência clinicamente elevada.'],",
+              "strong": true
+            },
+            {
+              "line": 43,
+              "text": "[50,74,'Intermediário','Faixa descritiva intermediária. Respostas neutras ou heterogêneas podem produzir escores nesta região; o padrão item a item é especialmente relevante.'],",
+              "strong": true
+            },
+            {
+              "line": 48,
+              "text": "[50,74,'Intermediária','Faixa descritiva intermediária. Respostas neutras ou mistas podem produzir escores nesta região e não equivalem automaticamente a forte restrição contextual.'],",
+              "strong": true
+            },
+            {
+              "line": 53,
+              "text": "[50,74,'Intermediários','Faixa descritiva intermediária. Respostas neutras ou mistas podem produzir escores nesta região; convém examinar quais recursos estão preservados e quais ainda precisam de fortalecimento.'],",
+              "strong": true
+            },
+            {
+              "line": 67,
+              "text": "return {ok:true,spreadsheetId:ss.getId(),recipient,processorVersion:ICAPS_PROCESSOR.VERSION,scoringVersion:ICAPS_PROCESSOR.SCORING_VERSION,interpretationVersion:ICAPS_PROCESSOR.INTERPRETATION_VERSION};",
+              "strong": false
+            },
+            {
+              "line": 100,
+              "text": "function calculateICAPSResults_(answers){const results={};for(let d=1;d<=6;d++){const key=`D${d}`,block=answers.slice((d-1)*10,d*10);const score=Math.round(block.reduce((s,v)=>s+((v-1)*25),0)/block.length),band=bandICAPS_(key,score),meta=ICAPS_DIMENSIONS[key];results[key]={score,band:band.label,bandKey:band.key,interpretation:band.text,title:meta.title,scoreLabel:meta.scoreLabel,orientation:meta.orientation};}return results;}",
+              "strong": false
+            },
+            {
+              "line": 132,
+              "text": "const plain=['ICAPS — RELATÓRIO CLÍNICO ESTRUTURADO',`Paciente: ${data.patientName}`,`Código: ${data.patientCode||'não informado'}`,`Idade: ${data.age||'não informada'}`,`Submetido em: ${when}`,`Instrumento: ${ICAPS_PROCESSOR.INSTRUMENT_VERSION} · Scoring: ${ICAPS_PROCESSOR.SCORING_VERSION} · Interpretação: ${ICAPS_PROCESSOR.INTERPRETATION_VERSION}`,'','SÍNTESE INTEGRADA',data.analysis.summary,'','PRIORIDADES PARA EXPLORAÇÃO CLÍNICA',...data.analysis.priorities.map((x,i)=>`${i+1}. ${x}`),'','RES",
+              "strong": false
+            },
+            {
+              "line": 138,
+              "text": "const dimensionRows=Object.keys(ICAPS_DIMENSIONS).map(key=>{const d=r[key],barColor=d.orientation==='positive'?'#166534':'#92400e';return `<tr><td style=\"padding:12px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top\"><strong>${e(key)} — ${e(d.title)}</strong><div style=\"font-size:12px;color:#6b7280;margin-top:3px\">${e(d.scoreLabel)}</div></td><td style=\"padding:12px 10px;border-bottom:1px solid #e5e7eb;width:105px;vertical-align:top\"><strong>${d.score}/100</strong><div style=\"height:7px;b",
+              "strong": false
+            },
+            {
+              "line": 143,
+              "text": "return `<!doctype html><html><body style=\"margin:0;padding:0;background:#f3f4f6;font-family:Arial,Helvetica,sans-serif;color:#111827\"><div style=\"max-width:920px;margin:0 auto;padding:24px 12px\"><div style=\"background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden\"><div style=\"background:#111827;color:#fff;padding:24px\"><div style=\"font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#cbd5e1\">ICAPS 2.0</div><h1 style=\"font-size:23px;line-height:1.25;margin:7px 0 5",
+              "strong": false
+            },
+            {
+              "line": 152,
+              "text": "const headers=['assessment_id','patient_code','patient_name','age','response_timestamp','instrument_version','scoring_version','D1_score','D1_band','D2_score','D2_band','D3_score','D3_band','D4_score','D4_band','D5_score','D5_band','D6_score','D6_band','interpretation_version'];",
+              "strong": false
+            },
+            {
+              "line": 153,
+              "text": "if(report.getLastRow()===0) report.appendRow(headers);else if(String(report.getRange(1,20).getValue()||'')!=='interpretation_version') report.getRange(1,20).setValue('interpretation_version');report.hideSheet();",
+              "strong": false
+            },
+            {
+              "line": 155,
+              "text": "function upsertICAPSReport_(ss,data){const sh=requireICAPSSheet_(ss,ICAPS_PROCESSOR.REPORT_SHEET);if(findICAPSRowByValue_(sh,1,data.assessmentId)) return;const r=data.results;sh.appendRow([data.assessmentId,data.patientCode,data.patientName,data.age,data.timestamp,ICAPS_PROCESSOR.INSTRUMENT_VERSION,ICAPS_PROCESSOR.SCORING_VERSION,r.D1.score,r.D1.band,r.D2.score,r.D2.band,r.D3.score,r.D3.band,r.D4.score,r.D4.band,r.D5.score,r.D5.band,r.D6.score,r.D6.band,ICAPS_PROCESSOR.INTERPRETATION_VERSION]);}",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "docs/MATRIZ-FONTE-ALEGACAO.md",
+          "matches": [
+            {
+              "line": 8,
+              "text": "| Conversão 1→0, 2→25, 3→50, 4→75, 5→100 | `js/scoring.js` | Normalização linear para facilitar comparação entre dimensões | Que 75 ou outro valor seja ponto de corte clínico validado | Regra computacional |",
+              "strong": true
+            },
+            {
+              "line": 9,
+              "text": "| D1 — Satisfação Conjugal Atual | Itens 1–10 | Maior escore = maior concordância com itens de satisfação, afeto, respeito, comunicação e parceria | Diagnóstico da qualidade global do relacionamento | Construção clínica autoral; validação psicométrica externa não documentada |",
+              "strong": true
+            },
+            {
+              "line": 10,
+              "text": "| D2 — Ambivalência Decisional | Itens 11–20 | Maior escore = maior concordância com itens de dúvida, oscilação, adiamento e conflito decisional | Incapacidade decisional ou indicação de separação | Construção clínica autoral; validação psicométrica externa não documentada |",
+              "strong": true
+            },
+            {
+              "line": 11,
+              "text": "| D3 — Codependência e Subjugação Pessoal | Itens 21–30 | Maior escore = maior concordância com itens sobre limites, culpa, rejeição, anulação e centralidade da relação | Diagnóstico de codependência, dependência ou abuso | Construção clínica autoral; validação psicométrica externa não documentada |",
+              "strong": true
+            },
+            {
+              "line": 12,
+              "text": "| D4 — Traição e Impacto Emocional | Itens 31–40 | Maior escore = maior concordância com itens sobre sofrimento associado a experiências de traição | Prova de ocorrência de traição ou diagnóstico de trauma | Construção clínica autoral; validação psicométrica externa não documentada |",
+              "strong": true
+            },
+            {
+              "line": 13,
+              "text": "| D5 — Rede de Apoio e Medos Contextuais | Itens 41–50 | Maior escore = maior concordância com itens sobre julgamento, família, finanças, solidão, filhos e recomeço | Medida objetiva da rede de apoio ou vulnerabilidade socioeconômica | Construção clínica autoral; validação psicométrica externa não documentada |",
+              "strong": true
+            },
+            {
+              "line": 14,
+              "text": "| D6 — Recursos Internos e Prontidão para a Mudança | Itens 51–60 | Maior escore = maior concordância com itens de força percebida, autocuidado, lucidez e capacidade de enfrentar consequências | Aptidão objetiva para separar-se ou previsão de desfecho | Construção clínica autoral; validação psicométrica externa não documentada |",
+              "strong": true
+            },
+            {
+              "line": 15,
+              "text": "| Faixas 0–24 / 25–49 / 50–74 / 75–100 | `data/icaps-v2.json` interpretação 2.1 | Organização descritiva da intensidade de concordância | Pontos de corte psicométricos, diagnóstico ou norma populacional | Heurística operacional explícita |",
+              "strong": false
+            },
+            {
+              "line": 38,
+              "text": "- “ponto de corte clínico”;",
+              "strong": true
+            }
+          ]
+        },
+        {
+          "path": "docs/NOTA-TECNICA-ICAPS-2.1.md",
+          "matches": [
+            {
+              "line": 1,
+              "text": "# Nota Técnica — ICAPS 2.0 / Scoring e Interpretação 2.1",
+              "strong": false
+            },
+            {
+              "line": 7,
+              "text": "O sistema organiza respostas autorreferidas em seis dimensões para facilitar exploração clínica. Os resultados devem ser tratados como **marcadores descritivos e hipóteses para investigação**, nunca como diagnóstico, prova factual ou decisão automatizada.",
+              "strong": false
+            },
+            {
+              "line": 36,
+              "text": "O escore dimensional é a média dos 10 itens, arredondada ao inteiro mais próximo. Em dimensões de risco (D2–D5), o sistema pode calcular adicionalmente um `protectiveScore = 100 - score` para usos computacionais, sem alterar o escore do construto.",
+              "strong": true
+            },
+            {
+              "line": 40,
+              "text": "A alternativa 3 significa literalmente “Nem concordo, nem discordo” e produz 50/100. Na interpretação 2.1, 50 pertence à **faixa intermediária** em todas as dimensões. Essa decisão corrige a versão anterior, na qual o ponto neutro podia receber rótulos como “elevado” ou “indicadores importantes”.",
+              "strong": false
+            },
+            {
+              "line": 46,
+              "text": "As faixas 0–24, 25–49, 50–74 e 75–100 são mantidas como categorias operacionais para organização da leitura. Elas não devem ser denominadas “cutoffs”, “normas”, “pontos de corte clínicos” ou “faixas diagnósticas”.",
+              "strong": true
+            },
+            {
+              "line": 48,
+              "text": "A interpretação deve observar, nesta ordem:",
+              "strong": false
+            },
+            {
+              "line": 57,
+              "text": "## 6. Limites de interpretação",
+              "strong": false
+            },
+            {
+              "line": 73,
+              "text": "Relatórios podem destacar “Itens de atenção clínica” quando uma resposta apresenta intensidade relevante para revisão em sessão. Essa expressão é operacional e não representa categoria psicométrica validada. O item destacado deve ser interpretado no contexto e não convertido em conclusão automática.",
+              "strong": false
+            },
+            {
+              "line": 79,
+              "text": "- `interpretationVersion`: muda quando bandas, rótulos ou textos interpretativos mudam.",
+              "strong": false
+            },
+            {
+              "line": 85,
+              "text": "- interpretação 2.1.0.",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "js/submission.js",
+          "matches": [
+            {
+              "line": 10,
+              "text": "interpretationVersion: definition.meta.interpretationVersion,",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "js/interpretation.js",
+          "matches": [
+            {
+              "line": 20,
+              "text": ": 'Os resultados devem ser compreendidos em conjunto com a história, o contexto atual e a avaliação profissional.';",
+              "strong": false
+            },
+            {
+              "line": 22,
+              "text": "return `${sentences.join(' ')} ${tail} Este resultado não estabelece diagnóstico nem determina uma decisão conjugal.`;",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "js/scoring.js",
+          "matches": [
+            {
+              "line": 13,
+              "text": "return direction === 'reverse' ? 100 - normalized : normalized;",
+              "strong": true
+            },
+            {
+              "line": 27,
+              "text": "const score = Math.round(values.reduce((a, b) => a + b, 0) / values.length);",
+              "strong": false
+            },
+            {
+              "line": 28,
+              "text": "const protectiveScore = dimension.orientation === 'risk' ? 100 - score : score;",
+              "strong": true
+            },
+            {
+              "line": 35,
+              "text": "protectiveScore,",
+              "strong": true
+            },
+            {
+              "line": 56,
+              "text": "interpretationVersion: definition.meta.interpretationVersion,",
+              "strong": false
+            }
+          ]
+        },
+        {
+          "path": "js/share.js",
+          "matches": [
+            {
+              "line": 5,
+              "text": "`ICAPS ${meta.instrumentVersion} — resumo de resultados`,",
+              "strong": false
+            },
+            {
+              "line": 12,
+              "text": "'Instrumento clínico estruturado de apoio. O resultado não estabelece diagnóstico nem determina decisão conjugal.'",
+              "strong": false
+            },
+            {
+              "line": 18,
+              "text": "const ok = window.confirm('O resumo dos resultados contém informação de natureza clínica. Deseja compartilhá-lo voluntariamente pelo WhatsApp com o psicólogo?');",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "0972e6a docs: update ICAPS processor installation and versions",
+        "1f487da fix: sanitize ICAPS clinical processor and HTML report",
+        "20729ed docs: add source-to-claim traceability matrix",
+        "40755c2 docs: add ICAPS 2.1 technical note",
+        "a6da92d docs: document sanitized ICAPS 2.1 architecture",
+        "dc89242 test: add sanitized ICAPS regression and preflight checks",
+        "184c64e feat: sanitize ICAPS patient flow and privacy disclosure",
+        "a6f61b1 fix: sanitize ICAPS descriptive bands and versioning",
+        "f8127cd docs: add ICAPS processor installation steps",
+        "b49af95 fix: restore original patient-facing ICAPS frontend",
+        "645020a fix: connect public ICAPS to canonical Google Form",
+        "6d0532c ICAPS 2.0 — sanitizer integral",
+        "df091ac Update index.html",
+        "8ba0419 Create index.html for ICAPS questionnaire"
+      ]
+    },
+    "risco": {
+      "repo": "TriagemRiscoSuicidio",
+      "status": "CURRENT_RULES_FOUND",
+      "currentStrongMatches": 27,
+      "currentFiles": [
+        {
+          "path": "index.html",
+          "matches": [
+            {
+              "line": 202,
+              "text": "Resultados / Badges",
+              "strong": false
+            },
+            {
+              "line": 236,
+              "text": "#classVal{ text-align:center; }         /* classificação centralizada */",
+              "strong": true
+            },
+            {
+              "line": 296,
+              "text": "<button type=\"button\" id=\"calcBtn\">Calcular escore</button>",
+              "strong": true
+            },
+            {
+              "line": 302,
+              "text": "<h3>Resultado</h3>",
+              "strong": false
+            },
+            {
+              "line": 309,
+              "text": "<div class=\"label\">Classificação</div>",
+              "strong": true
+            },
+            {
+              "line": 313,
+              "text": "<div class=\"label\">Regras automáticas que aumentam a classificação (sinais de alerta)</div>",
+              "strong": true
+            },
+            {
+              "line": 345,
+              "text": "<p><strong>Notas:</strong> Itens críticos (peso 1,5): A3, B3, B4, C2, D3. Protetores (F1, F2) têm escore invertido. Regras automáticas que aumentam a classificação: qualquer crítico = 4 ou D2 ≥ 3 → classificar como <em>Risco Grave</em>; se C1 ≥ 3 e B3 ≥ 2 → elevar um nível. Válido com até 2 itens faltantes e nenhum crítico faltante (aplica-se <em>proration</em> ponderado); caso contrário, inválido.</p>",
+              "strong": true
+            },
+            {
+              "line": 366,
+              "text": "{ code: 'F', title: 'Seção F – Fatores Protetores (pontuação invertida)', help: 'Últimos 14 dias' },",
+              "strong": true
+            },
+            {
+              "line": 371,
+              "text": "{ id: 'A1', section: 'A', text: 'Pensei que a vida não valia a pena continuar.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 372,
+              "text": "{ id: 'A2', section: 'A', text: 'Tive pensamentos de que seria melhor morrer.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 373,
+              "text": "{ id: 'A3', section: 'A', text: 'Pensei em uma forma específica de me matar.', critical: true, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 374,
+              "text": "{ id: 'A4', section: 'A', text: 'A ideia de morrer trouxe sensação de alívio ou paz.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 376,
+              "text": "{ id: 'B1', section: 'B', text: 'Senti vontade de agir contra a minha vida.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 377,
+              "text": "{ id: 'B2', section: 'B', text: 'Reservei tempo para pensar seriamente em me matar.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 378,
+              "text": "{ id: 'B3', section: 'B', text: 'Decidi quando e onde faria.', critical: true, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 379,
+              "text": "{ id: 'B4', section: 'B', text: 'Senti que não conseguiria me controlar se tivesse a oportunidade.', critical: true, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 381,
+              "text": "{ id: 'C1', section: 'C', text: 'Tive acesso fácil a meios potencialmente letais.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 382,
+              "text": "{ id: 'C2', section: 'C', text: 'Preparei ou aproximei meios.', critical: true, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 384,
+              "text": "{ id: 'D1', section: 'D', text: '(Histórico) Já tentei suicídio alguma vez na vida.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 385,
+              "text": "{ id: 'D2', section: 'D', text: '(Histórico recente) Tive tentativa, gesto ou preparação nos últimos 12 meses.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 386,
+              "text": "{ id: 'D3', section: 'D', text: 'Realizei comportamento preparatório nas últimas 2 semanas (cartas, despedidas, entregar bens, “testes”).', critical: true, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 388,
+              "text": "{ id: 'E1', section: 'E', text: 'Desesperança intensa (“nada vai melhorar”).', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 389,
+              "text": "{ id: 'E2', section: 'E', text: 'Uso problemático de álcool/drogas ou intoxicação recente.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 390,
+              "text": "{ id: 'E3', section: 'E', text: 'Agitação/impulsividade marcante, ou sintomas psicóticos/dissociativos.', critical: false, invert: false },",
+              "strong": true
+            },
+            {
+              "line": 391,
+              "text": "// F – Protetores (invert)",
+              "strong": true
+            },
+            {
+              "line": 392,
+              "text": "{ id: 'F1', section: 'F', text: 'Senti forte motivo para viver (filhos, fé, projetos, responsabilidades).', critical: false, invert: true },",
+              "strong": true
+            },
+            {
+              "line": 393,
+              "text": "{ id: 'F2', section: 'F', text: 'Busquei e usei ativamente apoio (familiares, amigos, tratamento, recursos).', critical: false, invert: true },",
+              "strong": true
+            },
+            {
+              "line": 409,
+              "text": "if (it.invert) pills.push('<span class=\"pill inv\" title=\"Pontuação invertida (4 − resposta)\">invertido</span>');",
+              "strong": true
+            },
+            {
+              "line": 464,
+              "text": "'Uso de substâncias':[ 'FRAMES focado em redução/abstinência; estratégias para craving (atraso 20 min, evitar gatilhos, plano de substituição).', 'Considerar CAPS AD (Álcool e Drogas) conforme gravidade.' ],",
+              "strong": false
+            },
+            {
+              "line": 477,
+              "text": "'Personalidade/Desregulação/Impulsividade':[ 'Risco iminente: foco em segurança e contenção; evitar interpretações; comunicação clara e validante.', 'Transferência para serviço de crise quando aplicável.' ],",
+              "strong": false
+            },
+            {
+              "line": 582,
+              "text": "if (it.invert) v = 4 - v;",
+              "strong": true
+            }
+          ]
+        }
+      ],
+      "historyCandidates": [
+        "47a6a81 Update index.html",
+        "cbc47ca Update index.html",
+        "5cf4f7c Create index.html"
+      ]
+    },
+    "humor": {
+      "repo": "Inicio-de-Jornada-Terapeutica",
+      "source": "assets/monitoramentos-v2.js",
+      "status": "NO_RULES_FOUND",
+      "currentStrongMatches": 0,
+      "currentFiles": [],
+      "historyCandidates": []
+    },
+    "ansiedade": {
+      "repo": "Inicio-de-Jornada-Terapeutica",
+      "source": "assets/monitoramentos-v2.js",
+      "status": "NO_RULES_FOUND",
+      "currentStrongMatches": 0,
+      "currentFiles": [],
+      "historyCandidates": []
+    },
+    "autoestima": {
+      "repo": "Inicio-de-Jornada-Terapeutica",
+      "source": "assets/monitoramentos-v2.js",
+      "status": "NO_RULES_FOUND",
+      "currentStrongMatches": 0,
+      "currentFiles": [
+        {
+          "path": "assets/monitoramentos-v2.js",
+          "matches": [
+            {
+              "line": 36,
+              "text": "function showSuccess(){root.innerHTML=`<section class=\"success-card\" role=\"status\"><p class=\"eyebrow\">Envio concluído</p><h2>Respostas registradas</h2><p>Obrigado. O material ficará disponível para integração ao acompanhamento clínico. O resultado não equivale, isoladamente, a diagnóstico.</p><div class=\"success-actions\"><a class=\"action-link\" href=\"./#forms\">Voltar à Jornada Terapêutica</a><a class=\"action-link\" href=\"${location.pathname}?instrument=${encodeURIComponent(key)}\">Responder novamen",
+              "strong": false
+            }
+          ]
+        }
+      ],
+      "historyCandidates": []
+    }
+  }
+}
