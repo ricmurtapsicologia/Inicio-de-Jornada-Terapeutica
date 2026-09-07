@@ -7,10 +7,8 @@
  * TRELLO_KEY             -> chave Trello
  * TRELLO_TOKEN           -> token Trello
  * TRELLO_CARD_ID         -> card operacional do pipeline clínico
- * GPS_NOTIFY_URL         -> opcional; endpoint real do serviço GPS
- * GPS_NOTIFY_TOKEN       -> opcional
  *
- * Regra de minimização: Trello/GPS NUNCA recebem respostas, escores,
+ * Regra de minimização: Trello NUNCA recebe respostas, escores,
  * diagnósticos, nome do paciente ou conteúdo do relatório.
  */
 
@@ -55,28 +53,6 @@ function appendScreeningTrelloMetadata_(meta) {
   const code = Number(res.getResponseCode());
   if (code < 200 || code >= 300) throw new Error('TRELLO_HTTP_' + code);
   return { ok: true, channel: 'trello' };
-}
-
-function notifyScreeningGps_(meta) {
-  const props = PropertiesService.getScriptProperties();
-  const url = String(props.getProperty('GPS_NOTIFY_URL') || '').trim();
-  const token = String(props.getProperty('GPS_NOTIFY_TOKEN') || '').trim();
-  if (!url) return { ok: false, skipped: true, reason: 'GPS_NOT_CONFIGURED' };
-
-  const safe = screeningMinimalOperationalMeta_(meta);
-  const headers = { 'Content-Type': 'application/json' };
-  if (token) headers.Authorization = 'Bearer ' + token;
-
-  const res = UrlFetchApp.fetch(url, {
-    method: 'post',
-    muteHttpExceptions: true,
-    contentType: 'application/json',
-    headers: headers,
-    payload: JSON.stringify(safe)
-  });
-  const code = Number(res.getResponseCode());
-  if (code < 200 || code >= 300) throw new Error('GPS_HTTP_' + code);
-  return { ok: true, channel: 'gps' };
 }
 
 function screeningMinimalOperationalMeta_(meta) {
