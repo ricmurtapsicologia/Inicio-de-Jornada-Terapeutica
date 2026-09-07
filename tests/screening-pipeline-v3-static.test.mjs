@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const src=fs.readFileSync('apps-script/ScreeningPipelineV3.gs','utf8');
+const expected=['SUBMITTED','VALIDATED','SCORED','REPORT_GENERATED','EMAIL_SENT','TRELLO_UPDATED','GPS_NOTIFIED','COMPLETE'];
+for(const s of expected) assert.ok(src.includes(`'${s}'`),`estado ausente: ${s}`);
+assert.match(src,/SCREENING_LEDGER_SHEET_ID/);
+assert.match(src,/screeningSubmissionRef_/);
+assert.match(src,/GPS_NOT_CONFIGURED/);
+assert.match(src,/PIPELINE_STATE_JUMP/);
+const headersMatch=src.match(/HEADERS:\s*Object\.freeze\(\[([\s\S]*?)\]\)/);
+assert.ok(headersMatch,'headers do ledger ausentes');
+const headers=headersMatch[1];
+for(const forbidden of ['NAME','PATIENT','ANSWER','SCORE','DIAGNOS','HTML','REPORT_BODY']) assert.ok(!headers.toUpperCase().includes(forbidden),`ledger não pode conter ${forbidden}`);
+console.log('SCREENING_PIPELINE_V3_STATIC_PASS');
