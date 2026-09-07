@@ -1,0 +1,72 @@
+name: Migrate screening config to hub RC
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/migrate-screening-config-to-hub-rc.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Vendor immutable screening configuration into hub
+        run: |
+          set -euo pipefail
+          SNAPSHOT='12ece4ed3f4738d46323813860ee96526f18b4f0'
+          BASE="https://raw.githubusercontent.com/ricmurtapsicologia/plataforma.terapeutica/${SNAPSHOT}/rastreios/pipeline"
+          curl -fsSL "$BASE/public-experience-v2.json" -o assets/screening-public-experience-v2.json
+          curl -fsSL "$BASE/screening-adapters-v2.json" -o assets/screening-adapters-v2.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('assets/screening-public-experience-v2.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          h=d['instruments']['humor']
+          h['publicName']='Humor e sintomas depressivos nas últimas duas semanas'
+          h['contentLocked']=True
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Point shared runtime only to hub-owned config
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('assets/screening-system-v2.js')
+          s=p.read_text(encoding='utf-8')
+          start="const SNAPSHOT='12ece4ed3f4738d46323813860ee96526f18b4f0';\nconst CONFIG=`https://raw.githubusercontent.com/ricmurtapsicologia/plataforma.terapeutica/${SNAPSHOT}/rastreios/pipeline/public-experience-v2.json`;\nconst ADAPTER_CONFIG=`https://raw.githubusercontent.com/ricmurtapsicologia/plataforma.terapeutica/${SNAPSHOT}/rastreios/pipeline/screening-adapters-v2.json`;"
+          repl="const CONFIG='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-public-experience-v2.json';\nconst ADAPTER_CONFIG='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-adapters-v2.json';"
+          if start not in s: raise SystemExit('OLD_PLATFORM_CONFIG_REFERENCE_NOT_FOUND')
+          p.write_text(s.replace(start,repl,1),encoding='utf-8')
+          PY
+      - name: Validate decoupling
+        run: |
+          node tests/bdi2-content-lock.test.mjs
+          node tests/hero-variants.test.mjs
+          node tests/branded-questionnaires.test.mjs
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          runtime=Path('assets/screening-system-v2.js').read_text(encoding='utf-8')
+          assert 'plataforma.terapeutica' not in runtime
+          assert 'screening-public-experience-v2.json' in runtime
+          assert 'screening-adapters-v2.json' in runtime
+          exp=json.loads(Path('assets/screening-public-experience-v2.json').read_text(encoding='utf-8'))
+          ad=json.loads(Path('assets/screening-adapters-v2.json').read_text(encoding='utf-8'))
+          assert len(exp['instruments'])==15
+          assert len(ad['instruments'])==15
+          assert exp['instruments']['humor']['contentLocked'] is True
+          assert sum(1 for v in ad['instruments'].values() if v.get('submissionSupported'))==3
+          PY
+      - name: Commit migration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/screening-public-experience-v2.json assets/screening-adapters-v2.json assets/screening-system-v2.js
+          git commit -m 'Desacopla configuração dos rastreios da plataforma clínica'
+          git push
