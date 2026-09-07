@@ -1,0 +1,60 @@
+name: Rastreios Hero Variants RC
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/rastreios-hero-variants-rc.yml']
+  pull_request:
+    branches: [main]
+    paths: ['assets/screening-system-v2.js','assets/screening-system-v2.css','tests/hero-variants.test.mjs']
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      - name: Apply canonical distinct hero variants
+        if: github.event_name == 'push'
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          js_path=Path('assets/screening-system-v2.js')
+          css_path=Path('assets/screening-system-v2.css')
+          test_path=Path('tests/hero-variants.test.mjs')
+          js=js_path.read_text(encoding='utf-8')
+          old='<div class="rm-screening-hero"><div class="rm-screening-copy">'
+          new='<div class="rm-screening-hero" data-rm-variant="${esc(instrumentId)}"><div class="rm-screening-copy">'
+          if old in js:
+            js=js.replace(old,new,1)
+          elif 'data-rm-variant="${esc(instrumentId)}"' not in js:
+            raise SystemExit('HERO_MARKUP_TARGET_NOT_FOUND')
+          js_path.write_text(js,encoding='utf-8')
+
+          css=css_path.read_text(encoding='utf-8')
+          block='''\n/* RC 2026-09-07 — mesma gramática visual, hero individual por instrumento. */\n.rm-screening-hero{--rm-hero-a:#153f45;--rm-hero-b:#176d68;--rm-hero-accent:#d9a441}\n.rm-screening-visual{background:\n  radial-gradient(circle at 72% 28%,color-mix(in srgb,var(--rm-hero-accent) 34%,transparent) 0 12%,transparent 13%),\n  radial-gradient(circle at 30% 72%,color-mix(in srgb,var(--rm-hero-b) 42%,transparent) 0 18%,transparent 19%),\n  linear-gradient(135deg,var(--rm-hero-a),var(--rm-hero-b));}\n.rm-screening-hero[data-rm-variant="geral"]{--rm-hero-a:#153f45;--rm-hero-b:#4d7c78;--rm-hero-accent:#d9a441}\n.rm-screening-hero[data-rm-variant="tdah"]{--rm-hero-a:#193c5a;--rm-hero-b:#3f718f;--rm-hero-accent:#e0a13a}\n.rm-screening-hero[data-rm-variant="bipolar"]{--rm-hero-a:#342f5b;--rm-hero-b:#8071a8;--rm-hero-accent:#e2b44f}\n.rm-screening-hero[data-rm-variant="borderline"]{--rm-hero-a:#5c3047;--rm-hero-b:#9a5d75;--rm-hero-accent:#e6ad65}\n.rm-screening-hero[data-rm-variant="narcisismo"]{--rm-hero-a:#413b52;--rm-hero-b:#756c86;--rm-hero-accent:#d7b45f}\n.rm-screening-hero[data-rm-variant="impulsividade"]{--rm-hero-a:#3e4b29;--rm-hero-b:#74844c;--rm-hero-accent:#e1a84b}\n.rm-screening-hero[data-rm-variant="esquemas"]{--rm-hero-a:#274c4b;--rm-hero-b:#67817c;--rm-hero-accent:#d8a553}\n.rm-screening-hero[data-rm-variant="modos"]{--rm-hero-a:#3d3f5b;--rm-hero-b:#68748e;--rm-hero-accent:#dda64d}\n.rm-screening-hero[data-rm-variant="necessidades"]{--rm-hero-a:#385247;--rm-hero-b:#728f76;--rm-hero-accent:#dcb25e}\n.rm-screening-hero[data-rm-variant="codependencia"]{--rm-hero-a:#4c3d48;--rm-hero-b:#886f79;--rm-hero-accent:#d9a85b}\n.rm-screening-hero[data-rm-variant="icaps"]{--rm-hero-a:#273e50;--rm-hero-b:#5e7585;--rm-hero-accent:#d4a24a}\n.rm-screening-hero[data-rm-variant="risco"]{--rm-hero-a:#213f3b;--rm-hero-b:#4f7168;--rm-hero-accent:#d7b468}\n.rm-screening-hero[data-rm-variant="humor"]{--rm-hero-a:#33445a;--rm-hero-b:#70809a;--rm-hero-accent:#e0b65e}\n.rm-screening-hero[data-rm-variant="ansiedade"]{--rm-hero-a:#2b4e5a;--rm-hero-b:#5e8a91;--rm-hero-accent:#d9ab52}\n.rm-screening-hero[data-rm-variant="autoestima"]{--rm-hero-a:#4c4055;--rm-hero-b:#89798e;--rm-hero-accent:#dfb762}\n'''
+          if 'RC 2026-09-07 — mesma gramática visual' not in css:
+            css=css.rstrip()+block+'\n'
+          css_path.write_text(css,encoding='utf-8')
+
+          test_path.write_text('''import fs from 'node:fs';\nimport assert from 'node:assert/strict';\nconst js=fs.readFileSync('assets/screening-system-v2.js','utf8');\nconst css=fs.readFileSync('assets/screening-system-v2.css','utf8');\nconst ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','risco','humor','ansiedade','autoestima'];\nassert.match(js,/data-rm-variant=\\"\\$\\{esc\\(instrumentId\\)\\}\\"/,'hero must expose instrument-specific variant');\nfor(const id of ids) assert.ok(css.includes(`[data-rm-variant="${id}"]`),`missing distinct hero variant: ${id}`);\nconst signatures=ids.map(id=>{const m=css.match(new RegExp(`data-rm-variant="${id}"\\\\]\\\\{([^}]*)\\\\}`));return m?.[1]||''});\nassert.equal(new Set(signatures).size,15,'all 15 hero variants must be visually distinct');\nconsole.log('HERO_VARIANTS_15_PASS');\n''',encoding='utf-8')
+          PY
+      - name: Validate hero variants and existing hub contracts
+        run: |
+          node tests/hero-variants.test.mjs
+          node tests/bdi2-content-lock.test.mjs
+          node tests/branded-questionnaires.test.mjs
+      - name: Commit
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/screening-system-v2.js assets/screening-system-v2.css tests/hero-variants.test.mjs
+          git commit -m 'Cria 15 variants de hero no design system de rastreios'
+          git push
