@@ -1012,12 +1012,35 @@ function setupScreeningBridgeV3FromFactory() {
 function verifyScreeningBridgeV31Contracts() {
   const props=PropertiesService.getScriptProperties();
   const out={version:SCREENING_BRIDGE.VERSION,instruments:{}};
-  Object.keys(SCREENING_BRIDGE.INSTRUMENTS).forEach(function(id){
+  const ids=Object.keys(SCREENING_BRIDGE.INSTRUMENTS);
+  ids.forEach(function(id,index){
     const formId=props.getProperty(SCREENING_BRIDGE.INSTRUMENTS[id].formProperty);
     if(!formId) throw new Error('FORM_ID_NOT_CONFIGURED:'+id);
-    const form=FormApp.openById(formId);
-    const contract=buildScreeningOrderedContract_(form);
-    out.instruments[id]={formId:formId,clinicalItems:contract.clinical.length,published:form.isPublished()};
+    if(index>0) Utilities.sleep(250);
+    out.instruments[id]=verifyScreeningInstrumentContractWithRetry_(id,formId);
   });
+  out.verified=Object.keys(out.instruments).length;
+  out.ok=out.verified===ids.length;
   return out;
+}
+
+function verifyScreeningInstrumentContractWithRetry_(id,formId) {
+  let lastErr=null;
+  for(let attempt=1;attempt<=4;attempt++) {
+    try {
+      const form=FormApp.openById(formId);
+      const contract=buildScreeningOrderedContract_(form);
+      return {
+        formId:formId,
+        clinicalItems:contract.clinical.length,
+        published:form.isPublished(),
+        attempts:attempt
+      };
+    } catch(err) {
+      lastErr=err;
+      if(attempt<4) Utilities.sleep(750*attempt);
+    }
+  }
+  const msg=lastErr&&lastErr.message?String(lastErr.message).slice(0,160):'unknown';
+  throw new Error('FORM_VERIFY_FAILED:'+id+':'+msg);
 }
