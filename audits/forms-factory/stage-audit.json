@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-09-07T15:30:00-03:00",
+  "policy": {
+    "published": false,
+    "status": "RASCUNHO",
+    "patientUsesBrandedPage": true
+  },
+  "forms": [
+    {
+      "id": "geral",
+      "formId": "FORM-2026-0004",
+      "source": "https://ricmurtapsicologia.github.io/Rastreioclinico/",
+      "expectedQuestions": 70,
+      "totalFormItems": 73,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "tdah",
+      "formId": "FORM-2026-0005",
+      "source": "https://ricmurtapsicologia.github.io/rastreioTDAH/",
+      "expectedQuestions": 85,
+      "totalFormItems": 88,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "bipolar",
+      "formId": "FORM-2026-0006",
+      "source": "https://ricmurtapsicologia.github.io/tab-bateria-integrada/",
+      "expectedQuestions": 79,
+      "totalFormItems": 82,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "borderline",
+      "formId": "FORM-2026-0007",
+      "source": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
+      "expectedQuestions": 47,
+      "totalFormItems": 50,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "narcisismo",
+      "formId": "FORM-2026-0008",
+      "source": "https://ricmurtapsicologia.github.io/bateria.narcisismo/",
+      "expectedQuestions": 114,
+      "totalFormItems": 117,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "impulsividade",
+      "formId": "FORM-2026-0009",
+      "source": "https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/",
+      "expectedQuestions": 33,
+      "totalFormItems": 36,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "modos",
+      "formId": "FORM-2026-0010",
+      "source": "https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/",
+      "expectedQuestions": 124,
+      "totalFormItems": 127,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "necessidades",
+      "formId": "FORM-2026-0011",
+      "source": "https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/",
+      "expectedQuestions": 37,
+      "totalFormItems": 40,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "codependencia",
+      "formId": "FORM-2026-0012",
+      "source": "https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/",
+      "expectedQuestions": 40,
+      "totalFormItems": 43,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "risco",
+      "formId": "FORM-2026-0013",
+      "source": "https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/",
+      "expectedQuestions": 18,
+      "totalFormItems": 21,
+      "status": "STAGED_CLOSED"
+    }
+  ],
+  "blocked": [
+    {
+      "id": "esquemas",
+      "reason": "DOM extraction returned 1 control; manual source reconciliation required"
+    },
+    {
+      "id": "icaps",
+      "reason": "already provisioned as FORM-2026-0003"
+    }
+  ]
+}
