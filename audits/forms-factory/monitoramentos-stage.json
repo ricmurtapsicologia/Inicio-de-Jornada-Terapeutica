@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-09-07T17:35:00-03:00",
+  "forms": [
+    {
+      "id": "humor",
+      "formId": "FORM-2026-0015",
+      "clinicalCount": 21,
+      "totalItems": 24,
+      "status": "STAGED_RASCUNHO"
+    },
+    {
+      "id": "ansiedade",
+      "formId": "FORM-2026-0016",
+      "clinicalCount": 14,
+      "totalItems": 17,
+      "status": "STAGED_RASCUNHO"
+    },
+    {
+      "id": "autoestima",
+      "formId": "FORM-2026-0017",
+      "clinicalCount": 10,
+      "totalItems": 13,
+      "status": "STAGED_RASCUNHO"
+    }
+  ],
+  "policy": {
+    "status": "RASCUNHO",
+    "published": false,
+    "clinicalContent": "PRESERVED"
+  }
+}
