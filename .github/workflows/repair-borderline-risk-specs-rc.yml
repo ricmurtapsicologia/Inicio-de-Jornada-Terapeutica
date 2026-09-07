@@ -1,0 +1,68 @@
+name: Repair Borderline and Risk specs RC
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/repair-borderline-risk-specs-rc.yml']
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Pull canonical sources
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/ricmurtapsicologia/Inventario-de-Tracos-Borderline/main/index.html -o /tmp/borderline.html
+          curl -fsSL https://raw.githubusercontent.com/ricmurtapsicologia/TriagemRiscoSuicidio/main/index.html -o /tmp/risco.html
+      - name: Rebuild canonical specs and final batch
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm'),crypto=require('crypto');
+          const sha=s=>crypto.createHash('sha256').update(s,'utf8').digest('hex');
+          const stable=x=>JSON.stringify(x,(k,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b))):v);
+          function balanced(src,start,open,close){let d=0,q=null,e=false;for(let i=start;i<src.length;i++){const c=src[i];if(q){if(e){e=false;continue}if(c==='\\'){e=true;continue}if(c===q)q=null;continue}if(c==='"'||c==="'"||c==='`'){q=c;continue}if(c===open)d++;else if(c===close){d--;if(d===0)return src.slice(start,i+1)}}throw new Error('UNBALANCED')}
+          function arrayConst(src,name){const marker=`const ${name} = [`;const p=src.indexOf(marker);if(p<0)throw new Error('MISSING_ARRAY:'+name);const s=src.indexOf('[',p);return vm.runInNewContext('('+balanced(src,s,'[',']')+')',Object.create(null),{timeout:1000})}
+          const bsrc=fs.readFileSync('/tmp/borderline.html','utf8');
+          const ITEMS=arrayConst(bsrc,'ITEMS');
+          if(ITEMS.length!==47)throw new Error('BORDERLINE_COUNT:'+ITEMS.length);
+          const reverse=new Set([4,10,16,30,36]);
+          const bopts=[{label:'Selecione...',value:''},{label:'Raramente ou nunca',value:'1'},{label:'De vez em quando',value:'2'},{label:'Com frequência',value:'3'},{label:'Quase sempre/ sempre',value:'4'}];
+          const borderline={id:'borderline',url:'https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/',selector:'#form',identityProfile:'screening_canonical',extraction:'SOURCE_ARRAY_ITEMS',questionCount:47,questions:ITEMS.map((text,i)=>({order:i+1,title:`${i+1}. ${text}${reverse.has(i+1)?' *':''}`,type:'DROPDOWN',required:true,options:bopts,name:`q${i+1}`,reverse:reverse.has(i+1)})),consoleErrors:[]};
+          fs.writeFileSync('audits/mirror-specs/borderline.json',JSON.stringify(borderline,null,2)+'\n');
+
+          const rsrc=fs.readFileSync('/tmp/risco.html','utf8');
+          const items=arrayConst(rsrc,'items');
+          if(items.length!==18)throw new Error('RISK_COUNT:'+items.length);
+          const ropts=[0,1,2,3,4].map(v=>({label:String(v),value:String(v)}));
+          const risco={id:'risco',url:'https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/',selector:'#eirForm',identityProfile:'screening_canonical',extraction:'SOURCE_ARRAY_ITEMS',questionCount:18,questions:items.map((it,i)=>({order:i+1,title:`${it.id}. ${it.text}`,type:'MULTIPLE_CHOICE',required:false,options:ropts,name:it.id,section:it.section,critical:Boolean(it.critical),invert:Boolean(it.invert)})),consoleErrors:[]};
+          fs.writeFileSync('audits/mirror-specs/risco.json',JSON.stringify(risco,null,2)+'\n');
+
+          const locks=JSON.parse(fs.readFileSync('audits/content-locks/content-locks-rc-20260907.json','utf8'));
+          for(const id of ['borderline','risco']){const s=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));const c=s.questions.map(q=>({order:q.order,title:q.title,type:q.type,required:q.required,options:q.options.map(o=>({label:o.label,value:o.value}))}));locks.instruments[id]={source:s.url,questionCount:s.questionCount,sha256:sha(stable(c)),status:'LOCKED_RC',extraction:s.extraction};}
+          fs.writeFileSync('audits/content-locks/content-locks-rc-20260907.json',JSON.stringify(locks,null,2)+'\n');
+          const summary=JSON.parse(fs.readFileSync('audits/mirror-specs/summary.json','utf8'));for(const id of ['borderline','risco']){const r=summary.instruments.find(x=>x.id===id);if(r){r.extraction='SOURCE_ARRAY_ITEMS';r.error=null;}}fs.writeFileSync('audits/mirror-specs/summary.json',JSON.stringify(summary,null,2)+'\n');
+
+          const exp=JSON.parse(fs.readFileSync('assets/screening-public-experience-v2.json','utf8')).instruments;
+          const plan=[['geral','FORM-2026-0004'],['tdah','FORM-2026-0005'],['bipolar','FORM-2026-0006'],['borderline','FORM-2026-0007'],['narcisismo','FORM-2026-0008'],['impulsividade','FORM-2026-0009'],['esquemas','FORM-2026-0010'],['modos','FORM-2026-0011'],['necessidades','FORM-2026-0012'],['codependencia','FORM-2026-0013'],['risco','FORM-2026-0014']];
+          const formsHeader=['ID_INTERNO','CRIADO_EM','ATUALIZADO_EM','TITULO','DESCRICAO','TEMPLATE','STATUS','PUBLICAR','COLETAR_EMAIL','LIMITE_1_RESPOSTA','EDITAR_APOS_ENVIO','QUIZ','EMBARALHAR_PERGUNTAS','MENSAGEM_CONFIRMACAO','CRIAR_PLANILHA_RESPOSTAS','PASTA_FORM_ID','PASTA_RESPOSTAS_ID','GOOGLE_FORM_ID','URL_EDICAO','URL_RESPOSTA','RESPONSE_SHEET_ID','RESPONSE_SHEET_URL','ERRO_CODIGO','ERRO_MENSAGEM','LOCK_TOKEN','PROMPT_ORIGINAL'];
+          const qHeader=['FORM_ID','ORDEM','SECAO','TIPO','TITULO','DESCRICAO','OBRIGATORIA','OPCOES_JSON','LINHAS_JSON','COLUNAS_JSON','ESCALA_MIN','ESCALA_MAX','ROTULO_MIN','ROTULO_MAX','RESPOSTAS_CORRETAS_JSON','PONTOS','FEEDBACK_CORRETO','FEEDBACK_INCORRETO','MOSTRAR_OUTRA_OPCAO','NAVEGACAO_JSON'];
+          const csv=rows=>rows.map(r=>r.map(v=>{const s=String(v??'');return /[",\n\r]/.test(s)?'"'+s.replaceAll('"','""')+'"':s}).join(',')).join('\n')+'\n';
+          const forms=[formsHeader],qs=[qHeader],audit=[],now='2026-09-07T16:35:00-03:00';
+          for(const [id,formId] of plan){const s=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));const title=(exp[id]?.technicalName||exp[id]?.publicName||id).trim();forms.push([formId,now,now,title,`Espelho técnico fechado da página clínica ${id}. Conteúdo clínico preservado da interface vigente. Uso profissional; não estabelece diagnóstico isoladamente.`,'CLINICO','RASCUNHO','FALSE','FALSE','FALSE','FALSE','FALSE','FALSE','Respostas registradas com sucesso. O material será processado e analisado pelo psicólogo responsável.','TRUE','','','','','','','','','','',`Fonte: ${s.url}; ${s.questionCount} itens clínicos + 3 campos canônicos de identificação.`]);let order=1;qs.push([formId,order++,'','TEXT','Nome completo','Identificação para vínculo clínico.','TRUE','','','','','','','','','','','','FALSE','']);qs.push([formId,order++,'','DATE','Data de nascimento','','TRUE','','','','','','','','','','','','FALSE','']);qs.push([formId,order++,'','DATE','Data de aplicação do rastreio','','TRUE','','','','','','','','','','','','FALSE','']);for(const q of s.questions){const type=q.type==='CHECKBOXES'?'CHECKBOX':q.type;const opts=(q.options||[]).map(o=>String(o.label??o.value));qs.push([formId,order++,'',type,q.title,'',q.required?'TRUE':'FALSE',opts.length?JSON.stringify(opts):'','','','','','','','','','','FALSE','']);}audit.push({id,formId,questionCount:s.questionCount,totalItems:s.questionCount+3,status:'STAGED_CLOSED'});}
+          fs.writeFileSync('audits/forms-factory/formularios-final.csv',csv(forms));fs.writeFileSync('audits/forms-factory/perguntas-final.csv',csv(qs));fs.writeFileSync('audits/forms-factory/stage-final.json',JSON.stringify({generatedAt:now,policy:{published:false,status:'RASCUNHO'},forms:audit,existingForms:['humor','ansiedade','autoestima','icaps']},null,2)+'\n');
+          NODE
+      - name: Quality gate
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');for(const id of ['borderline','risco']){const s=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));if(s.questions.some(q=>!q.title||/^(itens do questionário|0)$/i.test(q.title)))process.exit(1)}console.log('BORDERLINE_RISK_SOURCE_SPECS_PASS')
+          NODE
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add audits/mirror-specs audits/content-locks audits/forms-factory
+          git commit -m 'Corrige Borderline e Risco pelas fontes canônicas'
+          git push
