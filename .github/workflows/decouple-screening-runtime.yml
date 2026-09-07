@@ -1,0 +1,30 @@
+name: Decouple screening runtime
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/decouple-screening-runtime.yml']
+permissions: {contents: write}
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          old='https://ricmurtapsicologia.github.io/plataforma.terapeutica/assets/';new='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/'
+          repl={old+'css/screening-uniformity-v1.css?v=1.0.0':new+'screening-uniformity-v1.css?v=2.2.1-decoupled',old+'js/screening-uniformity-v1.js?v=1.0.0':new+'screening-uniformity-v1.js?v=2.2.1-decoupled',old+'css/screening-system-v2.css?v=2.0.0':new+'screening-system-v2.css?v=2.2.1-decoupled',old+'js/screening-system-v2.js?v=2.2.1':new+'screening-system-v2.js?v=2.2.1-decoupled'}
+          for p in Path('.').rglob('*'):
+              if not p.is_file() or '.git' in p.parts or p==Path('.github/workflows/decouple-screening-runtime.yml') or p.suffix.lower() not in {'.html','.htm','.js','.mjs','.css','.yml','.yaml','.md'}:continue
+              t=p.read_text(encoding='utf-8',errors='ignore');n=t
+              for a,b in repl.items():n=n.replace(a,b)
+              if n!=t:p.write_text(n,encoding='utf-8')
+          for p in Path('.').rglob('*'):
+              if p.is_file() and p.suffix.lower() in {'.html','.htm','.js','.mjs','.css','.yml','.yaml'} and p!=Path('.github/workflows/decouple-screening-runtime.yml'):
+                  t=p.read_text(encoding='utf-8',errors='ignore')
+                  if 'plataforma.terapeutica/assets/css/screening-' in t or 'plataforma.terapeutica/assets/js/screening-' in t:raise SystemExit('OLD_SCREENING_HOST_REMAINS '+str(p))
+          PY
+      - run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'; git add -A; git commit -m 'Desacopla monitoramentos da Plataforma Clínica'; git push
