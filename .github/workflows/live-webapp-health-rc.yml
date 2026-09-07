@@ -1,0 +1,58 @@
+name: Live Web App health RC
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/live-webapp-health-rc.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Register live endpoint but keep transport disabled
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('assets/screening-transport-v3.json')
+          data=json.loads(p.read_text(encoding='utf-8'))
+          data['version']='screening-bridge-v3.1'
+          data['bridgeUrl']='https://script.google.com/macros/s/AKfycbzrJuvVPBNPgMCZ-tmeCXy6LUMFBZB5vlNXSiP8aK3XBfiYh3xm4a4nq02xafnt65U/exec'
+          data['enabled']=False
+          p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Live GET health check
+        run: |
+          set -euo pipefail
+          URL='https://script.google.com/macros/s/AKfycbzrJuvVPBNPgMCZ-tmeCXy6LUMFBZB5vlNXSiP8aK3XBfiYh3xm4a4nq02xafnt65U/exec'
+          BODY=$(mktemp)
+          CODE=$(curl -L --retry 3 --retry-delay 2 --connect-timeout 15 --max-time 45 -sS -o "$BODY" -w '%{http_code}' "$URL")
+          echo "HTTP=$CODE"
+          test "$CODE" = "200"
+          grep -q 'screening-bridge-v3.1' "$BODY"
+          grep -q 'RM_SCREENING_SUBMIT_RESULT' "$BODY"
+          grep -q 'health' "$BODY"
+          echo 'LIVE_WEBAPP_HEALTH_PASS'
+      - name: Validate transport stays disabled
+        run: |
+          node - <<'NODE'
+          const x=require('./assets/screening-transport-v3.json');
+          if(x.enabled!==false)throw new Error('transport must remain disabled before live E2E');
+          if(!x.bridgeUrl.endsWith('/exec'))throw new Error('missing live bridge URL');
+          console.log('TRANSPORT_REGISTERED_DISABLED_PASS');
+          NODE
+      - name: Commit endpoint registration
+        run: |
+          if [ -z "$(git status --porcelain -- assets/screening-transport-v3.json)" ]; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/screening-transport-v3.json
+          git commit -m 'Registra Web App v3.1 mantendo transporte desativado'
+          git push
