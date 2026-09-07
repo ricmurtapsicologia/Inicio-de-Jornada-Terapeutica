@@ -20,7 +20,11 @@ const SCREENING_BRIDGE = Object.freeze({
 const SCREENING_IDENTITY_TITLES = Object.freeze({
   'Nome completo':'name',
   'Data de nascimento':'birthDate',
-  'Data de aplicação do rastreio':'applicationDate'
+  'Data de aplicação do rastreio':'applicationDate',
+  // Compatibilidade com o ICAPS canônico criado antes do contrato v3.1.
+  // Estes campos são metadados auxiliares e nunca entram no vetor clínico.
+  'Código do paciente (se informado pelo psicólogo)':'patientCode',
+  'Idade':'age'
 });
 
 function doGet() {
@@ -112,7 +116,7 @@ function buildScreeningOrderedContract_(form) {
       clinical.push(entry);
     }
   });
-  if(!identity.name||!identity.applicationDate) throw new Error('FORM_IDENTITY_CONTRACT_INVALID');
+  if(!identity.name) throw new Error('FORM_IDENTITY_CONTRACT_INVALID');
   return {identity:identity,clinical:clinical};
 }
 
