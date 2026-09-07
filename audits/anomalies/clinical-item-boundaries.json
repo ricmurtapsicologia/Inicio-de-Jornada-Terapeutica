@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2026-09-07",
+  "instruments": {
+    "geral": {
+      "capturedCount": 70,
+      "suspiciousCount": 0,
+      "suspicious": []
+    },
+    "tdah": {
+      "capturedCount": 85,
+      "suspiciousCount": 0,
+      "suspicious": []
+    },
+    "bipolar": {
+      "capturedCount": 79,
+      "suspiciousCount": 2,
+      "suspicious": [
+        {
+          "order": 1,
+          "title": "Nome completo",
+          "type": "TEXT",
+          "name": "idade"
+        },
+        {
+          "order": 2,
+          "title": "Nome completo",
+          "type": "PARAGRAPH",
+          "name": "obs"
+        }
+      ]
+    },
+    "borderline": {
+      "capturedCount": 47,
+      "suspiciousCount": 0,
+      "suspicious": []
+    },
+    "narcisismo": {
+      "capturedCount": 114,
+      "suspiciousCount": 2,
+      "suspicious": [
+        {
+          "order": 1,
+          "title": "Nome completo",
+          "type": "TEXT",
+          "name": "idade"
+        },
+        {
+          "order": 2,
+          "title": "Nome completo",
+          "type": "PARAGRAPH",
+          "name": "obs"
+        }
+      ]
+    },
+    "impulsividade": {
+      "capturedCount": 33,
+      "suspiciousCount": 3,
+      "suspicious": [
+        {
+          "order": 1,
+          "title": "email",
+          "type": "TEXT",
+          "name": "email"
+        },
+        {
+          "order": 2,
+          "title": "phoneNumber",
+          "type": "TEXT",
+          "name": "phoneNumber"
+        },
+        {
+          "order": 3,
+          "title": "age",
+          "type": "TEXT",
+          "name": "age"
+        }
+      ]
+    },
+    "esquemas": {
+      "capturedCount": 108,
+      "suspiciousCount": 0,
+      "suspicious": []
+    },
+    "modos": {
+      "capturedCount": 124,
+      "suspiciousCount": 0,
+      "suspicious": []
+    },
+    "necessidades": {
+      "capturedCount": 37,
+      "suspiciousCount": 1,
+      "suspicious": [
+        {
+          "order": 1,
+          "title": "Idade",
+          "type": "TEXT",
+          "name": "age"
+        }
+      ]
+    },
+    "codependencia": {
+      "capturedCount": 40,
+      "suspiciousCount": 0,
+      "suspicious": []
+    },
+    "icaps": {
+      "capturedCount": 62,
+      "suspiciousCount": 1,
+      "suspicious": [
+        {
+          "order": 1,
+          "title": "Website",
+          "type": "TEXT",
+          "name": "website"
+        }
+      ]
+    },
+    "risco": {
+      "capturedCount": 18,
+      "suspiciousCount": 0,
+      "suspicious": []
+    }
+  }
+}
