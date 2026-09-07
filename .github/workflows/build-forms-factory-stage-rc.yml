@@ -1,0 +1,79 @@
+name: Build Forms Factory stage RC
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/build-forms-factory-stage-rc.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Generate closed clinical Forms Factory batch
+        run: |
+          mkdir -p audits/forms-factory
+          cat > /tmp/build-stage.mjs <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          const exp=JSON.parse(fs.readFileSync('assets/screening-public-experience-v2.json','utf8')).instruments;
+          const plan=[
+            ['geral','FORM-2026-0004',70],['tdah','FORM-2026-0005',85],['bipolar','FORM-2026-0006',79],
+            ['borderline','FORM-2026-0007',47],['narcisismo','FORM-2026-0008',114],['impulsividade','FORM-2026-0009',33],
+            ['modos','FORM-2026-0010',124],['necessidades','FORM-2026-0011',37],['codependencia','FORM-2026-0012',40],
+            ['risco','FORM-2026-0013',18]
+          ];
+          const formsHeader=['ID_INTERNO','CRIADO_EM','ATUALIZADO_EM','TITULO','DESCRICAO','TEMPLATE','STATUS','PUBLICAR','COLETAR_EMAIL','LIMITE_1_RESPOSTA','EDITAR_APOS_ENVIO','QUIZ','EMBARALHAR_PERGUNTAS','MENSAGEM_CONFIRMACAO','CRIAR_PLANILHA_RESPOSTAS','PASTA_FORM_ID','PASTA_RESPOSTAS_ID','GOOGLE_FORM_ID','URL_EDICAO','URL_RESPOSTA','RESPONSE_SHEET_ID','RESPONSE_SHEET_URL','ERRO_CODIGO','ERRO_MENSAGEM','LOCK_TOKEN','PROMPT_ORIGINAL'];
+          const qHeader=['FORM_ID','ORDEM','SECAO','TIPO','TITULO','DESCRICAO','OBRIGATORIA','OPCOES_JSON','LINHAS_JSON','COLUNAS_JSON','ESCALA_MIN','ESCALA_MAX','ROTULO_MIN','ROTULO_MAX','RESPOSTAS_CORRETAS_JSON','PONTOS','FEEDBACK_CORRETO','FEEDBACK_INCORRETO','MOSTRAR_OUTRA_OPCAO','NAVEGACAO_JSON'];
+          const csv=(rows)=>rows.map(r=>r.map(v=>{const s=String(v??'');return /[",\n\r]/.test(s)?'"'+s.replaceAll('"','""')+'"':s}).join(',')).join('\n')+'\n';
+          const now='2026-09-07T15:30:00-03:00';
+          const forms=[formsHeader], qs=[qHeader], audit=[];
+          for(const [id,formId,expected] of plan){
+            const spec=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));
+            if(spec.error) throw new Error(`${id}: ${spec.error}`);
+            if(spec.questionCount!==expected || spec.questions.length!==expected) throw new Error(`${id}: count ${spec.questionCount}/${spec.questions.length}, expected ${expected}`);
+            for(const q of spec.questions){
+              if(!q.title?.trim()) throw new Error(`${id}: empty title at ${q.order}`);
+              if(['MULTIPLE_CHOICE','DROPDOWN','CHECKBOXES'].includes(q.type) && !(q.options?.length)) throw new Error(`${id}: missing options at ${q.order}`);
+            }
+            const title=(exp[id]?.technicalName||exp[id]?.publicName||id).trim();
+            const description=`Espelho técnico fechado da página clínica ${id}. Conteúdo preservado da interface pública vigente. Uso clínico profissional; o instrumento não estabelece diagnóstico isoladamente.`;
+            forms.push([formId,now,now,title,description,'CLINICO','RASCUNHO','FALSE','FALSE','FALSE','FALSE','FALSE','FALSE','Respostas registradas com sucesso. O material será processado e analisado pelo psicólogo responsável.','TRUE','','','','','','','','','','',`Espelhamento automático da página canônica ${spec.url}; ${expected} itens clínicos + 3 campos de identificação.`]);
+            let order=1;
+            qs.push([formId,order++,'','TEXT','Nome completo','Identificação para vínculo clínico.','TRUE','','','','','','','','','','','','FALSE','']);
+            qs.push([formId,order++,'','DATE','Data de nascimento','','TRUE','','','','','','','','','','','','FALSE','']);
+            qs.push([formId,order++,'','DATE','Data de aplicação do rastreio','','TRUE','','','','','','','','','','','','FALSE','']);
+            for(const q of spec.questions){
+              const type=q.type==='CHECKBOXES'?'CHECKBOX':q.type;
+              const opts=(q.options||[]).map(o=>String(o.label??o.value));
+              qs.push([formId,order++,'',type,q.title,'',q.required?'TRUE':'FALSE',opts.length?JSON.stringify(opts):'','','','','','','','','','','FALSE','']);
+            }
+            audit.push({id,formId,source:spec.url,expectedQuestions:expected,totalFormItems:expected+3,status:'STAGED_CLOSED'});
+          }
+          fs.writeFileSync('audits/forms-factory/formularios.csv',csv(forms));
+          fs.writeFileSync('audits/forms-factory/perguntas.csv',csv(qs));
+          fs.writeFileSync('audits/forms-factory/stage-audit.json',JSON.stringify({generatedAt:now,policy:{published:false,status:'RASCUNHO',patientUsesBrandedPage:true},forms:audit,blocked:[{id:'esquemas',reason:'DOM extraction returned 1 control; manual source reconciliation required'},{id:'icaps',reason:'already provisioned as FORM-2026-0003'}]},null,2)+'\n');
+          if(forms.length!==11) throw new Error('expected 10 staged forms');
+          if(qs.length!==1+plan.reduce((n,x)=>n+x[2]+3,0)) throw new Error('question row total drift');
+          console.log(JSON.stringify(audit,null,2));
+          NODE
+          node /tmp/build-stage.mjs
+      - name: Validate no publication request
+        run: |
+          ! grep -q ',AGUARDANDO_CRIACAO,' audits/forms-factory/formularios.csv
+          ! grep -q ',TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,' audits/forms-factory/formularios.csv
+          grep -q 'FORM-2026-0013' audits/forms-factory/formularios.csv
+          grep -q 'Pensamentos ou desejos suicidas' audits/mirror-specs/risco.json || true
+      - name: Commit stage batch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add audits/forms-factory
+          git commit -m 'Prepara lote fechado de 10 Forms espelho'
+          git push
