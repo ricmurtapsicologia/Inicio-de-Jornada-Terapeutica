@@ -27,7 +27,8 @@
       "url": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
       "questionCount": 47,
       "error": null,
-      "consoleErrorCount": 0
+      "consoleErrorCount": 0,
+      "extraction": "SOURCE_ARRAY_ITEMS"
     },
     {
       "id": "narcisismo",
@@ -85,7 +86,8 @@
       "url": "https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/",
       "questionCount": 18,
       "error": null,
-      "consoleErrorCount": 0
+      "consoleErrorCount": 0,
+      "extraction": "SOURCE_ARRAY_ITEMS"
     }
   ],
   "updatedAt": "2026-09-07"

@@ -23,8 +23,9 @@
     "borderline": {
       "source": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
       "questionCount": 47,
-      "sha256": "8ac0feca0a1c01d6810f99a9f751311e90af2a4bf6d89442090d276c00799191",
-      "status": "LOCKED_RC"
+      "sha256": "cdfcd25a1379edd79d860e7061b484e83048dadd0361b3738eec8375086fab33",
+      "status": "LOCKED_RC",
+      "extraction": "SOURCE_ARRAY_ITEMS"
     },
     "narcisismo": {
       "source": "https://ricmurtapsicologia.github.io/bateria.narcisismo/",
@@ -71,8 +72,9 @@
     "risco": {
       "source": "https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/",
       "questionCount": 18,
-      "sha256": "8bb2e621da8c46b29ce7a2e66fcc367c47a3760766a583e5e9831f3a1c146501",
-      "status": "LOCKED_RC"
+      "sha256": "fcc468d95a573988ea9f675aca2e9ec096560a4afe3809596beae769aa072819",
+      "status": "LOCKED_RC",
+      "extraction": "SOURCE_ARRAY_ITEMS"
     },
     "humor": {
       "source": "assets/monitoramentos-v2.js",

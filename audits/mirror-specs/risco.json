@@ -3,11 +3,12 @@
   "url": "https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/",
   "selector": "#eirForm",
   "identityProfile": "screening_canonical",
+  "extraction": "SOURCE_ARRAY_ITEMS",
   "questionCount": 18,
   "questions": [
     {
       "order": 1,
-      "title": "0",
+      "title": "A1. Pensei que a vida não valia a pena continuar.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -32,11 +33,14 @@
           "value": "4"
         }
       ],
-      "name": "A1"
+      "name": "A1",
+      "section": "A",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 2,
-      "title": "0",
+      "title": "A2. Tive pensamentos de que seria melhor morrer.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -61,11 +65,14 @@
           "value": "4"
         }
       ],
-      "name": "A2"
+      "name": "A2",
+      "section": "A",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 3,
-      "title": "0",
+      "title": "A3. Pensei em uma forma específica de me matar.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -90,11 +97,14 @@
           "value": "4"
         }
       ],
-      "name": "A3"
+      "name": "A3",
+      "section": "A",
+      "critical": true,
+      "invert": false
     },
     {
       "order": 4,
-      "title": "0",
+      "title": "A4. A ideia de morrer trouxe sensação de alívio ou paz.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -119,11 +129,14 @@
           "value": "4"
         }
       ],
-      "name": "A4"
+      "name": "A4",
+      "section": "A",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 5,
-      "title": "0",
+      "title": "B1. Senti vontade de agir contra a minha vida.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -148,11 +161,14 @@
           "value": "4"
         }
       ],
-      "name": "B1"
+      "name": "B1",
+      "section": "B",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 6,
-      "title": "0",
+      "title": "B2. Reservei tempo para pensar seriamente em me matar.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -177,11 +193,14 @@
           "value": "4"
         }
       ],
-      "name": "B2"
+      "name": "B2",
+      "section": "B",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 7,
-      "title": "0",
+      "title": "B3. Decidi quando e onde faria.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -206,11 +225,14 @@
           "value": "4"
         }
       ],
-      "name": "B3"
+      "name": "B3",
+      "section": "B",
+      "critical": true,
+      "invert": false
     },
     {
       "order": 8,
-      "title": "0",
+      "title": "B4. Senti que não conseguiria me controlar se tivesse a oportunidade.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -235,11 +257,14 @@
           "value": "4"
         }
       ],
-      "name": "B4"
+      "name": "B4",
+      "section": "B",
+      "critical": true,
+      "invert": false
     },
     {
       "order": 9,
-      "title": "0",
+      "title": "C1. Tive acesso fácil a meios potencialmente letais.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -264,11 +289,14 @@
           "value": "4"
         }
       ],
-      "name": "C1"
+      "name": "C1",
+      "section": "C",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 10,
-      "title": "0",
+      "title": "C2. Preparei ou aproximei meios.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -293,11 +321,14 @@
           "value": "4"
         }
       ],
-      "name": "C2"
+      "name": "C2",
+      "section": "C",
+      "critical": true,
+      "invert": false
     },
     {
       "order": 11,
-      "title": "0",
+      "title": "D1. (Histórico) Já tentei suicídio alguma vez na vida.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -322,11 +353,14 @@
           "value": "4"
         }
       ],
-      "name": "D1"
+      "name": "D1",
+      "section": "D",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 12,
-      "title": "0",
+      "title": "D2. (Histórico recente) Tive tentativa, gesto ou preparação nos últimos 12 meses.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -351,11 +385,14 @@
           "value": "4"
         }
       ],
-      "name": "D2"
+      "name": "D2",
+      "section": "D",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 13,
-      "title": "0",
+      "title": "D3. Realizei comportamento preparatório nas últimas 2 semanas (cartas, despedidas, entregar bens, “testes”).",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -380,11 +417,14 @@
           "value": "4"
         }
       ],
-      "name": "D3"
+      "name": "D3",
+      "section": "D",
+      "critical": true,
+      "invert": false
     },
     {
       "order": 14,
-      "title": "0",
+      "title": "E1. Desesperança intensa (“nada vai melhorar”).",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -409,11 +449,14 @@
           "value": "4"
         }
       ],
-      "name": "E1"
+      "name": "E1",
+      "section": "E",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 15,
-      "title": "0",
+      "title": "E2. Uso problemático de álcool/drogas ou intoxicação recente.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -438,11 +481,14 @@
           "value": "4"
         }
       ],
-      "name": "E2"
+      "name": "E2",
+      "section": "E",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 16,
-      "title": "0",
+      "title": "E3. Agitação/impulsividade marcante, ou sintomas psicóticos/dissociativos.",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -467,11 +513,14 @@
           "value": "4"
         }
       ],
-      "name": "E3"
+      "name": "E3",
+      "section": "E",
+      "critical": false,
+      "invert": false
     },
     {
       "order": 17,
-      "title": "0",
+      "title": "F1. Senti forte motivo para viver (filhos, fé, projetos, responsabilidades).",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -496,11 +545,14 @@
           "value": "4"
         }
       ],
-      "name": "F1"
+      "name": "F1",
+      "section": "F",
+      "critical": false,
+      "invert": true
     },
     {
       "order": 18,
-      "title": "0",
+      "title": "F2. Busquei e usei ativamente apoio (familiares, amigos, tratamento, recursos).",
       "type": "MULTIPLE_CHOICE",
       "required": false,
       "options": [
@@ -525,7 +577,10 @@
           "value": "4"
         }
       ],
-      "name": "F2"
+      "name": "F2",
+      "section": "F",
+      "critical": false,
+      "invert": true
     }
   ],
   "consoleErrors": []
