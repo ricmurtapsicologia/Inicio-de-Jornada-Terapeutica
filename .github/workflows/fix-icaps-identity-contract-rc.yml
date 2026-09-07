@@ -1,0 +1,81 @@
+name: Fix ICAPS identity compatibility RC
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/fix-icaps-identity-contract-rc.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Patch identity compatibility and rebuild bundle
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('apps-script/ScreeningBridgeV3.gs')
+          s=p.read_text(encoding='utf-8')
+          old="""const SCREENING_IDENTITY_TITLES = Object.freeze({
+            'Nome completo':'name',
+            'Data de nascimento':'birthDate',
+            'Data de aplicação do rastreio':'applicationDate'
+          });"""
+          new="""const SCREENING_IDENTITY_TITLES = Object.freeze({
+            'Nome completo':'name',
+            'Data de nascimento':'birthDate',
+            'Data de aplicação do rastreio':'applicationDate',
+            // Compatibilidade com o ICAPS canônico criado antes do contrato v3.1.
+            // Estes campos são metadados auxiliares e nunca entram no vetor clínico.
+            'Código do paciente (se informado pelo psicólogo)':'patientCode',
+            'Idade':'age'
+          });"""
+          if old not in s:
+              raise SystemExit('IDENTITY_BLOCK_NOT_FOUND')
+          s=s.replace(old,new,1)
+          old2="if(!identity.name||!identity.applicationDate) throw new Error('FORM_IDENTITY_CONTRACT_INVALID');"
+          new2="if(!identity.name) throw new Error('FORM_IDENTITY_CONTRACT_INVALID');"
+          if old2 not in s:
+              raise SystemExit('IDENTITY_GATE_NOT_FOUND')
+          s=s.replace(old2,new2,1)
+          p.write_text(s,encoding='utf-8')
+
+          files=[
+            'ScreeningBridgeV3.gs','ScreeningOrderedRecordsV31.gs','ScreeningScoringConfigV3.gs',
+            'ScreeningScoringV3.gs','ScreeningReportV3.gs','ScreeningPipelineV3.gs',
+            'ScreeningIntegrationsV3.gs','ScreeningOrchestratorV3.gs','ScreeningSetupV3.gs'
+          ]
+          parts=['/**\n * ScreeningBackendV31.bundle.gs\n * ARQUIVO GERADO. Não editar manualmente.\n * Bundle único do backend clínico dos 15 rastreios.\n */\n']
+          for name in files:
+              q=Path('apps-script')/name
+              parts.append(f'\n/* ===== {name} ===== */\n')
+              parts.append(q.read_text(encoding='utf-8').rstrip()+'\n')
+          Path('apps-script/ScreeningBackendV31.bundle.gs').write_text(''.join(parts),encoding='utf-8')
+          PY
+      - name: Contract gates
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const bridge=fs.readFileSync('apps-script/ScreeningBridgeV3.gs','utf8');
+          const bundle=fs.readFileSync('apps-script/ScreeningBackendV31.bundle.gs','utf8');
+          new Function(bundle);
+          if(!bridge.includes("'Código do paciente (se informado pelo psicólogo)':'patientCode'")) throw new Error('ICAPS_PATIENT_CODE_NOT_EXCLUDED');
+          if(!bridge.includes("'Idade':'age'")) throw new Error('ICAPS_AGE_NOT_EXCLUDED');
+          if(bridge.includes("!identity.name||!identity.applicationDate")) throw new Error('APPLICATION_DATE_STILL_REQUIRED');
+          if(!bridge.includes("if(!identity.name) throw new Error('FORM_IDENTITY_CONTRACT_INVALID')")) throw new Error('NAME_GATE_MISSING');
+          if((bundle.match(/function doPost\(/g)||[]).length!==1) throw new Error('DOPOST_DRIFT');
+          console.log('ICAPS_IDENTITY_COMPATIBILITY_PASS');
+          NODE
+          node tests/bdi2-content-lock.test.mjs
+      - name: Commit compatibility fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps-script/ScreeningBridgeV3.gs apps-script/ScreeningBackendV31.bundle.gs
+          git commit -m 'Compatibiliza contrato de identidade do ICAPS'
+          git push
