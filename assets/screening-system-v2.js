@@ -1,9 +1,8 @@
 (()=>{
 'use strict';
 const VERSION='2.2.1-decoupled';
-const SNAPSHOT='12ece4ed3f4738d46323813860ee96526f18b4f0';
-const CONFIG=`https://raw.githubusercontent.com/ricmurtapsicologia/plataforma.terapeutica/${SNAPSHOT}/rastreios/pipeline/public-experience-v2.json`;
-const ADAPTER_CONFIG=`https://raw.githubusercontent.com/ricmurtapsicologia/plataforma.terapeutica/${SNAPSHOT}/rastreios/pipeline/screening-adapters-v2.json`;
+const CONFIG='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-public-experience-v2.json';
+const ADAPTER_CONFIG='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-adapters-v2.json';
 const REPOS={
   'Rastreioclinico':'geral','rastreioTDAH':'tdah','tab-bateria-integrada':'bipolar',
   'Inventario-de-Tracos-Borderline':'borderline','bateria.narcisismo':'narcisismo',
