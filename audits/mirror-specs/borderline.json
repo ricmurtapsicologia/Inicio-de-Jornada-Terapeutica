@@ -1,0 +1,1373 @@
+{
+  "id": "borderline",
+  "url": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
+  "selector": "#form",
+  "identityProfile": "screening_canonical",
+  "questionCount": 47,
+  "questions": [
+    {
+      "order": 1,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q1"
+    },
+    {
+      "order": 2,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q2"
+    },
+    {
+      "order": 3,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q3"
+    },
+    {
+      "order": 4,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q4"
+    },
+    {
+      "order": 5,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q5"
+    },
+    {
+      "order": 6,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q6"
+    },
+    {
+      "order": 7,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q7"
+    },
+    {
+      "order": 8,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q8"
+    },
+    {
+      "order": 9,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q9"
+    },
+    {
+      "order": 10,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q10"
+    },
+    {
+      "order": 11,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q11"
+    },
+    {
+      "order": 12,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q12"
+    },
+    {
+      "order": 13,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q13"
+    },
+    {
+      "order": 14,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q14"
+    },
+    {
+      "order": 15,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q15"
+    },
+    {
+      "order": 16,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q16"
+    },
+    {
+      "order": 17,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q17"
+    },
+    {
+      "order": 18,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q18"
+    },
+    {
+      "order": 19,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q19"
+    },
+    {
+      "order": 20,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q20"
+    },
+    {
+      "order": 21,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q21"
+    },
+    {
+      "order": 22,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q22"
+    },
+    {
+      "order": 23,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q23"
+    },
+    {
+      "order": 24,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q24"
+    },
+    {
+      "order": 25,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q25"
+    },
+    {
+      "order": 26,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q26"
+    },
+    {
+      "order": 27,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q27"
+    },
+    {
+      "order": 28,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q28"
+    },
+    {
+      "order": 29,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q29"
+    },
+    {
+      "order": 30,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q30"
+    },
+    {
+      "order": 31,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q31"
+    },
+    {
+      "order": 32,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q32"
+    },
+    {
+      "order": 33,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q33"
+    },
+    {
+      "order": 34,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q34"
+    },
+    {
+      "order": 35,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q35"
+    },
+    {
+      "order": 36,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q36"
+    },
+    {
+      "order": 37,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q37"
+    },
+    {
+      "order": 38,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q38"
+    },
+    {
+      "order": 39,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q39"
+    },
+    {
+      "order": 40,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q40"
+    },
+    {
+      "order": 41,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q41"
+    },
+    {
+      "order": 42,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q42"
+    },
+    {
+      "order": 43,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q43"
+    },
+    {
+      "order": 44,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q44"
+    },
+    {
+      "order": 45,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q45"
+    },
+    {
+      "order": 46,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q46"
+    },
+    {
+      "order": 47,
+      "title": "Itens do questionário",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q47"
+    }
+  ],
+  "consoleErrors": []
+}

@@ -1,0 +1,2475 @@
+{
+  "id": "tdah",
+  "url": "https://ricmurtapsicologia.github.io/rastreioTDAH/",
+  "selector": "#form",
+  "identityProfile": "screening_canonical",
+  "questionCount": 85,
+  "questions": [
+    {
+      "order": 1,
+      "title": "1. Tenho dificuldade em manter o foco em conversas longas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_0"
+    },
+    {
+      "order": 2,
+      "title": "2. Frequentemente cometo erros por descuido.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_1"
+    },
+    {
+      "order": 3,
+      "title": "3. Tenho dificuldade em manter a atenção em leituras ou vídeos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_2"
+    },
+    {
+      "order": 4,
+      "title": "4. Perco objetos importantes como carteira, celular ou chaves.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_3"
+    },
+    {
+      "order": 5,
+      "title": "5. Esqueço facilmente compromissos e datas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_4"
+    },
+    {
+      "order": 6,
+      "title": "6. Evito tarefas que exigem esforço mental prolongado.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_5"
+    },
+    {
+      "order": 7,
+      "title": "7. Me distraio com estímulos irrelevantes ao realizar tarefas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_6"
+    },
+    {
+      "order": 8,
+      "title": "8. Tenho dificuldade em organizar compromissos e atividades.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_7"
+    },
+    {
+      "order": 9,
+      "title": "9. Sinto que meu pensamento é confuso ou fragmentado.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_8"
+    },
+    {
+      "order": 10,
+      "title": "10. Esqueço o que ia fazer logo após me levantar ou mudar de ambiente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_9"
+    },
+    {
+      "order": 11,
+      "title": "11. Frequentemente preciso reler parágrafos para entender o conteúdo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_10"
+    },
+    {
+      "order": 12,
+      "title": "12. Costumo começar tarefas e abandonar antes de terminar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q1_11"
+    },
+    {
+      "order": 13,
+      "title": "1. Tenho dificuldade em permanecer sentado por longos períodos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_0"
+    },
+    {
+      "order": 14,
+      "title": "2. Mexo mãos ou pés mesmo sem perceber.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_1"
+    },
+    {
+      "order": 15,
+      "title": "3. Falo demais mesmo quando não é apropriado.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_2"
+    },
+    {
+      "order": 16,
+      "title": "4. Interrompo os outros frequentemente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_3"
+    },
+    {
+      "order": 17,
+      "title": "5. Respondo perguntas antes que sejam finalizadas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_4"
+    },
+    {
+      "order": 18,
+      "title": "6. Tenho comportamentos impulsivos que causam problemas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_5"
+    },
+    {
+      "order": 19,
+      "title": "7. Tomo decisões sem pensar nas consequências.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_6"
+    },
+    {
+      "order": 20,
+      "title": "8. Sinto uma inquietação interna constante.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_7"
+    },
+    {
+      "order": 21,
+      "title": "9. Tenho necessidade de mudar de posição repetidamente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_8"
+    },
+    {
+      "order": 22,
+      "title": "10. Me levanto em situações em que deveria estar sentado.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_9"
+    },
+    {
+      "order": 23,
+      "title": "11. Termino frases de outras pessoas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_10"
+    },
+    {
+      "order": 24,
+      "title": "12. Faço compras, apostas ou ações impulsivas que depois me arrependem.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q2_11"
+    },
+    {
+      "order": 25,
+      "title": "1. Tenho explosões emocionais desproporcionais.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_0"
+    },
+    {
+      "order": 26,
+      "title": "2. Me frustro com facilidade.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_1"
+    },
+    {
+      "order": 27,
+      "title": "3. Sinto variações bruscas de humor durante o dia.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_2"
+    },
+    {
+      "order": 28,
+      "title": "4. Tenho dificuldade em me acalmar após uma situação estressante.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_3"
+    },
+    {
+      "order": 29,
+      "title": "5. Reajo com irritação a pequenas contrariedades.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_4"
+    },
+    {
+      "order": 30,
+      "title": "6. Me culpo intensamente por erros pequenos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_5"
+    },
+    {
+      "order": 31,
+      "title": "7. Tenho baixa tolerância à crítica.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_6"
+    },
+    {
+      "order": 32,
+      "title": "8. Às vezes choro sem entender o motivo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_7"
+    },
+    {
+      "order": 33,
+      "title": "9. Me sinto emocionalmente esgotado com frequência.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_8"
+    },
+    {
+      "order": 34,
+      "title": "10. Tenho dificuldade em controlar o impulso de confrontar os outros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q3_9"
+    },
+    {
+      "order": 35,
+      "title": "1. Tenho dificuldade em planejar tarefas com várias etapas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_0"
+    },
+    {
+      "order": 36,
+      "title": "2. Não consigo cumprir prazos mesmo sabendo da importância.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_1"
+    },
+    {
+      "order": 37,
+      "title": "3. Procrastino mesmo em tarefas simples.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_2"
+    },
+    {
+      "order": 38,
+      "title": "4. Tenho dificuldade em organizar minha rotina diária.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_3"
+    },
+    {
+      "order": 39,
+      "title": "5. Me atrapalho ao tentar fazer múltiplas tarefas ao mesmo tempo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_4"
+    },
+    {
+      "order": 40,
+      "title": "6. Perco a noção de tempo com frequência.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_5"
+    },
+    {
+      "order": 41,
+      "title": "7. Me confundo com sequência de ações simples.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_6"
+    },
+    {
+      "order": 42,
+      "title": "8. Tenho dificuldade em priorizar tarefas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_7"
+    },
+    {
+      "order": 43,
+      "title": "9. Me sinto sobrecarregado com pequenas demandas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_8"
+    },
+    {
+      "order": 44,
+      "title": "10. Adio decisões importantes por indecisão ou medo de errar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_9"
+    },
+    {
+      "order": 45,
+      "title": "11. Tenho dificuldade em seguir instruções verbais longas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_10"
+    },
+    {
+      "order": 46,
+      "title": "12. Sinto que tenho mais ideias do que consigo executar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q4_11"
+    },
+    {
+      "order": 47,
+      "title": "1. Tenho prejuízo no trabalho por distração ou desorganização.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q5_0"
+    },
+    {
+      "order": 48,
+      "title": "2. Me sinto inadequado em ambientes acadêmicos ou profissionais.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q5_1"
+    },
+    {
+      "order": 49,
+      "title": "3. Meus relacionamentos são afetados por minha impulsividade.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q5_2"
+    },
+    {
+      "order": 50,
+      "title": "4. Evito compromissos por medo de não conseguir cumpri-los.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q5_3"
+    },
+    {
+      "order": 51,
+      "title": "5. Me sinto socialmente inadequado por meu comportamento.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q5_4"
+    },
+    {
+      "order": 52,
+      "title": "6. Tenho dificuldades financeiras por desorganização.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q5_5"
+    },
+    {
+      "order": 53,
+      "title": "7. Me envergonho de minhas falhas em tarefas simples.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q5_6"
+    },
+    {
+      "order": 54,
+      "title": "8. Me sinto frustrado por não atingir meu potencial.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q5_7"
+    },
+    {
+      "order": 55,
+      "title": "1. Era descrito como inquieto(a) ou agitado(a) na infância.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_0"
+    },
+    {
+      "order": 56,
+      "title": "2. Recebia muitas advertências por interromper ou não esperar a vez.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_1"
+    },
+    {
+      "order": 57,
+      "title": "3. Tive dificuldade em manter atenção nas aulas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_2"
+    },
+    {
+      "order": 58,
+      "title": "4. Não conseguia terminar as tarefas escolares.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_3"
+    },
+    {
+      "order": 59,
+      "title": "5. Era impulsivo(a) nas brincadeiras ou conflitos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_4"
+    },
+    {
+      "order": 60,
+      "title": "6. Tinha dificuldade em manter amizades por comportamento inadequado.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_5"
+    },
+    {
+      "order": 61,
+      "title": "7. Mudava de assunto ou atividade com frequência.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_6"
+    },
+    {
+      "order": 62,
+      "title": "8. Tive dificuldades com regras e limites.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_7"
+    },
+    {
+      "order": 63,
+      "title": "9. Me sentia diferente dos outros colegas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_8"
+    },
+    {
+      "order": 64,
+      "title": "10. Era criticado por falta de foco ou agitação.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q6_9"
+    },
+    {
+      "order": 65,
+      "title": "1. Meus sintomas surgiram apenas na idade adulta.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_0"
+    },
+    {
+      "order": 66,
+      "title": "2. Tenho oscilações intensas de humor (ex: euforia e apatia).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_1"
+    },
+    {
+      "order": 67,
+      "title": "3. Tenho histórico de trauma que influencia meu comportamento atual.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_2"
+    },
+    {
+      "order": 68,
+      "title": "4. Os sintomas pioram em momentos de estresse ou luto.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_3"
+    },
+    {
+      "order": 69,
+      "title": "5. Sinto mudanças súbitas de energia e sono.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_4"
+    },
+    {
+      "order": 70,
+      "title": "6. Já fui diagnosticado com transtorno bipolar, depressão ou ansiedade.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_5"
+    },
+    {
+      "order": 71,
+      "title": "7. Os sintomas desaparecem quando estou em férias ou descansado.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_6"
+    },
+    {
+      "order": 72,
+      "title": "8. Tenho crises de pânico ou episódios dissociativos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_7"
+    },
+    {
+      "order": 73,
+      "title": "9. Já tive episódios de compulsão (alimentar, compras, jogos, etc).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_8"
+    },
+    {
+      "order": 74,
+      "title": "10. Meus sintomas não apareceram na infância ou adolescência.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q7_9"
+    },
+    {
+      "order": 75,
+      "title": "1. Consigo manter o foco em atividades longas sem me distrair.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_0"
+    },
+    {
+      "order": 76,
+      "title": "2. Me considero organizado(a) e pontual.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_1"
+    },
+    {
+      "order": 77,
+      "title": "3. Tenho facilidade em lidar com mudanças e imprevistos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_2"
+    },
+    {
+      "order": 78,
+      "title": "4. Sinto que consigo controlar minhas emoções com facilidade.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_3"
+    },
+    {
+      "order": 79,
+      "title": "5. Meus colegas dizem que sou uma pessoa centrada e estável.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_4"
+    },
+    {
+      "order": 80,
+      "title": "6. Me considero produtivo e eficiente na maioria das atividades.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_5"
+    },
+    {
+      "order": 81,
+      "title": "7. Lido bem com tarefas complexas e de longo prazo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_6"
+    },
+    {
+      "order": 82,
+      "title": "8. Me destaco por minha habilidade de escutar sem interromper.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_7"
+    },
+    {
+      "order": 83,
+      "title": "9. Reflito antes de tomar decisões importantes.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_8"
+    },
+    {
+      "order": 84,
+      "title": "10. Me sinto emocionalmente equilibrado na maior parte do tempo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_9"
+    },
+    {
+      "order": 85,
+      "title": "11. Tenho clareza sobre minhas metas e prioridades diárias.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "name": "q8_10"
+    }
+  ],
+  "consoleErrors": []
+}

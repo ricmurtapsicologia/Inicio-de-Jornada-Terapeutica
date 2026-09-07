@@ -1,0 +1,18 @@
+{
+  "id": "esquemas",
+  "url": "https://ricmurtapsicologia.github.io/rastreio.de.esquemas/",
+  "selector": "#screeningForm",
+  "identityProfile": "screening_canonical",
+  "questionCount": 1,
+  "questions": [
+    {
+      "order": 1,
+      "title": "Idade",
+      "type": "TEXT",
+      "required": false,
+      "options": [],
+      "name": "idade"
+    }
+  ],
+  "consoleErrors": []
+}

@@ -1,0 +1,784 @@
+{
+  "id": "impulsividade",
+  "url": "https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/",
+  "selector": "#scaleForm",
+  "identityProfile": "screening_canonical",
+  "questionCount": 33,
+  "questions": [
+    {
+      "order": 1,
+      "title": "email",
+      "type": "TEXT",
+      "required": false,
+      "options": [],
+      "name": "email"
+    },
+    {
+      "order": 2,
+      "title": "phoneNumber",
+      "type": "TEXT",
+      "required": false,
+      "options": [],
+      "name": "phoneNumber"
+    },
+    {
+      "order": 3,
+      "title": "age",
+      "type": "TEXT",
+      "required": false,
+      "options": [],
+      "name": "age"
+    },
+    {
+      "order": 4,
+      "title": "1. Eu planejo tarefas cuidadosamente.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q1"
+    },
+    {
+      "order": 5,
+      "title": "2. Eu faço coisas sem pensar.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q2"
+    },
+    {
+      "order": 6,
+      "title": "3. Eu tomo decisões rapidamente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q3"
+    },
+    {
+      "order": 7,
+      "title": "4. Eu sou despreocupado (confio na sorte, \"desencanado\").",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q4"
+    },
+    {
+      "order": 8,
+      "title": "5. Eu não presto atenção.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q5"
+    },
+    {
+      "order": 9,
+      "title": "6. Eu tenho pensamentos que se atropelam.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q6"
+    },
+    {
+      "order": 10,
+      "title": "7. Eu planejo viagens com bastante antecedência.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q7"
+    },
+    {
+      "order": 11,
+      "title": "8. Eu tenho autocontrole.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q8"
+    },
+    {
+      "order": 12,
+      "title": "9. Eu me concentro facilmente.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q9"
+    },
+    {
+      "order": 13,
+      "title": "10. Eu economizo (poupo) regularmente.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q10"
+    },
+    {
+      "order": 14,
+      "title": "11. Eu fico me contorcendo na cadeira em peças de teatro ou palestras.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q11"
+    },
+    {
+      "order": 15,
+      "title": "12. Eu penso nas coisas com cuidado.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q12"
+    },
+    {
+      "order": 16,
+      "title": "13. Eu faço planos para me manter no emprego (eu cuido para não perder meu emprego).*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q13"
+    },
+    {
+      "order": 17,
+      "title": "14. Eu falo coisas sem pensar.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q14"
+    },
+    {
+      "order": 18,
+      "title": "15. Eu gosto de pensar em problemas complexos.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q15"
+    },
+    {
+      "order": 19,
+      "title": "16. Eu troco de emprego.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q16"
+    },
+    {
+      "order": 20,
+      "title": "17. Eu ajo por impulso.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q17"
+    },
+    {
+      "order": 21,
+      "title": "18. Eu fico entediado com facilidade quando estou resolvendo problemas mentalmente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q18"
+    },
+    {
+      "order": 22,
+      "title": "19. Eu ajo no “calor do momento”.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q19"
+    },
+    {
+      "order": 23,
+      "title": "20. Eu mantenho a linha de raciocínio (“não perco o fio da meada”).*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q20"
+    },
+    {
+      "order": 24,
+      "title": "21. Eu troco de casa (residência).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q21"
+    },
+    {
+      "order": 25,
+      "title": "22. Eu compro coisas por impulso.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q22"
+    },
+    {
+      "order": 26,
+      "title": "23. Eu só consigo pensar em uma coisa de cada vez.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q23"
+    },
+    {
+      "order": 27,
+      "title": "24. Eu troco de interesses e passatempos (“hobby”).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q24"
+    },
+    {
+      "order": 28,
+      "title": "25. Eu gasto ou compro à prestação mais do que ganho.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q25"
+    },
+    {
+      "order": 29,
+      "title": "26. Enquanto estou pensando em uma coisa, é comum que outras ideias me venham à cabeça ou ao mesmo tempo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q26"
+    },
+    {
+      "order": 30,
+      "title": "27. Eu tenho mais interesse no presente do que no futuro.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q27"
+    },
+    {
+      "order": 31,
+      "title": "28. Eu me sinto inquieto em palestras ou aulas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q28"
+    },
+    {
+      "order": 32,
+      "title": "29. Eu gosto de jogos ou desafios mentais.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q29"
+    },
+    {
+      "order": 33,
+      "title": "30. Eu me preparo para o futuro.*",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Raramente ou nunca",
+          "value": "4"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "3"
+        },
+        {
+          "label": "Com frequência",
+          "value": "2"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "1"
+        }
+      ],
+      "name": "q30"
+    }
+  ],
+  "consoleErrors": []
+}

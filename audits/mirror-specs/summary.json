@@ -1,0 +1,89 @@
+{
+  "capturedAt": "2026-09-07T18:24:46.050Z",
+  "instruments": [
+    {
+      "id": "geral",
+      "url": "https://ricmurtapsicologia.github.io/Rastreioclinico/",
+      "questionCount": 70,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "tdah",
+      "url": "https://ricmurtapsicologia.github.io/rastreioTDAH/",
+      "questionCount": 85,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "bipolar",
+      "url": "https://ricmurtapsicologia.github.io/tab-bateria-integrada/",
+      "questionCount": 79,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "borderline",
+      "url": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
+      "questionCount": 47,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "narcisismo",
+      "url": "https://ricmurtapsicologia.github.io/bateria.narcisismo/",
+      "questionCount": 114,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "impulsividade",
+      "url": "https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/",
+      "questionCount": 33,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "esquemas",
+      "url": "https://ricmurtapsicologia.github.io/rastreio.de.esquemas/",
+      "questionCount": 1,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "modos",
+      "url": "https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/",
+      "questionCount": 124,
+      "error": null,
+      "consoleErrorCount": 1
+    },
+    {
+      "id": "necessidades",
+      "url": "https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/",
+      "questionCount": 37,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "codependencia",
+      "url": "https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/",
+      "questionCount": 40,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "icaps",
+      "url": "https://ricmurtapsicologia.github.io/ICAPS/",
+      "questionCount": 62,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "risco",
+      "url": "https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/",
+      "questionCount": 18,
+      "error": null,
+      "consoleErrorCount": 0
+    }
+  ]
+}
