@@ -1,0 +1,41 @@
+name: Audit clinical item boundaries RC
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/audit-clinical-item-boundaries-rc.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Detect remaining metadata inside captured clinical questions
+        run: |
+          mkdir -p audits/anomalies
+          node <<'NODE'
+          const fs=require('fs');
+          const ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','risco'];
+          const report={generatedAt:'2026-09-07',instruments:{}};
+          const meta=/^(nome|name|email|e-mail|telefone|phone|idade|age|data de nascimento|birth|data de aplica|application|c[oó]digo do paciente|patient code)/i;
+          for(const id of ids){
+            const s=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));
+            const suspicious=s.questions.filter(q=>['TEXT','DATE','PARAGRAPH'].includes(q.type)||meta.test(String(q.title||'').trim())).map(q=>({order:q.order,title:q.title,type:q.type,name:q.name}));
+            report.instruments[id]={capturedCount:s.questionCount,suspiciousCount:suspicious.length,suspicious};
+          }
+          fs.writeFileSync('audits/anomalies/clinical-item-boundaries.json',JSON.stringify(report,null,2)+'\n');
+          console.log(JSON.stringify(report,null,2));
+          NODE
+      - name: Commit report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add audits/anomalies/clinical-item-boundaries.json
+          git commit -m 'Audita metadados misturados aos itens clínicos'
+          git push
