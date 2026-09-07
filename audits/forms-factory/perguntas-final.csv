@@ -177,7 +177,7 @@ FORM-2026-0006,14,,DROPDOWN,11. Gastos excessivos/compras impulsivas?,,FALSE,"["
 FORM-2026-0006,15,,DROPDOWN,12. Produtividade incomum?,,FALSE,"[""Selecione..."",""Aplica-se (Sim)"",""Não se aplica""]",,,,,,,,,,FALSE,
 FORM-2026-0006,16,,DROPDOWN,13. Irritabilidade com discussões/brigas?,,FALSE,"[""Selecione..."",""Aplica-se (Sim)"",""Não se aplica""]",,,,,,,,,,FALSE,
 FORM-2026-0006,17,,DROPDOWN,Os sintomas marcados “Sim” aconteceram ao mesmo tempo?,,FALSE,"[""Selecione..."",""Aplica-se (Sim)"",""Não se aplica""]",,,,,,,,,,FALSE,
-FORM-2026-0006,18,,DROPDOWN,Os sintomas marcados “Sim” aconteceram ao mesmo tempo?,,FALSE,"[""Selecione..."",""Nenhum"",""Leve"",""Moderado"",""Grave""]",,,,,,,,,,FALSE,
+FORM-2026-0006,18,,DROPDOWN,Grau de prejuízo causado por esses sintomas,,FALSE,"[""Selecione..."",""Nenhum"",""Leve"",""Moderado"",""Grave""]",,,,,,,,,,FALSE,
 FORM-2026-0006,19,,DROPDOWN,1. Fico mais falante e expansivo(a).,,FALSE,"[""Selecione..."",""Aplica-se (Sim)"",""Não se aplica""]",,,,,,,,,,FALSE,
 FORM-2026-0006,20,,DROPDOWN,"2. Fico mais ativo(a), com muita energia.",,FALSE,"[""Selecione..."",""Aplica-se (Sim)"",""Não se aplica""]",,,,,,,,,,FALSE,
 FORM-2026-0006,21,,DROPDOWN,3. Sou mais confiante/seguro(a).,,FALSE,"[""Selecione..."",""Aplica-se (Sim)"",""Não se aplica""]",,,,,,,,,,FALSE,

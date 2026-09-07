@@ -17,8 +17,9 @@
     "bipolar": {
       "source": "https://ricmurtapsicologia.github.io/tab-bateria-integrada/",
       "questionCount": 77,
-      "sha256": "03b147ffa030cc688bdab12120bb40c2dd6ff5bad4e8b52322e21ce7126dde92",
-      "status": "LOCKED_RC"
+      "sha256": "23f810b55ac12d69415c4de8d1cdd37d50621c750a421c523ec1004572282adb",
+      "status": "LOCKED_RC",
+      "sourceVerifiedLabelFix": "MDQ impact label verified against tab-bateria-integrada/index.html"
     },
     "borderline": {
       "source": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
