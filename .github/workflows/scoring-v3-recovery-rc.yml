@@ -1,0 +1,174 @@
+name: Scoring v3 recovery RC
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/scoring-v3-recovery-rc.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  recover-and-certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+
+      - name: Apply all pending v3 patches once
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          # 1) Esquemas: bind scorer to compiled canonical mapping.
+          p=Path('apps-script/ScreeningScoringV3.gs')
+          s=p.read_text(encoding='utf-8')
+          old="const config=JSON.parse(PropertiesService.getScriptProperties().getProperty('SCHEMAS_SCORING_CONFIG_JSON')||'null');\n  if(!config||!Array.isArray(config.questions)||!Array.isArray(config.schemas)) throw new Error('SCHEMAS_CONFIG_NOT_CONFIGURED');"
+          new="const config=SCREENING_SCHEMAS_CONFIG_V3;\n  if(!config||!Array.isArray(config.questions)||!Array.isArray(config.schemas)) throw new Error('SCHEMAS_CONFIG_NOT_COMPILED');"
+          if old in s:
+            s=s.replace(old,new,1)
+          elif 'const config=SCREENING_SCHEMAS_CONFIG_V3;' not in s:
+            raise SystemExit('SCHEMAS_BINDING_TARGET_NOT_FOUND')
+
+          # 2) Risk: any current suicidal-ideation item A1-A4 endorsed becomes clinician alert flag.
+          oldrisk="if(cls==='Risco moderado'||cls==='Risco grave')flags.push('CLINICAL_ALERT_REQUIRED');"
+          newrisk="if(['A1','A2','A3','A4'].some(function(k){return resp[k]>=1;}))flags.push('SUICIDAL_IDEATION_PRESENT');\n  if(cls==='Risco moderado'||cls==='Risco grave')flags.push('CLINICAL_ALERT_REQUIRED');"
+          if oldrisk in s:
+            s=s.replace(oldrisk,newrisk,1)
+          elif 'SUICIDAL_IDEATION_PRESENT' not in s:
+            raise SystemExit('RISK_FLAG_TARGET_NOT_FOUND')
+          p.write_text(s,encoding='utf-8')
+
+          # 3) Persist first, then post-process; a post-processing error must not invite duplicate submission.
+          bp=Path('apps-script/ScreeningBridgeV3.gs')
+          b=bp.read_text(encoding='utf-8')
+          oldb="""    // Recibo somente após confirmação do Google Forms.\n    formResponse.submit();\n    cache.put(cacheKey, '1', SCREENING_BRIDGE.CACHE_TTL_SECONDS);\n\n    return screeningBridgeHtml_({\n      ok: true,\n      submissionId: payload.submissionId,\n      instrumentId: payload.instrumentId\n    });"""
+          newb="""    // Persistência é o gate primário: nunca depender de scoring/e-mail/Trello.\n    const submittedResponse = formResponse.submit();\n    cache.put(cacheKey, '1', SCREENING_BRIDGE.CACHE_TTL_SECONDS);\n\n    let processing = 'complete';\n    try {\n      const formResponseId = String((submittedResponse && submittedResponse.getId && submittedResponse.getId()) || payload.submissionId);\n      runScreeningPostProcessingV3_({ form: form, payload: payload, formResponseId: formResponseId });\n    } catch (postErr) {\n      // A resposta JÁ está persistida; não induzir reenvio/duplicidade.\n      processing = 'pending';\n      console.error('ScreeningPostProcess:' + screeningSafePostProcessError_(postErr));\n    }\n\n    return screeningBridgeHtml_({\n      ok: true,\n      submissionId: payload.submissionId,\n      instrumentId: payload.instrumentId,\n      processing: processing\n    });"""
+          if oldb in b:
+            b=b.replace(oldb,newb,1)
+          elif "runScreeningPostProcessingV3_" not in b:
+            raise SystemExit('BRIDGE_WIRE_TARGET_NOT_FOUND')
+          bp.write_text(b,encoding='utf-8')
+
+          # 4) Clinical-alert e-mail subject for urgent risk signals.
+          rp=Path('apps-script/ScreeningReportV3.gs')
+          r=rp.read_text(encoding='utf-8')
+          oldr="const subject = ['RASTREIO', instrumentName, patientName, dateForSubject].join(' · ').slice(0, 240);"
+          newr="const subject = [result.urgent === true ? 'ALERTA CLÍNICO' : 'RASTREIO', instrumentName, patientName, dateForSubject].join(' · ').slice(0, 240);"
+          if oldr in r:
+            r=r.replace(oldr,newr,1)
+          elif 'ALERTA CLÍNICO' not in r:
+            raise SystemExit('REPORT_SUBJECT_TARGET_NOT_FOUND')
+          rp.write_text(r,encoding='utf-8')
+          PY
+
+      - name: Write deterministic scorer tests
+        run: |
+          cat > tests/screening-scoring-v3-static.test.mjs <<'NODE'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const src=fs.readFileSync('apps-script/ScreeningScoringV3.gs','utf8');
+          const cfg=fs.readFileSync('apps-script/ScreeningScoringConfigV3.gs','utf8');
+          const ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','humor','ansiedade','autoestima','risco'];
+          for(const id of ids) assert.ok(new RegExp(`${id}:\\s*score`, 'i').test(src),`scorer ausente ${id}`);
+          assert.match(src,/DESCRIPTIVE_ONLY/);
+          assert.match(src,/STANDARD_BIS11/);
+          assert.match(src,/STANDARD_BDI2/);
+          assert.match(src,/STANDARD_HAMA_ADAPTED_SELF_REPORT/);
+          assert.match(src,/STANDARD_RSES_BR/);
+          assert.match(src,/SOURCE_DERIVED_CURRENT_HIGH_STAKES/);
+          assert.ok(!/percentileRank|percentile\s*=|simulatedPercentile/i.test(src),'não restaurar percentil simulado');
+          assert.ok(!/Quadro Clínico Mais Provável|diagnóstico provável/i.test(src),'scorer não pode emitir diagnóstico');
+          assert.match(src,/SCREENING_SCHEMAS_CONFIG_V3/);
+          assert.match(cfg,/const SCREENING_SCHEMAS_CONFIG_V3/);
+          assert.equal((cfg.match(/schemaId/g)||[]).length,108,'mapeamento Esquemas deve conter 108 itens');
+          assert.match(src,/CRITICAL_ITEM_4/);
+          assert.match(src,/SUICIDE_ITEM_ENDORSED/);
+          assert.match(src,/SUICIDAL_IDEATION_PRESENT/);
+          console.log('SCREENING_SCORING_V3_STATIC_PASS');
+          NODE
+
+          cat > tests/screening-postprocessing-v3-static.test.mjs <<'NODE'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const bridge=fs.readFileSync('apps-script/ScreeningBridgeV3.gs','utf8');
+          const orch=fs.readFileSync('apps-script/ScreeningOrchestratorV3.gs','utf8');
+          const report=fs.readFileSync('apps-script/ScreeningReportV3.gs','utf8');
+          const score=fs.readFileSync('apps-script/ScreeningScoringV3.gs','utf8');
+          const submitPos=bridge.indexOf('formResponse.submit()');
+          const postPos=bridge.indexOf('runScreeningPostProcessingV3_');
+          assert.ok(submitPos>=0 && postPos>submitPos,'pós-processamento deve ocorrer depois de submit confirmado');
+          assert.match(bridge,/processing = 'pending'/);
+          assert.match(bridge,/ok: true,[\s\S]*processing: processing/,'pós-processamento falho não pode invalidar persistência');
+          assert.match(orch,/scoreScreeningV3_/);
+          assert.match(orch,/enqueueScreeningPipeline_/);
+          assert.match(orch,/SUICIDE_ITEM_ENDORSED/);
+          assert.match(report,/ALERTA CLÍNICO/);
+          assert.match(score,/SUICIDAL_IDEATION_PRESENT/);
+          console.log('SCREENING_POSTPROCESSING_V3_STATIC_PASS');
+          NODE
+
+          cat > tests/screening-scoring-v3-runtime.test.mjs <<'NODE'
+          import fs from 'node:fs';
+          import vm from 'node:vm';
+          import assert from 'node:assert/strict';
+          let cfg=fs.readFileSync('apps-script/ScreeningScoringConfigV3.gs','utf8').replace(/^const SCREENING_SCHEMAS_CONFIG_V3/m,'var SCREENING_SCHEMAS_CONFIG_V3');
+          let src=fs.readFileSync('apps-script/ScreeningScoringV3.gs','utf8').replace(/^const SCREENING_SCORING_VERSION/m,'var SCREENING_SCORING_VERSION');
+          const ctx={console}; vm.createContext(ctx); vm.runInContext(cfg+'\n'+src,ctx);
+          const rec=(idx,response)=>({choiceIndex:idx,response:response??String(idx),identity:false,title:'x'});
+          const nrec=v=>({choiceIndex:v,response:String(v),identity:false,title:'x'});
+          const labels=(n,idx=0)=>Array.from({length:n},()=>rec(idx));
+
+          let x=ctx.scoreScreeningV3_('geral',Array.from({length:70},()=>nrec(0))); assert.equal(x.subscales.length,7); assert.equal(x.subscales[0].rawScore,0);
+          x=ctx.scoreScreeningV3_('tdah',Array.from({length:85},()=>nrec(0))); assert.equal(x.subscales.length,8); assert.equal(x.classification,'Sem corte diagnóstico');
+
+          let b=Array.from({length:77},()=>rec(1,'Não se aplica')); b[14]=rec(0,'Nenhum'); b[66]=rec(3,'Nada (+0)'); b[76]=rec(3,'< 2 dias'); x=ctx.scoreScreeningV3_('bipolar',b); assert.equal(x.subscales.length,4);
+
+          let bl=labels(47,0); [4,10,16,30,36].forEach(i=>bl[i-1]=rec(3)); x=ctx.scoreScreeningV3_('borderline',bl); assert.equal(x.rawScore,47); assert.equal(x.normalizedScore,0);
+          bl=labels(47,3); [4,10,16,30,36].forEach(i=>bl[i-1]=rec(0)); x=ctx.scoreScreeningV3_('borderline',bl); assert.equal(x.rawScore,188); assert.equal(x.normalizedScore,100);
+
+          let na=[]; for(let i=0;i<16;i++)na.push(rec(1,'Não')); for(let i=0;i<25;i++)na.push(nrec(0)); for(let i=0;i<60;i++)na.push(nrec(1)); for(let i=0;i<11;i++)na.push(rec(1,'Não')); x=ctx.scoreScreeningV3_('narcisismo',na); assert.equal(x.subscales.length,7);
+
+          let bis=Array.from({length:30},()=>rec(0)); [1,7,8,9,10,12,13,15,20,29,30].forEach(i=>bis[i-1]=rec(3)); x=ctx.scoreScreeningV3_('impulsividade',bis); assert.equal(x.rawScore,30); assert.equal(x.subscales.length,3);
+          bis=Array.from({length:30},()=>rec(3)); [1,7,8,9,10,12,13,15,20,29,30].forEach(i=>bis[i-1]=rec(0)); x=ctx.scoreScreeningV3_('impulsividade',bis); assert.equal(x.rawScore,120);
+
+          x=ctx.scoreScreeningV3_('esquemas',labels(108,0)); assert.equal(x.subscales.length,18); assert.ok(x.subscales.every(s=>s.classification==='ausente'));
+          x=ctx.scoreScreeningV3_('esquemas',labels(108,5)); assert.ok(x.subscales.every(s=>s.classification==='ativo'));
+
+          x=ctx.scoreScreeningV3_('modos',Array.from({length:124},()=>nrec(1))); assert.equal(x.subscales.length,14);
+          x=ctx.scoreScreeningV3_('necessidades',labels(36,0)); assert.equal(x.subscales.length,9);
+          x=ctx.scoreScreeningV3_('codependencia',labels(40,0)); assert.equal(x.subscales[0].rawScore,20); assert.equal(x.subscales[1].rawScore,20);
+          x=ctx.scoreScreeningV3_('icaps',labels(60,0)); assert.equal(x.subscales.length,6); assert.equal(x.subscales[0].rawScore,0);
+
+          let bdi=labels(21,0); x=ctx.scoreScreeningV3_('humor',bdi); assert.equal(x.rawScore,0); assert.equal(x.classification,'mínimo');
+          bdi=labels(21,3); bdi[15]=rec(5); bdi[17]=rec(5); x=ctx.scoreScreeningV3_('humor',bdi); assert.equal(x.rawScore,63); assert.equal(x.classification,'grave'); assert.ok(x.riskFlags.includes('SUICIDE_ITEM_HIGH'));
+
+          x=ctx.scoreScreeningV3_('ansiedade',labels(14,0)); assert.equal(x.rawScore,0); x=ctx.scoreScreeningV3_('ansiedade',labels(14,4)); assert.equal(x.rawScore,56); assert.equal(x.classification,'grave');
+
+          let rs=labels(10,0); [2,5,6,8,9].forEach(i=>rs[i-1]=rec(3)); x=ctx.scoreScreeningV3_('autoestima',rs); assert.equal(x.rawScore,30);
+          rs=labels(10,3); [2,5,6,8,9].forEach(i=>rs[i-1]=rec(0)); x=ctx.scoreScreeningV3_('autoestima',rs); assert.equal(x.rawScore,0);
+
+          let risk=Array.from({length:18},()=>nrec(0)); risk[16]=nrec(4); risk[17]=nrec(4); x=ctx.scoreScreeningV3_('risco',risk); assert.equal(x.rawScore,0); assert.equal(x.classification,'Sem risco');
+          risk=Array.from({length:18},()=>nrec(4)); risk[16]=nrec(0); risk[17]=nrec(0); x=ctx.scoreScreeningV3_('risco',risk); assert.equal(x.rawScore,82); assert.equal(x.classification,'Risco grave'); assert.ok(x.riskFlags.includes('CLINICAL_ALERT_REQUIRED')); assert.ok(x.riskFlags.includes('SUICIDAL_IDEATION_PRESENT'));
+          console.log('SCREENING_SCORING_V3_RUNTIME_PASS');
+          NODE
+
+      - name: Run complete scorer and pipeline gates
+        run: |
+          node tests/screening-scoring-v3-runtime.test.mjs
+          node tests/screening-scoring-v3-static.test.mjs
+          node tests/screening-postprocessing-v3-static.test.mjs
+          node tests/screening-bridge-v3-static.test.mjs
+          node tests/screening-report-integrations-v3-static.test.mjs
+          node tests/screening-pipeline-v3-static.test.mjs
+          node tests/bdi2-content-lock.test.mjs
+
+      - name: Commit certified v3
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps-script/ScreeningScoringV3.gs apps-script/ScreeningBridgeV3.gs apps-script/ScreeningReportV3.gs tests/screening-scoring-v3-static.test.mjs tests/screening-scoring-v3-runtime.test.mjs tests/screening-postprocessing-v3-static.test.mjs
+          git commit -m 'Certifica motor v3 e pós-processamento dos 15 rastreios'
+          git push
