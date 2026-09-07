@@ -659,6 +659,11 @@ const SCREENING_PIPELINE = Object.freeze({
   ])
 });
 
+/** Entrada pública para configuração manual pelo editor do Apps Script. */
+function setupScreeningPipelineLedger() {
+  return setupScreeningPipelineLedger_();
+}
+
 function setupScreeningPipelineLedger_() {
   const props = PropertiesService.getScriptProperties();
   let spreadsheetId = String(props.getProperty('SCREENING_LEDGER_SHEET_ID') || '').trim();
