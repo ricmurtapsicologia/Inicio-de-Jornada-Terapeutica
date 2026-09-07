@@ -1,0 +1,77 @@
+name: Finalize clinical specs RC
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/finalize-clinical-specs-rc.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Remove metadata from clinical item specs and rebuild locks/batch
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),crypto=require('crypto');
+          const sha=s=>crypto.createHash('sha256').update(s,'utf8').digest('hex');
+          const stable=x=>JSON.stringify(x,(k,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b))):v);
+          const removeById={
+            bipolar:new Set(['idade','obs']),
+            narcisismo:new Set(['idade','obs']),
+            impulsividade:new Set(['email','phoneNumber','age']),
+            necessidades:new Set(['age'])
+          };
+          for(const [id,names] of Object.entries(removeById)){
+            const p=`audits/mirror-specs/${id}.json`; const s=JSON.parse(fs.readFileSync(p,'utf8'));
+            s.questions=s.questions.filter(q=>!names.has(q.name));
+            s.questions=s.questions.map((q,i)=>({...q,order:i+1})); s.questionCount=s.questions.length;
+            s.sanitizedMetadata=[...names]; fs.writeFileSync(p,JSON.stringify(s,null,2)+'\n');
+          }
+          const expected={geral:70,tdah:85,bipolar:77,borderline:47,narcisismo:112,impulsividade:30,esquemas:108,modos:124,necessidades:36,codependencia:40,risco:18};
+          for(const [id,n] of Object.entries(expected)){
+            const s=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));
+            if(s.questionCount!==n) throw new Error(`${id}: expected ${n}, got ${s.questionCount}`);
+          }
+          const locks=JSON.parse(fs.readFileSync('audits/content-locks/content-locks-rc-20260907.json','utf8'));
+          for(const id of Object.keys(expected)){
+            const s=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));
+            const canonical=s.questions.map(q=>({order:q.order,title:q.title,type:q.type,required:q.required,options:(q.options||[]).map(o=>({label:o.label,value:o.value}))}));
+            locks.instruments[id]={source:s.url,questionCount:s.questionCount,sha256:sha(stable(canonical)),status:'LOCKED_RC'};
+          }
+          locks.instruments.icaps={source:'Google Forms · FORM-2026-0003',questionCount:60,status:'LOCKED_FROM_FORMS_FACTORY',note:'60 afirmações clínicas; cabeçalhos, identificação e seções não compõem o escore.'};
+          fs.writeFileSync('audits/content-locks/content-locks-rc-20260907.json',JSON.stringify(locks,null,2)+'\n');
+          const summary=JSON.parse(fs.readFileSync('audits/mirror-specs/summary.json','utf8'));
+          for(const [id,n] of Object.entries(expected)){const r=summary.instruments.find(x=>x.id===id);if(r)r.questionCount=n;}
+          const ic=summary.instruments.find(x=>x.id==='icaps');if(ic){ic.questionCount=60;ic.extraction='FORMS_FACTORY_CANONICAL';}
+          fs.writeFileSync('audits/mirror-specs/summary.json',JSON.stringify(summary,null,2)+'\n');
+
+          const exp=JSON.parse(fs.readFileSync('assets/screening-public-experience-v2.json','utf8')).instruments;
+          const plan=[['geral','FORM-2026-0004'],['tdah','FORM-2026-0005'],['bipolar','FORM-2026-0006'],['borderline','FORM-2026-0007'],['narcisismo','FORM-2026-0008'],['impulsividade','FORM-2026-0009'],['esquemas','FORM-2026-0010'],['modos','FORM-2026-0011'],['necessidades','FORM-2026-0012'],['codependencia','FORM-2026-0013'],['risco','FORM-2026-0014']];
+          const formsHeader=['ID_INTERNO','CRIADO_EM','ATUALIZADO_EM','TITULO','DESCRICAO','TEMPLATE','STATUS','PUBLICAR','COLETAR_EMAIL','LIMITE_1_RESPOSTA','EDITAR_APOS_ENVIO','QUIZ','EMBARALHAR_PERGUNTAS','MENSAGEM_CONFIRMACAO','CRIAR_PLANILHA_RESPOSTAS','PASTA_FORM_ID','PASTA_RESPOSTAS_ID','GOOGLE_FORM_ID','URL_EDICAO','URL_RESPOSTA','RESPONSE_SHEET_ID','RESPONSE_SHEET_URL','ERRO_CODIGO','ERRO_MENSAGEM','LOCK_TOKEN','PROMPT_ORIGINAL'];
+          const qHeader=['FORM_ID','ORDEM','SECAO','TIPO','TITULO','DESCRICAO','OBRIGATORIA','OPCOES_JSON','LINHAS_JSON','COLUNAS_JSON','ESCALA_MIN','ESCALA_MAX','ROTULO_MIN','ROTULO_MAX','RESPOSTAS_CORRETAS_JSON','PONTOS','FEEDBACK_CORRETO','FEEDBACK_INCORRETO','MOSTRAR_OUTRA_OPCAO','NAVEGACAO_JSON'];
+          const csv=rows=>rows.map(r=>r.map(v=>{const s=String(v??'');return /[",\n\r]/.test(s)?'"'+s.replaceAll('"','""')+'"':s}).join(',')).join('\n')+'\n';
+          const forms=[formsHeader],qs=[qHeader],audit=[]; const now='2026-09-07T16:25:00-03:00';
+          for(const [id,formId] of plan){const s=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));const title=(exp[id]?.technicalName||exp[id]?.publicName||id).trim();forms.push([formId,now,now,title,`Espelho técnico fechado da página clínica ${id}. Conteúdo clínico preservado da interface vigente. Uso profissional; não estabelece diagnóstico isoladamente.`,'CLINICO','RASCUNHO','FALSE','FALSE','FALSE','FALSE','FALSE','FALSE','Respostas registradas com sucesso. O material será processado e analisado pelo psicólogo responsável.','TRUE','','','','','','','','','','',`Fonte: ${s.url}; ${s.questionCount} itens clínicos + 3 campos canônicos de identificação.`]);let order=1;qs.push([formId,order++,'','TEXT','Nome completo','Identificação para vínculo clínico.','TRUE','','','','','','','','','','','','FALSE','']);qs.push([formId,order++,'','DATE','Data de nascimento','','TRUE','','','','','','','','','','','','FALSE','']);qs.push([formId,order++,'','DATE','Data de aplicação do rastreio','','TRUE','','','','','','','','','','','','FALSE','']);for(const q of s.questions){const type=q.type==='CHECKBOXES'?'CHECKBOX':q.type;const opts=(q.options||[]).map(o=>String(o.label??o.value));qs.push([formId,order++,'',type,q.title,'',q.required?'TRUE':'FALSE',opts.length?JSON.stringify(opts):'','','','','','','','','','','FALSE','']);}audit.push({id,formId,questionCount:s.questionCount,totalItems:s.questionCount+3,status:'STAGED_CLOSED'});}
+          fs.mkdirSync('audits/forms-factory',{recursive:true});fs.writeFileSync('audits/forms-factory/formularios-final.csv',csv(forms));fs.writeFileSync('audits/forms-factory/perguntas-final.csv',csv(qs));fs.writeFileSync('audits/forms-factory/stage-final.json',JSON.stringify({generatedAt:now,policy:{published:false,status:'RASCUNHO'},forms:audit,existingForms:['humor','ansiedade','autoestima','icaps']},null,2)+'\n');
+          if(forms.length!==12) throw new Error('expected 11 staged forms');
+          console.log(JSON.stringify({expected,locks:Object.fromEntries(Object.entries(locks.instruments).map(([k,v])=>[k,v.questionCount])),staged:audit},null,2));
+          NODE
+      - name: Gate closed-state and BDI-II
+        run: |
+          node tests/bdi2-content-lock.test.mjs
+          ! grep -q ',AGUARDANDO_CRIACAO,' audits/forms-factory/formularios-final.csv
+          node -e "const x=require('./audits/content-locks/content-locks-rc-20260907.json');if(Object.keys(x.instruments).length!==15)process.exit(1);console.log('FINAL_CLINICAL_SPECS_PASS')"
+      - name: Commit finalized specs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add audits/mirror-specs audits/content-locks audits/forms-factory
+          git commit -m 'Saneia itens clínicos e fecha lote de 11 Forms'
+          git push
