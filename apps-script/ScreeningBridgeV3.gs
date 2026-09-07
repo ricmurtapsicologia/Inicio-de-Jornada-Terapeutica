@@ -96,14 +96,25 @@ function doPost(e) {
       if (itemResponse) formResponse.withItemResponse(itemResponse);
     });
 
-    // Recibo somente após confirmação do Google Forms.
-    formResponse.submit();
+    // Persistência é o gate primário: nunca depender de scoring/e-mail/Trello.
+    const submittedResponse = formResponse.submit();
     cache.put(cacheKey, '1', SCREENING_BRIDGE.CACHE_TTL_SECONDS);
+
+    let processing = 'complete';
+    try {
+      const formResponseId = String((submittedResponse && submittedResponse.getId && submittedResponse.getId()) || payload.submissionId);
+      runScreeningPostProcessingV3_({ form: form, payload: payload, formResponseId: formResponseId });
+    } catch (postErr) {
+      // A resposta JÁ está persistida; não induzir reenvio/duplicidade.
+      processing = 'pending';
+      console.error('ScreeningPostProcess:' + screeningSafePostProcessError_(postErr));
+    }
 
     return screeningBridgeHtml_({
       ok: true,
       submissionId: payload.submissionId,
-      instrumentId: payload.instrumentId
+      instrumentId: payload.instrumentId,
+      processing: processing
     });
   } catch (err) {
     // Nunca logar payload, respostas, identificação ou conteúdo clínico.

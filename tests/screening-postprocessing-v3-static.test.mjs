@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const bridge=fs.readFileSync('apps-script/ScreeningBridgeV3.gs','utf8');
+const orch=fs.readFileSync('apps-script/ScreeningOrchestratorV3.gs','utf8');
+const report=fs.readFileSync('apps-script/ScreeningReportV3.gs','utf8');
+const score=fs.readFileSync('apps-script/ScreeningScoringV3.gs','utf8');
+const submitPos=bridge.indexOf('formResponse.submit()');
+const postPos=bridge.indexOf('runScreeningPostProcessingV3_');
+assert.ok(submitPos>=0 && postPos>submitPos,'pós-processamento deve ocorrer depois de submit confirmado');
+assert.match(bridge,/processing = 'pending'/);
+assert.match(bridge,/ok: true,[\s\S]*processing: processing/,'pós-processamento falho não pode invalidar persistência');
+assert.match(orch,/scoreScreeningV3_/);
+assert.match(orch,/enqueueScreeningPipeline_/);
+assert.match(orch,/SUICIDE_ITEM_ENDORSED/);
+assert.match(report,/ALERTA CLÍNICO/);
+assert.match(score,/SUICIDAL_IDEATION_PRESENT/);
+console.log('SCREENING_POSTPROCESSING_V3_STATIC_PASS');

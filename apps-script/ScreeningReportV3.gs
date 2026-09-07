@@ -86,7 +86,7 @@ function buildScreeningClinicalReport_(data) {
   const patientName = String(patient.name || 'Paciente').trim();
   const instrumentName = String(instrument.shortName || instrument.name || instrument.id).trim();
   const dateForSubject = applicationDate || generatedAt.slice(0, 10);
-  const subject = ['RASTREIO', instrumentName, patientName, dateForSubject].join(' · ').slice(0, 240);
+  const subject = [result.urgent === true ? 'ALERTA CLÍNICO' : 'RASTREIO', instrumentName, patientName, dateForSubject].join(' · ').slice(0, 240);
 
   const html = '<!doctype html><html><head><meta charset="utf-8">' +
     '<meta name="viewport" content="width=device-width,initial-scale=1">' +

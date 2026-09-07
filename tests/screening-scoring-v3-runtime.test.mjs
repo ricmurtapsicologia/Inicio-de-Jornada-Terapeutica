@@ -1,0 +1,42 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+let cfg=fs.readFileSync('apps-script/ScreeningScoringConfigV3.gs','utf8').replace(/^const SCREENING_SCHEMAS_CONFIG_V3/m,'var SCREENING_SCHEMAS_CONFIG_V3');
+let src=fs.readFileSync('apps-script/ScreeningScoringV3.gs','utf8').replace(/^const SCREENING_SCORING_VERSION/m,'var SCREENING_SCORING_VERSION');
+const ctx={console}; vm.createContext(ctx); vm.runInContext(cfg+'\n'+src,ctx);
+const rec=(idx,response)=>({choiceIndex:idx,response:response??String(idx),identity:false,title:'x'});
+const nrec=v=>({choiceIndex:v,response:String(v),identity:false,title:'x'});
+const labels=(n,idx=0)=>Array.from({length:n},()=>rec(idx));
+
+let x=ctx.scoreScreeningV3_('geral',Array.from({length:70},()=>nrec(0))); assert.equal(x.subscales.length,7); assert.equal(x.subscales[0].rawScore,0);
+x=ctx.scoreScreeningV3_('tdah',Array.from({length:85},()=>nrec(0))); assert.equal(x.subscales.length,8); assert.equal(x.classification,'Sem corte diagnóstico');
+
+let b=Array.from({length:77},()=>rec(1,'Não se aplica')); b[14]=rec(0,'Nenhum'); b[66]=rec(3,'Nada (+0)'); b[76]=rec(3,'< 2 dias'); x=ctx.scoreScreeningV3_('bipolar',b); assert.equal(x.subscales.length,4);
+
+let bl=labels(47,0); [4,10,16,30,36].forEach(i=>bl[i-1]=rec(3)); x=ctx.scoreScreeningV3_('borderline',bl); assert.equal(x.rawScore,47); assert.equal(x.normalizedScore,0);
+bl=labels(47,3); [4,10,16,30,36].forEach(i=>bl[i-1]=rec(0)); x=ctx.scoreScreeningV3_('borderline',bl); assert.equal(x.rawScore,188); assert.equal(x.normalizedScore,100);
+
+let na=[]; for(let i=0;i<16;i++)na.push(rec(1,'Não')); for(let i=0;i<25;i++)na.push(nrec(0)); for(let i=0;i<60;i++)na.push(nrec(1)); for(let i=0;i<11;i++)na.push(rec(1,'Não')); x=ctx.scoreScreeningV3_('narcisismo',na); assert.equal(x.subscales.length,7);
+
+let bis=Array.from({length:30},()=>rec(0)); [1,7,8,9,10,12,13,15,20,29,30].forEach(i=>bis[i-1]=rec(3)); x=ctx.scoreScreeningV3_('impulsividade',bis); assert.equal(x.rawScore,30); assert.equal(x.subscales.length,3);
+bis=Array.from({length:30},()=>rec(3)); [1,7,8,9,10,12,13,15,20,29,30].forEach(i=>bis[i-1]=rec(0)); x=ctx.scoreScreeningV3_('impulsividade',bis); assert.equal(x.rawScore,120);
+
+x=ctx.scoreScreeningV3_('esquemas',labels(108,0)); assert.equal(x.subscales.length,18); assert.ok(x.subscales.every(s=>s.classification==='ausente'));
+x=ctx.scoreScreeningV3_('esquemas',labels(108,5)); assert.ok(x.subscales.every(s=>s.classification==='ativo'));
+
+x=ctx.scoreScreeningV3_('modos',Array.from({length:124},()=>nrec(1))); assert.equal(x.subscales.length,14);
+x=ctx.scoreScreeningV3_('necessidades',labels(36,0)); assert.equal(x.subscales.length,9);
+x=ctx.scoreScreeningV3_('codependencia',labels(40,0)); assert.equal(x.subscales[0].rawScore,20); assert.equal(x.subscales[1].rawScore,20);
+x=ctx.scoreScreeningV3_('icaps',labels(60,0)); assert.equal(x.subscales.length,6); assert.equal(x.subscales[0].rawScore,0);
+
+let bdi=labels(21,0); x=ctx.scoreScreeningV3_('humor',bdi); assert.equal(x.rawScore,0); assert.equal(x.classification,'mínimo');
+bdi=labels(21,3); bdi[15]=rec(5); bdi[17]=rec(5); x=ctx.scoreScreeningV3_('humor',bdi); assert.equal(x.rawScore,63); assert.equal(x.classification,'grave'); assert.ok(x.riskFlags.includes('SUICIDE_ITEM_HIGH'));
+
+x=ctx.scoreScreeningV3_('ansiedade',labels(14,0)); assert.equal(x.rawScore,0); x=ctx.scoreScreeningV3_('ansiedade',labels(14,4)); assert.equal(x.rawScore,56); assert.equal(x.classification,'grave');
+
+let rs=labels(10,0); [2,5,6,8,9].forEach(i=>rs[i-1]=rec(3)); x=ctx.scoreScreeningV3_('autoestima',rs); assert.equal(x.rawScore,30);
+rs=labels(10,3); [2,5,6,8,9].forEach(i=>rs[i-1]=rec(0)); x=ctx.scoreScreeningV3_('autoestima',rs); assert.equal(x.rawScore,0);
+
+let risk=Array.from({length:18},()=>nrec(0)); risk[16]=nrec(4); risk[17]=nrec(4); x=ctx.scoreScreeningV3_('risco',risk); assert.equal(x.rawScore,0); assert.equal(x.classification,'Sem risco');
+risk=Array.from({length:18},()=>nrec(4)); risk[16]=nrec(0); risk[17]=nrec(0); x=ctx.scoreScreeningV3_('risco',risk); assert.equal(x.rawScore,82); assert.equal(x.classification,'Risco grave'); assert.ok(x.riskFlags.includes('CLINICAL_ALERT_REQUIRED')); assert.ok(x.riskFlags.includes('SUICIDAL_IDEATION_PRESENT'));
+console.log('SCREENING_SCORING_V3_RUNTIME_PASS');

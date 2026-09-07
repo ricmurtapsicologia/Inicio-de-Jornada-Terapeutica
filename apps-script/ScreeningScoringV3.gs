@@ -157,8 +157,8 @@ function scoreImpulsividadeV3_(r){
 function scoreEsquemasV3_(r){
   if(r.length!==108) throw new Error('SCHEMAS_COUNT:'+r.length);
   const rows=r.map(function(x){return {title:x.title,value:scIdx_(x)+1};});
-  const config=JSON.parse(PropertiesService.getScriptProperties().getProperty('SCHEMAS_SCORING_CONFIG_JSON')||'null');
-  if(!config||!Array.isArray(config.questions)||!Array.isArray(config.schemas)) throw new Error('SCHEMAS_CONFIG_NOT_CONFIGURED');
+  const config=SCREENING_SCHEMAS_CONFIG_V3;
+  if(!config||!Array.isArray(config.questions)||!Array.isArray(config.schemas)) throw new Error('SCHEMAS_CONFIG_NOT_COMPILED');
   const by={}; config.schemas.forEach(function(s){by[s.id]={title:s.nome||s.name||s.id,sum:0,count:0,styles:{resignado:0,evitativo:0,hipercompensador:0}};});
   config.questions.forEach(function(q,i){const e=by[q.schemaId];if(!e)return;const v=rows[i].value;e.sum+=v;e.count++;if(q.styleHint==='R')e.styles.resignado+=v;if(q.styleHint==='E')e.styles.evitativo+=v;if(q.styleHint==='H')e.styles.hipercompensador+=v;});
   const sub=Object.keys(by).map(function(k){const e=by[k],m=e.count?e.sum/e.count:0,status=m>=4?'ativo':m>=2.5?'latente':'ausente';let style='Não definido',mx=0;Object.keys(e.styles).forEach(function(s){if(e.styles[s]>mx){mx=e.styles[s];style=s;}});return {title:e.title,mean:scRound_(m,2),classification:status,copingStyle:style};});
@@ -229,6 +229,7 @@ function scoreRiscoV3_(r){
   const resp={};r.forEach(function(x,i){resp[ids[i]]=scNum_(x,0,4);});let weighted=0,weight=0;ids.forEach(function(id){var v=resp[id];if(invert[id])v=4-v;var w=critical[id]?1.5:1;weighted+=v*w;weight+=w;});
   let ir=Math.round(weighted*10)/10;const thresholds=[[0,9,'Sem risco'],[10,22,'Risco mínimo'],[23,42,'Risco moderado'],[43,Infinity,'Risco grave']];let cls=scBand_(ir,thresholds);const anyCrit4=Object.keys(critical).some(function(k){return resp[k]===4;}),d2=resp.D2>=3,c1b3=resp.C1>=3&&resp.B3>=2,flags=[];
   if(anyCrit4){cls='Risco grave';flags.push('CRITICAL_ITEM_4');}if(d2){cls='Risco grave';flags.push('RECENT_ATTEMPT_D2_HIGH');}if(c1b3){const order=['Sem risco','Risco mínimo','Risco moderado','Risco grave'];cls=order[Math.min(order.indexOf(cls)+1,3)];flags.push('MEANS_PLUS_PLAN');}
+  if(['A1','A2','A3','A4'].some(function(k){return resp[k]>=1;}))flags.push('SUICIDAL_IDEATION_PRESENT');
   if(cls==='Risco moderado'||cls==='Risco grave')flags.push('CLINICAL_ALERT_REQUIRED');
   return {sourceMode:'SOURCE_DERIVED_CURRENT_HIGH_STAKES',rawScore:ir,maxScore:82,classification:cls,subscales:[],clinicalMeaning:'Índice integrado de risco com ponderação de itens críticos e regras automáticas de elevação.',riskFlags:flags,caveats:['Risco suicida exige avaliação clínica contextual; qualquer sinal de iminência prevalece sobre o escore.']};
 }
