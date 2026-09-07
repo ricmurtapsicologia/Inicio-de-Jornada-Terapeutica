@@ -46,9 +46,10 @@
     {
       "id": "esquemas",
       "url": "https://ricmurtapsicologia.github.io/rastreio.de.esquemas/",
-      "questionCount": 1,
+      "questionCount": 108,
       "error": null,
-      "consoleErrorCount": 0
+      "consoleErrorCount": 0,
+      "extraction": "SOURCE_ARRAY_CONST_QUESTIONS"
     },
     {
       "id": "modos",
@@ -85,5 +86,6 @@
       "error": null,
       "consoleErrorCount": 0
     }
-  ]
+  ],
+  "updatedAt": "2026-09-07"
 }

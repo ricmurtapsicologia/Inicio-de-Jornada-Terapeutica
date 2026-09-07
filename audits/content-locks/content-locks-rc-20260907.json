@@ -1,0 +1,99 @@
+{
+  "generatedAt": "2026-09-07",
+  "policy": "PRESERVE_QUESTIONS_ORDER_OPTIONS_UNLESS_EXPLICIT_CLINICAL_VERSION_CHANGE",
+  "instruments": {
+    "geral": {
+      "source": "https://ricmurtapsicologia.github.io/Rastreioclinico/",
+      "questionCount": 70,
+      "sha256": "bf2f7f490479c622bd2f04fbc65f61633852f1a400913c74c721f7d0b4195681",
+      "status": "LOCKED_RC"
+    },
+    "tdah": {
+      "source": "https://ricmurtapsicologia.github.io/rastreioTDAH/",
+      "questionCount": 85,
+      "sha256": "8a1eeb8c750030b47d3da59522803e6a7beb3f364b6eaff5974d94bc2bb68eee",
+      "status": "LOCKED_RC"
+    },
+    "bipolar": {
+      "source": "https://ricmurtapsicologia.github.io/tab-bateria-integrada/",
+      "questionCount": 79,
+      "sha256": "ca9a26eb6067b045eaff8e32cbf51dc2e8ca30cd1c70b4ef778ad67a3f0f9d18",
+      "status": "LOCKED_RC"
+    },
+    "borderline": {
+      "source": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
+      "questionCount": 47,
+      "sha256": "8ac0feca0a1c01d6810f99a9f751311e90af2a4bf6d89442090d276c00799191",
+      "status": "LOCKED_RC"
+    },
+    "narcisismo": {
+      "source": "https://ricmurtapsicologia.github.io/bateria.narcisismo/",
+      "questionCount": 114,
+      "sha256": "4c0cbe59fc528d2d48ae669929bc91ab678e0ee4696b2ab6499dc80bd7a23dd8",
+      "status": "LOCKED_RC"
+    },
+    "impulsividade": {
+      "source": "https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/",
+      "questionCount": 33,
+      "sha256": "427082859ef1836e37f0a211ff34ff8f9261e20dd01832831033a208c1032b71",
+      "status": "LOCKED_RC"
+    },
+    "esquemas": {
+      "source": "https://ricmurtapsicologia.github.io/rastreio.de.esquemas/",
+      "questionCount": 108,
+      "sha256": "b1917968c1993a52a62e91f86d85ef8aa87fc566d41176c0e5e66a641c21da29",
+      "status": "LOCKED_RC"
+    },
+    "modos": {
+      "source": "https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/",
+      "questionCount": 124,
+      "sha256": "42446e63f29c5bb3b25f161f2881ac519c1e9ad03537e88fc0c2bae04fb67bbc",
+      "status": "LOCKED_RC"
+    },
+    "necessidades": {
+      "source": "https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/",
+      "questionCount": 37,
+      "sha256": "c20ce1d09e316655c98c590473ada7224bb4778116de5a43cf1e628e2afcfe6f",
+      "status": "LOCKED_RC"
+    },
+    "codependencia": {
+      "source": "https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/",
+      "questionCount": 40,
+      "sha256": "7e4ee7d0f2494716c71ad614248c2d5bec203cbc77b104e7c8ed8bbca8681e9a",
+      "status": "LOCKED_RC"
+    },
+    "icaps": {
+      "source": "https://ricmurtapsicologia.github.io/ICAPS/",
+      "questionCount": 62,
+      "sha256": "d244cd5363d4e322eb0061216059ed87f9670d488d7cca48656ff44ebfd10500",
+      "status": "LOCKED_RC"
+    },
+    "risco": {
+      "source": "https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/",
+      "questionCount": 18,
+      "sha256": "8bb2e621da8c46b29ce7a2e66fcc367c47a3760766a583e5e9831f3a1c146501",
+      "status": "LOCKED_RC"
+    },
+    "humor": {
+      "source": "assets/monitoramentos-v2.js",
+      "questionCount": 21,
+      "sha256": "34bb8a6f13197e6480a7c796063c04eeb320025bf7c4ea837f446919623ce676",
+      "status": "LOCKED_RC",
+      "contentPolicy": "BDI-II_21_GROUPS_PRESERVED"
+    },
+    "ansiedade": {
+      "source": "assets/monitoramentos-v2.js",
+      "questionCount": 14,
+      "sha256": "003a663373f7ff4e9a2dae659869101e9af1fff79cb9a72ec7e2e18c3f855825",
+      "status": "LOCKED_RC",
+      "contentPolicy": "PRESERVE_CURRENT_SCHEMA"
+    },
+    "autoestima": {
+      "source": "assets/monitoramentos-v2.js",
+      "questionCount": 10,
+      "sha256": "d11a9892a4f07131cc4cdeebee9dbeec6da3020067ef8d1e55502c03348a7cd2",
+      "status": "LOCKED_RC",
+      "contentPolicy": "PRESERVE_CURRENT_SCHEMA"
+    }
+  }
+}

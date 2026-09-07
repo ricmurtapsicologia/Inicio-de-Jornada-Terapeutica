@@ -3,15 +3,3788 @@
   "url": "https://ricmurtapsicologia.github.io/rastreio.de.esquemas/",
   "selector": "#screeningForm",
   "identityProfile": "screening_canonical",
-  "questionCount": 1,
+  "extraction": "SOURCE_ARRAY_CONST_QUESTIONS",
+  "questionCount": 108,
   "questions": [
     {
       "order": 1,
-      "title": "Idade",
-      "type": "TEXT",
-      "required": false,
-      "options": [],
-      "name": "idade"
+      "title": "1. Costumo sentir que, nas minhas relações mais importantes, falta carinho ou acolhimento emocional.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q01",
+      "schemaId": "PE",
+      "styleHint": "R"
+    },
+    {
+      "order": 2,
+      "title": "2. Mesmo quando estou perto de alguém, frequentemente me sinto emocionalmente sozinho(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q02",
+      "schemaId": "PE",
+      "styleHint": "R"
+    },
+    {
+      "order": 3,
+      "title": "3. Evito pedir apoio emocional porque penso que vou incomodar ou não serei compreendido(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q03",
+      "schemaId": "PE",
+      "styleHint": "E"
+    },
+    {
+      "order": 4,
+      "title": "4. Para não sentir falta de cuidado, muitas vezes me afasto em silêncio ou finjo que está tudo bem.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q04",
+      "schemaId": "PE",
+      "styleHint": "E"
+    },
+    {
+      "order": 5,
+      "title": "5. Às vezes ajo como se não precisasse de ninguém, para não mostrar que me sinto carente de afeto.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q05",
+      "schemaId": "PE",
+      "styleHint": "H"
+    },
+    {
+      "order": 6,
+      "title": "6. Costumo me orgulhar de ser “forte” e autossuficiente, mesmo quando por dentro sinto carência emocional.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q06",
+      "schemaId": "PE",
+      "styleHint": "H"
+    },
+    {
+      "order": 7,
+      "title": "7. Tenho medo constante de que as pessoas de quem mais dependo acabem se afastando de mim.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q07",
+      "schemaId": "AB",
+      "styleHint": "R"
+    },
+    {
+      "order": 8,
+      "title": "8. Quando alguém se distancia ou demora a responder, fico inseguro(a) sobre o quanto ainda se importa comigo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q08",
+      "schemaId": "AB",
+      "styleHint": "R"
+    },
+    {
+      "order": 9,
+      "title": "9. Evito me apegar demais às pessoas para não sofrer se elas forem embora.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q09",
+      "schemaId": "AB",
+      "styleHint": "E"
+    },
+    {
+      "order": 10,
+      "title": "10. Às vezes me afasto primeiro ou termino vínculos para não correr o risco de ser abandonado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q10",
+      "schemaId": "AB",
+      "styleHint": "E"
+    },
+    {
+      "order": 11,
+      "title": "11. Posso ficar controlador(a) ou ciumento(a) para garantir que as pessoas importantes continuem por perto.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q11",
+      "schemaId": "AB",
+      "styleHint": "H"
+    },
+    {
+      "order": 12,
+      "title": "12. Costumo testar o quanto alguém gosta de mim, criando situações para ver se a pessoa continua comigo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q12",
+      "schemaId": "AB",
+      "styleHint": "H"
+    },
+    {
+      "order": 13,
+      "title": "13. É difícil acreditar que as pessoas não vão se aproveitar de mim se eu me abrir demais.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q13",
+      "schemaId": "DA",
+      "styleHint": "R"
+    },
+    {
+      "order": 14,
+      "title": "14. Com frequência imagino que há intenções ocultas ou segundas intenções no comportamento dos outros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q14",
+      "schemaId": "DA",
+      "styleHint": "R"
+    },
+    {
+      "order": 15,
+      "title": "15. Evito falar de assuntos pessoais porque temo que isso seja usado contra mim no futuro.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q15",
+      "schemaId": "DA",
+      "styleHint": "E"
+    },
+    {
+      "order": 16,
+      "title": "16. Prefiro manter distância emocional para não correr o risco de ser enganado(a) ou humilhado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q16",
+      "schemaId": "DA",
+      "styleHint": "E"
+    },
+    {
+      "order": 17,
+      "title": "17. Às vezes fico na defensiva ou ataco primeiro para não parecer vulnerável aos outros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q17",
+      "schemaId": "DA",
+      "styleHint": "H"
+    },
+    {
+      "order": 18,
+      "title": "18. Costumo testar a lealdade das pessoas, fazendo pequenas provocações ou criando conflitos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q18",
+      "schemaId": "DA",
+      "styleHint": "H"
+    },
+    {
+      "order": 19,
+      "title": "19. Na maior parte dos ambientes sociais, sinto que sou diferente ou não pertenço ao grupo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q19",
+      "schemaId": "SI",
+      "styleHint": "R"
+    },
+    {
+      "order": 20,
+      "title": "20. Geralmente acredito que os outros se encaixam melhor do que eu em festas, grupos ou equipes.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q20",
+      "schemaId": "SI",
+      "styleHint": "R"
+    },
+    {
+      "order": 21,
+      "title": "21. Evito eventos sociais porque me sinto deslocado(a) ou estranho(a) quando estou com muitas pessoas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q21",
+      "schemaId": "SI",
+      "styleHint": "E"
+    },
+    {
+      "order": 22,
+      "title": "22. Costumo ficar mais à margem das conversas, apenas observando, para não correr o risco de ser rejeitado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q22",
+      "schemaId": "SI",
+      "styleHint": "E"
+    },
+    {
+      "order": 23,
+      "title": "23. Às vezes assumo um papel de “diferentão” ou “excêntrico” para lidar com a sensação de não pertencer.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q23",
+      "schemaId": "SI",
+      "styleHint": "H"
+    },
+    {
+      "order": 24,
+      "title": "24. Em outros momentos tento parecer indiferente aos grupos, como se não me importasse em fazer parte de nada.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q24",
+      "schemaId": "SI",
+      "styleHint": "H"
+    },
+    {
+      "order": 25,
+      "title": "25. Com frequência sinto que há algo profundamente errado ou defeituoso em mim.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q25",
+      "schemaId": "DI",
+      "styleHint": "R"
+    },
+    {
+      "order": 26,
+      "title": "26. Tenho dificuldade em acreditar que alguém poderia me conhecer por inteiro e ainda assim me aceitar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q26",
+      "schemaId": "DI",
+      "styleHint": "R"
+    },
+    {
+      "order": 27,
+      "title": "27. Evito mostrar meus pensamentos ou sentimentos mais íntimos por vergonha de ser julgado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q27",
+      "schemaId": "DI",
+      "styleHint": "E"
+    },
+    {
+      "order": 28,
+      "title": "28. Costumo esconder partes da minha história ou de quem sou, para não parecer “menos” que os outros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q28",
+      "schemaId": "DI",
+      "styleHint": "E"
+    },
+    {
+      "order": 29,
+      "title": "29. Às vezes exagero minhas qualidades ou conquistas para compensar a sensação interna de defeito.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q29",
+      "schemaId": "DI",
+      "styleHint": "H"
+    },
+    {
+      "order": 30,
+      "title": "30. Em alguns momentos ajo com arrogância ou superioridade para esconder o quanto me sinto inadequado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q30",
+      "schemaId": "DI",
+      "styleHint": "H"
+    },
+    {
+      "order": 31,
+      "title": "31. Comparado(a) às outras pessoas, frequentemente me vejo como menos capaz ou competente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q31",
+      "schemaId": "FD",
+      "styleHint": "R"
+    },
+    {
+      "order": 32,
+      "title": "32. Costumo esperar que meus projetos não deem certo, mesmo quando me esforço.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q32",
+      "schemaId": "FD",
+      "styleHint": "R"
+    },
+    {
+      "order": 33,
+      "title": "33. Evito desafios acadêmicos ou profissionais por medo de falhar e confirmar que sou incapaz.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q33",
+      "schemaId": "FD",
+      "styleHint": "E"
+    },
+    {
+      "order": 34,
+      "title": "34. Às vezes deixo de tentar coisas novas porque já imagino que não vou conseguir.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q34",
+      "schemaId": "FD",
+      "styleHint": "E"
+    },
+    {
+      "order": 35,
+      "title": "35. Em alguns momentos trabalho demais ou estudo em excesso para provar que não sou um fracasso.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q35",
+      "schemaId": "FD",
+      "styleHint": "H"
+    },
+    {
+      "order": 36,
+      "title": "36. Costumo ser muito competitivo(a) para compensar sentimentos de inferioridade em relação aos outros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q36",
+      "schemaId": "FD",
+      "styleHint": "H"
+    },
+    {
+      "order": 37,
+      "title": "37. Muitas vezes sinto que não consigo tomar decisões importantes sem a opinião de alguém.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q37",
+      "schemaId": "DIIN",
+      "styleHint": "R"
+    },
+    {
+      "order": 38,
+      "title": "38. Tenho a sensação de que, sozinho(a), não dou conta das responsabilidades do dia a dia.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q38",
+      "schemaId": "DIIN",
+      "styleHint": "R"
+    },
+    {
+      "order": 39,
+      "title": "39. Evito aprender coisas novas porque acho que vou depender de alguém para resolver por mim.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q39",
+      "schemaId": "DIIN",
+      "styleHint": "E"
+    },
+    {
+      "order": 40,
+      "title": "40. Costumo adiar decisões esperando que outra pessoa escolha no meu lugar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q40",
+      "schemaId": "DIIN",
+      "styleHint": "E"
+    },
+    {
+      "order": 41,
+      "title": "41. Em alguns momentos ajo como muito autoconfiante para que ninguém perceba o quanto me sinto inseguro(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q41",
+      "schemaId": "DIIN",
+      "styleHint": "H"
+    },
+    {
+      "order": 42,
+      "title": "42. Às vezes assumo o controle de tudo, sem pedir ajuda, para evitar qualquer sensação de dependência.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q42",
+      "schemaId": "DIIN",
+      "styleHint": "H"
+    },
+    {
+      "order": 43,
+      "title": "43. Frequentemente temo que algo ruim ou inesperado aconteça comigo ou com quem amo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q43",
+      "schemaId": "VV",
+      "styleHint": "R"
+    },
+    {
+      "order": 44,
+      "title": "44. Pequenos sintomas físicos costumam me deixar muito preocupado(a) com doenças graves.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q44",
+      "schemaId": "VV",
+      "styleHint": "R"
+    },
+    {
+      "order": 45,
+      "title": "45. Evito alguns lugares, trajetos ou atividades por medo de acidentes ou catástrofes.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q45",
+      "schemaId": "VV",
+      "styleHint": "E"
+    },
+    {
+      "order": 46,
+      "title": "46. Fujo de notícias ou conversas que aumentem minha sensação de ameaça ou perigo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q46",
+      "schemaId": "VV",
+      "styleHint": "E"
+    },
+    {
+      "order": 47,
+      "title": "47. Às vezes pesquiso compulsivamente sobre doenças, notícias ou perigos para sentir que estou no controle.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q47",
+      "schemaId": "VV",
+      "styleHint": "H"
+    },
+    {
+      "order": 48,
+      "title": "48. Costumo orientar ou criticar os outros por achá-los “relaxados” com riscos que levo muito a sério.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q48",
+      "schemaId": "VV",
+      "styleHint": "H"
+    },
+    {
+      "order": 49,
+      "title": "49. Muitas vezes sinto que minha identidade se mistura demais com a de alguém importante para mim.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q49",
+      "schemaId": "EM",
+      "styleHint": "R"
+    },
+    {
+      "order": 50,
+      "title": "50. Tenho dificuldade em saber o que eu realmente quero, separado do que os outros esperam.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q50",
+      "schemaId": "EM",
+      "styleHint": "R"
+    },
+    {
+      "order": 51,
+      "title": "51. Evito tomar decisões que possam desagradar pessoas próximas, mesmo que isso me faça mal.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q51",
+      "schemaId": "EM",
+      "styleHint": "E"
+    },
+    {
+      "order": 52,
+      "title": "52. Às vezes deixo meus planos de lado para não criar distância ou conflito com alguém que amo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q52",
+      "schemaId": "EM",
+      "styleHint": "E"
+    },
+    {
+      "order": 53,
+      "title": "53. Em alguns momentos tomo decisões bruscas de afastamento para provar que sou independente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q53",
+      "schemaId": "EM",
+      "styleHint": "H"
+    },
+    {
+      "order": 54,
+      "title": "54. Às vezes ajo de forma excessivamente autônoma, recusando ajuda para não parecer dependente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q54",
+      "schemaId": "EM",
+      "styleHint": "H"
+    },
+    {
+      "order": 55,
+      "title": "55. Frequentemente cedo às vontades dos outros com medo de que fiquem bravos ou me rejeitem.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q55",
+      "schemaId": "SB",
+      "styleHint": "R"
+    },
+    {
+      "order": 56,
+      "title": "56. Sinto que não tenho tanto direito quanto os outros de dizer “não”.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q56",
+      "schemaId": "SB",
+      "styleHint": "R"
+    },
+    {
+      "order": 57,
+      "title": "57. Evito expressar opiniões diferentes para não gerar conflito ou discussão.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q57",
+      "schemaId": "SB",
+      "styleHint": "E"
+    },
+    {
+      "order": 58,
+      "title": "58. Costumo engolir minha raiva para manter a paz, mesmo quando me sinto injustiçado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q58",
+      "schemaId": "SB",
+      "styleHint": "E"
+    },
+    {
+      "order": 59,
+      "title": "59. Em alguns momentos explodo de forma intensa depois de muito tempo calado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q59",
+      "schemaId": "SB",
+      "styleHint": "H"
+    },
+    {
+      "order": 60,
+      "title": "60. Às vezes assumo um tom autoritário para compensar períodos em que me senti muito submisso(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q60",
+      "schemaId": "SB",
+      "styleHint": "H"
+    },
+    {
+      "order": 61,
+      "title": "61. Com frequência coloco as necessidades dos outros à frente das minhas, mesmo ficando esgotado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q61",
+      "schemaId": "SA",
+      "styleHint": "R"
+    },
+    {
+      "order": 62,
+      "title": "62. Sinto culpa quando penso em cuidar de mim mesmo(a) antes de ajudar alguém.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q62",
+      "schemaId": "SA",
+      "styleHint": "R"
+    },
+    {
+      "order": 63,
+      "title": "63. Evito pedir ajuda porque acredito que os outros precisam mais do que eu.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q63",
+      "schemaId": "SA",
+      "styleHint": "E"
+    },
+    {
+      "order": 64,
+      "title": "64. Costumo esconder meu cansaço para não desapontar quem conta comigo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q64",
+      "schemaId": "SA",
+      "styleHint": "E"
+    },
+    {
+      "order": 65,
+      "title": "65. Às vezes ajudo demais e depois fico ressentido(a), achando que ninguém faz por mim o mesmo esforço.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q65",
+      "schemaId": "SA",
+      "styleHint": "H"
+    },
+    {
+      "order": 66,
+      "title": "66. Em alguns momentos faço questão de mostrar o quanto me sacrifico para que os outros reconheçam meu valor.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q66",
+      "schemaId": "SA",
+      "styleHint": "H"
+    },
+    {
+      "order": 67,
+      "title": "67. Minha autoestima costuma depender muito do que os outros pensam de mim.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q67",
+      "schemaId": "AP",
+      "styleHint": "R"
+    },
+    {
+      "order": 68,
+      "title": "68. Tenho grande necessidade de ser bem visto(a) para me sentir valioso(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q68",
+      "schemaId": "AP",
+      "styleHint": "R"
+    },
+    {
+      "order": 69,
+      "title": "69. Evito mostrar fraquezas ou erros para não correr o risco de ser mal avaliado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q69",
+      "schemaId": "AP",
+      "styleHint": "E"
+    },
+    {
+      "order": 70,
+      "title": "70. Às vezes visto um “personagem” diferente de quem realmente sou, para agradar cada grupo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q70",
+      "schemaId": "AP",
+      "styleHint": "E"
+    },
+    {
+      "order": 71,
+      "title": "71. Em alguns momentos exagero em conquistas, aparência ou desempenho para ser admirado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q71",
+      "schemaId": "AP",
+      "styleHint": "H"
+    },
+    {
+      "order": 72,
+      "title": "72. Costumo disputar espaço ou reconhecimento quando sinto que não estou recebendo atenção suficiente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q72",
+      "schemaId": "AP",
+      "styleHint": "H"
+    },
+    {
+      "order": 73,
+      "title": "73. Muitas vezes sinto que mereço algumas exceções às regras que valem para os outros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q73",
+      "schemaId": "EC",
+      "styleHint": "R"
+    },
+    {
+      "order": 74,
+      "title": "74. Costumo achar que minhas necessidades deveriam ser atendidas antes das demais.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q74",
+      "schemaId": "EC",
+      "styleHint": "R"
+    },
+    {
+      "order": 75,
+      "title": "75. Evito tarefas que considero pequenas demais para mim, esperando que outra pessoa faça.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q75",
+      "schemaId": "EC",
+      "styleHint": "E"
+    },
+    {
+      "order": 76,
+      "title": "76. Às vezes me afasto de ambientes em que não sou tratado(a) com o destaque que considero merecer.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q76",
+      "schemaId": "EC",
+      "styleHint": "E"
+    },
+    {
+      "order": 77,
+      "title": "77. Em certos momentos ultrapasso limites ou imponho minhas vontades, como se soubesse o que é melhor para todos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q77",
+      "schemaId": "EC",
+      "styleHint": "H"
+    },
+    {
+      "order": 78,
+      "title": "78. Costumo tratar os outros como se eles devessem se adaptar ao meu ritmo ou preferências.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q78",
+      "schemaId": "EC",
+      "styleHint": "H"
+    },
+    {
+      "order": 79,
+      "title": "79. Tenho dificuldade em manter disciplina em tarefas que exigem esforço contínuo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q79",
+      "schemaId": "AI",
+      "styleHint": "R"
+    },
+    {
+      "order": 80,
+      "title": "80. Com frequência busco gratificação imediata, mesmo sabendo que isso pode me prejudicar depois.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q80",
+      "schemaId": "AI",
+      "styleHint": "R"
+    },
+    {
+      "order": 81,
+      "title": "81. Evito atividades que exigem organização e planejamento porque me sobrecarregam rapidamente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q81",
+      "schemaId": "AI",
+      "styleHint": "E"
+    },
+    {
+      "order": 82,
+      "title": "82. Frequentemente abandono projetos quando exigem muita constância, preferindo algo mais prazeroso no momento.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q82",
+      "schemaId": "AI",
+      "styleHint": "E"
+    },
+    {
+      "order": 83,
+      "title": "83. Em alguns períodos entro em fases de produtividade intensa para compensar momentos de descontrole.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q83",
+      "schemaId": "AI",
+      "styleHint": "H"
+    },
+    {
+      "order": 84,
+      "title": "84. Às vezes imponho regras muito rígidas para mim ou para outras pessoas depois de perceber que exagerei em impulsos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q84",
+      "schemaId": "AI",
+      "styleHint": "H"
+    },
+    {
+      "order": 85,
+      "title": "85. Costumo imaginar primeiro o que pode dar errado antes de enxergar o que pode dar certo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q85",
+      "schemaId": "NP",
+      "styleHint": "R"
+    },
+    {
+      "order": 86,
+      "title": "86. Mesmo quando as coisas estão indo bem, frequentemente espero que algo ruim aconteça.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q86",
+      "schemaId": "NP",
+      "styleHint": "R"
+    },
+    {
+      "order": 87,
+      "title": "87. Evito me envolver em projetos que envolvam algum risco por medo de frustrações.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q87",
+      "schemaId": "NP",
+      "styleHint": "E"
+    },
+    {
+      "order": 88,
+      "title": "88. Às vezes deixo de aproveitar boas oportunidades por focar apenas nos possíveis problemas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q88",
+      "schemaId": "NP",
+      "styleHint": "E"
+    },
+    {
+      "order": 89,
+      "title": "89. Em alguns momentos aponto defeitos ou riscos em quase tudo, como forma de “me proteger” de decepções.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q89",
+      "schemaId": "NP",
+      "styleHint": "H"
+    },
+    {
+      "order": 90,
+      "title": "90. Costumo ser visto(a) como alguém muito preocupado(a) ou “realista demais” sobre o que pode dar errado.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q90",
+      "schemaId": "NP",
+      "styleHint": "H"
+    },
+    {
+      "order": 91,
+      "title": "91. Tenho dificuldade em expressar emoções com naturalidade, mesmo perto de pessoas de confiança.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q91",
+      "schemaId": "IE",
+      "styleHint": "R"
+    },
+    {
+      "order": 92,
+      "title": "92. Costumo segurar o choro, a raiva ou a alegria para não parecer exagerado(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q92",
+      "schemaId": "IE",
+      "styleHint": "R"
+    },
+    {
+      "order": 93,
+      "title": "93. Evito falar sobre sentimentos em conversas importantes, preferindo ficar no lado racional.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q93",
+      "schemaId": "IE",
+      "styleHint": "E"
+    },
+    {
+      "order": 94,
+      "title": "94. Às vezes mudo de assunto quando alguém tenta aprofundar uma conversa emocional comigo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q94",
+      "schemaId": "IE",
+      "styleHint": "E"
+    },
+    {
+      "order": 95,
+      "title": "95. Em alguns momentos uso humor, ironias ou piadas em excesso para não mostrar o que realmente estou sentindo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q95",
+      "schemaId": "IE",
+      "styleHint": "H"
+    },
+    {
+      "order": 96,
+      "title": "96. Às vezes pareço frio(a) ou distante por fora, mesmo sentindo muitas coisas por dentro.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q96",
+      "schemaId": "IE",
+      "styleHint": "H"
+    },
+    {
+      "order": 97,
+      "title": "97. Costumo me cobrar demais para fazer tudo com perfeição.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q97",
+      "schemaId": "PC",
+      "styleHint": "R"
+    },
+    {
+      "order": 98,
+      "title": "98. É difícil relaxar quando sinto que ainda há algo a ser melhorado ou organizado.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q98",
+      "schemaId": "PC",
+      "styleHint": "R"
+    },
+    {
+      "order": 99,
+      "title": "99. Evito iniciar alguns projetos porque temo não conseguir fazê-los no nível que considero ideal.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q99",
+      "schemaId": "PC",
+      "styleHint": "E"
+    },
+    {
+      "order": 100,
+      "title": "100. Demoro demais para concluir tarefas por ficar revisando detalhes e correções.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q100",
+      "schemaId": "PC",
+      "styleHint": "E"
+    },
+    {
+      "order": 101,
+      "title": "101. Em alguns momentos sou excessivamente crítico(a) comigo ou com os outros quando percebo erros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q101",
+      "schemaId": "PC",
+      "styleHint": "H"
+    },
+    {
+      "order": 102,
+      "title": "102. Às vezes imponho padrões muito rígidos às pessoas ao meu redor, esperando que façam tudo “do jeito certo”.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q102",
+      "schemaId": "PC",
+      "styleHint": "H"
+    },
+    {
+      "order": 103,
+      "title": "103. Tenho pouca tolerância com falhas, tanto minhas quanto das outras pessoas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q103",
+      "schemaId": "PCO",
+      "styleHint": "R"
+    },
+    {
+      "order": 104,
+      "title": "104. Quando erro, sinto que mereço críticas duras ou algum tipo de punição.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q104",
+      "schemaId": "PCO",
+      "styleHint": "R"
+    },
+    {
+      "order": 105,
+      "title": "105. Evito falar sobre meus erros ou fragilidades para não ter que lidar com críticas (inclusive as minhas).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q105",
+      "schemaId": "PCO",
+      "styleHint": "E"
+    },
+    {
+      "order": 106,
+      "title": "106. Fujo de situações em que posso errar para não me sentir “fracassado(a)” ou “errado(a)”.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q106",
+      "schemaId": "PCO",
+      "styleHint": "E"
+    },
+    {
+      "order": 107,
+      "title": "107. Às vezes sou duro(a) ao julgar quem erra, como se apenas punição fizesse alguém aprender.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q107",
+      "schemaId": "PCO",
+      "styleHint": "H"
+    },
+    {
+      "order": 108,
+      "title": "108. Em alguns momentos me pego usando frases cruéis comigo mesmo(a) quando falho, sem permitir compaixão.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "Completamente falso sobre mim",
+          "value": "1"
+        },
+        {
+          "label": "Em grande parte falso sobre mim",
+          "value": "2"
+        },
+        {
+          "label": "Mais falso do que verdadeiro",
+          "value": "3"
+        },
+        {
+          "label": "Mais verdadeiro do que falso",
+          "value": "4"
+        },
+        {
+          "label": "Em grande parte verdadeiro sobre mim",
+          "value": "5"
+        },
+        {
+          "label": "Completamente verdadeiro sobre mim",
+          "value": "6"
+        }
+      ],
+      "name": "Q108",
+      "schemaId": "PCO",
+      "styleHint": "H"
     }
   ],
   "consoleErrors": []
