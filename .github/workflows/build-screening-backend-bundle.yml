@@ -6,6 +6,8 @@ on:
       - rastreios-hub-rc-20260907
     paths:
       - '.github/workflows/build-screening-backend-bundle.yml'
+      - 'apps-script/ScreeningBridgeV3.gs'
+      - 'apps-script/ScreeningSetupV3.gs'
 
 permissions:
   contents: write
