@@ -64,3 +64,25 @@ body.rm-screening-v2.rm-hide-legacy-results #results,body.rm-screening-v2.rm-hid
 @media(max-width:480px){.rm-screening-shell{width:min(calc(100% - 16px),var(--rm-content));border-radius:20px}.rm-screening-body{padding:20px 18px}.rm-onboarding{padding:17px}.rm-screening-copy h1{font-size:2rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
 @media print{.rm-screening-shell{box-shadow:none;border:1px solid #bbb}.rm-screening-visual{display:none}.rm-screening-hero{display:block;min-height:0;color:#111;background:#fff}.rm-screening-copy{padding:18px}.rm-screening-body{padding:18px}}
+/* RC 2026-09-07 — mesma gramática visual, hero individual por instrumento. */
+.rm-screening-hero{--rm-hero-a:#153f45;--rm-hero-b:#176d68;--rm-hero-accent:#d9a441}
+.rm-screening-visual{background:
+  radial-gradient(circle at 72% 28%,color-mix(in srgb,var(--rm-hero-accent) 34%,transparent) 0 12%,transparent 13%),
+  radial-gradient(circle at 30% 72%,color-mix(in srgb,var(--rm-hero-b) 42%,transparent) 0 18%,transparent 19%),
+  linear-gradient(135deg,var(--rm-hero-a),var(--rm-hero-b));}
+.rm-screening-hero[data-rm-variant="geral"]{--rm-hero-a:#153f45;--rm-hero-b:#4d7c78;--rm-hero-accent:#d9a441}
+.rm-screening-hero[data-rm-variant="tdah"]{--rm-hero-a:#193c5a;--rm-hero-b:#3f718f;--rm-hero-accent:#e0a13a}
+.rm-screening-hero[data-rm-variant="bipolar"]{--rm-hero-a:#342f5b;--rm-hero-b:#8071a8;--rm-hero-accent:#e2b44f}
+.rm-screening-hero[data-rm-variant="borderline"]{--rm-hero-a:#5c3047;--rm-hero-b:#9a5d75;--rm-hero-accent:#e6ad65}
+.rm-screening-hero[data-rm-variant="narcisismo"]{--rm-hero-a:#413b52;--rm-hero-b:#756c86;--rm-hero-accent:#d7b45f}
+.rm-screening-hero[data-rm-variant="impulsividade"]{--rm-hero-a:#3e4b29;--rm-hero-b:#74844c;--rm-hero-accent:#e1a84b}
+.rm-screening-hero[data-rm-variant="esquemas"]{--rm-hero-a:#274c4b;--rm-hero-b:#67817c;--rm-hero-accent:#d8a553}
+.rm-screening-hero[data-rm-variant="modos"]{--rm-hero-a:#3d3f5b;--rm-hero-b:#68748e;--rm-hero-accent:#dda64d}
+.rm-screening-hero[data-rm-variant="necessidades"]{--rm-hero-a:#385247;--rm-hero-b:#728f76;--rm-hero-accent:#dcb25e}
+.rm-screening-hero[data-rm-variant="codependencia"]{--rm-hero-a:#4c3d48;--rm-hero-b:#886f79;--rm-hero-accent:#d9a85b}
+.rm-screening-hero[data-rm-variant="icaps"]{--rm-hero-a:#273e50;--rm-hero-b:#5e7585;--rm-hero-accent:#d4a24a}
+.rm-screening-hero[data-rm-variant="risco"]{--rm-hero-a:#213f3b;--rm-hero-b:#4f7168;--rm-hero-accent:#d7b468}
+.rm-screening-hero[data-rm-variant="humor"]{--rm-hero-a:#33445a;--rm-hero-b:#70809a;--rm-hero-accent:#e0b65e}
+.rm-screening-hero[data-rm-variant="ansiedade"]{--rm-hero-a:#2b4e5a;--rm-hero-b:#5e8a91;--rm-hero-accent:#d9ab52}
+.rm-screening-hero[data-rm-variant="autoestima"]{--rm-hero-a:#4c4055;--rm-hero-b:#89798e;--rm-hero-accent:#dfb762}
+

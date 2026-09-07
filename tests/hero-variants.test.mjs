@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const js=fs.readFileSync('assets/screening-system-v2.js','utf8');
+const css=fs.readFileSync('assets/screening-system-v2.css','utf8');
+const ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','risco','humor','ansiedade','autoestima'];
+assert.match(js,/data-rm-variant=\"\$\{esc\(instrumentId\)\}\"/,'hero must expose instrument-specific variant');
+for(const id of ids) assert.ok(css.includes(`[data-rm-variant="${id}"]`),`missing distinct hero variant: ${id}`);
+const signatures=ids.map(id=>{const m=css.match(new RegExp(`data-rm-variant="${id}"\\]\\{([^}]*)\\}`));return m?.[1]||''});
+assert.equal(new Set(signatures).size,15,'all 15 hero variants must be visually distinct');
+console.log('HERO_VARIANTS_15_PASS');
