@@ -1,0 +1,43 @@
+name: Audit question title quality RC
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/audit-question-title-quality-rc.yml']
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Detect generic or implausibly repeated item titles
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','risco'];
+          const generic=/^(itens? do question[aá]rio|pergunta|quest[aã]o|item|selecione|resposta)$/i;
+          const out={generatedAt:'2026-09-07',instruments:{},blocking:[]};
+          for(const id of ids){
+            const s=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));
+            const counts={};
+            for(const q of s.questions){const k=String(q.title||'').trim().toLocaleLowerCase('pt-BR');counts[k]=(counts[k]||0)+1;}
+            const repeated=Object.entries(counts).filter(([,n])=>n>=3).sort((a,b)=>b[1]-a[1]);
+            const generics=s.questions.filter(q=>generic.test(String(q.title||'').trim())).map(q=>({order:q.order,title:q.title,name:q.name}));
+            const maxRepeat=repeated[0]?.[1]||1;
+            const blocked=generics.length>0 || maxRepeat>=5;
+            out.instruments[id]={questionCount:s.questionCount,genericCount:generics.length,maxRepeatedTitle:maxRepeat,repeatedTitles:repeated.slice(0,10),genericSamples:generics.slice(0,10),status:blocked?'BLOCKED_TITLE_EXTRACTION':'PASS'};
+            if(blocked)out.blocking.push(id);
+          }
+          fs.mkdirSync('audits/anomalies',{recursive:true});
+          fs.writeFileSync('audits/anomalies/question-title-quality.json',JSON.stringify(out,null,2)+'\n');
+          console.log(JSON.stringify(out,null,2));
+          NODE
+      - name: Commit report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add audits/anomalies/question-title-quality.json
+          git commit -m 'Audita enunciados antes do espelhamento em Forms'
+          git push
