@@ -1,0 +1,30 @@
+name: Monitoring Bridge v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'monitoramento.html'
+      - 'assets/monitoramentos-bridge-config.js'
+      - 'assets/monitoramentos-receipt-bridge-v2.js'
+      - 'assets/monitoramentos-receipt-bridge-v2.css'
+      - 'apps-script/MonitoringBridge.gs'
+      - 'tests/validate-monitoring-bridge-v2.mjs'
+      - '.github/workflows/monitoring-bridge-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check browser bridge syntax
+        run: node --check assets/monitoramentos-receipt-bridge-v2.js
+      - name: Validate monitoring bridge contract
+        run: node tests/validate-monitoring-bridge-v2.mjs
