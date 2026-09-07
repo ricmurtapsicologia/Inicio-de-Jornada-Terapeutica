@@ -18,7 +18,7 @@
     {
       "id": "bipolar",
       "url": "https://ricmurtapsicologia.github.io/tab-bateria-integrada/",
-      "questionCount": 79,
+      "questionCount": 77,
       "error": null,
       "consoleErrorCount": 0
     },
@@ -32,14 +32,14 @@
     {
       "id": "narcisismo",
       "url": "https://ricmurtapsicologia.github.io/bateria.narcisismo/",
-      "questionCount": 114,
+      "questionCount": 112,
       "error": null,
       "consoleErrorCount": 0
     },
     {
       "id": "impulsividade",
       "url": "https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/",
-      "questionCount": 33,
+      "questionCount": 30,
       "error": null,
       "consoleErrorCount": 0
     },
@@ -61,7 +61,7 @@
     {
       "id": "necessidades",
       "url": "https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/",
-      "questionCount": 37,
+      "questionCount": 36,
       "error": null,
       "consoleErrorCount": 0
     },
@@ -75,9 +75,10 @@
     {
       "id": "icaps",
       "url": "https://ricmurtapsicologia.github.io/ICAPS/",
-      "questionCount": 62,
+      "questionCount": 60,
       "error": null,
-      "consoleErrorCount": 0
+      "consoleErrorCount": 0,
+      "extraction": "FORMS_FACTORY_CANONICAL"
     },
     {
       "id": "risco",
