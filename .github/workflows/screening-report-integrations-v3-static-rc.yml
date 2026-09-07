@@ -1,0 +1,22 @@
+name: Screening report integrations v3 static RC
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths:
+      - 'apps-script/ScreeningReportV3.gs'
+      - 'apps-script/ScreeningIntegrationsV3.gs'
+      - 'tests/screening-report-integrations-v3-static.test.mjs'
+      - '.github/workflows/screening-report-integrations-v3-static-rc.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/screening-report-integrations-v3-static.test.mjs
