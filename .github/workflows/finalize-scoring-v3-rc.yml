@@ -1,0 +1,63 @@
+name: Finalize scoring v3 RC
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/finalize-scoring-v3-rc.yml']
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Bind generated config and add scorer gates
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('apps-script/ScreeningScoringV3.gs')
+          s=p.read_text(encoding='utf-8')
+          old="const config=JSON.parse(PropertiesService.getScriptProperties().getProperty('SCHEMAS_SCORING_CONFIG_JSON')||'null');\n  if(!config||!Array.isArray(config.questions)||!Array.isArray(config.schemas)) throw new Error('SCHEMAS_CONFIG_NOT_CONFIGURED');"
+          new="const config=SCREENING_SCHEMAS_CONFIG_V3;\n  if(!config||!Array.isArray(config.questions)||!Array.isArray(config.schemas)) throw new Error('SCHEMAS_CONFIG_NOT_COMPILED');"
+          if old not in s:
+            raise SystemExit('SCHEMAS_BINDING_TARGET_NOT_FOUND')
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
+          PY
+          cat > tests/screening-scoring-v3-static.test.mjs <<'NODE'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const src=fs.readFileSync('apps-script/ScreeningScoringV3.gs','utf8');
+          const cfg=fs.readFileSync('apps-script/ScreeningScoringConfigV3.gs','utf8');
+          const ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','humor','ansiedade','autoestima','risco'];
+          for(const id of ids) assert.ok(src.includes(`${id}: score`) || src.includes(`${id}:score`),`scorer ausente ${id}`);
+          assert.match(src,/DESCRIPTIVE_ONLY/);
+          assert.match(src,/STANDARD_BIS11/);
+          assert.match(src,/STANDARD_BDI2/);
+          assert.match(src,/STANDARD_HAMA_ADAPTED_SELF_REPORT/);
+          assert.match(src,/STANDARD_RSES_BR/);
+          assert.match(src,/SOURCE_DERIVED_CURRENT_HIGH_STAKES/);
+          assert.ok(!/percentil|percentile/i.test(src),'não restaurar percentis simulados');
+          assert.ok(!/diagnóstico provável|diagnostico provável|Quadro Clínico Mais Provável/i.test(src),'scorer não pode emitir diagnóstico');
+          assert.match(src,/SCHEMAS_SCORING_CONFIG_V3/);
+          assert.match(cfg,/const SCREENING_SCHEMAS_CONFIG_V3/);
+          assert.ok((cfg.match(/schemaId/g)||[]).length===108,'mapeamento Esquemas deve conter 108 itens');
+          assert.match(src,/CRITICAL_ITEM_4/);
+          assert.match(src,/SUICIDE_ITEM_ENDORSED/);
+          console.log('SCREENING_SCORING_V3_STATIC_PASS');
+          NODE
+      - name: Run all v3 static gates
+        run: |
+          node tests/screening-scoring-v3-static.test.mjs
+          node tests/screening-bridge-v3-static.test.mjs
+          node tests/screening-report-integrations-v3-static.test.mjs
+          node tests/screening-pipeline-v3-static.test.mjs
+          node tests/bdi2-content-lock.test.mjs
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps-script/ScreeningScoringV3.gs tests/screening-scoring-v3-static.test.mjs
+          git commit -m 'Fecha motor único de scoring e seus gates'
+          git push
