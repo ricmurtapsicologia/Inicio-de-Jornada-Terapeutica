@@ -1,0 +1,158 @@
+{
+  "generatedAt": "2026-09-07",
+  "instruments": {
+    "geral": {
+      "questionCount": 70,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "tdah": {
+      "questionCount": 85,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "bipolar": {
+      "questionCount": 77,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "borderline": {
+      "questionCount": 47,
+      "genericCount": 47,
+      "maxRepeatedTitle": 47,
+      "repeatedTitles": [
+        [
+          "itens do questionário",
+          47
+        ]
+      ],
+      "genericSamples": [
+        {
+          "order": 1,
+          "title": "Itens do questionário",
+          "name": "q1"
+        },
+        {
+          "order": 2,
+          "title": "Itens do questionário",
+          "name": "q2"
+        },
+        {
+          "order": 3,
+          "title": "Itens do questionário",
+          "name": "q3"
+        },
+        {
+          "order": 4,
+          "title": "Itens do questionário",
+          "name": "q4"
+        },
+        {
+          "order": 5,
+          "title": "Itens do questionário",
+          "name": "q5"
+        },
+        {
+          "order": 6,
+          "title": "Itens do questionário",
+          "name": "q6"
+        },
+        {
+          "order": 7,
+          "title": "Itens do questionário",
+          "name": "q7"
+        },
+        {
+          "order": 8,
+          "title": "Itens do questionário",
+          "name": "q8"
+        },
+        {
+          "order": 9,
+          "title": "Itens do questionário",
+          "name": "q9"
+        },
+        {
+          "order": 10,
+          "title": "Itens do questionário",
+          "name": "q10"
+        }
+      ],
+      "status": "BLOCKED_TITLE_EXTRACTION"
+    },
+    "narcisismo": {
+      "questionCount": 112,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "impulsividade": {
+      "questionCount": 30,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "esquemas": {
+      "questionCount": 108,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "modos": {
+      "questionCount": 124,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "necessidades": {
+      "questionCount": 36,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "codependencia": {
+      "questionCount": 40,
+      "genericCount": 0,
+      "maxRepeatedTitle": 1,
+      "repeatedTitles": [],
+      "genericSamples": [],
+      "status": "PASS"
+    },
+    "risco": {
+      "questionCount": 18,
+      "genericCount": 0,
+      "maxRepeatedTitle": 18,
+      "repeatedTitles": [
+        [
+          "0",
+          18
+        ]
+      ],
+      "genericSamples": [],
+      "status": "BLOCKED_TITLE_EXTRACTION"
+    }
+  },
+  "blocking": [
+    "borderline",
+    "risco"
+  ]
+}
