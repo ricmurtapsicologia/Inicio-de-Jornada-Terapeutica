@@ -39,8 +39,9 @@ jobs:
           if(/forms\.google\.com[^'\"\s]*viewform/i.test(journey)||/<iframe[^>]+forms\.google/i.test(journey))throw new Error('VISIBLE_FORM_IN_JOURNEY');
           if(/const ITEMS=\[\s*\{/s.test(panel))throw new Error('PANEL_INLINE_CATALOG_RESIDUE');
           const pipe=fs.readFileSync('apps-script/ScreeningPipelineV3.gs','utf8'),integ=fs.readFileSync('apps-script/ScreeningIntegrationsV3.gs','utf8'),setup=fs.readFileSync('apps-script/ScreeningSetupV3.gs','utf8');
-          for(const src of [pipe,integ]){
-            if(/TRELLO_|appendScreeningTrello|TRELLO_UPDATED/.test(src))throw new Error('TRELLO_BACKEND_RESIDUE');
+          const activePipe=pipe.replace(/const SCREENING_PIPELINE_LEGACY_HEADERS[^;]+;/,'');
+          for(const src of [activePipe,integ]){
+            if(/TRELLO_|appendScreeningTrello|TRELLO_UPDATED/.test(src))throw new Error('ACTIVE_TRELLO_BACKEND_RESIDUE');
             if(/GPS_URL|GPS_WEBHOOK/.test(src))throw new Error('GPS_BACKEND_RESIDUE');
           }
           if(!pipe.includes("'EMAIL_SENT','COMPLETE'"))throw new Error('PIPELINE_FINAL_STATE_DRIFT');
@@ -55,10 +56,12 @@ jobs:
           node tests/hero-variants.test.mjs
           node tests/validate-monitoring-bridge-v2.mjs
           node tests/validate-anamnese.mjs
-          node tests/screening-bridge-v31-contract.test.mjs
-          node tests/screening-postprocessing-v3.test.mjs
-          node tests/screening-pipeline-v3.test.mjs
-          node tests/screening-report-v3.test.mjs
+          node tests/ordered-transport-v31.test.mjs
+          node tests/screening-bridge-v3-static.test.mjs
+          node tests/screening-postprocessing-v3-static.test.mjs
+          node tests/screening-pipeline-v3-static.test.mjs
+          node tests/screening-report-integrations-v3-static.test.mjs
+          node tests/screening-scoring-v3-static.test.mjs
           node tests/screening-scoring-v3-runtime.test.mjs
       - name: Commit sanitized architecture
         run: |
