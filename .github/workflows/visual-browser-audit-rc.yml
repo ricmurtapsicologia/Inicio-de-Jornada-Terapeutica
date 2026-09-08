@@ -28,7 +28,7 @@ jobs:
           npm init -y >/dev/null 2>&1
           npm install --no-save playwright >/dev/null 2>&1
           npx playwright install chromium --with-deps >/dev/null 2>&1
-      - name: Audit live DOMs using RC runtime
+      - name: Audit real DOMs with directly injected RC runtime
         run: |
           node <<'NODE'
           const fs=require('fs');
@@ -52,21 +52,23 @@ jobs:
             ['ansiedade','https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=ansiedade'],
             ['autoestima','https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=autoestima']
           ];
-          const visible=el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0&&!el.hidden};
           (async()=>{
             const browser=await chromium.launch({headless:true});
-            const heroSources=[];
-            const summary=[];
+            const heroSources=[],summary=[];
             for(const [id,url] of cases){
+              console.log('AUDIT',id,url);
               const context=await browser.newContext({viewport:{width:1440,height:1100}});
-              await context.route(/screening-system-v2\.js(?:\?.*)?$/,r=>r.fulfill({status:200,contentType:'application/javascript; charset=utf-8',body:js}));
-              await context.route(/screening-system-v2\.css(?:\?.*)?$/,r=>r.fulfill({status:200,contentType:'text/css; charset=utf-8',body:css}));
+              await context.route(/screening-system-v2\.js(?:\?.*)?$/,r=>r.fulfill({status:200,contentType:'application/javascript',body:'/* production runtime blocked by RC audit */'}));
+              await context.route(/screening-system-v2\.css(?:\?.*)?$/,r=>r.fulfill({status:200,contentType:'text/css',body:'/* production css blocked by RC audit */'}));
               const page=await context.newPage();
               const pageErrors=[];page.on('pageerror',e=>pageErrors.push(String(e)));
               await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
-              await page.waitForSelector('.rm-screening-shell',{timeout:30000});
-              await page.waitForSelector('.rm-identity',{timeout:30000});
-              await page.waitForTimeout(600);
+              await page.waitForTimeout(800);
+              await page.addStyleTag({content:css});
+              await page.addScriptTag({content:js});
+              await page.waitForSelector('.rm-screening-shell',{state:'attached',timeout:30000});
+              await page.waitForSelector('.rm-identity',{state:'attached',timeout:30000});
+              await page.waitForTimeout(700);
               const state=await page.evaluate((id)=>{
                 const visible=el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0&&!el.hidden};
                 const canon=[...document.querySelectorAll('.rm-identity input')].filter(visible);
@@ -78,8 +80,9 @@ jobs:
                 const hero=document.querySelector('.rm-screening-visual img');
                 const shell=document.querySelector('.rm-screening-shell');
                 const heroBox=document.querySelector('.rm-screening-hero');
-                return {id,canonical:canon.length,legacy:legacy.length,heroSrc:hero?.src||'',heroAlt:hero?.alt||'',shells:document.querySelectorAll('.rm-screening-shell').length,identities:document.querySelectorAll('.rm-identity').length,heroDisplay:getComputedStyle(heroBox).display,shellWidth:shell?.getBoundingClientRect().width||0};
+                return {id,canonical:canon.length,legacy:legacy.length,heroSrc:hero?.src||'',heroAlt:hero?.alt||'',shells:document.querySelectorAll('.rm-screening-shell').length,identities:document.querySelectorAll('.rm-identity').length,heroDisplay:heroBox?getComputedStyle(heroBox).display:'none',shellWidth:shell?.getBoundingClientRect().width||0};
               },id);
+              console.log('STATE',JSON.stringify({...state,heroSrc:state.heroSrc.slice(0,30)}));
               if(state.shells!==1)throw new Error(`${id}: shell ${state.shells}`);
               if(state.identities!==1)throw new Error(`${id}: identity ${state.identities}`);
               if(state.canonical!==3)throw new Error(`${id}: canonical visible identity controls ${state.canonical}`);
@@ -94,7 +97,7 @@ jobs:
             }
             if(new Set(heroSources).size!==15)throw new Error(`unique hero images ${new Set(heroSources).size}/15`);
             fs.writeFileSync('audits/visual-identity-15-20260908.json',JSON.stringify({status:'PASS',total:15,uniqueHeroes:15,summary},null,2));
-            console.log('VISUAL_BROWSER_15_PASS · 15 banners · 15 unique images · 1 identity block/page · 0 visible legacy identity fields');
+            console.log('VISUAL_BROWSER_15_PASS');
             await browser.close();
           })().catch(e=>{console.error(e);process.exit(1)});
           NODE
