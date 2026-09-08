@@ -6,7 +6,7 @@
     CHANGELOG (refatoração premium)
     - UI/UX: tipografia com hierarchy (clamp), grid/spacing consistente, cards mais “premium”, footer refeito (mantendo texto obrigatório literal).
     - Acessibilidade: foco visível, melhorias de semântica, aria-expanded/aria-controls onde faz sentido, skip-link mantido, reduced-motion respeitado.
-    - Performance: transições removidas do “*” global (evita custo), imagens com width/height (reduz CLS), Font Awesome com fallback via CDN, JS com guard-clauses.
+    - Performance: transições removidas do “*” global (evita custo), imagens com width/height (reduz CLS), Font Awesome via CSS CDN único, JS com guard-clauses.
     - Robustez (antifrágil): fallbacks de abertura do WhatsApp (popup-blocker), validações defensivas, degradação graciosa (noscript).
     - Preservado: splash (3s + fade), toggle cards de serviços (click/teclado), lógica de formulários (abrir/fechar + lazy-load iframe via data-src), envio de observações ao WhatsApp, botão “voltar ao topo”, IDs/âncoras e links originais.
   -->
@@ -38,9 +38,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
 
-    <!-- Font Awesome (fallback robusto via CDN + kit, sem depender de build) -->
+    <!-- Font Awesome via CSS CDN único; sem kit JS externo redundante -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" referrerpolicy="no-referrer" />
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
 
     <!-- CSS Consolidado (premium + simetria) -->
     <style>
