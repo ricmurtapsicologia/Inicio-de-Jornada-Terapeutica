@@ -17,38 +17,45 @@
       "checkedAt": "2026-09-08T00:17:45.102Z"
     },
     "bipolar": {
-      "status": "FAIL",
-      "submissionId": "e2e-bipolar-34172785679-1",
-      "httpStatus": 200,
-      "checkedAt": "2026-09-08T00:17:48.746Z"
+      "status": "PASS",
+      "submissionId": "e2e-bipolar-34173174757-1",
+      "checkedAt": "2026-09-08T00:24:30.202Z"
     },
     "borderline": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:18:02.367Z"
+      "status": "PASS",
+      "submissionId": "e2e-borderline-34173174757-1",
+      "checkedAt": "2026-09-08T00:24:48.535Z"
     },
     "narcisismo": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:18:31.824Z"
+      "status": "PASS",
+      "submissionId": "e2e-narcisismo-34173174757-1",
+      "checkedAt": "2026-09-08T00:26:23.619Z"
     },
     "impulsividade": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:18:56.290Z"
+      "status": "PASS",
+      "submissionId": "e2e-impulsividade-34173174757-1",
+      "checkedAt": "2026-09-08T00:26:39.885Z"
     },
     "esquemas": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:19:25.833Z"
+      "status": "PASS",
+      "submissionId": "e2e-esquemas-34173174757-1",
+      "checkedAt": "2026-09-08T00:27:13.946Z"
     },
     "modos": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:19:56.338Z"
+      "status": "PASS",
+      "submissionId": "e2e-modos-34173174757-1",
+      "checkedAt": "2026-09-08T00:27:46.672Z"
     },
     "necessidades": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:20:10.170Z"
+      "status": "PASS",
+      "submissionId": "e2e-necessidades-34173174757-1",
+      "checkedAt": "2026-09-08T00:28:02.727Z"
     },
     "codependencia": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:20:21.619Z"
+      "status": "FAIL",
+      "submissionId": "e2e-codependencia-34173174757-1",
+      "httpStatus": 200,
+      "checkedAt": "2026-09-08T00:28:06.581Z"
     },
     "icaps": {
       "status": "PROCESSING_PENDING",
@@ -57,21 +64,21 @@
     },
     "risco": {
       "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:20:44.160Z"
+      "checkedAt": "2026-09-08T00:28:16.834Z"
     },
     "humor": {
       "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:20:52.939Z"
+      "checkedAt": "2026-09-08T00:28:26.802Z"
     },
     "ansiedade": {
       "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:21:00.164Z"
+      "checkedAt": "2026-09-08T00:28:34.315Z"
     }
   },
-  "updatedAt": "2026-09-08T00:21:01.365Z",
+  "updatedAt": "2026-09-08T00:28:35.514Z",
   "summary": {
-    "pass": 3,
-    "waiting": 10,
+    "pass": 10,
+    "waiting": 3,
     "pending": 1,
     "fail": 1
   }
