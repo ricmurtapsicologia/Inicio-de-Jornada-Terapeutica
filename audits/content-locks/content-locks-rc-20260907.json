@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-09-07",
+  "policy": "PRESERVE_QUESTIONS_ORDER_OPTIONS_UNLESS_EXPLICIT_CLINICAL_VERSION_CHANGE",
+  "instruments": {
+    "geral": {
+      "source": "https://ricmurtapsicologia.github.io/Rastreioclinico/",
+      "questionCount": 70,
+      "sha256": "bf2f7f490479c622bd2f04fbc65f61633852f1a400913c74c721f7d0b4195681",
+      "status": "LOCKED_RC"
+    },
+    "tdah": {
+      "source": "https://ricmurtapsicologia.github.io/rastreioTDAH/",
+      "questionCount": 85,
+      "sha256": "8a1eeb8c750030b47d3da59522803e6a7beb3f364b6eaff5974d94bc2bb68eee",
+      "status": "LOCKED_RC"
+    },
+    "bipolar": {
+      "source": "https://ricmurtapsicologia.github.io/tab-bateria-integrada/",
+      "questionCount": 77,
+      "sha256": "23f810b55ac12d69415c4de8d1cdd37d50621c750a421c523ec1004572282adb",
+      "status": "LOCKED_RC",
+      "sourceVerifiedLabelFix": "MDQ impact label verified against tab-bateria-integrada/index.html"
+    },
+    "borderline": {
+      "source": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
+      "questionCount": 47,
+      "sha256": "cdfcd25a1379edd79d860e7061b484e83048dadd0361b3738eec8375086fab33",
+      "status": "LOCKED_RC",
+      "extraction": "SOURCE_ARRAY_ITEMS"
+    },
+    "narcisismo": {
+      "source": "https://ricmurtapsicologia.github.io/bateria.narcisismo/",
+      "questionCount": 112,
+      "sha256": "e0fc826d3d15307e6caace615b06da72f1da01167b2e3e9cbb9800acab3b13a4",
+      "status": "LOCKED_RC"
+    },
+    "impulsividade": {
+      "source": "https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/",
+      "questionCount": 30,
+      "sha256": "3ac90cd93ff5f91f85b1235f7a3c0bc5ccf5d8049471755bda356451654af228",
+      "status": "LOCKED_RC"
+    },
+    "esquemas": {
+      "source": "https://ricmurtapsicologia.github.io/rastreio.de.esquemas/",
+      "questionCount": 108,
+      "sha256": "b1917968c1993a52a62e91f86d85ef8aa87fc566d41176c0e5e66a641c21da29",
+      "status": "LOCKED_RC"
+    },
+    "modos": {
+      "source": "https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/",
+      "questionCount": 124,
+      "sha256": "42446e63f29c5bb3b25f161f2881ac519c1e9ad03537e88fc0c2bae04fb67bbc",
+      "status": "LOCKED_RC"
+    },
+    "necessidades": {
+      "source": "https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/",
+      "questionCount": 36,
+      "sha256": "6d94bea4b9c164a075f91e2e147265c966561d54c9a0b2d68035eaa71aed6c76",
+      "status": "LOCKED_RC"
+    },
+    "codependencia": {
+      "source": "https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/",
+      "questionCount": 40,
+      "sha256": "7e4ee7d0f2494716c71ad614248c2d5bec203cbc77b104e7c8ed8bbca8681e9a",
+      "status": "LOCKED_RC"
+    },
+    "icaps": {
+      "source": "Google Forms · FORM-2026-0003",
+      "questionCount": 60,
+      "status": "LOCKED_FROM_FORMS_FACTORY",
+      "note": "60 afirmações clínicas; cabeçalhos, identificação e seções não compõem o escore."
+    },
+    "risco": {
+      "source": "https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/",
+      "questionCount": 18,
+      "sha256": "fcc468d95a573988ea9f675aca2e9ec096560a4afe3809596beae769aa072819",
+      "status": "LOCKED_RC",
+      "extraction": "SOURCE_ARRAY_ITEMS"
+    },
+    "humor": {
+      "source": "assets/monitoramentos-v2.js",
+      "questionCount": 21,
+      "sha256": "34bb8a6f13197e6480a7c796063c04eeb320025bf7c4ea837f446919623ce676",
+      "status": "LOCKED_RC",
+      "contentPolicy": "BDI-II_21_GROUPS_PRESERVED"
+    },
+    "ansiedade": {
+      "source": "assets/monitoramentos-v2.js",
+      "questionCount": 14,
+      "sha256": "003a663373f7ff4e9a2dae659869101e9af1fff79cb9a72ec7e2e18c3f855825",
+      "status": "LOCKED_RC",
+      "contentPolicy": "PRESERVE_CURRENT_SCHEMA"
+    },
+    "autoestima": {
+      "source": "assets/monitoramentos-v2.js",
+      "questionCount": 10,
+      "sha256": "d11a9892a4f07131cc4cdeebee9dbeec6da3020067ef8d1e55502c03348a7cd2",
+      "status": "LOCKED_RC",
+      "contentPolicy": "PRESERVE_CURRENT_SCHEMA"
+    }
+  }
+}

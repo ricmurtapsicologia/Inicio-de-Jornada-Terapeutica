@@ -1,0 +1,1421 @@
+{
+  "id": "borderline",
+  "url": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
+  "selector": "#form",
+  "identityProfile": "screening_canonical",
+  "extraction": "SOURCE_ARRAY_ITEMS",
+  "questionCount": 47,
+  "questions": [
+    {
+      "order": 1,
+      "title": "1. Tenho dificuldades em controlar meus impulsos, como gastar dinheiro ou dirigir de forma imprudente.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q1",
+      "reverse": false
+    },
+    {
+      "order": 2,
+      "title": "2. Frequentemente sinto um vazio dentro de mim, como se algo estivesse faltando.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q2",
+      "reverse": false
+    },
+    {
+      "order": 3,
+      "title": "3. Tenho medo de que as pessoas importantes para mim me deixem.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q3",
+      "reverse": false
+    },
+    {
+      "order": 4,
+      "title": "4. Eu sinto que meus relacionamentos são estáveis e duradouros. *",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q4",
+      "reverse": true
+    },
+    {
+      "order": 5,
+      "title": "5. Minhas emoções mudam com muita frequência ao longo do dia.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q5",
+      "reverse": false
+    },
+    {
+      "order": 6,
+      "title": "6. Às vezes, sinto vontade de me machucar ou tirar minha própria vida.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q6",
+      "reverse": false
+    },
+    {
+      "order": 7,
+      "title": "7. Tenho dificuldades em saber quem eu realmente sou.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q7",
+      "reverse": false
+    },
+    {
+      "order": 8,
+      "title": "8. Eu frequentemente ajo por impulso, sem considerar o impacto nos outros.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q8",
+      "reverse": false
+    },
+    {
+      "order": 9,
+      "title": "9. Sinto-me ansiosa(o) quando alguém próximo a mim não está disponível.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q9",
+      "reverse": false
+    },
+    {
+      "order": 10,
+      "title": "10. Eu consigo controlar minhas emoções de maneira eficaz. *",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q10",
+      "reverse": true
+    },
+    {
+      "order": 11,
+      "title": "11. Às vezes, sinto que sou várias pessoas diferentes em uma só.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q11",
+      "reverse": false
+    },
+    {
+      "order": 12,
+      "title": "12. Eu já considerei seriamente acabar com minha própria vida.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q12",
+      "reverse": false
+    },
+    {
+      "order": 13,
+      "title": "13. Eu me preocupo excessivamente com o fato de que as pessoas que amo podem me abandonar.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q13",
+      "reverse": false
+    },
+    {
+      "order": 14,
+      "title": "14. Minha emoção muda de maneira muito rápida, e às vezes sinto que não posso controlá-la.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q14",
+      "reverse": false
+    },
+    {
+      "order": 15,
+      "title": "15. Tenho uma sensação persistente de que nada me satisfaz completamente.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q15",
+      "reverse": false
+    },
+    {
+      "order": 16,
+      "title": "16. Eu sou cuidadosa(o) e penso bem antes de agir. *",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q16",
+      "reverse": true
+    },
+    {
+      "order": 17,
+      "title": "17. Eu tenho dificuldade em controlar minha raiva, o que pode levar a explosões.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q17",
+      "reverse": false
+    },
+    {
+      "order": 18,
+      "title": "18. Meus relacionamentos são intensos e mudam rapidamente de bons para ruins.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q18",
+      "reverse": false
+    },
+    {
+      "order": 19,
+      "title": "19. Eu sinto raiva intensa com frequência, mesmo por coisas pequenas.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q19",
+      "reverse": false
+    },
+    {
+      "order": 20,
+      "title": "20. Eu frequentemente tento agradar os outros para evitar que me deixem.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q20",
+      "reverse": false
+    },
+    {
+      "order": 21,
+      "title": "21. Eu rapidamente passo de gostar muito de alguém para não gostar nada dessa pessoa.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q21",
+      "reverse": false
+    },
+    {
+      "order": 22,
+      "title": "22. Tenho pensamentos suicidas quando estou me sentindo muito mal.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q22",
+      "reverse": false
+    },
+    {
+      "order": 23,
+      "title": "23. Sinto que estou sempre à procura de algo que preencha o vazio dentro de mim.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q23",
+      "reverse": false
+    },
+    {
+      "order": 24,
+      "title": "24. Às vezes, tomo decisões impulsivas que depois me arrependo.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q24",
+      "reverse": false
+    },
+    {
+      "order": 25,
+      "title": "25. Frequentemente sinto que minha autoimagem muda drasticamente em curtos períodos de tempo.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q25",
+      "reverse": false
+    },
+    {
+      "order": 26,
+      "title": "26. Minhas emoções são como uma montanha-russa, mudando rapidamente de feliz para triste ou irritada(o).",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q26",
+      "reverse": false
+    },
+    {
+      "order": 27,
+      "title": "27. Eu idealizo as pessoas e, logo em seguida, fico profundamente desapontada(o) com elas.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q27",
+      "reverse": false
+    },
+    {
+      "order": 28,
+      "title": "28. Eu me envolvo em comportamentos arriscados ou perigosos sem pensar nas consequências.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q28",
+      "reverse": false
+    },
+    {
+      "order": 29,
+      "title": "29. Tenho dificuldades em manter relacionamentos estáveis.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q29",
+      "reverse": false
+    },
+    {
+      "order": 30,
+      "title": "30. Geralmente me sinto em paz com quem eu sou. *",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q30",
+      "reverse": true
+    },
+    {
+      "order": 31,
+      "title": "31. Eu me sinto dominada(o) por minhas emoções, e isso me causa sofrimento.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q31",
+      "reverse": false
+    },
+    {
+      "order": 32,
+      "title": "32. Minhas emoções mudam de maneira intensa, sem que eu consiga controlá-las.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q32",
+      "reverse": false
+    },
+    {
+      "order": 33,
+      "title": "33. Eu já me machuquei intencionalmente para lidar com a dor emocional.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q33",
+      "reverse": false
+    },
+    {
+      "order": 34,
+      "title": "34. Eu temo que as pessoas me abandonem se eu não corresponder às suas expectativas.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q34",
+      "reverse": false
+    },
+    {
+      "order": 35,
+      "title": "35. Meus relacionamentos são marcados por altos e baixos emocionais intensos.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q35",
+      "reverse": false
+    },
+    {
+      "order": 36,
+      "title": "36. Eu consigo controlar minha raiva de maneira eficaz. *",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q36",
+      "reverse": true
+    },
+    {
+      "order": 37,
+      "title": "37. Eu tenho dificuldades em planejar minhas ações antes de executá-las.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q37",
+      "reverse": false
+    },
+    {
+      "order": 38,
+      "title": "38. As pessoas próximas a mim muitas vezes dizem que sou imprevisível em meus relacionamentos.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q38",
+      "reverse": false
+    },
+    {
+      "order": 39,
+      "title": "39. Eu me preocupo constantemente que, se não agir de certa maneira, serei abandonada(o).",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q39",
+      "reverse": false
+    },
+    {
+      "order": 40,
+      "title": "40. Tenho episódios de tristeza profunda que aparecem sem motivo aparente.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q40",
+      "reverse": false
+    },
+    {
+      "order": 41,
+      "title": "41. Tenho dificuldades em encontrar sentido ou propósito nas coisas que faço.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q41",
+      "reverse": false
+    },
+    {
+      "order": 42,
+      "title": "42. Eu faço grandes esforços para evitar que as pessoas se afastem de mim.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q42",
+      "reverse": false
+    },
+    {
+      "order": 43,
+      "title": "43. Eu sinto que minha autoimagem muda conforme as expectativas das pessoas ao meu redor.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q43",
+      "reverse": false
+    },
+    {
+      "order": 44,
+      "title": "44. Minhas emoções frequentemente se alternam entre extremos de maneira muito rápida.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q44",
+      "reverse": false
+    },
+    {
+      "order": 45,
+      "title": "45. Eu sinto que, se eu não controlar as situações, serei traída(o) ou abandonada(o).",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q45",
+      "reverse": false
+    },
+    {
+      "order": 46,
+      "title": "46. Quando estou muito estressado(a), sinto-me desligado(a) de mim ou do que está ao meu redor (sensação de irrealidade/despersonalização).",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q46",
+      "reverse": false
+    },
+    {
+      "order": 47,
+      "title": "47. Em momentos de estresse intenso, chego a pensar que os outros podem estar contra mim, mesmo sem provas claras.",
+      "type": "DROPDOWN",
+      "required": true,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Raramente ou nunca",
+          "value": "1"
+        },
+        {
+          "label": "De vez em quando",
+          "value": "2"
+        },
+        {
+          "label": "Com frequência",
+          "value": "3"
+        },
+        {
+          "label": "Quase sempre/ sempre",
+          "value": "4"
+        }
+      ],
+      "name": "q47",
+      "reverse": false
+    }
+  ],
+  "consoleErrors": []
+}

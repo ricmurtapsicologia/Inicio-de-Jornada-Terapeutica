@@ -1,0 +1,94 @@
+{
+  "capturedAt": "2026-09-07T18:24:46.050Z",
+  "instruments": [
+    {
+      "id": "geral",
+      "url": "https://ricmurtapsicologia.github.io/Rastreioclinico/",
+      "questionCount": 70,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "tdah",
+      "url": "https://ricmurtapsicologia.github.io/rastreioTDAH/",
+      "questionCount": 85,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "bipolar",
+      "url": "https://ricmurtapsicologia.github.io/tab-bateria-integrada/",
+      "questionCount": 77,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "borderline",
+      "url": "https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/",
+      "questionCount": 47,
+      "error": null,
+      "consoleErrorCount": 0,
+      "extraction": "SOURCE_ARRAY_ITEMS"
+    },
+    {
+      "id": "narcisismo",
+      "url": "https://ricmurtapsicologia.github.io/bateria.narcisismo/",
+      "questionCount": 112,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "impulsividade",
+      "url": "https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/",
+      "questionCount": 30,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "esquemas",
+      "url": "https://ricmurtapsicologia.github.io/rastreio.de.esquemas/",
+      "questionCount": 108,
+      "error": null,
+      "consoleErrorCount": 0,
+      "extraction": "SOURCE_ARRAY_CONST_QUESTIONS"
+    },
+    {
+      "id": "modos",
+      "url": "https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/",
+      "questionCount": 124,
+      "error": null,
+      "consoleErrorCount": 1
+    },
+    {
+      "id": "necessidades",
+      "url": "https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/",
+      "questionCount": 36,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "codependencia",
+      "url": "https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/",
+      "questionCount": 40,
+      "error": null,
+      "consoleErrorCount": 0
+    },
+    {
+      "id": "icaps",
+      "url": "https://ricmurtapsicologia.github.io/ICAPS/",
+      "questionCount": 60,
+      "error": null,
+      "consoleErrorCount": 0,
+      "extraction": "FORMS_FACTORY_CANONICAL"
+    },
+    {
+      "id": "risco",
+      "url": "https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/",
+      "questionCount": 18,
+      "error": null,
+      "consoleErrorCount": 0,
+      "extraction": "SOURCE_ARRAY_ITEMS"
+    }
+  ],
+  "updatedAt": "2026-09-07"
+}

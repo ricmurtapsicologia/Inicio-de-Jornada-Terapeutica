@@ -1,0 +1,77 @@
+{
+  "geral": {
+    "status": "HISTORICAL_RULES_FOUND",
+    "strong": 0,
+    "history": 2
+  },
+  "tdah": {
+    "status": "HISTORICAL_RULES_FOUND",
+    "strong": 0,
+    "history": 4
+  },
+  "bipolar": {
+    "status": "HISTORICAL_RULES_FOUND",
+    "strong": 0,
+    "history": 1
+  },
+  "borderline": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 13,
+    "history": 3
+  },
+  "narcisismo": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 3,
+    "history": 2
+  },
+  "impulsividade": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 1,
+    "history": 5
+  },
+  "esquemas": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 8,
+    "history": 2
+  },
+  "modos": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 3,
+    "history": 0
+  },
+  "necessidades": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 15,
+    "history": 10
+  },
+  "codependencia": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 6,
+    "history": 19
+  },
+  "icaps": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 33,
+    "history": 14
+  },
+  "risco": {
+    "status": "CURRENT_RULES_FOUND",
+    "strong": 27,
+    "history": 3
+  },
+  "humor": {
+    "status": "NO_RULES_FOUND",
+    "strong": 0,
+    "history": 0
+  },
+  "ansiedade": {
+    "status": "NO_RULES_FOUND",
+    "strong": 0,
+    "history": 0
+  },
+  "autoestima": {
+    "status": "NO_RULES_FOUND",
+    "strong": 0,
+    "history": 0
+  }
+}

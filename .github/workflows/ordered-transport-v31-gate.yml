@@ -1,0 +1,34 @@
+name: Ordered transport v3.1 gate
+
+on:
+  push:
+    branches:
+      - rastreios-hub-rc-20260907
+    paths:
+      - 'apps-script/**'
+      - 'assets/screening-submit-v3.js'
+      - 'assets/screening-transport-v3.json'
+      - 'assets/screening-uniformity-v1.js'
+      - 'assets/monitoramentos-receipt-bridge-v2.js'
+      - 'tests/**'
+      - '.github/workflows/ordered-transport-v31-gate.yml'
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/ordered-transport-v31.test.mjs
+      - run: node tests/screening-bridge-v3-static.test.mjs
+      - run: node tests/screening-postprocessing-v3-static.test.mjs
+      - run: node tests/screening-pipeline-v3-static.test.mjs
+      - run: node tests/screening-report-integrations-v3-static.test.mjs
+      - run: node tests/screening-scoring-v3-static.test.mjs
+      - run: node tests/screening-scoring-v3-runtime.test.mjs
+      - run: node tests/bdi2-content-lock.test.mjs
+      - run: node tests/hero-variants.test.mjs
+      - run: node tests/branded-questionnaires.test.mjs

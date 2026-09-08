@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-09-07",
+  "errors": [
+    {
+      "status": 404,
+      "url": "https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/styles.css",
+      "resourceType": "stylesheet"
+    },
+    {
+      "status": "FAILED",
+      "url": "https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/styles.css",
+      "resourceType": "stylesheet",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    }
+  ],
+  "status": "REVIEW_REQUIRED"
+}

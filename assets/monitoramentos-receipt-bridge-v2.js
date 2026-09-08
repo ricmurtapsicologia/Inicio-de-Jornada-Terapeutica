@@ -1,5 +1,6 @@
 (()=>{
 'use strict';
+if(window.RM_SCREENING_V3_CLIENT===true)return;
 
 const sink=document.querySelector('.collection-sink');
 const instrumentId=new URLSearchParams(location.search).get('instrument')||'';
@@ -50,10 +51,7 @@ function setButtonState(button,busy){
   button.textContent=busy?'Confirmando registro…':'Enviar respostas';
 }
 
-function clearError(form){
-  form.querySelector('.rm-monitoring-submit-error')?.remove();
-}
-
+function clearError(form){form.querySelector('.rm-monitoring-submit-error')?.remove();}
 function showError(form,message){
   clearError(form);
   const box=document.createElement('div');
@@ -69,36 +67,15 @@ function sendBridge(form){
   pendingSubmissionId=uuid();
   pendingButton=form.querySelector('.submit-btn');
   setButtonState(pendingButton,true);
-
-  const payload={
-    version:bridgeVersion,
-    instrumentId,
-    submissionId:pendingSubmissionId,
-    startedAt,
-    submittedAt:Date.now(),
-    answers:collectAnswers(form)
-  };
-
+  const payload={version:bridgeVersion,instrumentId,submissionId:pendingSubmissionId,startedAt,submittedAt:Date.now(),answers:collectAnswers(form)};
   const transport=document.createElement('form');
-  transport.method='post';
-  transport.action=bridgeUrl;
-  transport.target='clinical-collection-sink';
-  transport.hidden=true;
-  const input=document.createElement('input');
-  input.type='hidden';
-  input.name='payload';
-  input.value=JSON.stringify(payload);
-  transport.appendChild(input);
-  document.body.appendChild(transport);
-  transport.submit();
-  transport.remove();
-
+  transport.method='post';transport.action=bridgeUrl;transport.target='clinical-collection-sink';transport.hidden=true;
+  const input=document.createElement('input');input.type='hidden';input.name='payload';input.value=JSON.stringify(payload);transport.appendChild(input);
+  document.body.appendChild(transport);transport.submit();transport.remove();
   clearTimeout(pendingTimer);
   pendingTimer=setTimeout(()=>{
     if(!pendingSubmissionId)return;
-    pendingSubmissionId='';
-    setButtonState(pendingButton,false);
-    showError(form,'O envio não pôde ser confirmado. Verifique sua conexão e tente novamente.');
+    pendingSubmissionId='';setButtonState(pendingButton,false);showError(form,'O envio não pôde ser confirmado. Verifique sua conexão e tente novamente.');
   },25000);
 }
 
@@ -106,15 +83,7 @@ document.addEventListener('submit',event=>{
   const form=event.target;
   if(form?.id!=='clinical-form')return;
   if(!form.checkValidity())return;
-
-  if(bridgeEnabled){
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    sendBridge(form);
-    return;
-  }
-
-  // Compatibilidade temporária enquanto a URL /exec não estiver habilitada.
+  if(bridgeEnabled){event.preventDefault();event.stopImmediatePropagation();sendBridge(form);return;}
   legacySubmitted=true;
 },true);
 
@@ -123,31 +92,19 @@ window.addEventListener('message',event=>{
   const data=event.data;
   if(!data||data.type!=='RM_MONITORING_SUBMIT_RESULT')return;
   if(!pendingSubmissionId||data.submissionId!==pendingSubmissionId)return;
-
   clearTimeout(pendingTimer);
   const form=document.getElementById('clinical-form');
   if(data.ok===true){
-    const confirmedId=pendingSubmissionId;
-    pendingSubmissionId='';
-    window.RMScreeningUI?.confirmDelivery({
-      instrumentId,
-      submissionId:confirmedId,
-      receipt:'apps_script_formresponse'
-    });
+    const confirmedId=pendingSubmissionId;pendingSubmissionId='';
+    window.RMScreeningUI?.confirmDelivery({instrumentId,submissionId:confirmedId,receipt:'apps_script_formresponse'});
     return;
   }
-
-  pendingSubmissionId='';
-  setButtonState(pendingButton,false);
-  if(form)showError(form,data.message||'Não foi possível confirmar o registro. Tente novamente.');
+  pendingSubmissionId='';setButtonState(pendingButton,false);if(form)showError(form,data.message||'Não foi possível confirmar o registro. Tente novamente.');
 });
 
-// Fallback legado: só existe enquanto a feature flag estiver desligada.
-// Quando bridgeEnabled=true, load do iframe jamais confirma entrega.
 sink?.addEventListener('load',()=>{
   if(bridgeEnabled||!legacySubmitted)return;
   legacySubmitted=false;
   window.RMScreeningUI?.confirmDelivery({instrumentId,receipt:'legacy_iframe_load'});
 });
-
 })();

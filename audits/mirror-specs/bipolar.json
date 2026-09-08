@@ -1,0 +1,1655 @@
+{
+  "id": "bipolar",
+  "url": "https://ricmurtapsicologia.github.io/tab-bateria-integrada/",
+  "selector": "#screeningForm",
+  "identityProfile": "screening_canonical",
+  "questionCount": 77,
+  "questions": [
+    {
+      "order": 1,
+      "title": "1. Período de humor muito elevado/hiperativo notado pelos outros?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq1"
+    },
+    {
+      "order": 2,
+      "title": "2. Mais confiante do que o habitual?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq2"
+    },
+    {
+      "order": 3,
+      "title": "3. Dormiu menos sem sentir falta?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq3"
+    },
+    {
+      "order": 4,
+      "title": "4. Mais falante que o habitual?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq4"
+    },
+    {
+      "order": 5,
+      "title": "5. Pensamentos muito rápidos?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq5"
+    },
+    {
+      "order": 6,
+      "title": "6. Distraía-se com facilidade?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq6"
+    },
+    {
+      "order": 7,
+      "title": "7. Aumento de energia/atividade?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq7"
+    },
+    {
+      "order": 8,
+      "title": "8. Mais sociável/extrovertido(a)?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq8"
+    },
+    {
+      "order": 9,
+      "title": "9. Mais interesse/atividade sexual?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq9"
+    },
+    {
+      "order": 10,
+      "title": "10. Fez coisas fora do caráter/arriscadas?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq10"
+    },
+    {
+      "order": 11,
+      "title": "11. Gastos excessivos/compras impulsivas?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq11"
+    },
+    {
+      "order": 12,
+      "title": "12. Produtividade incomum?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq12"
+    },
+    {
+      "order": 13,
+      "title": "13. Irritabilidade com discussões/brigas?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq13"
+    },
+    {
+      "order": 14,
+      "title": "Os sintomas marcados “Sim” aconteceram ao mesmo tempo?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mdq-simult"
+    },
+    {
+      "order": 15,
+      "title": "Os sintomas marcados “Sim” aconteceram ao mesmo tempo?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Nenhum",
+          "value": "nenhum"
+        },
+        {
+          "label": "Leve",
+          "value": "leve"
+        },
+        {
+          "label": "Moderado",
+          "value": "moderado"
+        },
+        {
+          "label": "Grave",
+          "value": "grave"
+        }
+      ],
+      "name": "mdq-imp"
+    },
+    {
+      "order": 16,
+      "title": "1. Fico mais falante e expansivo(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl1"
+    },
+    {
+      "order": 17,
+      "title": "2. Fico mais ativo(a), com muita energia.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl2"
+    },
+    {
+      "order": 18,
+      "title": "Grau de prejuízo causado por esses sintomas",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl3"
+    },
+    {
+      "order": 19,
+      "title": "4. Necessito de menos sono que o normal.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl4"
+    },
+    {
+      "order": 20,
+      "title": "5. Estou mais criativo(a), cheio(a) de ideias.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl5"
+    },
+    {
+      "order": 21,
+      "title": "6. Sou mais sociável e busco companhia.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl6"
+    },
+    {
+      "order": 22,
+      "title": "7. Tenho maior interesse/atividade sexual.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl7"
+    },
+    {
+      "order": 23,
+      "title": "8. Assumo mais riscos que o usual.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl8"
+    },
+    {
+      "order": 24,
+      "title": "9. Sinto-me mais feliz/animado(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl9"
+    },
+    {
+      "order": 25,
+      "title": "10. Fico mais impaciente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl10"
+    },
+    {
+      "order": 26,
+      "title": "11. Pensamentos acelerados.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl11"
+    },
+    {
+      "order": 27,
+      "title": "12. Decisões mais rápidas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl12"
+    },
+    {
+      "order": 28,
+      "title": "13. Faço muitas coisas ao mesmo tempo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl13"
+    },
+    {
+      "order": 29,
+      "title": "14. Gasto mais dinheiro que deveria.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl14"
+    },
+    {
+      "order": 30,
+      "title": "15. Fico mais espirituoso(a)/brincalhão(ona).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl15"
+    },
+    {
+      "order": 31,
+      "title": "16. Trabalho/estudo com maior intensidade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl16"
+    },
+    {
+      "order": 32,
+      "title": "17. Mais produtivo(a) que o normal.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl17"
+    },
+    {
+      "order": 33,
+      "title": "18. Falo mais alto/mais depressa.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl18"
+    },
+    {
+      "order": 34,
+      "title": "19. Distraio-me facilmente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl19"
+    },
+    {
+      "order": 35,
+      "title": "20. Mais irritável.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl20"
+    },
+    {
+      "order": 36,
+      "title": "21. Condução mais arriscada.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl21"
+    },
+    {
+      "order": 37,
+      "title": "22. Compras por impulso.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl22"
+    },
+    {
+      "order": 38,
+      "title": "23. Uso mais álcool/cafeína/outros para manter o ritmo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl23"
+    },
+    {
+      "order": 39,
+      "title": "24. Interrompo os outros com frequência.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl24"
+    },
+    {
+      "order": 40,
+      "title": "25. Tomo a liderança com facilidade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl25"
+    },
+    {
+      "order": 41,
+      "title": "26. Planejo muitos projetos simultaneamente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl26"
+    },
+    {
+      "order": 42,
+      "title": "27. Sinto-me mais atraente/vaidoso(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl27"
+    },
+    {
+      "order": 43,
+      "title": "28. Aumento de discussões.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl28"
+    },
+    {
+      "order": 44,
+      "title": "29. Menos cuidadoso(a) com regras/prazos.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl29"
+    },
+    {
+      "order": 45,
+      "title": "30. Piadas/comentários inadequados.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl30"
+    },
+    {
+      "order": 46,
+      "title": "31. Dificuldade de concluir tarefas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl31"
+    },
+    {
+      "order": 47,
+      "title": "32. Aumento de atividades sociais/festas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "hcl32"
+    },
+    {
+      "order": 48,
+      "title": "1. Períodos “para cima” com energia/confiança incomuns.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds1"
+    },
+    {
+      "order": 49,
+      "title": "2. Nesses períodos sou mais sociável e falante.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds2"
+    },
+    {
+      "order": 50,
+      "title": "3. Mente acelerada, muitas ideias.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds3"
+    },
+    {
+      "order": 51,
+      "title": "4. Preciso de menos sono e fico bem.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds4"
+    },
+    {
+      "order": 52,
+      "title": "5. Inicio muitos projetos simultaneamente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds5"
+    },
+    {
+      "order": 53,
+      "title": "6. Decisões mais rápidas/impulsivas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds6"
+    },
+    {
+      "order": 54,
+      "title": "7. Gastos excessivos/assumo riscos.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds7"
+    },
+    {
+      "order": 55,
+      "title": "8. Mais produtivo(a), às vezes desorganizado(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds8"
+    },
+    {
+      "order": 56,
+      "title": "9. Pessoas notam que estou diferente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds9"
+    },
+    {
+      "order": 57,
+      "title": "10. Alterno com quedas de humor/cansaço.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds10"
+    },
+    {
+      "order": 58,
+      "title": "11. Nas quedas, fico lento(a)/desanimado(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds11"
+    },
+    {
+      "order": 59,
+      "title": "12. Dificuldade de concentração nas quedas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds12"
+    },
+    {
+      "order": 60,
+      "title": "13. Culpa/inutilidade/desesperança nas quedas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds13"
+    },
+    {
+      "order": 61,
+      "title": "14. Sono aumenta nas quedas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds14"
+    },
+    {
+      "order": 62,
+      "title": "15. Oscilações afetam trabalho/estudo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds15"
+    },
+    {
+      "order": 63,
+      "title": "16. Mudanças de humor podem ser reativas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds16"
+    },
+    {
+      "order": 64,
+      "title": "17. História familiar de depressão/bipolaridade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds17"
+    },
+    {
+      "order": 65,
+      "title": "18. Sintomas após privação de sono/estresse.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds18"
+    },
+    {
+      "order": 66,
+      "title": "19. Ouço que “mudo demais”.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "bsds19"
+    },
+    {
+      "order": 67,
+      "title": "Quanto, no geral, a narrativa tem a ver com você?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Tem tudo ou quase tudo (+6)",
+          "value": "6"
+        },
+        {
+          "label": "Tem mais ou menos (+4)",
+          "value": "4"
+        },
+        {
+          "label": "Tem pouco (+2)",
+          "value": "2"
+        },
+        {
+          "label": "Nada (+0)",
+          "value": "0"
+        }
+      ],
+      "name": "bsds-fit"
+    },
+    {
+      "order": 68,
+      "title": "D1. Período de humor elevado/expansivo/irritável?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini12_1"
+    },
+    {
+      "order": 69,
+      "title": "D2. Diferente do funcionamento habitual de forma clara?",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini12_2"
+    },
+    {
+      "order": 70,
+      "title": "D3.1 Autoestima elevada/grandiosidade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini3_1"
+    },
+    {
+      "order": 71,
+      "title": "D3.2 Redução da necessidade de sono.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini3_2"
+    },
+    {
+      "order": 72,
+      "title": "D3.3 Mais loquaz/pressão para falar.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini3_3"
+    },
+    {
+      "order": 73,
+      "title": "D3.4 Fuga de ideias/pensamento acelerado.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini3_4"
+    },
+    {
+      "order": 74,
+      "title": "D3.5 Distratibilidade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini3_5"
+    },
+    {
+      "order": 75,
+      "title": "D3.6 Aumento da atividade dirigida a objetivos/agitação.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini3_6"
+    },
+    {
+      "order": 76,
+      "title": "D3.7 Envolvimento em atividades com alto potencial de consequências.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Aplica-se (Sim)",
+          "value": "sim"
+        },
+        {
+          "label": "Não se aplica",
+          "value": "nao"
+        }
+      ],
+      "name": "mini3_7"
+    },
+    {
+      "order": 77,
+      "title": "D3.1 Autoestima elevada/grandiosidade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "≥ 7 dias",
+          "value": ">=7"
+        },
+        {
+          "label": "4–6 dias",
+          "value": "4-6"
+        },
+        {
+          "label": "2–3 dias",
+          "value": "2-3"
+        },
+        {
+          "label": "< 2 dias",
+          "value": "<2"
+        }
+      ],
+      "name": "mini-dur"
+    }
+  ],
+  "consoleErrors": [],
+  "sanitizedMetadata": [
+    "idade",
+    "obs"
+  ]
+}

@@ -1,7 +1,8 @@
 import { readFile } from 'node:fs/promises';
 
-const [index, page, config, bridge] = await Promise.all([
+const [index, catalog, page, config, bridge] = await Promise.all([
   readFile('index.html','utf8'),
+  readFile('assets/screening-catalog-v3.js','utf8'),
   readFile('anamnese.html','utf8'),
   readFile('anamnese-config.js','utf8'),
   readFile('apps-script/AnamneseBridge.gs','utf8'),
@@ -23,10 +24,11 @@ const expected=[
 
 if(expected.length!==38) throw new Error(`Esperadas 38 perguntas respondíveis; lista tem ${expected.length}`);
 for(const title of expected){if(!page.includes(title)) throw new Error(`Pergunta ausente: ${title}`)}
-if(!index.includes('href="./anamnese.html"')) throw new Error('Botão da Jornada não aponta para anamnese.html');
+if(!index.includes('screening-catalog-v3.js')) throw new Error('Jornada não carrega o catálogo canônico');
+if(!catalog.includes("id:'anamnese'")||!catalog.includes("url:'./anamnese.html'")) throw new Error('Recurso Anamnese não aponta para anamnese.html no catálogo canônico');
 if(index.includes('data-target="form-anamnese2"')) throw new Error('Botão antigo de Anamnese II ainda está ativo');
 if(index.includes('Ficha de Anamnese II')) throw new Error('Rótulo da anamnese antiga reapareceu no fluxo');
-if(index.includes(OLD_FORM)) throw new Error('URL da anamnese antiga ainda está no index.html');
+if(index.includes(OLD_FORM)||catalog.includes(OLD_FORM)) throw new Error('URL da anamnese antiga ainda está no fluxo da Jornada');
 if(!page.includes(FORM_ID)||!bridge.includes(FORM_ID)) throw new Error('Form ID oficial não está consistente entre página e bridge');
 if(!page.includes('anamnese-config.js')) throw new Error('Configuração da ponte não é carregada');
 if(!config.includes('ANAMNESE_BRIDGE_URL')) throw new Error('Configuração da URL da ponte ausente');
@@ -49,4 +51,4 @@ const successPos=bridge.indexOf("return bridgeHtml_({ ok: true, submissionId: pa
 if(submitPos<0||successPos<0||submitPos>successPos) throw new Error('Bridge sinaliza sucesso antes de salvar no Forms');
 if(!bridge.includes('HtmlService.XFrameOptionsMode.ALLOWALL')) throw new Error('Bridge não está liberado para iframe de transporte');
 if(!bridge.includes("CacheService.getScriptCache()")) throw new Error('Idempotência por submissionId ausente');
-console.log('Anamnese gate: PASS — 38 perguntas, hero refinado, Forms oficial, endpoint /exec, reenvio idempotente, timeout progressivo e bridge consistente.');
+console.log('Anamnese gate: PASS — 38 perguntas, catálogo compartilhado, Forms oficial, endpoint /exec, reenvio idempotente, timeout progressivo e bridge consistente.');

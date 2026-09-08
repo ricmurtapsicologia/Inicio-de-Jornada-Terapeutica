@@ -1,0 +1,73 @@
+name: Build screening backend bundle
+# Final rebuild after ICAPS SCALE 1-5 fix.
+
+on:
+  push:
+    branches:
+      - rastreios-hub-rc-20260907
+    paths:
+      - '.github/workflows/build-screening-backend-bundle.yml'
+      - 'apps-script/ScreeningBridgeV3.gs'
+      - 'apps-script/ScreeningOrderedRecordsV31.gs'
+      - 'apps-script/ScreeningScoringConfigV3.gs'
+      - 'apps-script/ScreeningScoringV3.gs'
+      - 'apps-script/ScreeningReportV3.gs'
+      - 'apps-script/ScreeningPipelineV3.gs'
+      - 'apps-script/ScreeningIntegrationsV3.gs'
+      - 'apps-script/ScreeningOrchestratorV3.gs'
+      - 'apps-script/ScreeningSetupV3.gs'
+
+permissions:
+  contents: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - name: Build one-file Apps Script backend
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          files=[
+            'ScreeningBridgeV3.gs',
+            'ScreeningOrderedRecordsV31.gs',
+            'ScreeningScoringConfigV3.gs',
+            'ScreeningScoringV3.gs',
+            'ScreeningReportV3.gs',
+            'ScreeningPipelineV3.gs',
+            'ScreeningIntegrationsV3.gs',
+            'ScreeningOrchestratorV3.gs',
+            'ScreeningSetupV3.gs',
+          ]
+          parts=['/**\n * ScreeningBackendV31.bundle.gs\n * ARQUIVO GERADO. Não editar manualmente.\n * Bundle único do backend clínico dos 15 rastreios.\n */\n']
+          for name in files:
+              p=Path('apps-script')/name
+              if not p.exists(): raise SystemExit(f'missing {name}')
+              parts.append(f'\n/* ===== {name} ===== */\n')
+              parts.append(p.read_text(encoding='utf-8').rstrip()+'\n')
+          Path('apps-script/ScreeningBackendV31.bundle.gs').write_text(''.join(parts),encoding='utf-8')
+          PY
+          node - <<'NODE'
+          const fs=require('fs');
+          const s=fs.readFileSync('apps-script/ScreeningBackendV31.bundle.gs','utf8');
+          new Function(s);
+          if((s.match(/function doPost\(/g)||[]).length!==1)throw new Error('expected one doPost');
+          if((s.match(/function doGet\(/g)||[]).length!==1)throw new Error('expected one doGet');
+          if(!s.includes("VERSION: 'screening-bridge-v3.1'"))throw new Error('wrong bridge version');
+          if(!s.includes('setupScreeningBridgeV3FromFactory'))throw new Error('setup missing');
+          if(!s.includes('setupScreeningPipelineLedger'))throw new Error('public pipeline setup missing');
+          if(!s.includes('scoreScreeningV3_'))throw new Error('scoring missing');
+          if(!s.includes('sendScreeningReportEmail_'))throw new Error('email missing');
+          console.log('SCREENING_BACKEND_BUNDLE_PASS');
+          NODE
+      - name: Commit bundle
+        run: |
+          if [ -z "$(git status --porcelain -- apps-script/ScreeningBackendV31.bundle.gs)" ]; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps-script/ScreeningBackendV31.bundle.gs
+          git commit -m 'Gera bundle único do backend v3.1'
+          git push

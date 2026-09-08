@@ -21,7 +21,7 @@ const schemas={
     ]
   },
   humor:{
-    title:'Avaliação de Humor',eyebrow:'Jornada Terapêutica · Monitoramento',
+    title:'Humor e sintomas depressivos',eyebrow:'Jornada Terapêutica · Monitoramento',
     intro:'Considere como você tem se sentido nas últimas duas semanas, incluindo hoje. Em cada grupo, escolha a alternativa que melhor descreve seu momento atual.',
     endpoint:ENDPOINT+'1FAIpQLSfOwfOe9OAx_XgnsEMa8FzV2QJR8-ZkHmGD2gWEOcBeK41Odw/formResponse',
     safetyEntry:'1525923391',

@@ -1,0 +1,1760 @@
+{
+  "id": "geral",
+  "url": "https://ricmurtapsicologia.github.io/Rastreioclinico/",
+  "selector": "#racForm",
+  "identityProfile": "screening_canonical",
+  "questionCount": 70,
+  "questions": [
+    {
+      "order": 1,
+      "title": "1. Sinto medo de ser observada e avaliada negativamente ao me expor.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_1"
+    },
+    {
+      "order": 2,
+      "title": "2. Evito apresentações ou reuniões onde posso ser foco de atenção.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_2"
+    },
+    {
+      "order": 3,
+      "title": "3. Meu corpo responde com sintomas físicos intensos ao me apresentar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_3"
+    },
+    {
+      "order": 4,
+      "title": "4. Me preocupo por dias antes de uma situação de exposição pública.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_4"
+    },
+    {
+      "order": 5,
+      "title": "5. Após uma apresentação, passo muito tempo analisando meu desempenho negativamente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_5"
+    },
+    {
+      "order": 6,
+      "title": "6. Acredito que, se eu errar em público, serei rejeitada ou ridicularizada.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_6"
+    },
+    {
+      "order": 7,
+      "title": "7. Já declinei oportunidades profissionais por medo de falar em público.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_7"
+    },
+    {
+      "order": 8,
+      "title": "8. Isso vem acontecendo há mais de 6 meses.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_8"
+    },
+    {
+      "order": 9,
+      "title": "9. Esse medo atrapalha meu desempenho no trabalho.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_9"
+    },
+    {
+      "order": 10,
+      "title": "10. Sinto que todos estão atentos aos meus erros quando me exponho.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block1_10"
+    },
+    {
+      "order": 11,
+      "title": "1. Me sinto triste, vazia ou desesperançada na maior parte dos dias.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_1"
+    },
+    {
+      "order": 12,
+      "title": "2. Perdi interesse pelas coisas que antes me motivavam.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_2"
+    },
+    {
+      "order": 13,
+      "title": "3. Sinto cansaço excessivo, mesmo sem muito esforço físico.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_3"
+    },
+    {
+      "order": 14,
+      "title": "4. Tenho dificuldade para dormir ou durmo em excesso.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_4"
+    },
+    {
+      "order": 15,
+      "title": "5. Sinto-me culpada ou inútil com frequência.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_5"
+    },
+    {
+      "order": 16,
+      "title": "6. Tenho dificuldade de concentração ou tomada de decisão.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_6"
+    },
+    {
+      "order": 17,
+      "title": "7. Tenho crises de choro ou vontade de chorar sem motivo claro.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_7"
+    },
+    {
+      "order": 18,
+      "title": "8. Sinto que não tenho valor ou que sou um peso para os outros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_8"
+    },
+    {
+      "order": 19,
+      "title": "9. Já pensei que as pessoas estariam melhor sem mim.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_9"
+    },
+    {
+      "order": 20,
+      "title": "10. Esses sintomas atrapalham meu trabalho, relações ou rotina diária.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block2_10"
+    },
+    {
+      "order": 21,
+      "title": "1. Me preocupo constantemente com muitos aspectos da minha vida.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_1"
+    },
+    {
+      "order": 22,
+      "title": "2. Mesmo quando tudo está bem, sinto que algo ruim pode acontecer.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_2"
+    },
+    {
+      "order": 23,
+      "title": "3. Tenho dificuldade para controlar meus pensamentos ansiosos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_3"
+    },
+    {
+      "order": 24,
+      "title": "4. Sinto tensão muscular, dores ou agitação física frequente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_4"
+    },
+    {
+      "order": 25,
+      "title": "5. Meu sono é leve, interrompido ou não reparador.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_5"
+    },
+    {
+      "order": 26,
+      "title": "6. Tenho dificuldade de concentração por estar sempre preocupada.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_6"
+    },
+    {
+      "order": 27,
+      "title": "7. Me sinto frequentemente inquieta ou no limite.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_7"
+    },
+    {
+      "order": 28,
+      "title": "8. Temo não dar conta de minhas responsabilidades, mesmo estando preparada.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_8"
+    },
+    {
+      "order": 29,
+      "title": "9. As pessoas me consideram muito preocupada ou perfeccionista.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_9"
+    },
+    {
+      "order": 30,
+      "title": "10. Essa preocupação generalizada já dura mais de 6 meses.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block3_10"
+    },
+    {
+      "order": 31,
+      "title": "1. Evito envolvimento com outras pessoas por medo de ser rejeitada.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_1"
+    },
+    {
+      "order": 32,
+      "title": "2. Só me aproximo de alguém se sinto segurança absoluta de aceitação.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_2"
+    },
+    {
+      "order": 33,
+      "title": "3. Tenho medo constante de críticas ou humilhações.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_3"
+    },
+    {
+      "order": 34,
+      "title": "4. Me considero socialmente inferior ou menos competente que os outros.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_4"
+    },
+    {
+      "order": 35,
+      "title": "5. Fico extremamente desconfortável em situações novas ou sociais.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_5"
+    },
+    {
+      "order": 36,
+      "title": "6. Costumo pensar que, se eu mostrar quem sou, serei julgada.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_6"
+    },
+    {
+      "order": 37,
+      "title": "7. Tenho baixa tolerância a frustrações sociais.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_7"
+    },
+    {
+      "order": 38,
+      "title": "8. Já deixei de fazer algo importante por medo de me envergonhar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_8"
+    },
+    {
+      "order": 39,
+      "title": "9. Esse padrão é antigo, desde a juventude.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_9"
+    },
+    {
+      "order": 40,
+      "title": "10. Isso afeta meus relacionamentos, decisões e desempenho profissional.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block4_10"
+    },
+    {
+      "order": 41,
+      "title": "1. Tenho pensamentos indesejados e repetitivos que me causam incômodo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_1"
+    },
+    {
+      "order": 42,
+      "title": "2. Tento evitar certos pensamentos, mas eles continuam voltando.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_2"
+    },
+    {
+      "order": 43,
+      "title": "3. Esses pensamentos não têm sentido para mim, mas me afetam emocionalmente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_3"
+    },
+    {
+      "order": 44,
+      "title": "4. Já fiquei presa em dúvidas repetitivas difíceis de resolver.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_4"
+    },
+    {
+      "order": 45,
+      "title": "5. Sinto culpa por pensamentos que nunca colocaria em prática.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_5"
+    },
+    {
+      "order": 46,
+      "title": "6. Já tentei me distrair para evitar esses pensamentos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_6"
+    },
+    {
+      "order": 47,
+      "title": "7. Tenho medo de que meus pensamentos signifiquem algo ruim sobre mim.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_7"
+    },
+    {
+      "order": 48,
+      "title": "8. Já repeti ações mentais (rezas, contagens, frases) para aliviar esses pensamentos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_8"
+    },
+    {
+      "order": 49,
+      "title": "9. Isso me consumia por mais de 1h por dia, em alguns momentos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_9"
+    },
+    {
+      "order": 50,
+      "title": "10. Hoje, esses pensamentos ocorrem esporadicamente, mas já foram piores.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block5_10"
+    },
+    {
+      "order": 51,
+      "title": "1. Me sinto inferior à maioria das pessoas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_1"
+    },
+    {
+      "order": 52,
+      "title": "2. Evito elogios ou não acredito quando os recebo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_2"
+    },
+    {
+      "order": 53,
+      "title": "3. Acho que preciso me esforçar o dobro para ser aceita.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_3"
+    },
+    {
+      "order": 54,
+      "title": "4. Me comparo constantemente e me vejo como “menos capaz”.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_4"
+    },
+    {
+      "order": 55,
+      "title": "5. Tenho medo de errar por medo do que vão pensar de mim.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_5"
+    },
+    {
+      "order": 56,
+      "title": "6. Às vezes sinto que “enganei” as pessoas e que vão descobrir isso.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_6"
+    },
+    {
+      "order": 57,
+      "title": "7. Evito desafios mesmo estando preparada, por medo de fracassar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_7"
+    },
+    {
+      "order": 58,
+      "title": "8. Tenho dificuldade em reconhecer minhas conquistas como mérito pessoal.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_8"
+    },
+    {
+      "order": 59,
+      "title": "9. Sinto que preciso da aprovação dos outros para me sentir bem.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_9"
+    },
+    {
+      "order": 60,
+      "title": "10. Me sinto “em dívida” com o mundo, mesmo quando faço o meu melhor.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block6_10"
+    },
+    {
+      "order": 61,
+      "title": "1. Tive períodos de humor eufórico, expansivo ou irritável por vários dias seguidos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_1"
+    },
+    {
+      "order": 62,
+      "title": "2. Dormi pouco sem sentir cansaço significativo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_2"
+    },
+    {
+      "order": 63,
+      "title": "3. Senti necessidade de realizar muitas atividades, me sentindo 'acelerado(a)'.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_3"
+    },
+    {
+      "order": 64,
+      "title": "4. Falei muito ou sentia que não conseguia parar de falar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_4"
+    },
+    {
+      "order": 65,
+      "title": "5. Me distraía com facilidade, mudando de assunto rapidamente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_5"
+    },
+    {
+      "order": 66,
+      "title": "6. Tomei decisões impulsivas que me trouxeram problemas.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_6"
+    },
+    {
+      "order": 67,
+      "title": "7. Fiz gastos além do normal ou assumi riscos incomuns.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_7"
+    },
+    {
+      "order": 68,
+      "title": "8. As pessoas me diziam que eu estava 'diferente' ou 'inquieto(a)'.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_8"
+    },
+    {
+      "order": 69,
+      "title": "9. Esses períodos duraram pelo menos 4 dias consecutivos.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_9"
+    },
+    {
+      "order": 70,
+      "title": "10. Esse comportamento causou problemas no trabalho, família ou vida social.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        }
+      ],
+      "name": "block7_10"
+    }
+  ],
+  "consoleErrors": []
+}

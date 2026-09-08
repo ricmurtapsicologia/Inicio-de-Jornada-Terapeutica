@@ -1,0 +1,3286 @@
+{
+  "id": "narcisismo",
+  "url": "https://ricmurtapsicologia.github.io/bateria.narcisismo/",
+  "selector": "#screeningForm",
+  "identityProfile": "screening_canonical",
+  "questionCount": 112,
+  "questions": [
+    {
+      "order": 1,
+      "title": "1. Eu realmente gosto de ser o centro das atenções.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_0"
+    },
+    {
+      "order": 2,
+      "title": "2. Eu acho que sou uma pessoa especial.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_1"
+    },
+    {
+      "order": 3,
+      "title": "3. Todos gostam de ouvir minhas histórias.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_2"
+    },
+    {
+      "order": 4,
+      "title": "4. Eu insisto em receber o respeito que me é devido.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_3"
+    },
+    {
+      "order": 5,
+      "title": "5. Eu gosto de ter autoridade sobre as pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_4"
+    },
+    {
+      "order": 6,
+      "title": "6. Eu serei uma ótima pessoa.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_5"
+    },
+    {
+      "order": 7,
+      "title": "7. Eu consigo fazer qualquer pessoa acreditar em qualquer coisa que eu queira.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_6"
+    },
+    {
+      "order": 8,
+      "title": "8. Eu espero muito de outras pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_7"
+    },
+    {
+      "order": 9,
+      "title": "9. Eu gosto de ser o centro das atenções.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_8"
+    },
+    {
+      "order": 10,
+      "title": "10. Eu sou uma pessoa extraordinária.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_9"
+    },
+    {
+      "order": 11,
+      "title": "11. Eu sempre sei o que estou fazendo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_10"
+    },
+    {
+      "order": 12,
+      "title": "12. Eu acho que é fácil manipular as pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_11"
+    },
+    {
+      "order": 13,
+      "title": "13. As pessoas sempre parecem reconhecer minha autoridade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_12"
+    },
+    {
+      "order": 14,
+      "title": "14. Eu sei que sou bom/boa porque todos continuam me dizendo isso.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_13"
+    },
+    {
+      "order": 15,
+      "title": "15. Estou apto(a) a me mostrar se tenho a chance.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_14"
+    },
+    {
+      "order": 16,
+      "title": "16. Eu sou mais capaz do que as outras pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "npi_15"
+    },
+    {
+      "order": 17,
+      "title": "1. Eu me considero uma pessoa imprudente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_0"
+    },
+    {
+      "order": 18,
+      "title": "2. Sinto que ajo totalmente por impulso.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_1"
+    },
+    {
+      "order": 19,
+      "title": "3. Mesmo sabendo que não devia, não consigo parar de tomar decisões precipitadas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_2"
+    },
+    {
+      "order": 20,
+      "title": "4. Frequentemente sinto que nada do que faço realmente importa.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_3"
+    },
+    {
+      "order": 21,
+      "title": "5. As outras pessoas me acham irresponsável.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_4"
+    },
+    {
+      "order": 22,
+      "title": "6. Não sou bom em planejar com antecedência.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_5"
+    },
+    {
+      "order": 23,
+      "title": "7. Minhas ideias frequentemente não fazem sentido para os outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_6"
+    },
+    {
+      "order": 24,
+      "title": "8. Eu me preocupo com quase tudo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_7"
+    },
+    {
+      "order": 25,
+      "title": "9. Fico emocionado(a) facilmente, muitas vezes por motivos insignificantes.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_8"
+    },
+    {
+      "order": 26,
+      "title": "10. Tenho mais medo do que tudo de ficar sozinho(a) na vida.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_9"
+    },
+    {
+      "order": 27,
+      "title": "11. Fico preso(a) em uma única forma de fazer as coisas, mesmo quando é claro que não vai funcionar.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_10"
+    },
+    {
+      "order": 28,
+      "title": "12. Já vi coisas que, na verdade, não estavam lá.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_11"
+    },
+    {
+      "order": 29,
+      "title": "13. Evito relacionamentos românticos.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_12"
+    },
+    {
+      "order": 30,
+      "title": "14. Não tenho interesse em fazer amizades.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_13"
+    },
+    {
+      "order": 31,
+      "title": "15. Irrito-me facilmente com qualquer coisa.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_14"
+    },
+    {
+      "order": 32,
+      "title": "16. Não gosto de ficar muito próximo(a) das pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_15"
+    },
+    {
+      "order": 33,
+      "title": "17. Não é grande coisa se eu magoar os sentimentos de outras pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_16"
+    },
+    {
+      "order": 34,
+      "title": "18. Raramente fico entusiasmado(a) com qualquer coisa.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_17"
+    },
+    {
+      "order": 35,
+      "title": "19. Desejo atenção dos outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_18"
+    },
+    {
+      "order": 36,
+      "title": "20. Frequentemente tenho que lidar com pessoas menos importantes do que eu.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_19"
+    },
+    {
+      "order": 37,
+      "title": "21. Frequentemente tenho pensamentos que fazem sentido para mim, mas que outras pessoas consideram estranhos.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_20"
+    },
+    {
+      "order": 38,
+      "title": "22. Uso as pessoas para conseguir o que quero.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_21"
+    },
+    {
+      "order": 39,
+      "title": "23. Às vezes “desligo-me” e de repente percebo que muito tempo se passou.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_22"
+    },
+    {
+      "order": 40,
+      "title": "24. As coisas ao meu redor frequentemente parecem irreais ou mais reais do que o habitual.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_23"
+    },
+    {
+      "order": 41,
+      "title": "25. É fácil para mim tirar vantagem das outras pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "0 — muito falso",
+          "value": "0"
+        },
+        {
+          "label": "1 — mais falso que verdadeiro",
+          "value": "1"
+        },
+        {
+          "label": "2 — mais verdadeiro que falso",
+          "value": "2"
+        },
+        {
+          "label": "3 — muito verdadeiro",
+          "value": "3"
+        }
+      ],
+      "name": "pid_24"
+    },
+    {
+      "order": 42,
+      "title": "1. Sou extremamente ambicioso(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_0"
+    },
+    {
+      "order": 43,
+      "title": "2. As pessoas dizem que eu me gabo demais, mas tudo o que digo é verdade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_1"
+    },
+    {
+      "order": 44,
+      "title": "3. Liderança vem naturalmente para mim.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_2"
+    },
+    {
+      "order": 45,
+      "title": "4. Quando alguém faz algo de bom por mim, eu me pergunto o que aquela pessoa quer de mim.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_3"
+    },
+    {
+      "order": 46,
+      "title": "5. Eu mereço receber tratamento especial.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_4"
+    },
+    {
+      "order": 47,
+      "title": "6. Eu me divirto muito entretendo outras pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_5"
+    },
+    {
+      "order": 48,
+      "title": "7. É aceitável tirar vantagem das pessoas para conseguir o que quero.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_6"
+    },
+    {
+      "order": 49,
+      "title": "8. Costumo fantasiar que um dia serei famoso(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_7"
+    },
+    {
+      "order": 50,
+      "title": "9. Quando me julgam, simplesmente não me importo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_8"
+    },
+    {
+      "order": 51,
+      "title": "10. Eu não me preocupo com as necessidades dos outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_9"
+    },
+    {
+      "order": 52,
+      "title": "11. Sou muito bom(a) em manipular as pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_10"
+    },
+    {
+      "order": 53,
+      "title": "12. Sinto frequentemente que preciso de elogios para ter certeza de mim mesmo(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_11"
+    },
+    {
+      "order": 54,
+      "title": "13. Eu odeio ser criticado(a) tanto que não consigo controlar meu temperamento quando isso acontece.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_12"
+    },
+    {
+      "order": 55,
+      "title": "14. Quando percebo que falhei em algo, eu me sinto humilhado(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_13"
+    },
+    {
+      "order": 56,
+      "title": "15. Faria quase qualquer coisa para sentir uma boa dose de emoção (adrenalina).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_14"
+    },
+    {
+      "order": 57,
+      "title": "16. Tenho um enorme desejo de ter sucesso.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_15"
+    },
+    {
+      "order": 58,
+      "title": "17. Só convivo com pessoas do meu nível.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_16"
+    },
+    {
+      "order": 59,
+      "title": "18. Sinto-me confortável em assumir posições de autoridade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_17"
+    },
+    {
+      "order": 60,
+      "title": "19. Confio que as outras pessoas serão honestas comigo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_18"
+    },
+    {
+      "order": 61,
+      "title": "20. Não acho que as regras valham para mim tanto quanto para os outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_19"
+    },
+    {
+      "order": 62,
+      "title": "21. Eu gosto de ser notado(a) pelas outras pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_20"
+    },
+    {
+      "order": 63,
+      "title": "22. Vou usar pessoas como ferramentas para me promover.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_21"
+    },
+    {
+      "order": 64,
+      "title": "23. Frequentemente fantasio em ter muito sucesso e poder.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_22"
+    },
+    {
+      "order": 65,
+      "title": "24. Não ligo muito para o que os outros pensam de mim.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_23"
+    },
+    {
+      "order": 66,
+      "title": "25. Geralmente não presto muita atenção aos sofrimentos alheios.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_24"
+    },
+    {
+      "order": 67,
+      "title": "26. Sei como fazer as pessoas fazerem o que eu quero.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_25"
+    },
+    {
+      "order": 68,
+      "title": "27. Sou estável em meu senso de identidade (sei quem sou).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_26"
+    },
+    {
+      "order": 69,
+      "title": "28. Já perdi o controle e fiquei furioso(a) quando não fui tratado(a) da forma que considero justa.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_27"
+    },
+    {
+      "order": 70,
+      "title": "29. Sinto-me horrível quando sou humilhado(a) em público.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_28"
+    },
+    {
+      "order": 71,
+      "title": "30. Sou um pouco destemido(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_29"
+    },
+    {
+      "order": 72,
+      "title": "31. Aspiro ser uma pessoa grandiosa.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_30"
+    },
+    {
+      "order": 73,
+      "title": "32. Não perco tempo convivendo com pessoas que considero “inferiores”.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_31"
+    },
+    {
+      "order": 74,
+      "title": "33. As pessoas geralmente seguem minha liderança naturalmente.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_32"
+    },
+    {
+      "order": 75,
+      "title": "34. Tenho dificuldade em confiar nas pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_33"
+    },
+    {
+      "order": 76,
+      "title": "35. Por mais que pareça injusto, mereço atenção extra.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_34"
+    },
+    {
+      "order": 77,
+      "title": "36. Adoro ser a pessoa mais popular numa festa.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_35"
+    },
+    {
+      "order": 78,
+      "title": "37. Às vezes, para ter sucesso, é preciso usar outras pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_36"
+    },
+    {
+      "order": 79,
+      "title": "38. Raramente fantasio em me tornar famoso(a).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_37"
+    },
+    {
+      "order": 80,
+      "title": "39. Sou bem indiferente às críticas dos outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_38"
+    },
+    {
+      "order": 81,
+      "title": "40. Não valorizo muito demonstrações de compaixão ou simpatia.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_39"
+    },
+    {
+      "order": 82,
+      "title": "41. Sei como falar para conseguir o que quero.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_40"
+    },
+    {
+      "order": 83,
+      "title": "42. Sinto-me muito inseguro(a) sobre alcançar algo importante na vida.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_41"
+    },
+    {
+      "order": 84,
+      "title": "43. Fico com muita raiva quando não recebo o que considero merecer.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_42"
+    },
+    {
+      "order": 85,
+      "title": "44. Sinto-me envergonhado(a) quando cometo um erro na frente dos outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_43"
+    },
+    {
+      "order": 86,
+      "title": "45. Arriscaria me machucar para fazer algo emocionante.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_44"
+    },
+    {
+      "order": 87,
+      "title": "46. Sou determinado(a) a ter sucesso.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_45"
+    },
+    {
+      "order": 88,
+      "title": "47. Sou uma pessoa superior.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_46"
+    },
+    {
+      "order": 89,
+      "title": "48. Assumo o controle na maioria das situações.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_47"
+    },
+    {
+      "order": 90,
+      "title": "49. Frequentemente suspeito que as pessoas não me contam toda a verdade.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_48"
+    },
+    {
+      "order": 91,
+      "title": "50. Acredito que tenho direito a condições especiais.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_49"
+    },
+    {
+      "order": 92,
+      "title": "51. Adoro entreter as pessoas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_50"
+    },
+    {
+      "order": 93,
+      "title": "52. Estou disposto(a) a me aproveitar dos outros para atingir meus objetivos.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_51"
+    },
+    {
+      "order": 94,
+      "title": "53. Algum dia acredito que a maioria das pessoas saberá meu nome.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_52"
+    },
+    {
+      "order": 95,
+      "title": "54. A opinião dos outros sobre mim me importa pouco.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_53"
+    },
+    {
+      "order": 96,
+      "title": "55. Não me abalo com o sofrimento dos outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_54"
+    },
+    {
+      "order": 97,
+      "title": "56. É fácil conseguir que as pessoas façam o que eu quero.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_55"
+    },
+    {
+      "order": 98,
+      "title": "57. Queria não me importar tanto com o que os outros pensam de mim.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_56"
+    },
+    {
+      "order": 99,
+      "title": "58. Fico furioso(a) quando as pessoas me desrespeitam.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_57"
+    },
+    {
+      "order": 100,
+      "title": "59. Sinto vergonha quando cometo um erro na frente dos outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_58"
+    },
+    {
+      "order": 101,
+      "title": "60. Gosto de fazer coisas arriscadas ou perigosas.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "1 — discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5 — concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "ffni_59"
+    },
+    {
+      "order": 102,
+      "title": "1. Sinto que sou mais importante do que os outros e que mereço reconhecimento especial.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_0"
+    },
+    {
+      "order": 103,
+      "title": "2. Passo muito tempo fantasiando sucesso, poder, brilho, beleza ou um amor ideal.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_1"
+    },
+    {
+      "order": 104,
+      "title": "3. Acredito que sou uma pessoa especial e que só pessoas especiais realmente me entendem.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_2"
+    },
+    {
+      "order": 105,
+      "title": "4. Preciso de muitos elogios e admiração para me sentir bem.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_3"
+    },
+    {
+      "order": 106,
+      "title": "5. Espero tratamento especial e que os outros façam o que eu quero.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_4"
+    },
+    {
+      "order": 107,
+      "title": "6. Uso outras pessoas para alcançar meus objetivos.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_5"
+    },
+    {
+      "order": 108,
+      "title": "7. Tenho dificuldade em reconhecer e considerar os sentimentos e necessidades dos outros.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_6"
+    },
+    {
+      "order": 109,
+      "title": "8. Frequentemente sinto inveja dos outros ou penso que eles sentem inveja de mim.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_7"
+    },
+    {
+      "order": 110,
+      "title": "9. Frequentemente ajo de forma arrogante ou superior.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_8"
+    },
+    {
+      "order": 111,
+      "title": "10. Esses padrões aparecem em diferentes contextos da minha vida (trabalho/estudos, família, amizades) e se mantêm ao longo do tempo.",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_9"
+    },
+    {
+      "order": 112,
+      "title": "11. Esses padrões causam prejuízo significativo na minha vida (por exemplo, conflitos, perdas de vínculo, dificuldades no trabalho/estudos).",
+      "type": "DROPDOWN",
+      "required": false,
+      "options": [
+        {
+          "label": "Selecione...",
+          "value": ""
+        },
+        {
+          "label": "Sim",
+          "value": "sim"
+        },
+        {
+          "label": "Não",
+          "value": "nao"
+        }
+      ],
+      "name": "mini_10"
+    }
+  ],
+  "consoleErrors": [],
+  "sanitizedMetadata": [
+    "idade",
+    "obs"
+  ]
+}

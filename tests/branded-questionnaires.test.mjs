@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 
 const index=fs.readFileSync('index.html','utf8');
+const catalog=fs.readFileSync('assets/screening-catalog-v3.js','utf8');
 const host=fs.readFileSync('monitoramento.html','utf8');
 const js=fs.readFileSync('assets/monitoramentos-v2.js','utf8');
 const css=fs.readFileSync('assets/monitoramentos-v2.css','utf8');
@@ -9,8 +10,9 @@ const css=fs.readFileSync('assets/monitoramentos-v2.css','utf8');
 assert.doesNotThrow(()=>new Function(js),'branded questionnaire runtime must be valid JavaScript');
 assert.doesNotMatch(index,/<iframe[^>]+docs\.google\.com\/forms/is,'Jornada must not render Google Forms iframes');
 assert.doesNotMatch(index,/docs\.google\.com\/forms/i,'Jornada index must not expose direct Forms URLs');
+assert.match(index,/screening-catalog-v3\.js/,'Jornada must consume the canonical screening catalog');
 for(const instrument of ['controle','humor','ansiedade','autoestima']){
-  assert.match(index,new RegExp(`monitoramento\\.html\\?instrument=${instrument}`),`${instrument} must resolve to the branded host`);
+  assert.match(catalog,new RegExp(`monitoramento\\.html\\?instrument=${instrument}`),`${instrument} must resolve through the canonical catalog`);
   assert.match(js,new RegExp(`${instrument}:\\{`),`${instrument} schema missing from branded runtime`);
 }
 assert.doesNotMatch(host,/docs\.google\.com\/forms/i,'public host HTML must not contain Forms branding or direct endpoint');

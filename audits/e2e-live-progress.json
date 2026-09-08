@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "instruments": {
+    "autoestima": {
+      "status": "PASS",
+      "evidence": "pilot-verified",
+      "submissionId": "e2e-autoestima-34172376185-1"
+    },
+    "geral": {
+      "status": "PASS",
+      "submissionId": "e2e-geral-34172785679-1",
+      "checkedAt": "2026-09-08T00:17:02.308Z"
+    },
+    "tdah": {
+      "status": "PASS",
+      "submissionId": "e2e-tdah-34172785679-1",
+      "checkedAt": "2026-09-08T00:17:45.102Z"
+    },
+    "bipolar": {
+      "status": "PASS",
+      "submissionId": "e2e-bipolar-34173174757-1",
+      "checkedAt": "2026-09-08T00:24:30.202Z"
+    },
+    "borderline": {
+      "status": "PASS",
+      "submissionId": "e2e-borderline-34173174757-1",
+      "checkedAt": "2026-09-08T00:24:48.535Z"
+    },
+    "narcisismo": {
+      "status": "PASS",
+      "submissionId": "e2e-narcisismo-34173174757-1",
+      "checkedAt": "2026-09-08T00:26:23.619Z"
+    },
+    "impulsividade": {
+      "status": "PASS",
+      "submissionId": "e2e-impulsividade-34173174757-1",
+      "checkedAt": "2026-09-08T00:26:39.885Z"
+    },
+    "esquemas": {
+      "status": "PASS",
+      "submissionId": "e2e-esquemas-34173174757-1",
+      "checkedAt": "2026-09-08T00:27:13.946Z"
+    },
+    "modos": {
+      "status": "PASS",
+      "submissionId": "e2e-modos-34173174757-1",
+      "checkedAt": "2026-09-08T00:27:46.672Z"
+    },
+    "necessidades": {
+      "status": "PASS",
+      "submissionId": "e2e-necessidades-34173174757-1",
+      "checkedAt": "2026-09-08T00:28:02.727Z"
+    },
+    "codependencia": {
+      "status": "PASS",
+      "submissionId": "e2e-codependencia-34174847549-1",
+      "checkedAt": "2026-09-08T00:55:10.383Z"
+    },
+    "icaps": {
+      "status": "PASS",
+      "submissionId": "e2e-icaps-final-34175714185-1",
+      "checkedAt": "2026-09-08T01:10:05.450Z",
+      "evidence": "final-live-after-scale-fix"
+    },
+    "risco": {
+      "status": "PASS",
+      "submissionId": "e2e-risco-34174847549-1",
+      "checkedAt": "2026-09-08T00:55:20.213Z"
+    },
+    "humor": {
+      "status": "PASS",
+      "submissionId": "e2e-humor-34174847549-1",
+      "checkedAt": "2026-09-08T00:55:33.574Z"
+    },
+    "ansiedade": {
+      "status": "PASS",
+      "submissionId": "e2e-ansiedade-34174847549-1",
+      "checkedAt": "2026-09-08T00:55:54.426Z"
+    }
+  },
+  "updatedAt": "2026-09-08T01:10:05.450Z",
+  "summary": {
+    "pass": 15,
+    "waiting": 0,
+    "pending": 0,
+    "fail": 0
+  }
+}

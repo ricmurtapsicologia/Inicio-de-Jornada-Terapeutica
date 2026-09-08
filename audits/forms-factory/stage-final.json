@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-09-07T16:35:00-03:00",
+  "policy": {
+    "published": false,
+    "status": "RASCUNHO"
+  },
+  "forms": [
+    {
+      "id": "geral",
+      "formId": "FORM-2026-0004",
+      "questionCount": 70,
+      "totalItems": 73,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "tdah",
+      "formId": "FORM-2026-0005",
+      "questionCount": 85,
+      "totalItems": 88,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "bipolar",
+      "formId": "FORM-2026-0006",
+      "questionCount": 77,
+      "totalItems": 80,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "borderline",
+      "formId": "FORM-2026-0007",
+      "questionCount": 47,
+      "totalItems": 50,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "narcisismo",
+      "formId": "FORM-2026-0008",
+      "questionCount": 112,
+      "totalItems": 115,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "impulsividade",
+      "formId": "FORM-2026-0009",
+      "questionCount": 30,
+      "totalItems": 33,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "esquemas",
+      "formId": "FORM-2026-0010",
+      "questionCount": 108,
+      "totalItems": 111,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "modos",
+      "formId": "FORM-2026-0011",
+      "questionCount": 124,
+      "totalItems": 127,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "necessidades",
+      "formId": "FORM-2026-0012",
+      "questionCount": 36,
+      "totalItems": 39,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "codependencia",
+      "formId": "FORM-2026-0013",
+      "questionCount": 40,
+      "totalItems": 43,
+      "status": "STAGED_CLOSED"
+    },
+    {
+      "id": "risco",
+      "formId": "FORM-2026-0014",
+      "questionCount": 18,
+      "totalItems": 21,
+      "status": "STAGED_CLOSED"
+    }
+  ],
+  "existingForms": [
+    "humor",
+    "ansiedade",
+    "autoestima",
+    "icaps"
+  ]
+}

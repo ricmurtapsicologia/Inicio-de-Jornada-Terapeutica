@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#176d68">
-  <meta name="description" content="Painel profissional para acesso aos rastreios e monitoramentos clínicos de Richelmy Murta.">
+  <meta name="description" content="Painel profissional para acesso aos 15 rastreios e monitoramentos clínicos de Richelmy Murta.">
   <title>Painel de Rastreios — Richelmy Murta</title>
   <style>
     :root{--ink:#17333a;--muted:#58717a;--canvas:#edf4f3;--surface:#fff;--soft:#f5f9f8;--line:#d7e4e2;--primary:#176d68;--strong:#105753;--accent:#b8894d;--warn:#8a6324;--radius:18px;--shadow:0 22px 54px rgba(23,51,58,.10);--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -19,36 +19,24 @@
 <body>
 <main class="wrap">
   <section class="hero">
-    <div class="hero-copy"><p class="eyebrow">Richelmy Murta · Psicologia Clínica</p><h1>Painel de Rastreios</h1><p>Um único lugar para localizar, abrir e compartilhar os instrumentos utilizados no acompanhamento clínico. Cada rastreio mantém sua própria página, conteúdo e fluxo.</p></div>
+    <div class="hero-copy"><p class="eyebrow">Richelmy Murta · Psicologia Clínica</p><h1>Painel de Rastreios</h1><p>Os 15 rastreios e monitoramentos clínicos canônicos em um único lugar. Cada instrumento mantém sua própria página, conteúdo e fluxo.</p></div>
     <img src="../assets/dependencia-codependencia-casal-v2.jpg" alt="Imagem abstrata de vínculo e cuidado entre duas pessoas">
   </section>
   <section class="toolbar" aria-label="Localizar rastreios">
     <input id="search" class="search" type="search" placeholder="Pesquisar rastreio ou finalidade" autocomplete="off" aria-label="Pesquisar rastreios">
-    <div class="filters" role="group" aria-label="Filtrar por área"><button class="filter" data-filter="Todos" aria-pressed="true">Todos</button><button class="filter" data-filter="Geral">Geral</button><button class="filter" data-filter="Humor">Humor</button><button class="filter" data-filter="Personalidade">Personalidade</button><button class="filter" data-filter="Terapia do Esquema">Terapia do Esquema</button><button class="filter" data-filter="Relacionamentos">Relacionamentos</button><button class="filter" data-filter="Monitoramento">Monitoramento</button><button class="filter" data-filter="Uso clínico restrito">Uso clínico restrito</button></div>
+    <div id="filters" class="filters" role="group" aria-label="Filtrar por área"></div>
   </section>
   <div id="catalog"></div><div id="empty" class="empty" hidden>Nenhum rastreio corresponde ao filtro atual.</div>
   <footer>© 2026 Richelmy Murta — Psicólogo Clínico</footer>
 </main>
+<script src="../assets/screening-catalog-v3.js?v=20260907"></script>
 <script>
-const ITEMS=[
- {group:'Geral',name:'Panorama do seu momento emocional',desc:'Visão ampla do funcionamento emocional para orientar aprofundamentos em sessão.',url:'https://ricmurtapsicologia.github.io/Rastreioclinico/'},
- {group:'Neurodesenvolvimento',name:'Atenção, organização e impulsividade no dia a dia',desc:'Organiza aspectos de atenção, rotina, impulsividade e história de desenvolvimento.',url:'https://ricmurtapsicologia.github.io/rastreioTDAH/'},
- {group:'Humor',name:'Oscilações de humor, energia e ritmo',desc:'Explora mudanças de humor, energia, sono, atividade e curso temporal.',url:'https://ricmurtapsicologia.github.io/tab-bateria-integrada/'},
- {group:'Personalidade',name:'Emoções, identidade e relações',desc:'Organiza padrões emocionais, relacionais e de autoimagem para discussão clínica.',url:'https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/'},
- {group:'Personalidade',name:'Autoimagem, reconhecimento e relações',desc:'Explora autoimagem, reconhecimento, crítica, empatia e funcionamento interpessoal.',url:'https://ricmurtapsicologia.github.io/bateria.narcisismo/'},
- {group:'Dimensões clínicas',name:'Decisão, planejamento e controle de impulsos',desc:'Mapeia aspectos de planejamento, tomada de decisão e controle de impulsos.',url:'https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/'},
- {group:'Terapia do Esquema',name:'Padrões emocionais que se repetem',desc:'Mapeia padrões emocionais de longa duração relevantes para formulação clínica.',url:'https://ricmurtapsicologia.github.io/rastreio.de.esquemas/'},
- {group:'Terapia do Esquema',name:'Como você reage quando algo toca em pontos sensíveis?',desc:'Organiza estados emocionais e respostas de enfrentamento ativados em situações difíceis.',url:'https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/'},
- {group:'Terapia do Esquema',name:'O que sustenta seu bem-estar emocional',desc:'Explora necessidades emocionais, recursos e áreas de maior fragilidade.',url:'https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/'},
- {group:'Relacionamentos',name:'Autonomia, limites e cuidado nas relações',desc:'Explora equilíbrio entre autonomia, cuidado, reciprocidade e limites.',url:'https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/'},
- {group:'Relacionamentos',name:'Clareza para decisões importantes no relacionamento',desc:'Organiza elementos do contexto conjugal para reflexão clínica estruturada.',url:'https://ricmurtapsicologia.github.io/ICAPS/'},
- {group:'Monitoramento',name:'Como seu humor tem mudado nas últimas semanas',desc:'Acompanhamento longitudinal de mudanças no humor ao longo do tratamento.',url:'https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=humor'},
- {group:'Monitoramento',name:'Tensão e sinais de ansiedade no momento atual',desc:'Acompanhamento longitudinal de sinais ansiosos e sua variação.',url:'https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=ansiedade'},
- {group:'Monitoramento',name:'Como você tem se percebido',desc:'Acompanhamento da autopercepção e autoestima durante o processo terapêutico.',url:'https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=autoestima'},
- {group:'Uso clínico restrito',name:'Segurança emocional no momento atual',desc:'Instrumento de uso clínico mediado pelo psicólogo responsável.',url:'https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/',restricted:true}
-];
-const ORDER=['Geral','Neurodesenvolvimento','Humor','Personalidade','Dimensões clínicas','Terapia do Esquema','Relacionamentos','Monitoramento','Uso clínico restrito'];
-let active='Todos',term='';const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const ITEMS=window.RM_SCREENING_CATALOG.items;
+const ORDER=window.RM_SCREENING_CATALOG.order;
+let active='Todos',term='';
+const filtersHost=document.getElementById('filters');
+['Todos',...ORDER].forEach((label,index)=>{const b=document.createElement('button');b.className='filter';b.type='button';b.dataset.filter=label;b.setAttribute('aria-pressed',String(index===0));b.textContent=label;filtersHost.appendChild(b)});
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 function card(x){return `<article class="card" data-search="${esc(norm(x.name+' '+x.desc+' '+x.group))}"><span class="chip ${x.restricted?'restricted':''}">${esc(x.group)}</span><h3>${esc(x.name)}</h3><p>${esc(x.desc)}</p><div class="actions"><a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${x.restricted?'Abrir para uso clínico':'Abrir'}</a>${x.restricted?'':`<button class="btn secondary" type="button" data-share="${esc(x.url)}" data-name="${esc(x.name)}">Compartilhar</button>`}</div></article>`}
 function render(){const q=norm(term.trim());let total=0;const html=ORDER.map(group=>{const list=ITEMS.filter(x=>(active==='Todos'||x.group===active)&&x.group===group&&(!q||norm(x.name+' '+x.desc+' '+x.group).includes(q)));if(!list.length)return'';total+=list.length;return `<section class="section"><div class="section-head"><h2>${esc(group)}</h2><span>${list.length} ${list.length===1?'recurso':'recursos'}</span></div><div class="grid">${list.map(card).join('')}</div></section>`}).join('');document.getElementById('catalog').innerHTML=html;document.getElementById('empty').hidden=total>0}
 document.getElementById('search').addEventListener('input',e=>{term=e.target.value;render()});document.addEventListener('click',async e=>{const f=e.target.closest('[data-filter]');if(f){active=f.dataset.filter;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===f)));render();return}const b=e.target.closest('[data-share]');if(!b)return;const data={title:b.dataset.name,text:`${b.dataset.name} — acesso ao rastreio`,url:b.dataset.share};if(navigator.share){try{await navigator.share(data);return}catch(err){if(err?.name==='AbortError')return}}try{await navigator.clipboard.writeText(data.url);b.textContent='Link copiado';setTimeout(()=>b.textContent='Compartilhar',1800)}catch{prompt('Copie o link:',data.url)}});render();

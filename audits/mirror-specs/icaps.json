@@ -1,0 +1,1771 @@
+{
+  "id": "icaps",
+  "url": "https://ricmurtapsicologia.github.io/ICAPS/",
+  "selector": "#icaps-form",
+  "identityProfile": "screening_canonical",
+  "questionCount": 62,
+  "questions": [
+    {
+      "order": 1,
+      "title": "Website",
+      "type": "TEXT",
+      "required": false,
+      "options": [],
+      "name": "website"
+    },
+    {
+      "order": 2,
+      "title": "1. Sinto que meu relacionamento é emocionalmente gratificante.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q01"
+    },
+    {
+      "order": 3,
+      "title": "2. Ainda me sinto apaixonada(o) pelo meu parceiro.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q02"
+    },
+    {
+      "order": 4,
+      "title": "3. Há momentos de alegria e conexão genuína entre nós.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q03"
+    },
+    {
+      "order": 5,
+      "title": "4. Sinto respeito mútuo na relação.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q04"
+    },
+    {
+      "order": 6,
+      "title": "5. Temos boa comunicação na maior parte do tempo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q05"
+    },
+    {
+      "order": 7,
+      "title": "6. Consigo imaginar um futuro feliz ao lado dele(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q06"
+    },
+    {
+      "order": 8,
+      "title": "7. Há carinho e toques físicos que me agradam.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q07"
+    },
+    {
+      "order": 9,
+      "title": "8. Me sinto valorizada(o) na relação.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q08"
+    },
+    {
+      "order": 10,
+      "title": "9. A convivência diária é leve e respeitosa.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q09"
+    },
+    {
+      "order": 11,
+      "title": "10. Quando surgem problemas, conseguimos enfrentá-los com parceria e diálogo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D1Q10"
+    },
+    {
+      "order": 12,
+      "title": "11. Me sinto confusa(o) sobre continuar ou sair dessa relação.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q01"
+    },
+    {
+      "order": 13,
+      "title": "12. Minha decisão muda de um dia para o outro.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q02"
+    },
+    {
+      "order": 14,
+      "title": "13. Evito pensar profundamente sobre me separar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q03"
+    },
+    {
+      "order": 15,
+      "title": "14. Já me imaginei separada(o), mas voltei atrás.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q04"
+    },
+    {
+      "order": 16,
+      "title": "15. Tenho medo de decidir errado e me arrepender.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q05"
+    },
+    {
+      "order": 17,
+      "title": "16. Penso frequentemente em separação, mas não ajo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q06"
+    },
+    {
+      "order": 18,
+      "title": "17. Oscilo entre esperança e cansaço.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q07"
+    },
+    {
+      "order": 19,
+      "title": "18. Converso comigo mesma(o) sobre partir, mas adio.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q08"
+    },
+    {
+      "order": 20,
+      "title": "19. Já ensaiei despedidas em minha mente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q09"
+    },
+    {
+      "order": 21,
+      "title": "20. Às vezes, torço para que algo externo me force a decidir.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D2Q10"
+    },
+    {
+      "order": 22,
+      "title": "21. Tenho dificuldade em dizer “não” para ele(a), mesmo quando me machuco.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q01"
+    },
+    {
+      "order": 23,
+      "title": "22. Sinto que minha vida gira em torno da relação.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q02"
+    },
+    {
+      "order": 24,
+      "title": "23. Tolero desrespeito para não perder a relação.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q03"
+    },
+    {
+      "order": 25,
+      "title": "24. Tenho medo de ser rejeitada(o) se eu me impor.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q04"
+    },
+    {
+      "order": 26,
+      "title": "25. Deixo de fazer coisas importantes por causa dele(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q05"
+    },
+    {
+      "order": 27,
+      "title": "26. Sinto culpa só de pensar em me afastar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q06"
+    },
+    {
+      "order": 28,
+      "title": "27. Me vejo anulada(o) dentro do relacionamento.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q07"
+    },
+    {
+      "order": 29,
+      "title": "28. Me sinto responsável pelo bem-estar emocional dele(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q08"
+    },
+    {
+      "order": 30,
+      "title": "29. Aceito coisas que antes eu jamais aceitaria.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q09"
+    },
+    {
+      "order": 31,
+      "title": "30. Tenho medo de não sobreviver emocionalmente se me separar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D3Q10"
+    },
+    {
+      "order": 32,
+      "title": "31. Sinto profunda dor ao lembrar das traições.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q01"
+    },
+    {
+      "order": 33,
+      "title": "32. A confiança foi destruída e não se reconstruiu.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q02"
+    },
+    {
+      "order": 34,
+      "title": "33. Me sinto humilhada(o) emocionalmente.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q03"
+    },
+    {
+      "order": 35,
+      "title": "34. As infidelidades me fizeram duvidar de meu próprio valor.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q04"
+    },
+    {
+      "order": 36,
+      "title": "35. A imagem que eu tinha da relação foi quebrada.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q05"
+    },
+    {
+      "order": 37,
+      "title": "36. Percebo que, mesmo ferida(o), tento justificar o outro.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q06"
+    },
+    {
+      "order": 38,
+      "title": "37. A raiva e tristeza ainda me paralisam.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q07"
+    },
+    {
+      "order": 39,
+      "title": "38. Me sinto traída(o) não apenas sexualmente, mas como pessoa.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q08"
+    },
+    {
+      "order": 40,
+      "title": "39. Perdi minha autoestima por causa das traições.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q09"
+    },
+    {
+      "order": 41,
+      "title": "40. Sinto que estou presa(o) numa repetição dolorosa.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D4Q10"
+    },
+    {
+      "order": 42,
+      "title": "41. Tenho medo de ser julgada(o) se me separar.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q01"
+    },
+    {
+      "order": 43,
+      "title": "42. Sinto que preciso manter as aparências.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q02"
+    },
+    {
+      "order": 44,
+      "title": "43. Não tenho com quem desabafar de forma segura.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q03"
+    },
+    {
+      "order": 45,
+      "title": "44. Me preocupo em decepcionar minha família.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q04"
+    },
+    {
+      "order": 46,
+      "title": "45. Tenho receio de perder estabilidade financeira.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q05"
+    },
+    {
+      "order": 47,
+      "title": "46. Penso mais nos outros do que em mim ao tomar decisões.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q06"
+    },
+    {
+      "order": 48,
+      "title": "47. Me preocupo com o sofrimento dos filhos acima do meu.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q07"
+    },
+    {
+      "order": 49,
+      "title": "48. Temo que, se me separar, ficarei só e esquecida(o).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q08"
+    },
+    {
+      "order": 50,
+      "title": "49. A dependência financeira pesa na minha decisão.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q09"
+    },
+    {
+      "order": 51,
+      "title": "50. Não saberia como recomeçar minha vida.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D5Q10"
+    },
+    {
+      "order": 52,
+      "title": "51. Me sinto mais forte do que antes.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q01"
+    },
+    {
+      "order": 53,
+      "title": "52. Estou aprendendo a cuidar de mim mesma(o).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q02"
+    },
+    {
+      "order": 54,
+      "title": "53. Já reconheço o que me fere e o que me fortalece.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q03"
+    },
+    {
+      "order": 55,
+      "title": "54. Mesmo com dor, consigo refletir com lucidez.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q04"
+    },
+    {
+      "order": 56,
+      "title": "55. Sei que mereço viver com dignidade emocional.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q05"
+    },
+    {
+      "order": 57,
+      "title": "56. A separação já não parece um abismo impossível.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q06"
+    },
+    {
+      "order": 58,
+      "title": "57. Tenho clareza de que preciso mudar algo.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q07"
+    },
+    {
+      "order": 59,
+      "title": "58. Me percebo mais madura(o) para tomar decisões difíceis.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q08"
+    },
+    {
+      "order": 60,
+      "title": "59. Sinto que posso suportar as consequências de uma decisão.",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q09"
+    },
+    {
+      "order": 61,
+      "title": "60. Desejo construir uma nova história, com ou sem ele(a).",
+      "type": "MULTIPLE_CHOICE",
+      "required": true,
+      "options": [
+        {
+          "label": "1 Discordo totalmente",
+          "value": "1"
+        },
+        {
+          "label": "2 Discordo parcialmente",
+          "value": "2"
+        },
+        {
+          "label": "3 Nem concordo, nem discordo",
+          "value": "3"
+        },
+        {
+          "label": "4 Concordo parcialmente",
+          "value": "4"
+        },
+        {
+          "label": "5 Concordo totalmente",
+          "value": "5"
+        }
+      ],
+      "name": "D6Q10"
+    },
+    {
+      "order": 62,
+      "title": "Li o aviso de privacidade e compreendo que minhas respostas serão encaminhadas ao psicólogo responsável para análise clínica.",
+      "type": "CHECKBOXES",
+      "required": true,
+      "options": [
+        {
+          "label": "Li o aviso de privacidade e compreendo que minhas respostas serão encaminhadas ao psicólogo responsável para análise clínica.",
+          "value": "on"
+        }
+      ],
+      "name": "privacy_ack"
+    }
+  ],
+  "consoleErrors": []
+}

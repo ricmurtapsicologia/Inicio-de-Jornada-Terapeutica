@@ -1,0 +1,89 @@
+name: Screening release preflight v3.1
+# final certified preflight after E2E 15/15 and Layer 3 audit
+
+on:
+  push:
+    branches:
+      - rastreios-hub-rc-20260907
+    paths:
+      - 'apps-script/**'
+      - 'assets/**'
+      - 'tests/**'
+      - 'audits/e2e-post-sanitize-15.json'
+      - 'index.html'
+      - 'painel-rastreios/**'
+      - '.github/workflows/release-preflight-v31.yml'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Canonical catalog and surfaces
+        run: |
+          node - <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const src=fs.readFileSync('assets/screening-catalog-v3.js','utf8');
+          const sandbox={window:{}};vm.runInNewContext(src,sandbox,{timeout:1000});
+          const c=sandbox.window.RM_SCREENING_CATALOG;
+          const required=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','risco','humor','ansiedade','autoestima'];
+          if(!c||c.count!==15||c.items.length!==15)throw new Error('canonical catalog must contain 15');
+          if(new Set(c.items.map(x=>x.id)).size!==15||new Set(c.items.map(x=>x.url)).size!==15)throw new Error('catalog duplicates');
+          for(const id of required)if(!c.items.some(x=>x.id===id))throw new Error('missing '+id);
+          const journey=fs.readFileSync('index.html','utf8');
+          const panel=fs.readFileSync('painel-rastreios/index.html','utf8');
+          if(!journey.includes('./assets/screening-catalog-v3.js')||!panel.includes('../assets/screening-catalog-v3.js'))throw new Error('surfaces must share canonical catalog');
+          if(!journey.includes('15 instrumentos clínicos canônicos')||!journey.includes('Outros recursos clínicos'))throw new Error('Journey classification/count missing');
+          if(!panel.includes("['Todos',...ORDER]")||/data-filter="Geral"/.test(panel))throw new Error('panel filters must derive from canonical order');
+          if(/docs\.google\.com\/forms/i.test(journey)||/<iframe[^>]+forms\.google/i.test(journey))throw new Error('native Forms exposed in Journey');
+          console.log('CANONICAL_15_SURFACES_PASS');
+          NODE
+      - run: node tests/ordered-transport-v31.test.mjs
+      - run: node tests/screening-bridge-v3-static.test.mjs
+      - run: node tests/screening-postprocessing-v3-static.test.mjs
+      - run: node tests/screening-pipeline-v3-static.test.mjs
+      - run: node tests/screening-report-integrations-v3-static.test.mjs
+      - run: node tests/screening-scoring-v3-static.test.mjs
+      - run: node tests/screening-scoring-v3-runtime.test.mjs
+      - run: node tests/bdi2-content-lock.test.mjs
+      - run: node tests/hero-variants.test.mjs
+      - run: node tests/branded-questionnaires.test.mjs
+      - run: node tests/validate-anamnese.mjs
+      - name: Clean backend contract
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const pipe=fs.readFileSync('apps-script/ScreeningPipelineV3.gs','utf8');
+          const integrations=fs.readFileSync('apps-script/ScreeningIntegrationsV3.gs','utf8');
+          const setup=fs.readFileSync('apps-script/ScreeningSetupV3.gs','utf8');
+          const bundle=fs.readFileSync('apps-script/ScreeningBackendV31.bundle.gs','utf8');
+          if(!pipe.includes("'SUBMITTED','VALIDATED','SCORED','REPORT_GENERATED','EMAIL_SENT','COMPLETE'"))throw new Error('pipeline state drift');
+          if(/appendScreeningTrello|TRELLO_UPDATED/.test(integrations)||/GPS_URL|GPS_WEBHOOK/.test(integrations))throw new Error('obsolete operational integration active');
+          if(!setup.includes("props.deleteProperty(k)"))throw new Error('legacy property cleanup missing');
+          if(!setup.includes('setupScreeningPipelineLedger_()'))throw new Error('ledger migration not unified in setup');
+          if(!bundle.includes('Entrega operacional canônica dos rastreios: relatório clínico por e-mail.'))throw new Error('bundle not regenerated from clean source');
+          if(!bundle.includes("'EMAIL_SENT','COMPLETE'"))throw new Error('bundle pipeline drift');
+          console.log('CLEAN_BACKEND_BUNDLE_PASS');
+          NODE
+      - name: Client enabled only after certified post-cleanup E2E
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const t=JSON.parse(fs.readFileSync('assets/screening-transport-v3.json','utf8'));
+          const e=JSON.parse(fs.readFileSync('audits/e2e-post-sanitize-15.json','utf8'));
+          if(e.summary?.total!==15||e.summary?.pass!==15||e.summary?.fail!==0)throw new Error('post-cleanup E2E certification must be 15/15');
+          if(t.enabled!==true)throw new Error('transport client must be enabled after certified 15/15 E2E');
+          if(!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(String(t.bridgeUrl||'')))throw new Error('deployed Web App bridge URL required');
+          console.log('CLIENT_ENABLED_AFTER_E2E_15_15');
+          NODE
+      - name: No secrets in public source
+        run: |
+          if grep -RIE 'TRELLO_(KEY|TOKEN)[[:space:]]*[:=][[:space:]]*["'"'][^"'"']+["'"']' apps-script assets; then exit 1; fi
+          if grep -RIE 'AIza[0-9A-Za-z_-]{20,}|ghp_[0-9A-Za-z]{20,}' apps-script assets; then exit 1; fi
