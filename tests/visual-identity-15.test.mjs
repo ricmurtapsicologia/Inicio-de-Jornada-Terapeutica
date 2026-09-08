@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const js=fs.readFileSync('assets/screening-system-v2.js','utf8');
+const css=fs.readFileSync('assets/screening-system-v2.css','utf8');
+const loader=fs.readFileSync('assets/screening-uniformity-v1.js','utf8');
+const ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','risco','humor','ansiedade','autoestima'];
+assert.doesNotThrow(()=>new Function(js));
+for(const id of ids) assert.match(js,new RegExp(`\\b${id}:\\{alt:`),`hero missing ${id}`);
+assert.equal((js.match(/alt:'/g)||[]).length,15);
+assert.match(js,/heroForInstrument\(instrumentId\)/);
+assert.match(js,/showBirth=true/);
+assert.match(js,/showApplication=true/);
+assert.match(js,/cleanupLegacyIdentity/);
+assert.match(js,/ageFromBirth/);
+assert.match(css,/data-rm-legacy-identity/);
+assert.match(css,/filter:grayscale\(1\)/);
+assert.match(loader,/screening-system-v2\.js\?v=2\.3\.0/);
+console.log('VISUAL_IDENTITY_15_PASS');

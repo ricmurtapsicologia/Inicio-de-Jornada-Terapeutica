@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "total": 15,
+  "uniqueHeroes": 15,
+  "summary": [
+    {
+      "id": "geral",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Visão ampla do momento emocional."
+    },
+    {
+      "id": "tdah",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Atenção, organização e foco."
+    },
+    {
+      "id": "bipolar",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Oscilações de humor, energia e ritmo."
+    },
+    {
+      "id": "borderline",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Emoções, identidade e relações."
+    },
+    {
+      "id": "narcisismo",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Autoimagem, reconhecimento e reflexo."
+    },
+    {
+      "id": "impulsividade",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Decisão, planejamento e controle de impulsos."
+    },
+    {
+      "id": "esquemas",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Padrões emocionais em camadas."
+    },
+    {
+      "id": "modos",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Diferentes estados emocionais e modos de enfrentamento."
+    },
+    {
+      "id": "necessidades",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Necessidades emocionais, raízes e sustentação."
+    },
+    {
+      "id": "codependencia",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Autonomia, limites e cuidado nas relações."
+    },
+    {
+      "id": "icaps",
+      "canonical": 4,
+      "legacy": 0,
+      "heroAlt": "Clareza para decisões importantes no relacionamento."
+    },
+    {
+      "id": "risco",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Segurança emocional e proteção no momento atual."
+    },
+    {
+      "id": "humor",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Acompanhamento do humor ao longo do tempo."
+    },
+    {
+      "id": "ansiedade",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Sinais de ansiedade e tensão."
+    },
+    {
+      "id": "autoestima",
+      "canonical": 3,
+      "legacy": 0,
+      "heroAlt": "Autopercepção, forma e reflexo."
+    }
+  ]
+}
