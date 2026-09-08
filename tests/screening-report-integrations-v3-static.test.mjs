@@ -13,19 +13,10 @@ assert.match(report,/Detalhes técnicos/);
 assert.ok(!/innerHTML|document\.|window\.|localStorage|sessionStorage|indexedDB/.test(report),'Gerador Apps Script não deve depender de browser/storage');
 
 assert.match(integrations,/REPORT_EMAIL/);
-assert.match(integrations,/TRELLO_CARD_ID/);
+assert.match(integrations,/sendScreeningReportEmail_/);
 assert.match(integrations,/screeningSubmissionRef_/);
 assert.match(integrations,/SHA_256/);
-assert.ok(!/GPS_NOTIFY|notifyScreeningGps_|GPS_NOT_CONFIGURED|channel:\s*['"]gps['"]/.test(integrations),'GPS deve permanecer fora do pipeline até existir integração real');
-
-const minimalBody = integrations.slice(integrations.indexOf('function screeningMinimalOperationalMeta_'));
-for (const forbidden of ['patientName','patient.name','answers','rawScore','normalizedScore','classification','diagnosis','diagnóstico','report.html']) {
-  assert.ok(!minimalBody.includes(forbidden),`Metadado operacional não pode conter ${forbidden}`);
-}
-
-const trelloFn = integrations.slice(integrations.indexOf('function appendScreeningTrelloMetadata_'), integrations.indexOf('function screeningMinimalOperationalMeta_'));
-for (const forbidden of ['answers','rawScore','normalizedScore','patient.name','report.html','diagnóstico','diagnosis']) {
-  assert.ok(!trelloFn.includes(forbidden),`Trello não pode conter ${forbidden}`);
-}
+assert.ok(!/TRELLO_KEY|TRELLO_TOKEN|TRELLO_CARD_ID|appendScreeningTrello|channel:\s*['"]trello['"]/.test(integrations),'Trello não deve integrar o backend clínico');
+assert.ok(!/GPS_NOTIFY|notifyScreeningGps_|GPS_NOT_CONFIGURED|GPS_URL|GPS_WEBHOOK|channel:\s*['"]gps['"]/.test(integrations),'GPS não deve integrar o backend clínico');
 
 console.log('SCREENING_REPORT_INTEGRATIONS_V3_STATIC_PASS');
