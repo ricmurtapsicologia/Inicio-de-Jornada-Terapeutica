@@ -27,13 +27,13 @@ body.rm-screening-v2 #mainContent,body.rm-screening-v2 main,body.rm-screening-v2
 body.rm-screening-v2 [id*="whats" i],body.rm-screening-v2 [class*="whats" i],body.rm-screening-v2 a[href*="wa.me"],body.rm-screening-v2 a[href*="whatsapp" i]{display:none!important}
 body.rm-screening-v2.rm-hide-legacy-results #results,body.rm-screening-v2.rm-hide-legacy-results #resultsSection,body.rm-screening-v2.rm-hide-legacy-results .results-panel,body.rm-screening-v2.rm-hide-legacy-results [data-patient-result]{display:none!important}
 .rm-screening-shell{width:min(calc(100% - 28px),var(--rm-content));margin:24px auto 18px;background:var(--rm-surface);border:1px solid rgba(23,51,58,.07);border-radius:var(--rm-radius-lg);overflow:hidden;box-shadow:var(--rm-shadow)}
-.rm-screening-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);min-height:330px;background:linear-gradient(135deg,#153f45,#176d68);color:#fff}
+.rm-screening-hero{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(300px,.87fr);min-height:360px;background:linear-gradient(135deg,#153f45,#176d68);color:#fff}
 .rm-screening-copy{padding:clamp(28px,5vw,58px);display:flex;flex-direction:column;justify-content:center}
 .rm-eyebrow{margin:0 0 10px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;opacity:.82}
 .rm-screening-copy h1{margin:0;font-size:clamp(2rem,5vw,3.55rem);line-height:1.06;letter-spacing:-.035em;text-wrap:balance}
 .rm-story{margin:18px 0 0;max-width:62ch;font-size:clamp(1rem,1.4vw,1.15rem);color:rgba(255,255,255,.9)}
 .rm-screening-visual{position:relative;min-height:280px;background:#d9e6e4;overflow:hidden}
-.rm-screening-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(.98)}
+.rm-screening-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.03)}
 .rm-screening-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,63,69,.36),transparent 48%);pointer-events:none}
 .rm-screening-body{padding:clamp(24px,4vw,48px)}
 .rm-screening-intro{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);gap:clamp(20px,4vw,44px);align-items:start}
@@ -86,3 +86,8 @@ body.rm-screening-v2.rm-hide-legacy-results #results,body.rm-screening-v2.rm-hid
 .rm-screening-hero[data-rm-variant="ansiedade"]{--rm-hero-a:#2b4e5a;--rm-hero-b:#5e8a91;--rm-hero-accent:#d9ab52}
 .rm-screening-hero[data-rm-variant="autoestima"]{--rm-hero-a:#4c4055;--rm-hero-b:#89798e;--rm-hero-accent:#dfb762}
 
+
+/* v2.3 — um banner e uma identificação visível por rastreio. */
+[data-rm-legacy-identity="hidden"]{display:none!important;visibility:hidden!important}
+.rm-identity{margin-top:28px}
+@media(max-width:800px){.rm-screening-hero{min-height:0}.rm-screening-visual{min-height:240px}}
