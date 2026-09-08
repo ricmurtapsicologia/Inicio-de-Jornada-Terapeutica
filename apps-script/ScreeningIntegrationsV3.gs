@@ -1,23 +1,12 @@
 /**
  * ScreeningIntegrationsV3.gs
- * Integrações pós-processamento dos rastreios.
- *
- * Script Properties esperadas:
- * REPORT_EMAIL          -> e-mail do psicólogo responsável
- * TRELLO_KEY             -> chave Trello
- * TRELLO_TOKEN           -> token Trello
- * TRELLO_CARD_ID         -> card operacional do pipeline clínico
- *
- * Regra de minimização: Trello NUNCA recebe respostas, escores,
- * diagnósticos, nome do paciente ou conteúdo do relatório.
+ * Entrega operacional canônica dos rastreios: relatório clínico por e-mail.
  */
-
 function sendScreeningReportEmail_(report) {
   const props = PropertiesService.getScriptProperties();
   const to = String(props.getProperty('REPORT_EMAIL') || '').trim();
   if (!to) throw new Error('REPORT_EMAIL_NOT_CONFIGURED');
   if (!report || !report.html || !report.subject) throw new Error('REPORT_INVALID');
-
   MailApp.sendEmail({
     to: to,
     subject: String(report.subject).slice(0, 240),
@@ -26,43 +15,6 @@ function sendScreeningReportEmail_(report) {
     name: 'Richelmy Murta Psicologia'
   });
   return { ok: true, channel: 'email' };
-}
-
-function appendScreeningTrelloMetadata_(meta) {
-  const props = PropertiesService.getScriptProperties();
-  const key = String(props.getProperty('TRELLO_KEY') || '').trim();
-  const token = String(props.getProperty('TRELLO_TOKEN') || '').trim();
-  const cardId = String(props.getProperty('TRELLO_CARD_ID') || '').trim();
-  if (!key || !token || !cardId) return { ok: false, skipped: true, reason: 'TRELLO_NOT_CONFIGURED' };
-
-  const safe = screeningMinimalOperationalMeta_(meta);
-  const text = [
-    'Rastreio processado',
-    'instrumento: ' + safe.instrumentId,
-    'submission: ' + safe.submissionRef,
-    'data: ' + safe.processedAt,
-    'status: ' + safe.status
-  ].join(' · ');
-
-  const url = 'https://api.trello.com/1/cards/' + encodeURIComponent(cardId) + '/actions/comments';
-  const res = UrlFetchApp.fetch(url, {
-    method: 'post',
-    muteHttpExceptions: true,
-    payload: { text: text, key: key, token: token }
-  });
-  const code = Number(res.getResponseCode());
-  if (code < 200 || code >= 300) throw new Error('TRELLO_HTTP_' + code);
-  return { ok: true, channel: 'trello' };
-}
-
-function screeningMinimalOperationalMeta_(meta) {
-  if (!meta || typeof meta !== 'object') throw new Error('OPERATIONAL_META_INVALID');
-  const instrumentId = String(meta.instrumentId || '').replace(/[^a-z0-9_-]/gi, '').slice(0, 40);
-  const submissionRef = screeningSubmissionRef_(meta.submissionId);
-  const processedAt = String(meta.processedAt || new Date().toISOString()).slice(0, 40);
-  const status = String(meta.status || 'COMPLETE').replace(/[^A-Z0-9_-]/gi, '').slice(0, 40);
-  if (!instrumentId || !submissionRef) throw new Error('OPERATIONAL_META_INCOMPLETE');
-  return { instrumentId: instrumentId, submissionRef: submissionRef, processedAt: processedAt, status: status };
 }
 
 function screeningSubmissionRef_(submissionId) {

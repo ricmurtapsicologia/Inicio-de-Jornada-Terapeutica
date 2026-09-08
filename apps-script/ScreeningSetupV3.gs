@@ -12,10 +12,8 @@ function setupScreeningBridgeV3FromFactory() {
   rows.slice(1).forEach(function(r){if(r[0]&&r[17]) byInternal[String(r[0])]=String(r[17]);});
 
   const props=PropertiesService.getScriptProperties();
-  const updates={
-    REPORT_EMAIL:'ricmurtapsicologia@gmail.com',
-    TRELLO_CARD_ID:'6a9e3f9c43f65edff401783a'
-  };
+  const updates={REPORT_EMAIL:'ricmurtapsicologia@gmail.com'};
+  ['TRELLO_KEY','TRELLO_TOKEN','TRELLO_CARD_ID','GPS_URL','GPS_WEBHOOK'].forEach(function(k){props.deleteProperty(k);});
 
   Object.keys(SCREENING_FACTORY_FORM_MAP).forEach(function(id){
     const internal=SCREENING_FACTORY_FORM_MAP[id];
@@ -37,8 +35,7 @@ function setupScreeningBridgeV3FromFactory() {
     ok:true,
     configured:Object.keys(SCREENING_FACTORY_FORM_MAP).length,
     reportEmailConfigured:Boolean(props.getProperty('REPORT_EMAIL')),
-    trelloCardConfigured:Boolean(props.getProperty('TRELLO_CARD_ID')),
-    trelloCredentialsConfigured:Boolean(props.getProperty('TRELLO_KEY')&&props.getProperty('TRELLO_TOKEN'))
+    legacyOperationalPropertiesRemoved:true
   };
 }
 

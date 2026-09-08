@@ -642,84 +642,12 @@
             font-weight: 700;
         }
 
-        .forms-detail-area {
-            max-width: var(--container-narrow);
-            margin: 0 auto;
-            background: var(--surface-2);
-            border-radius: var(--radius-xl);
-            padding: var(--s-6) var(--s-5);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(27, 127, 121, 0.10);
-        }
-
-        .forms-hint {
-            text-align: center;
-            font-size: 1rem;
-            color: var(--muted);
-            margin: 0;
-        }
-
-        .forms-hint.hidden {
-            display: none;
-        }
-
-        .form-detail {
-            display: none;
-        }
-
-        .form-detail.active {
-            display: block;
-        }
-
-        .form-detail h3 {
-            font-size: clamp(1.15rem, 1.6vw, 1.3rem);
-            color: #355e3b;
-            margin: 0 0 var(--s-4);
-            text-align: center;
-        }
-
-        .form-iframe-wrapper {
-            width: 100%;
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            background: #fff;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
-        }
-
-        .form-iframe-wrapper iframe {
-            width: 100%;
-            border: none;
-            display: block;
-        }
-
-        .external-form-text {
-            font-size: 1rem;
-            margin: 0 0 var(--s-3);
-            text-align: center;
-            color: var(--muted);
-        }
-
-        .external-form-link {
-            display: inline-block;
-            margin-top: var(--s-3);
-            padding: 0.75rem 1.7rem;
-            border-radius: 999px;
-            background-color: var(--brand);
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.98rem;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
-        }
-
-        .external-form-link:hover,
-        .external-form-link:focus-visible {
-            background-color: var(--brand-2);
-            transform: translateY(-2px);
-            box-shadow: 0 18px 26px rgba(0, 0, 0, 0.18);
-        }
+        .catalog-meta { margin: -8px auto var(--s-5); text-align:center; color:var(--brand-2); font-size:.94rem; }
+        .form-btn.restricted { background:#6f5a32; }
+        .resources-subsection { margin-top:var(--s-6); padding-top:var(--s-5); border-top:1px solid rgba(27,127,121,.14); }
+        .resources-subsection h3 { margin:0 0 var(--s-2); text-align:center; color:#355e3b; font-size:clamp(1.2rem,2vw,1.5rem); }
+        .resources-subsection > p { margin:0 auto; max-width:800px; text-align:center; color:var(--muted); }
+        .form-links--resources .form-btn { background:#4d6668; }
 
         /* =========================
        10) Observações (WhatsApp)
@@ -1117,157 +1045,18 @@
             </div>
         </section>
 
-        <!-- Seção de Formulários -->
+        <!-- Rastreios e recursos clínicos -->
         <section class="section-shell content" id="forms" aria-labelledby="sec-formularios">
-            <h2 id="sec-formularios" class="section-title">Formulários para continuidade do tratamento</h2>
-            <p class="content-description">
-                Alguns questionários ajudam a organizar informações importantes e acompanhar sua evolução ao longo das sessões. Use os botões abaixo para escolher o instrumento desejado. Quando uma opção for selecionada, os detalhes e o acesso aparecerão logo abaixo desta grade.
-            </p>
-
-            <!-- BOTÕES EM GRADE -->
-            <div class="form-links">
-                <button class="form-btn" type="button" data-target="form-controle"><strong>Formulário de Controle para Atendimento Clínico</strong></button>
-                <button class="form-btn" type="button" data-target="form-humor"><strong>Avaliação de Humor</strong></button>
-                <button class="form-btn" type="button" data-target="form-autoestima"><strong>Escala de Autoestima (Rosemberg)</strong></button>
-                <button class="form-btn" type="button" data-target="form-ansiedade"><strong>Escala de Ansiedade</strong></button>
-                <a class="form-btn" href="./anamnese.html"><strong>Anamnese</strong></a>
-                <button class="form-btn" type="button" data-target="form-codep"><strong>Escala de (Co)Dependência Emocional</strong></button>
-                <button class="form-btn" type="button" data-target="form-tab"><strong>Rastreio de Transtorno Afetivo-Bipolar</strong></button>
-                <button class="form-btn" type="button" data-target="form-guia"><strong>Guia de Apoio à Saúde Mental</strong></button>
-                <button class="form-btn" type="button" data-target="form-borderline"><strong>Rastreio de Traços Borderline</strong></button>
-                <button class="form-btn" type="button" data-target="form-tdah"><strong>Rastreio de TDAH em Adultos</strong></button>
-                <button class="form-btn" type="button" data-target="form-icaps"><strong>Rastreio de Prontidão para Separação (ICAPS)</strong></button>
-                <button class="form-btn" type="button" data-target="form-narcisismo"><strong>Rastreio de Traços Narcisistas</strong></button>
+            <h2 id="sec-formularios" class="section-title">Rastreios e monitoramentos clínicos</h2>
+            <p class="content-description">Esta área reúne os <strong>15 instrumentos clínicos canônicos</strong> utilizados no acompanhamento. Cada opção abre sua página própria; os dados são processados para análise clínica do psicólogo responsável.</p>
+            <p class="catalog-meta"><strong id="screeningCount">15</strong> rastreios e monitoramentos · catálogo único da Jornada Terapêutica</p>
+            <div class="form-links" id="screeningCanonicalGrid" aria-label="15 rastreios e monitoramentos clínicos"></div>
+            <div class="resources-subsection" aria-labelledby="sec-outros-recursos">
+                <h3 id="sec-outros-recursos">Outros recursos clínicos</h3>
+                <p>Recursos de cadastro, anamnese e apoio psicoeducativo. Eles não integram a contagem dos 15 rastreios.</p>
+                <div class="form-links form-links--resources" id="otherResourcesGrid"></div>
             </div>
-
-            <!-- ÁREA DE EXIBIÇÃO DOS FORMULÁRIOS -->
-            <div class="forms-detail-area" id="formsDetailArea">
-                <p class="forms-hint" id="formsHint">Clique em um dos botões acima para abrir o formulário ou rastreio nesta área.</p>
-
-                <!-- Formulário de Controle -->
-                <div class="form-detail" id="form-controle">
-          <h3>Formulário de Controle para Atendimento Clínico</h3>
-          <p class="external-form-text">A aplicação ocorre em uma página clínica própria da Jornada Terapêutica, com interface consistente e foco no questionário.</p>
-          <div style="text-align:center;">
-              <a class="external-form-link" href="./monitoramento.html?instrument=controle">
-                  Abrir dados para atendimento
-              </a>
-          </div>
-      </div>
-
-                <!-- Avaliação de Humor -->
-                <div class="form-detail" id="form-humor">
-          <h3>Humor e sintomas depressivos</h3>
-          <p class="external-form-text">A aplicação ocorre em uma página clínica própria da Jornada Terapêutica, com interface consistente e foco no questionário.</p>
-          <div style="text-align:center;">
-              <a class="external-form-link" href="./monitoramento.html?instrument=humor">
-                  Abrir rastreio de humor
-              </a>
-          </div>
-      </div>
-
-                <!-- Autoestima -->
-                <div class="form-detail" id="form-autoestima">
-          <h3>Escala de Autoestima de Rosemberg</h3>
-          <p class="external-form-text">A aplicação ocorre em uma página clínica própria da Jornada Terapêutica, com interface consistente e foco no questionário.</p>
-          <div style="text-align:center;">
-              <a class="external-form-link" href="./monitoramento.html?instrument=autoestima">
-                  Abrir Monitoramento de Autoestima
-              </a>
-          </div>
-      </div>
-
-                <!-- Ansiedade -->
-                <div class="form-detail" id="form-ansiedade">
-          <h3>Escala de Ansiedade</h3>
-          <p class="external-form-text">A aplicação ocorre em uma página clínica própria da Jornada Terapêutica, com interface consistente e foco no questionário.</p>
-          <div style="text-align:center;">
-              <a class="external-form-link" href="./monitoramento.html?instrument=ansiedade">
-                  Abrir Monitoramento de Ansiedade
-              </a>
-          </div>
-      </div>
-                <!-- Escala de (Co)Dependência Emocional -->
-                <div class="form-detail" id="form-codep">
-                    <h3>Escala de (Co)Dependência Emocional</h3>
-                    <p class="external-form-text">Este formulário é aberto em uma página dedicada, para melhor visualização.</p>
-                    <div style="text-align:center;">
-                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/" target="_blank" rel="noopener noreferrer">
-                            Abrir Escala de (Co)Dependência Emocional
-                        </a>
-                    </div>
-                </div>
-
-                <!-- TAB -->
-                <div class="form-detail" id="form-tab">
-                    <h3>Rastreio de Transtorno Afetivo-Bipolar</h3>
-                    <p class="external-form-text">O rastreio completo para Transtorno Afetivo-Bipolar é realizado em uma página específica.</p>
-                    <div style="text-align:center;">
-                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/tab-bateria-integrada/" target="_blank" rel="noopener noreferrer">
-                            Abrir Rastreio de TAB
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Guia de Apoio -->
-                <div class="form-detail" id="form-guia">
-                    <h3>Guia de Apoio à Saúde Mental</h3>
-                    <p class="external-form-text">Material psicoeducativo em formato de guia interativo.</p>
-                    <div style="text-align:center;">
-                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Guia-de-Apoio-a-Saude-Mental/" target="_blank" rel="noopener noreferrer">
-                            Abrir Guia de Apoio à Saúde Mental
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Borderline -->
-                <div class="form-detail" id="form-borderline">
-                    <h3>Rastreio de Traços Borderline</h3>
-                    <p class="external-form-text">Inventário clínico para rastreio de traços de personalidade borderline.</p>
-                    <div style="text-align:center;">
-                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/" target="_blank" rel="noopener noreferrer">
-                            Abrir Rastreio de Traços Borderline
-                        </a>
-                    </div>
-                </div>
-
-                <!-- TDAH -->
-                <div class="form-detail" id="form-tdah">
-                    <h3>Rastreio de TDAH em Adultos</h3>
-                    <p class="external-form-text">Bateria integrada para rastreio clínico de TDAH em adultos.</p>
-                    <div style="text-align:center;">
-                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/rastreioTDAH/" target="_blank" rel="noopener noreferrer">
-                            Abrir Rastreio de TDAH em Adultos
-                        </a>
-                    </div>
-                </div>
-
-                <!-- ICAPS -->
-                <div class="form-detail" id="form-icaps">
-                    <h3>Rastreio de Prontidão para Separação (ICAPS)</h3>
-                    <p class="external-form-text">Instrumento clínico para avaliação de prontidão para separação de casais.</p>
-                    <div style="text-align:center;">
-                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/ICAPS/" target="_blank" rel="noopener noreferrer">
-                            Abrir ICAPS
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Narcisismo -->
-                <div class="form-detail" id="form-narcisismo">
-                    <h3>Rastreio de Traços Narcisistas</h3>
-                    <p class="external-form-text">Bateria clínica para rastreio de traços narcisistas, com devolutivas psicoeducativas.</p>
-                    <div style="text-align:center;">
-                        <a class="external-form-link" href="https://ricmurtapsicologia.github.io/bateria.narcisismo/" target="_blank" rel="noopener noreferrer">
-                            Abrir Rastreio de Traços Narcisistas
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <p class="final-words">
-                Em caso de dúvidas sobre qual instrumento utilizar, envie uma mensagem antes da sessão ou traga a questão para conversarmos com calma durante o atendimento.
-            </p>
+            <p class="final-words">Em caso de dúvida sobre qual instrumento utilizar, confirme com o psicólogo responsável antes do preenchimento. Rastreios apoiam a avaliação clínica e não estabelecem diagnóstico isoladamente.</p>
         </section>
 
         <!-- Seção Observações -> Envio para WhatsApp -->
@@ -1299,7 +1088,7 @@
                 <nav class="footer-links" aria-label="Links rápidos do rodapé">
                     <a href="#biografia" class="footer-link"><i class="fas fa-user" aria-hidden="true"></i><span>Biografia</span></a>
                     <a href="#servicos" class="footer-link"><i class="fas fa-briefcase" aria-hidden="true"></i><span>Serviços</span></a>
-                    <a href="#forms" class="footer-link"><i class="fas fa-file-alt" aria-hidden="true"></i><span>Formulários</span></a>
+                    <a href="#forms" class="footer-link"><i class="fas fa-file-alt" aria-hidden="true"></i><span>Rastreios</span></a>
                     <a href="https://www.instagram.com/ricmurtapsicologia/" target="_blank" rel="noopener noreferrer" class="footer-link"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
                     <a href="https://api.whatsapp.com/send?phone=5535984640729&text=Olá,%20gostaria%20de%20agendar%20um%20horário%20online!" target="_blank" rel="noopener noreferrer" class="footer-link"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
                 </nav>
@@ -1318,7 +1107,10 @@
         <span class="scroll-label">Voltar ao topo</span>
     </button>
 
-    <!-- JavaScript (ES6+), preservando funcionalidades + redundâncias antifrágeis -->
+    <!-- Catálogo canônico único dos 15 rastreios -->
+    <script src="./assets/screening-catalog-v3.js?v=20260907"></script>
+
+    <!-- JavaScript (ES6+) -->
     <script type="module">
         // =========================
         // Splash (preservado: 3s + fade)
@@ -1354,6 +1146,24 @@
         // DOM Ready
         // =========================
         document.addEventListener("DOMContentLoaded", () => {
+            // Catálogo canônico compartilhado entre Jornada e Painel.
+            const catalog = window.RM_SCREENING_CATALOG;
+            const screeningGrid = qs("#screeningCanonicalGrid");
+            const otherGrid = qs("#otherResourcesGrid");
+            if (!catalog || !Array.isArray(catalog.items) || catalog.items.length !== 15) throw new Error("SCREENING_CATALOG_UNAVAILABLE");
+            const renderCatalogLink = (item, restricted = false) => {
+                const a = document.createElement("a");
+                a.className = `form-btn${restricted ? " restricted" : ""}`;
+                a.href = item.url;
+                if (/^https?:/i.test(item.url)) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
+                const strong = document.createElement("strong"); strong.textContent = item.name; a.appendChild(strong);
+                if (restricted) a.setAttribute("aria-label", `${item.name} — uso clínico restrito`);
+                return a;
+            };
+            catalog.items.forEach(item => screeningGrid?.appendChild(renderCatalogLink(item, Boolean(item.restricted))));
+            catalog.otherResources.forEach(item => otherGrid?.appendChild(renderCatalogLink(item, false)));
+            const count = qs("#screeningCount"); if (count) count.textContent = String(catalog.items.length);
+
             // -------------------------
             // Serviços: toggle (click + teclado) preservado
             // -------------------------
@@ -1405,60 +1215,6 @@
                     textarea.value = "";
                 });
             }
-
-            // -------------------------
-            // Formulários: abrir/fechar + lazy-load iframe (preservado)
-            // -------------------------
-            const formButtons = qsa(".form-btn");
-            const formDetails = qsa(".form-detail");
-            const formsHint = qs("#formsHint");
-            const formsDetailArea = qs("#formsDetailArea");
-
-            const closeAllForms = () => {
-                formButtons.forEach((b) => b.classList.remove("active"));
-                formDetails.forEach((d) => d.classList.remove("active"));
-                formsHint?.classList.remove("hidden");
-            };
-
-            const openFormDetail = (targetId) => {
-                let anyActive = false;
-
-                formDetails.forEach((detail) => {
-                    const isTarget = detail.id === targetId;
-                    detail.classList.toggle("active", isTarget);
-                    if (isTarget) {
-                        anyActive = true;
-                        const iframe = detail.querySelector("iframe[data-src]");
-                        if (iframe && !iframe.src) iframe.src = iframe.dataset.src;
-                    }
-                });
-
-                if (formsHint) formsHint.classList.toggle("hidden", anyActive);
-
-                if (formsDetailArea && anyActive) {
-                    formsDetailArea.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                }
-            };
-
-            formButtons.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    const targetId = btn.dataset.target;
-                    if (!targetId) return;
-
-                    const isAlreadyActive = btn.classList.contains("active");
-
-                    if (isAlreadyActive) {
-                        closeAllForms();
-                        return;
-                    }
-
-                    formButtons.forEach((b) => b.classList.toggle("active", b === btn));
-                    openFormDetail(targetId);
-                });
-            });
 
             // -------------------------
             // Botão flutuante "voltar ao topo" (preservado)

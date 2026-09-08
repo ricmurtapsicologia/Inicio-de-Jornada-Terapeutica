@@ -29,25 +29,10 @@
   <div id="catalog"></div><div id="empty" class="empty" hidden>Nenhum rastreio corresponde ao filtro atual.</div>
   <footer>© 2026 Richelmy Murta — Psicólogo Clínico</footer>
 </main>
+<script src="../assets/screening-catalog-v3.js?v=20260907"></script>
 <script>
-const ITEMS=[
- {group:'Geral',name:'Panorama do seu momento emocional',desc:'Visão ampla do funcionamento emocional para orientar aprofundamentos em sessão.',url:'https://ricmurtapsicologia.github.io/Rastreioclinico/'},
- {group:'Neurodesenvolvimento',name:'Atenção, organização e impulsividade no dia a dia',desc:'Organiza aspectos de atenção, rotina, impulsividade e história de desenvolvimento.',url:'https://ricmurtapsicologia.github.io/rastreioTDAH/'},
- {group:'Humor',name:'Oscilações de humor, energia e ritmo',desc:'Explora mudanças de humor, energia, sono, atividade e curso temporal.',url:'https://ricmurtapsicologia.github.io/tab-bateria-integrada/'},
- {group:'Personalidade',name:'Emoções, identidade e relações',desc:'Organiza padrões emocionais, relacionais e de autoimagem para discussão clínica.',url:'https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/'},
- {group:'Personalidade',name:'Autoimagem, reconhecimento e relações',desc:'Explora autoimagem, reconhecimento, crítica, empatia e funcionamento interpessoal.',url:'https://ricmurtapsicologia.github.io/bateria.narcisismo/'},
- {group:'Dimensões clínicas',name:'Decisão, planejamento e controle de impulsos',desc:'Mapeia aspectos de planejamento, tomada de decisão e controle de impulsos.',url:'https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/'},
- {group:'Terapia do Esquema',name:'Padrões emocionais que se repetem',desc:'Mapeia padrões emocionais de longa duração relevantes para formulação clínica.',url:'https://ricmurtapsicologia.github.io/rastreio.de.esquemas/'},
- {group:'Terapia do Esquema',name:'Como você reage quando algo toca em pontos sensíveis?',desc:'Organiza estados emocionais e respostas de enfrentamento ativados em situações difíceis.',url:'https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/'},
- {group:'Terapia do Esquema',name:'O que sustenta seu bem-estar emocional',desc:'Explora necessidades emocionais, recursos e áreas de maior fragilidade.',url:'https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/'},
- {group:'Relacionamentos',name:'Autonomia, limites e cuidado nas relações',desc:'Explora equilíbrio entre autonomia, cuidado, reciprocidade e limites.',url:'https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/'},
- {group:'Relacionamentos',name:'Clareza para decisões importantes no relacionamento',desc:'Organiza elementos do contexto conjugal para reflexão clínica estruturada.',url:'https://ricmurtapsicologia.github.io/ICAPS/'},
- {group:'Monitoramento',name:'Humor e sintomas depressivos nas últimas duas semanas',desc:'Aplicação clínica do BDI-II com conteúdo preservado e análise pelo psicólogo.',url:'https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=humor'},
- {group:'Monitoramento',name:'Tensão e sinais de ansiedade no momento atual',desc:'Acompanhamento longitudinal de sinais ansiosos e sua variação.',url:'https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=ansiedade'},
- {group:'Monitoramento',name:'Como você tem se percebido',desc:'Acompanhamento da autopercepção e autoestima durante o processo terapêutico.',url:'https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=autoestima'},
- {group:'Uso clínico restrito',name:'Segurança emocional no momento atual',desc:'Instrumento de uso clínico mediado pelo psicólogo responsável.',url:'https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/',restricted:true}
-];
-const ORDER=['Geral','Neurodesenvolvimento','Humor','Personalidade','Dimensões clínicas','Terapia do Esquema','Relacionamentos','Monitoramento','Uso clínico restrito'];
+const ITEMS=window.RM_SCREENING_CATALOG.items;
+const ORDER=window.RM_SCREENING_CATALOG.order;
 let active='Todos',term='';const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 function card(x){return `<article class="card" data-search="${esc(norm(x.name+' '+x.desc+' '+x.group))}"><span class="chip ${x.restricted?'restricted':''}">${esc(x.group)}</span><h3>${esc(x.name)}</h3><p>${esc(x.desc)}</p><div class="actions"><a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${x.restricted?'Abrir para uso clínico':'Abrir'}</a>${x.restricted?'':`<button class="btn secondary" type="button" data-share="${esc(x.url)}" data-name="${esc(x.name)}">Compartilhar</button>`}</div></article>`}
 function render(){const q=norm(term.trim());let total=0;const html=ORDER.map(group=>{const list=ITEMS.filter(x=>(active==='Todos'||x.group===active)&&x.group===group&&(!q||norm(x.name+' '+x.desc+' '+x.group).includes(q)));if(!list.length)return'';total+=list.length;return `<section class="section"><div class="section-head"><h2>${esc(group)}</h2><span>${list.length} ${list.length===1?'recurso':'recursos'}</span></div><div class="grid">${list.map(card).join('')}</div></section>`}).join('');document.getElementById('catalog').innerHTML=html;document.getElementById('empty').hidden=total>0}
