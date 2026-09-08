@@ -26,8 +26,9 @@ assert.equal((setup.match(/FORM-2026-/g)||[]).length,15);
 assert.ok(!/TRELLO_(KEY|TOKEN)\s*[:=]\s*['"][^'"]+/.test(setup),'Credenciais Trello não podem estar no código');
 assert.match(setup,/ricmurtapsicologia@gmail\.com/);
 
-assert.equal(transport.enabled,false,'Transporte deve permanecer desligado antes do deploy do Apps Script');
-assert.equal(transport.bridgeUrl,'');
+// O Web App já foi implantado e validado ao vivo, mas o cliente permanece desligado até 15/15 E2E.
+assert.equal(transport.enabled,false,'Transporte deve permanecer desligado até certificação E2E 15/15');
+assert.match(transport.bridgeUrl,/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/);
 assert.equal(transport.version,'screening-bridge-v3.1');
 assert.match(client,/responses/);
 assert.match(client,/audits\/mirror-specs/);
