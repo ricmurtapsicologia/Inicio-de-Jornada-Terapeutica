@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const VERSION='3.0.0-photo-heroes';
+const VERSION='3.0.1-photo-heroes-15';
 const REPOS={
   'Rastreioclinico':'geral','rastreioTDAH':'tdah','tab-bateria-integrada':'bipolar',
   'Inventario-de-Tracos-Borderline':'borderline','bateria.narcisismo':'narcisismo',
@@ -22,7 +22,10 @@ const PHOTOS=Object.freeze({
   necessidades:{id:'photo-1508214751196-bcfd4ca60f91',alt:'Pessoa em contexto acolhedor relacionado a necessidades emocionais e autocuidado.'},
   codependencia:{id:'photo-1529156069898-49953e39b3ac',alt:'Pessoas em interação, representando vínculos, limites e autonomia nas relações.'},
   icaps:{id:'photo-1521737604893-d14cc237f11d',alt:'Pessoas conversando e ponderando decisões importantes.'},
-  risco:{id:'photo-1499209974431-9dddcece7f88',alt:'Pessoa em ambiente de calma e proteção, associado a segurança emocional.'}
+  risco:{id:'photo-1500534314209-a25ddb2bd429',alt:'Caminho aberto em ambiente natural, associado a proteção, continuidade e possibilidade de cuidado.'},
+  humor:{id:'photo-1500648767791-00dcc994a43e',alt:'Pessoa em retrato natural para acompanhamento do humor e do estado emocional.'},
+  ansiedade:{id:'photo-1527980965255-d3b416303d12',alt:'Pessoa em momento de pausa e reflexão, associado à observação de sinais de ansiedade.'},
+  autoestima:{id:'photo-1534528741775-53994a69daeb',alt:'Pessoa em retrato natural relacionado à autopercepção e autoestima.'}
 });
 function instrument(){
   const seg=location.pathname.split('/').filter(Boolean)[0]||'';
@@ -72,23 +75,36 @@ function stripLegacyBackgrounds(){
     el.style.setProperty('background-image','none','important');
   });
 }
+function ensureCredit(visual){
+  if(!visual||visual.querySelector('.rm-photo-credit'))return;
+  const a=document.createElement('a');
+  a.className='rm-photo-credit';
+  a.href='https://unsplash.com/license';
+  a.target='_blank';
+  a.rel='noopener noreferrer';
+  a.textContent='Foto · Unsplash';
+  a.setAttribute('aria-label','Fotografia do hero: Unsplash, consultar licença');
+  visual.appendChild(a);
+}
 function applyPhotoHero(){
   const shell=document.querySelector('.rm-screening-shell');
   if(!shell)return false;
   document.body.classList.add('rm-photo-heroes');
   const id=instrument();
   const hero=photoFor(id);
-  const img=shell.querySelector('.rm-screening-visual img');
+  const visual=shell.querySelector('.rm-screening-visual');
+  const img=visual?.querySelector('img');
   if(img){
     if(img.src!==hero.src)img.src=hero.src;
     img.alt=hero.alt;
     img.loading='eager';
     img.decoding='async';
-    img.referrerPolicy='no-referrer';
+    img.referrerPolicy='strict-origin-when-cross-origin';
     img.title='Fotografia: Unsplash · licença Unsplash';
     img.dataset.photoSource='Unsplash';
     img.dataset.photoLicense='Unsplash License';
   }
+  ensureCredit(visual);
   updateSplashTitle();
   removeLegacyImageNodes();
   stripLegacyBackgrounds();
