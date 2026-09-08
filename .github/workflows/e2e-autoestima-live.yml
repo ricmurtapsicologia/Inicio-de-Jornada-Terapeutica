@@ -53,3 +53,4 @@ jobs:
             cat /tmp/response.html
             exit 1
           fi
+# rerun after Apps Script deployment v2
