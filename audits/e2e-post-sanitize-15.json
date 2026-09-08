@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "checkedAt": "2026-09-08T02:05:26.914Z",
+  "endpoint": "https://script.google.com/macros/s/AKfycbzrJuvVPBNPgMCZ-tmeCXy6LUMFBZB5vlNXSiP8aK3XBfiYh3xm4a4nq02xafnt65U/exec",
+  "summary": {
+    "pass": 15,
+    "fail": 0,
+    "total": 15
+  },
+  "results": [
+    {
+      "id": "geral",
+      "submissionId": "post-sanitize-geral-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "tdah",
+      "submissionId": "post-sanitize-tdah-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "bipolar",
+      "submissionId": "post-sanitize-bipolar-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "borderline",
+      "submissionId": "post-sanitize-borderline-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "narcisismo",
+      "submissionId": "post-sanitize-narcisismo-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "impulsividade",
+      "submissionId": "post-sanitize-impulsividade-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "esquemas",
+      "submissionId": "post-sanitize-esquemas-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "modos",
+      "submissionId": "post-sanitize-modos-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "necessidades",
+      "submissionId": "post-sanitize-necessidades-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "codependencia",
+      "submissionId": "post-sanitize-codependencia-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "icaps",
+      "submissionId": "post-sanitize-icaps-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "risco",
+      "submissionId": "post-sanitize-risco-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "humor",
+      "submissionId": "post-sanitize-humor-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "ansiedade",
+      "submissionId": "post-sanitize-ansiedade-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    },
+    {
+      "id": "autoestima",
+      "submissionId": "post-sanitize-autoestima-34178403976-1",
+      "httpStatus": 200,
+      "success": true,
+      "diagnostic": ""
+    }
+  ]
+}
