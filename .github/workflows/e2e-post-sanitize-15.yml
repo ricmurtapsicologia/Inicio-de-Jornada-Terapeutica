@@ -1,0 +1,51 @@
+name: E2E pós-saneamento · 15/15
+
+on:
+  push:
+    branches: [rastreios-hub-rc-20260907]
+    paths: ['.github/workflows/e2e-post-sanitize-15.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-hub-rc-20260907
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run fresh synthetic E2E against deployed clean Web App
+        env:
+          ENDPOINT: https://script.google.com/macros/s/AKfycbzrJuvVPBNPgMCZ-tmeCXy6LUMFBZB5vlNXSiP8aK3XBfiYh3xm4a4nq02xafnt65U/exec
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),vm=require('vm');
+          const ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','risco','humor','ansiedade','autoestima'];
+          function balanced(src,start,open,close){let d=0,q=null,e=false;for(let i=start;i<src.length;i++){const c=src[i];if(q){if(e){e=false;continue}if(c==='\\'){e=true;continue}if(c===q)q=null;continue}if(c==='"'||c==="'"||c==='`'){q=c;continue}if(c===open)d++;else if(c===close){d--;if(d===0)return src.slice(start,i+1)}}throw new Error('UNBALANCED')}
+          function monitoringSchemas(){const src=fs.readFileSync('assets/monitoramentos-v2.js','utf8');const p=src.indexOf('const schemas=');if(p<0)throw new Error('MONITOR_SCHEMAS_MISSING');const start=src.indexOf('{',p),obj=balanced(src,start,'{','}');const code=`(()=>{const ENDPOINT='https://docs.google.com/forms/d/e/';const choice=(entry,title,choices,extra={})=>({entry,title,choices,required:true,...extra});const text=(entry,title,extra={})=>({entry,title,required:true,type:'text',...extra});const intensity=['Ausente','Leve','Moderada','Frequente','Muito frequente'];const esteem=['Concordo inteiramente.','Concordo.','Discordo.','Discordo inteiramente'];const schemas=${obj};return schemas;})()`;return vm.runInNewContext(code,Object.create(null),{timeout:1000});}
+          const mons=monitoringSchemas();
+          const monResponses={};
+          for(const id of ['humor','ansiedade','autoestima']) monResponses[id]=mons[id].fields.filter(f=>Array.isArray(f.choices)).map(f=>String(typeof f.choices[0]==='object'?f.choices[0].value:f.choices[0]));
+          if(monResponses.humor.length!==21||monResponses.ansiedade.length!==14||monResponses.autoestima.length!==10) throw new Error('MONITOR_COUNTS_DRIFT');
+          function safePick(id,q){const opts=(q.options||[]).map(o=>String(o.label??o.value??'')).filter(v=>v.trim()&&!/^selecione(?:\.\.\.)?$/i.test(v.trim()));const find=re=>opts.find(v=>re.test(v));let v;if(id==='bipolar')v=find(/^não se aplica$/i)||find(/^nenhum$/i)||find(/^nada\b/i)||find(/<\s*2\s*dias/i);else if(id==='narcisismo')v=find(/^não$/i);else if(id==='risco')v=find(/^0$/);else if(id==='codependencia')v=find(/^discordo totalmente$/i);if(!v)v=opts[0];if(v!==undefined){if(/checkbox/i.test(String(q.type||'')))return [v];return v;}if(/scale/i.test(String(q.type||'')))return Number(q.scaleMin||q.min||1);if(/date/i.test(String(q.type||'')))return '2026-09-07';return '1';}
+          function responsesFor(id){if(id==='icaps')return Array(60).fill(1);if(monResponses[id])return monResponses[id];const spec=JSON.parse(fs.readFileSync(`audits/mirror-specs/${id}.json`,'utf8'));return spec.questions.map(q=>safePick(id,q));}
+          const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+          const clean=s=>String(s||'').replace(/<[^>]+>/g,' ').replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim().slice(0,1200);
+          async function submit(id){const now=Date.now(),sid=`post-sanitize-${id}-${process.env.GITHUB_RUN_ID}-${process.env.GITHUB_RUN_ATTEMPT}`;const payload={version:'screening-bridge-v3.1',instrumentId:id,submissionId:sid,startedAt:now-5000,submittedAt:now,identity:{name:`TESTE AUTOMATIZADO · NÃO É PACIENTE · ${id.toUpperCase()}`,birthDate:'2000-01-01',applicationDate:'2026-09-07'},responses:responsesFor(id)};const body=new URLSearchParams({payload:JSON.stringify(payload)});const res=await fetch(process.env.ENDPOINT,{method:'POST',headers:{'content-type':'application/x-www-form-urlencoded;charset=UTF-8'},body,redirect:'follow'});const html=await res.text();const success=res.status===200&&html.includes(sid)&&html.includes(id)&&html.includes('processing')&&html.includes('complete');return {id,submissionId:sid,httpStatus:res.status,success,diagnostic:success?'':clean(html)};}
+          (async()=>{const results=[];for(const id of ids){const r=await submit(id);results.push(r);console.log(JSON.stringify(r));await sleep(1400);}const pass=results.filter(r=>r.success).length;const fail=results.length-pass;const out={version:1,checkedAt:new Date().toISOString(),endpoint:process.env.ENDPOINT,summary:{pass,fail,total:results.length},results};fs.mkdirSync('audits',{recursive:true});fs.writeFileSync('audits/e2e-post-sanitize-15.json',JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(out.summary));if(fail)process.exit(2);})().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+      - name: Commit post-sanitize evidence
+        if: always()
+        run: |
+          if [ -f audits/e2e-post-sanitize-15.json ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add audits/e2e-post-sanitize-15.json
+            git commit -m 'Registra E2E pós-saneamento 15/15' || true
+            git push || true
+          fi
