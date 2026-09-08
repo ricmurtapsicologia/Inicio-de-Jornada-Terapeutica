@@ -1,0 +1,70 @@
+name: Postdeploy visual smoke 15
+on:
+  push:
+    branches: [postdeploy-visual-smoke-20260908]
+    paths: ['.github/workflows/postdeploy-visual-smoke.yml']
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-save playwright >/dev/null 2>&1
+          npx playwright install chromium --with-deps >/dev/null 2>&1
+      - name: Verify 15 public pages
+        run: |
+          node <<'NODE'
+          const {chromium}=require('playwright');
+          const cases=[
+            ['geral','https://ricmurtapsicologia.github.io/Rastreioclinico/'],
+            ['tdah','https://ricmurtapsicologia.github.io/rastreioTDAH/'],
+            ['bipolar','https://ricmurtapsicologia.github.io/tab-bateria-integrada/'],
+            ['borderline','https://ricmurtapsicologia.github.io/Inventario-de-Tracos-Borderline/'],
+            ['narcisismo','https://ricmurtapsicologia.github.io/bateria.narcisismo/'],
+            ['impulsividade','https://ricmurtapsicologia.github.io/Rastreio-de-Impulsividade/'],
+            ['esquemas','https://ricmurtapsicologia.github.io/rastreio.de.esquemas/'],
+            ['modos','https://ricmurtapsicologia.github.io/rastreiomodosesquematicos/'],
+            ['necessidades','https://ricmurtapsicologia.github.io/Escala-de-Necessidades-Emocionais/'],
+            ['codependencia','https://ricmurtapsicologia.github.io/Escala-de-Co-Depenpencia-Emocional/'],
+            ['icaps','https://ricmurtapsicologia.github.io/ICAPS/'],
+            ['risco','https://ricmurtapsicologia.github.io/TriagemRiscoSuicidio/'],
+            ['humor','https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=humor'],
+            ['ansiedade','https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=ansiedade'],
+            ['autoestima','https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/monitoramento.html?instrument=autoestima']
+          ];
+          const browser=await chromium.launch({headless:true});
+          const sources=[];
+          for(const [id,base] of cases){
+            const ctx=await browser.newContext({viewport:{width:1440,height:1100}});
+            const page=await ctx.newPage();
+            const url=base+(base.includes('?')?'&':'?')+'release=51b7559-'+Date.now();
+            await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
+            await page.waitForSelector('.rm-screening-shell',{timeout:30000});
+            await page.waitForSelector('.rm-identity',{timeout:30000});
+            await page.waitForTimeout(800);
+            const state=await page.evaluate((id)=>{
+              const visible=el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();return !el.hidden&&s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0};
+              const canonical=[...document.querySelectorAll('.rm-identity input')].filter(visible);
+              const legacy=[...document.querySelectorAll('input,select,textarea')].filter(el=>!el.closest('.rm-identity')&&visible(el)).filter(el=>{
+                const lab=el.id?document.querySelector(`label[for="${CSS.escape(el.id)}"]`)?.textContent||'':'';
+                const t=[lab,el.getAttribute('aria-label'),el.getAttribute('placeholder'),el.name,el.id,el.closest('label')?.textContent].filter(Boolean).join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+                return /nome\s+completo|full\s*name|patient\s*name|nome\s+do\s+paciente|data\s+de\s+nascimento|birth\s*date|nascimento|data\s+de\s+aplicacao|application\s*date|response\s*date|(^|\b)idade(\b|$)|(^|\b)age(\b|$)/.test(t)||/^(paciente|patientname|fullname|nome|name)$/i.test(String(el.id||''));
+              });
+              const img=document.querySelector('.rm-screening-visual img');
+              return {id,shells:document.querySelectorAll('.rm-screening-shell').length,identities:document.querySelectorAll('.rm-identity').length,canonical:canonical.length,legacy:legacy.length,src:img?.src||'',alt:img?.alt||''};
+            },id);
+            const expected=id==='icaps'?4:3;
+            if(state.shells!==1||state.identities!==1||state.canonical!==expected||state.legacy!==0||!state.src.startsWith('data:image/svg+xml')||!state.alt)throw new Error(`${id}: ${JSON.stringify({...state,src:state.src.slice(0,25)})}`);
+            sources.push(state.src);
+            console.log('PASS',id,`identity=${state.canonical}`,`legacy=${state.legacy}`);
+            await ctx.close();
+          }
+          if(new Set(sources).size!==15)throw new Error(`unique heroes=${new Set(sources).size}/15`);
+          console.log('POSTDEPLOY_VISUAL_15_PASS');
+          await browser.close();
+          NODE
