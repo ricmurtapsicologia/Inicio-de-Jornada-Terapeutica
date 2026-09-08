@@ -642,199 +642,73 @@ function screeningReportCss_() {
 /**
  * ScreeningPipelineV3.gs
  * Ledger operacional e máquina de estados pós-scoring.
- *
  * O ledger NÃO armazena nome, respostas, escores, diagnósticos ou HTML.
- * Ele registra somente referência pseudonimizada e estado operacional.
  */
-
 const SCREENING_PIPELINE = Object.freeze({
   SHEET_NAME: 'PIPELINE',
-  STATES: Object.freeze([
-    'SUBMITTED','VALIDATED','SCORED','REPORT_GENERATED',
-    'EMAIL_SENT','TRELLO_UPDATED','COMPLETE'
-  ]),
-  HEADERS: Object.freeze([
-    'SUBMISSION_REF','INSTRUMENT_ID','FORM_RESPONSE_ID','STATUS',
-    'EMAIL_SENT_AT','TRELLO_UPDATED_AT','ATTEMPTS','LAST_ERROR_CODE','UPDATED_AT'
-  ])
+  STATES: Object.freeze(['SUBMITTED','VALIDATED','SCORED','REPORT_GENERATED','EMAIL_SENT','COMPLETE']),
+  HEADERS: Object.freeze(['SUBMISSION_REF','INSTRUMENT_ID','FORM_RESPONSE_ID','STATUS','EMAIL_SENT_AT','ATTEMPTS','LAST_ERROR_CODE','UPDATED_AT'])
 });
+const SCREENING_PIPELINE_LEGACY_HEADERS = Object.freeze(['SUBMISSION_REF','INSTRUMENT_ID','FORM_RESPONSE_ID','STATUS','EMAIL_SENT_AT','TRELLO_UPDATED_AT','ATTEMPTS','LAST_ERROR_CODE','UPDATED_AT']);
 
-/** Entrada pública para configuração manual pelo editor do Apps Script. */
-function setupScreeningPipelineLedger() {
-  return setupScreeningPipelineLedger_();
-}
-
+function setupScreeningPipelineLedger() { return setupScreeningPipelineLedger_(); }
 function setupScreeningPipelineLedger_() {
-  const props = PropertiesService.getScriptProperties();
-  let spreadsheetId = String(props.getProperty('SCREENING_LEDGER_SHEET_ID') || '').trim();
+  const props=PropertiesService.getScriptProperties();
+  let spreadsheetId=String(props.getProperty('SCREENING_LEDGER_SHEET_ID')||'').trim();
   let ss;
-  if (spreadsheetId) {
-    ss = SpreadsheetApp.openById(spreadsheetId);
-  } else {
-    ss = SpreadsheetApp.create('Rastreios — Pipeline Clínico V3');
-    spreadsheetId = ss.getId();
-    props.setProperty('SCREENING_LEDGER_SHEET_ID', spreadsheetId);
+  if(spreadsheetId) ss=SpreadsheetApp.openById(spreadsheetId);
+  else { ss=SpreadsheetApp.create('Rastreios — Pipeline Clínico V3'); spreadsheetId=ss.getId(); props.setProperty('SCREENING_LEDGER_SHEET_ID',spreadsheetId); }
+  let sheet=ss.getSheetByName(SCREENING_PIPELINE.SHEET_NAME);
+  if(!sheet) sheet=ss.insertSheet(SCREENING_PIPELINE.SHEET_NAME);
+  ensureScreeningPipelineSchema_(sheet);
+  return {spreadsheetId:spreadsheetId,sheetName:SCREENING_PIPELINE.SHEET_NAME};
+}
+function ensureScreeningPipelineSchema_(sheet) {
+  const expected=SCREENING_PIPELINE.HEADERS,lastRow=sheet.getLastRow(),lastCol=sheet.getLastColumn();
+  if(lastRow===0||lastCol===0){sheet.getRange(1,1,1,expected.length).setValues([expected]);sheet.setFrozenRows(1);return;}
+  const current=sheet.getRange(1,1,1,lastCol).getValues()[0].map(v=>String(v||''));
+  if(current.length===expected.length&&current.join('|')===expected.join('|'))return;
+  if(current.length>=SCREENING_PIPELINE_LEGACY_HEADERS.length&&current.slice(0,SCREENING_PIPELINE_LEGACY_HEADERS.length).join('|')===SCREENING_PIPELINE_LEGACY_HEADERS.join('|')){
+    const rows=lastRow>1?sheet.getRange(2,1,lastRow-1,SCREENING_PIPELINE_LEGACY_HEADERS.length).getValues():[];
+    const migrated=rows.map(v=>[v[0],v[1],v[2],v[3],v[4],v[6],v[7],v[8]]);
+    sheet.clearContents();sheet.getRange(1,1,1,expected.length).setValues([expected]);
+    if(migrated.length)sheet.getRange(2,1,migrated.length,expected.length).setValues(migrated);
+    sheet.setFrozenRows(1);return;
   }
-
-  let sheet = ss.getSheetByName(SCREENING_PIPELINE.SHEET_NAME);
-  if (!sheet) sheet = ss.insertSheet(SCREENING_PIPELINE.SHEET_NAME);
-  const existing = sheet.getRange(1,1,1,SCREENING_PIPELINE.HEADERS.length).getValues()[0];
-  if (existing.join('|') !== SCREENING_PIPELINE.HEADERS.join('|')) {
-    sheet.clear();
-    sheet.getRange(1,1,1,SCREENING_PIPELINE.HEADERS.length).setValues([SCREENING_PIPELINE.HEADERS]);
-    sheet.setFrozenRows(1);
-  }
-  return { spreadsheetId: spreadsheetId, sheetName: SCREENING_PIPELINE.SHEET_NAME };
+  throw new Error('SCREENING_LEDGER_SCHEMA_UNEXPECTED');
 }
-
-function enqueueScreeningPipeline_(meta) {
-  const safe = screeningPipelineSafeMeta_(meta);
-  const sheet = screeningPipelineSheet_();
-  const row = findScreeningPipelineRow_(sheet, safe.submissionRef);
-  if (row) return readScreeningPipelineRow_(sheet, row);
-
-  sheet.appendRow([
-    safe.submissionRef, safe.instrumentId, safe.formResponseId, 'SUBMITTED',
-    '', '', 0, '', new Date()
-  ]);
-  return readScreeningPipelineRow_(sheet, sheet.getLastRow());
+function enqueueScreeningPipeline_(meta){const safe=screeningPipelineSafeMeta_(meta),sheet=screeningPipelineSheet_(),row=findScreeningPipelineRow_(sheet,safe.submissionRef);if(row)return readScreeningPipelineRow_(sheet,row);sheet.appendRow([safe.submissionRef,safe.instrumentId,safe.formResponseId,'SUBMITTED','',0,'',new Date()]);return readScreeningPipelineRow_(sheet,sheet.getLastRow());}
+function processScoredScreeningPipeline_(context){
+  if(!context||!context.submissionId||!context.instrumentId||!context.formResponseId)throw new Error('PIPELINE_CONTEXT_INVALID');
+  if(!context.scoredResult||typeof context.scoredResult!=='object')throw new Error('PIPELINE_SCORE_REQUIRED');
+  if(!context.reportInput||typeof context.reportInput!=='object')throw new Error('PIPELINE_REPORT_INPUT_REQUIRED');
+  const submissionRef=screeningSubmissionRef_(context.submissionId),sheet=screeningPipelineSheet_();let row=findScreeningPipelineRow_(sheet,submissionRef);
+  if(!row){enqueueScreeningPipeline_({submissionId:context.submissionId,instrumentId:context.instrumentId,formResponseId:context.formResponseId});row=findScreeningPipelineRow_(sheet,submissionRef);}
+  let state=readScreeningPipelineRow_(sheet,row);incrementScreeningPipelineAttempts_(sheet,row);
+  try{state=advanceScreeningPipelineState_(sheet,row,state,'VALIDATED');state=advanceScreeningPipelineState_(sheet,row,state,'SCORED');const report=buildScreeningClinicalReport_(context.reportInput);if(screeningStateBefore_(state.status,'REPORT_GENERATED'))state=advanceScreeningPipelineState_(sheet,row,state,'REPORT_GENERATED');if(screeningStateBefore_(state.status,'EMAIL_SENT')){sendScreeningReportEmail_(report);markScreeningPipelineTimestamp_(sheet,row,5);state=advanceScreeningPipelineState_(sheet,row,state,'EMAIL_SENT');}if(state.status==='EMAIL_SENT')state=advanceScreeningPipelineState_(sheet,row,state,'COMPLETE');clearScreeningPipelineError_(sheet,row);return state;}catch(err){setScreeningPipelineError_(sheet,row,screeningPipelineErrorCode_(err));throw err;}
 }
-
-function processScoredScreeningPipeline_(context) {
-  if (!context || !context.submissionId || !context.instrumentId || !context.formResponseId) throw new Error('PIPELINE_CONTEXT_INVALID');
-  if (!context.scoredResult || typeof context.scoredResult !== 'object') throw new Error('PIPELINE_SCORE_REQUIRED');
-  if (!context.reportInput || typeof context.reportInput !== 'object') throw new Error('PIPELINE_REPORT_INPUT_REQUIRED');
-
-  const submissionRef = screeningSubmissionRef_(context.submissionId);
-  const sheet = screeningPipelineSheet_();
-  let row = findScreeningPipelineRow_(sheet, submissionRef);
-  if (!row) {
-    enqueueScreeningPipeline_({ submissionId: context.submissionId, instrumentId: context.instrumentId, formResponseId: context.formResponseId });
-    row = findScreeningPipelineRow_(sheet, submissionRef);
-  }
-
-  let state = readScreeningPipelineRow_(sheet, row);
-  incrementScreeningPipelineAttempts_(sheet, row);
-
-  try {
-    state = advanceScreeningPipelineState_(sheet, row, state, 'VALIDATED');
-    state = advanceScreeningPipelineState_(sheet, row, state, 'SCORED');
-
-    const report = buildScreeningClinicalReport_(context.reportInput);
-    if (screeningStateBefore_(state.status, 'REPORT_GENERATED')) {
-      state = advanceScreeningPipelineState_(sheet, row, state, 'REPORT_GENERATED');
-    }
-
-    if (screeningStateBefore_(state.status, 'EMAIL_SENT')) {
-      sendScreeningReportEmail_(report);
-      markScreeningPipelineTimestamp_(sheet, row, 5);
-      state = advanceScreeningPipelineState_(sheet, row, state, 'EMAIL_SENT');
-    }
-
-    if (screeningStateBefore_(state.status, 'TRELLO_UPDATED')) {
-      const trello = appendScreeningTrelloMetadata_({
-        instrumentId: context.instrumentId,
-        submissionId: context.submissionId,
-        processedAt: new Date().toISOString(),
-        status: 'REPORT_READY'
-      });
-      if (trello.ok || trello.skipped) {
-        markScreeningPipelineTimestamp_(sheet, row, 6);
-        state = advanceScreeningPipelineState_(sheet, row, state, 'TRELLO_UPDATED');
-      }
-    }
-
-    if (state.status === 'TRELLO_UPDATED') {
-      state = advanceScreeningPipelineState_(sheet, row, state, 'COMPLETE');
-    }
-    clearScreeningPipelineError_(sheet, row);
-    return state;
-  } catch (err) {
-    setScreeningPipelineError_(sheet, row, screeningPipelineErrorCode_(err));
-    throw err;
-  }
-}
-
-function screeningPipelineSafeMeta_(meta) {
-  if (!meta || typeof meta !== 'object') throw new Error('PIPELINE_META_INVALID');
-  const instrumentId = String(meta.instrumentId || '').replace(/[^a-z0-9_-]/gi,'').slice(0,40);
-  const submissionRef = screeningSubmissionRef_(meta.submissionId);
-  const formResponseId = String(meta.formResponseId || '').replace(/[^a-zA-Z0-9_-]/g,'').slice(0,180);
-  if (!instrumentId || !submissionRef || !formResponseId) throw new Error('PIPELINE_META_INCOMPLETE');
-  return { instrumentId: instrumentId, submissionRef: submissionRef, formResponseId: formResponseId };
-}
-
-function screeningPipelineSheet_() {
-  const props = PropertiesService.getScriptProperties();
-  const id = String(props.getProperty('SCREENING_LEDGER_SHEET_ID') || '').trim();
-  if (!id) throw new Error('SCREENING_LEDGER_NOT_CONFIGURED');
-  const ss = SpreadsheetApp.openById(id);
-  const sheet = ss.getSheetByName(SCREENING_PIPELINE.SHEET_NAME);
-  if (!sheet) throw new Error('SCREENING_LEDGER_TAB_MISSING');
-  return sheet;
-}
-
-function findScreeningPipelineRow_(sheet, submissionRef) {
-  if (sheet.getLastRow() < 2) return 0;
-  const values = sheet.getRange(2,1,sheet.getLastRow()-1,1).getValues();
-  for (let i=0;i<values.length;i++) if (String(values[i][0]) === submissionRef) return i + 2;
-  return 0;
-}
-
-function readScreeningPipelineRow_(sheet, row) {
-  const v = sheet.getRange(row,1,1,SCREENING_PIPELINE.HEADERS.length).getValues()[0];
-  return {
-    submissionRef: String(v[0] || ''), instrumentId: String(v[1] || ''), formResponseId: String(v[2] || ''),
-    status: String(v[3] || ''), emailSentAt: v[4] || '', trelloUpdatedAt: v[5] || '',
-    attempts: Number(v[6] || 0), lastErrorCode: String(v[7] || ''), updatedAt: v[8] || ''
-  };
-}
-
-function advanceScreeningPipelineState_(sheet, row, current, target) {
-  const currentIndex = SCREENING_PIPELINE.STATES.indexOf(current.status);
-  const targetIndex = SCREENING_PIPELINE.STATES.indexOf(target);
-  if (targetIndex < 0) throw new Error('PIPELINE_TARGET_INVALID');
-  if (currentIndex > targetIndex) return current;
-  if (currentIndex === targetIndex) return current;
-  if (targetIndex !== currentIndex + 1) throw new Error('PIPELINE_STATE_JUMP');
-  sheet.getRange(row,4).setValue(target);
-  sheet.getRange(row,9).setValue(new Date());
-  return readScreeningPipelineRow_(sheet,row);
-}
-
-function screeningStateBefore_(status,target) {
-  return SCREENING_PIPELINE.STATES.indexOf(status) < SCREENING_PIPELINE.STATES.indexOf(target);
-}
-
-function incrementScreeningPipelineAttempts_(sheet,row) {
-  const cell=sheet.getRange(row,7); cell.setValue(Number(cell.getValue()||0)+1); sheet.getRange(row,9).setValue(new Date());
-}
-function markScreeningPipelineTimestamp_(sheet,row,column) { sheet.getRange(row,column).setValue(new Date()); sheet.getRange(row,9).setValue(new Date()); }
-function setScreeningPipelineError_(sheet,row,code) { sheet.getRange(row,8).setValue(String(code||'PIPELINE_ERROR').slice(0,80)); sheet.getRange(row,9).setValue(new Date()); }
-function clearScreeningPipelineError_(sheet,row) { sheet.getRange(row,8).clearContent(); sheet.getRange(row,9).setValue(new Date()); }
-function screeningPipelineErrorCode_(err) { return String(err && err.message ? err.message : 'PIPELINE_ERROR').split(':')[0].slice(0,80); }
+function screeningPipelineSafeMeta_(meta){if(!meta||typeof meta!=='object')throw new Error('PIPELINE_META_INVALID');const instrumentId=String(meta.instrumentId||'').replace(/[^a-z0-9_-]/gi,'').slice(0,40),submissionRef=screeningSubmissionRef_(meta.submissionId),formResponseId=String(meta.formResponseId||'').replace(/[^a-zA-Z0-9_-]/g,'').slice(0,180);if(!instrumentId||!submissionRef||!formResponseId)throw new Error('PIPELINE_META_INCOMPLETE');return{instrumentId,submissionRef,formResponseId};}
+function screeningPipelineSheet_(){const props=PropertiesService.getScriptProperties(),id=String(props.getProperty('SCREENING_LEDGER_SHEET_ID')||'').trim();if(!id)throw new Error('SCREENING_LEDGER_NOT_CONFIGURED');const ss=SpreadsheetApp.openById(id),sheet=ss.getSheetByName(SCREENING_PIPELINE.SHEET_NAME);if(!sheet)throw new Error('SCREENING_LEDGER_TAB_MISSING');ensureScreeningPipelineSchema_(sheet);return sheet;}
+function findScreeningPipelineRow_(sheet,submissionRef){if(sheet.getLastRow()<2)return 0;const values=sheet.getRange(2,1,sheet.getLastRow()-1,1).getValues();for(let i=0;i<values.length;i++)if(String(values[i][0])===submissionRef)return i+2;return 0;}
+function readScreeningPipelineRow_(sheet,row){const v=sheet.getRange(row,1,1,SCREENING_PIPELINE.HEADERS.length).getValues()[0];return{submissionRef:String(v[0]||''),instrumentId:String(v[1]||''),formResponseId:String(v[2]||''),status:String(v[3]||''),emailSentAt:v[4]||'',attempts:Number(v[5]||0),lastErrorCode:String(v[6]||''),updatedAt:v[7]||''};}
+function advanceScreeningPipelineState_(sheet,row,current,target){const currentIndex=SCREENING_PIPELINE.STATES.indexOf(current.status),targetIndex=SCREENING_PIPELINE.STATES.indexOf(target);if(targetIndex<0)throw new Error('PIPELINE_TARGET_INVALID');if(currentIndex>targetIndex||currentIndex===targetIndex)return current;if(targetIndex!==currentIndex+1)throw new Error('PIPELINE_STATE_JUMP');sheet.getRange(row,4).setValue(target);sheet.getRange(row,8).setValue(new Date());return readScreeningPipelineRow_(sheet,row);}
+function screeningStateBefore_(status,target){return SCREENING_PIPELINE.STATES.indexOf(status)<SCREENING_PIPELINE.STATES.indexOf(target);}
+function incrementScreeningPipelineAttempts_(sheet,row){const cell=sheet.getRange(row,6);cell.setValue(Number(cell.getValue()||0)+1);sheet.getRange(row,8).setValue(new Date());}
+function markScreeningPipelineTimestamp_(sheet,row,column){sheet.getRange(row,column).setValue(new Date());sheet.getRange(row,8).setValue(new Date());}
+function setScreeningPipelineError_(sheet,row,code){sheet.getRange(row,7).setValue(String(code||'PIPELINE_ERROR').slice(0,80));sheet.getRange(row,8).setValue(new Date());}
+function clearScreeningPipelineError_(sheet,row){sheet.getRange(row,7).clearContent();sheet.getRange(row,8).setValue(new Date());}
+function screeningPipelineErrorCode_(err){return String(err&&err.message?err.message:'PIPELINE_ERROR').split(':')[0].slice(0,80);}
 
 /* ===== ScreeningIntegrationsV3.gs ===== */
 /**
  * ScreeningIntegrationsV3.gs
- * Integrações pós-processamento dos rastreios.
- *
- * Script Properties esperadas:
- * REPORT_EMAIL          -> e-mail do psicólogo responsável
- * TRELLO_KEY             -> chave Trello
- * TRELLO_TOKEN           -> token Trello
- * TRELLO_CARD_ID         -> card operacional do pipeline clínico
- *
- * Regra de minimização: Trello NUNCA recebe respostas, escores,
- * diagnósticos, nome do paciente ou conteúdo do relatório.
+ * Entrega operacional canônica dos rastreios: relatório clínico por e-mail.
  */
-
 function sendScreeningReportEmail_(report) {
   const props = PropertiesService.getScriptProperties();
   const to = String(props.getProperty('REPORT_EMAIL') || '').trim();
   if (!to) throw new Error('REPORT_EMAIL_NOT_CONFIGURED');
   if (!report || !report.html || !report.subject) throw new Error('REPORT_INVALID');
-
   MailApp.sendEmail({
     to: to,
     subject: String(report.subject).slice(0, 240),
@@ -843,43 +717,6 @@ function sendScreeningReportEmail_(report) {
     name: 'Richelmy Murta Psicologia'
   });
   return { ok: true, channel: 'email' };
-}
-
-function appendScreeningTrelloMetadata_(meta) {
-  const props = PropertiesService.getScriptProperties();
-  const key = String(props.getProperty('TRELLO_KEY') || '').trim();
-  const token = String(props.getProperty('TRELLO_TOKEN') || '').trim();
-  const cardId = String(props.getProperty('TRELLO_CARD_ID') || '').trim();
-  if (!key || !token || !cardId) return { ok: false, skipped: true, reason: 'TRELLO_NOT_CONFIGURED' };
-
-  const safe = screeningMinimalOperationalMeta_(meta);
-  const text = [
-    'Rastreio processado',
-    'instrumento: ' + safe.instrumentId,
-    'submission: ' + safe.submissionRef,
-    'data: ' + safe.processedAt,
-    'status: ' + safe.status
-  ].join(' · ');
-
-  const url = 'https://api.trello.com/1/cards/' + encodeURIComponent(cardId) + '/actions/comments';
-  const res = UrlFetchApp.fetch(url, {
-    method: 'post',
-    muteHttpExceptions: true,
-    payload: { text: text, key: key, token: token }
-  });
-  const code = Number(res.getResponseCode());
-  if (code < 200 || code >= 300) throw new Error('TRELLO_HTTP_' + code);
-  return { ok: true, channel: 'trello' };
-}
-
-function screeningMinimalOperationalMeta_(meta) {
-  if (!meta || typeof meta !== 'object') throw new Error('OPERATIONAL_META_INVALID');
-  const instrumentId = String(meta.instrumentId || '').replace(/[^a-z0-9_-]/gi, '').slice(0, 40);
-  const submissionRef = screeningSubmissionRef_(meta.submissionId);
-  const processedAt = String(meta.processedAt || new Date().toISOString()).slice(0, 40);
-  const status = String(meta.status || 'COMPLETE').replace(/[^A-Z0-9_-]/gi, '').slice(0, 40);
-  if (!instrumentId || !submissionRef) throw new Error('OPERATIONAL_META_INCOMPLETE');
-  return { instrumentId: instrumentId, submissionRef: submissionRef, processedAt: processedAt, status: status };
 }
 
 function screeningSubmissionRef_(submissionId) {
@@ -984,10 +821,8 @@ function setupScreeningBridgeV3FromFactory() {
   rows.slice(1).forEach(function(r){if(r[0]&&r[17]) byInternal[String(r[0])]=String(r[17]);});
 
   const props=PropertiesService.getScriptProperties();
-  const updates={
-    REPORT_EMAIL:'ricmurtapsicologia@gmail.com',
-    TRELLO_CARD_ID:'6a9e3f9c43f65edff401783a'
-  };
+  const updates={REPORT_EMAIL:'ricmurtapsicologia@gmail.com'};
+  ['TRELLO_KEY','TRELLO_TOKEN','TRELLO_CARD_ID','GPS_URL','GPS_WEBHOOK'].forEach(function(k){props.deleteProperty(k);});
 
   Object.keys(SCREENING_FACTORY_FORM_MAP).forEach(function(id){
     const internal=SCREENING_FACTORY_FORM_MAP[id];
@@ -1005,12 +840,15 @@ function setupScreeningBridgeV3FromFactory() {
     });
   });
 
+  // Um único setup também migra o ledger legado para o fluxo Gmail → COMPLETE.
+  const ledger=setupScreeningPipelineLedger_();
+
   return {
     ok:true,
     configured:Object.keys(SCREENING_FACTORY_FORM_MAP).length,
     reportEmailConfigured:Boolean(props.getProperty('REPORT_EMAIL')),
-    trelloCardConfigured:Boolean(props.getProperty('TRELLO_CARD_ID')),
-    trelloCredentialsConfigured:Boolean(props.getProperty('TRELLO_KEY')&&props.getProperty('TRELLO_TOKEN'))
+    legacyOperationalPropertiesRemoved:true,
+    ledger:ledger
   };
 }
 
