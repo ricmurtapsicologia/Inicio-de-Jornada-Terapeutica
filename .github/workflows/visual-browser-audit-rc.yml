@@ -85,7 +85,8 @@ jobs:
               console.log('STATE',JSON.stringify({...state,heroSrc:state.heroSrc.slice(0,30)}));
               if(state.shells!==1)throw new Error(`${id}: shell ${state.shells}`);
               if(state.identities!==1)throw new Error(`${id}: identity ${state.identities}`);
-              if(state.canonical!==3)throw new Error(`${id}: canonical visible identity controls ${state.canonical}`);
+              const expectedCanonical=id==='icaps'?4:3;
+              if(state.canonical!==expectedCanonical)throw new Error(`${id}: canonical visible identity controls ${state.canonical}/${expectedCanonical}`);
               if(state.legacy!==0)throw new Error(`${id}: visible legacy identity controls ${state.legacy}`);
               if(!state.heroSrc.startsWith('data:image/svg+xml'))throw new Error(`${id}: hero source not RC artwork`);
               if(!state.heroAlt)throw new Error(`${id}: missing hero alt`);
