@@ -6,6 +6,7 @@ on:
       - rastreios-visual-identity-20260908
     paths:
       - '.github/workflows/visual-browser-audit-rc.yml'
+      - 'tools/refine_identity_match.py'
 
 permissions:
   contents: write
