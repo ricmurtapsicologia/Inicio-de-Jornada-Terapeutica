@@ -31,11 +31,15 @@ function setupScreeningBridgeV3FromFactory() {
     });
   });
 
+  // Um único setup também migra o ledger legado para o fluxo Gmail → COMPLETE.
+  const ledger=setupScreeningPipelineLedger_();
+
   return {
     ok:true,
     configured:Object.keys(SCREENING_FACTORY_FORM_MAP).length,
     reportEmailConfigured:Boolean(props.getProperty('REPORT_EMAIL')),
-    legacyOperationalPropertiesRemoved:true
+    legacyOperationalPropertiesRemoved:true,
+    ledger:ledger
   };
 }
 
