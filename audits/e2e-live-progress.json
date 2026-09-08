@@ -52,10 +52,9 @@
       "checkedAt": "2026-09-08T00:28:02.727Z"
     },
     "codependencia": {
-      "status": "FAIL",
-      "submissionId": "e2e-codependencia-34173174757-1",
-      "httpStatus": 200,
-      "checkedAt": "2026-09-08T00:28:06.581Z"
+      "status": "PASS",
+      "submissionId": "e2e-codependencia-34174847549-1",
+      "checkedAt": "2026-09-08T00:55:10.383Z"
     },
     "icaps": {
       "status": "PROCESSING_PENDING",
@@ -63,23 +62,26 @@
       "checkedAt": "2026-09-08T00:20:34.259Z"
     },
     "risco": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:28:16.834Z"
+      "status": "PASS",
+      "submissionId": "e2e-risco-34174847549-1",
+      "checkedAt": "2026-09-08T00:55:20.213Z"
     },
     "humor": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:28:26.802Z"
+      "status": "PASS",
+      "submissionId": "e2e-humor-34174847549-1",
+      "checkedAt": "2026-09-08T00:55:33.574Z"
     },
     "ansiedade": {
-      "status": "WAITING_FORM_PUBLICATION",
-      "checkedAt": "2026-09-08T00:28:34.315Z"
+      "status": "PASS",
+      "submissionId": "e2e-ansiedade-34174847549-1",
+      "checkedAt": "2026-09-08T00:55:54.426Z"
     }
   },
-  "updatedAt": "2026-09-08T00:28:35.514Z",
+  "updatedAt": "2026-09-08T00:55:55.627Z",
   "summary": {
-    "pass": 10,
-    "waiting": 3,
+    "pass": 14,
+    "waiting": 0,
     "pending": 1,
-    "fail": 1
+    "fail": 0
   }
 }
