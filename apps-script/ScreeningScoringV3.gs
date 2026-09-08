@@ -199,7 +199,7 @@ function scoreCodependenciaV3_(r){
 function scoreIcapsV3_(r){
   if(r.length!==60) throw new Error('ICAPS_COUNT:'+r.length); const names=['Satisfação Conjugal Atual','Ambivalência Decisional','Codependência e Subjugação Pessoal','Traição e Impacto Emocional','Rede de Apoio e Medos Contextuais','Recursos Internos e Prontidão para a Mudança'];
   const bands=[['Muito baixa','Baixa','Intermediária','Elevada'],['Baixa','Baixa a moderada','Intermediária','Elevada'],['Poucos indicadores','Alguns indicadores','Faixa intermediária','Muitos indicadores'],['Reduzido','Leve a moderado','Intermediário','Elevado'],['Baixa interferência','Baixa a moderada','Intermediária','Elevada'],['Frágeis','Emergentes','Intermediários','Elevados']];
-  const sub=[];for(var d=0;d<6;d++){const vals=r.slice(d*10,d*10+10).map(function(x){return scIdx_(x)*25;});const score=Math.round(scMean_(vals)),bi=score<=24?0:score<=49?1:score<=74?2:3;sub.push({title:names[d],rawScore:score,maxScore:100,classification:bands[d][bi]});}
+  const sub=[];for(var d=0;d<6;d++){const vals=r.slice(d*10,d*10+10).map(function(x){return (scNum_(x,1,5)-1)*25;});const score=Math.round(scMean_(vals)),bi=score<=24?0:score<=49?1:score<=74?2:3;sub.push({title:names[d],rawScore:score,maxScore:100,classification:bands[d][bi]});}
   return {sourceMode:'SOURCE_DERIVED_CURRENT',classification:'Perfil dimensional ICAPS',subscales:sub,clinicalMeaning:'Seis dimensões normalizadas de 0–100 com faixas operacionais descritivas.',caveats:['As faixas não são pontos de corte psicométricos validados e não determinam decisão conjugal.']};
 }
 
