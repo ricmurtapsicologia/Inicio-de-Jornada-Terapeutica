@@ -1,0 +1,170 @@
+name: Unify 15 banners and identity RC
+
+on:
+  push:
+    branches: [rastreios-visual-identity-20260908]
+    paths: ['.github/workflows/unify-15-banners-identity-rc.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rastreios-visual-identity-20260908
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Patch shared runtime and design system
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p=Path('assets/screening-system-v2.js')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace("const VERSION='2.2.1-decoupled';","const VERSION='2.3.0-unified-hero-identity';")
+
+          old="""function discoverHero(){const candidates=['.hero img','.hero-img','img.banner','.banner-wrap img','header img','main img'];for(const sel of candidates){const el=document.querySelector(sel);if(el?.src&&el.naturalWidth!==1)return {src:el.src,alt:el.alt||''}}return null}\n"""
+          new=r'''const HERO_SCENES=Object.freeze({
+  geral:{motif:'orbit',alt:'Composição abstrata em órbitas, representando uma visão ampla do momento emocional.'},
+  tdah:{motif:'focus',alt:'Composição abstrata com pontos dispersos convergindo para um foco, representando atenção e organização.'},
+  bipolar:{motif:'wave',alt:'Composição abstrata com duas ondas em ritmos diferentes, representando oscilações de humor e energia.'},
+  borderline:{motif:'overlap',alt:'Composição abstrata de formas sobrepostas, representando intensidade emocional, identidade e relações.'},
+  narcisismo:{motif:'mirror',alt:'Composição abstrata de reflexos e simetria, representando autoimagem e reconhecimento.'},
+  impulsividade:{motif:'burst',alt:'Composição abstrata de trajetórias rápidas e interrupções, representando impulso, decisão e planejamento.'},
+  esquemas:{motif:'layers',alt:'Composição abstrata em camadas profundas, representando padrões emocionais que se repetem.'},
+  modos:{motif:'facets',alt:'Composição abstrata facetada, representando diferentes estados emocionais e modos de enfrentamento.'},
+  necessidades:{motif:'roots',alt:'Composição abstrata de raízes e ramificações, representando necessidades emocionais e sustentação.'},
+  codependencia:{motif:'link',alt:'Composição abstrata de dois vínculos conectados por uma linha fina, representando autonomia, limites e cuidado.'},
+  icaps:{motif:'paths',alt:'Composição abstrata de caminhos que se aproximam e se afastam, representando clareza em decisões relacionais.'},
+  risco:{motif:'beacon',alt:'Composição abstrata de um ponto de referência luminoso, representando segurança e proteção no momento atual.'},
+  humor:{motif:'horizon',alt:'Composição abstrata de horizonte e gradações, representando acompanhamento do humor ao longo do tempo.'},
+  ansiedade:{motif:'tension',alt:'Composição abstrata de linhas tensionadas e ondas, representando sinais de ansiedade e tensão.'},
+  autoestima:{motif:'reflection',alt:'Composição abstrata de forma e reflexo, representando autopercepção e autoestima.'}
+});
+function heroMotif(m){
+  const common='stroke="#343a3d" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".78"';
+  const thin='stroke="#80888b" stroke-width="4" fill="none" stroke-linecap="round" opacity=".72"';
+  const accent='stroke="#8b6d4b" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"';
+  const motifs={
+    orbit:`<circle cx="330" cy="210" r="116" ${thin}/><circle cx="330" cy="210" r="65" ${common}/><path d="M74 292 C166 128 481 101 625 252" ${accent}/><circle cx="517" cy="118" r="18" fill="#5f6669" opacity=".62"/>`,
+    focus:`<g fill="#5d6568" opacity=".7"><circle cx="102" cy="96" r="13"/><circle cx="156" cy="165" r="10"/><circle cx="88" cy="250" r="8"/><circle cx="230" cy="90" r="9"/><circle cx="500" cy="85" r="7"/><circle cx="570" cy="262" r="11"/></g><path d="M90 96 L340 205 M156 165 L340 205 M88 250 L340 205 M230 90 L340 205 M500 85 L340 205 M570 262 L340 205" ${thin}/><circle cx="340" cy="205" r="54" ${common}/><circle cx="340" cy="205" r="9" fill="#8b6d4b"/>`,
+    wave:`<path d="M55 164 C118 62 187 62 250 164 S382 266 445 164 S577 62 640 164" ${common}/><path d="M55 268 C122 202 190 202 255 268 S388 334 452 268 S579 202 640 268" ${thin}/><path d="M350 70 L350 340" ${accent}/>` ,
+    overlap:`<ellipse cx="285" cy="205" rx="142" ry="158" ${common}/><ellipse cx="425" cy="205" rx="142" ry="158" ${thin}/><path d="M355 50 C326 142 326 274 355 360" ${accent}/>` ,
+    mirror:`<path d="M155 72 Q292 102 325 205 Q292 308 155 338" ${common}/><path d="M545 72 Q408 102 375 205 Q408 308 545 338" ${thin}/><path d="M350 46 L350 364" ${accent}/><circle cx="255" cy="195" r="13" fill="#5f6669"/><circle cx="445" cy="195" r="13" fill="#90979a"/>`,
+    burst:`<path d="M92 286 L262 122 L314 205 L421 82 L405 216 L606 151" ${common}/><path d="M86 322 L267 247 L359 300 L596 252" ${thin}/><path d="M344 60 L344 342" ${accent}/>` ,
+    layers:`<path d="M96 305 C205 221 488 221 606 305" ${common}/><path d="M120 250 C224 176 466 176 580 250" ${thin}/><path d="M158 198 C260 137 427 137 542 198" ${thin}/><path d="M350 78 L350 330" ${accent}/>` ,
+    facets:`<path d="M130 290 L205 105 L350 62 L505 118 L580 300 L410 350 L240 340 Z" ${common}/><path d="M205 105 L350 215 L505 118 M130 290 L350 215 L580 300 M240 340 L350 215 L410 350" ${thin}/><circle cx="350" cy="215" r="10" fill="#8b6d4b"/>`,
+    roots:`<path d="M350 68 L350 208" ${common}/><path d="M350 208 C292 240 250 285 214 350 M350 208 C325 270 325 312 320 360 M350 208 C407 245 450 294 487 350" ${thin}/><path d="M350 208 C280 170 232 142 170 118 M350 208 C420 168 474 138 540 110" ${common}/><path d="M174 118 L535 110" ${accent}/>` ,
+    link:`<ellipse cx="260" cy="210" rx="115" ry="145" ${common}/><ellipse cx="455" cy="210" rx="115" ry="145" ${thin}/><path d="M318 212 C349 195 365 195 395 212" ${accent}/><circle cx="318" cy="212" r="7" fill="#8b6d4b"/><circle cx="395" cy="212" r="7" fill="#8b6d4b"/>`,
+    paths:`<path d="M115 342 C130 240 208 130 330 80" ${common}/><path d="M585 342 C570 240 492 130 370 80" ${thin}/><path d="M350 72 L350 342" ${accent}/><circle cx="350" cy="205" r="18" fill="#686f72" opacity=".65"/>`,
+    beacon:`<path d="M350 90 L290 330 L410 330 Z" ${common}/><path d="M350 118 L350 300" ${thin}/><path d="M350 95 L182 58 M350 95 L518 58" ${accent}/><circle cx="350" cy="95" r="18" fill="#8b6d4b" opacity=".72"/>`,
+    horizon:`<path d="M60 260 C155 232 245 286 340 260 S535 232 640 260" ${common}/><path d="M60 185 C155 157 245 211 340 185 S535 157 640 185" ${thin}/><path d="M70 310 L625 310" ${accent}/><circle cx="500" cy="110" r="50" fill="#c7ccce" opacity=".8"/>`,
+    tension:`<path d="M80 118 C160 58 220 330 300 270 S440 70 620 135" ${common}/><path d="M80 285 C160 345 225 82 305 145 S445 332 620 270" ${thin}/><path d="M350 55 L350 355" ${accent}/>` ,
+    reflection:`<path d="M210 85 C126 144 132 292 230 338 C315 377 405 320 414 228 C422 144 341 74 260 96" ${common}/><path d="M490 118 C561 170 555 279 482 323 C423 358 365 327 344 278" ${thin}/><path d="M350 65 L350 350" ${accent}/><circle cx="280" cy="205" r="12" fill="#62696c"/><circle cx="426" cy="205" r="8" fill="#969da0"/>`
+  };
+  return motifs[m]||motifs.orbit;
+}
+function heroForInstrument(id){
+  const scene=HERO_SCENES[id]||HERO_SCENES.geral;
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 410" role="img"><defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f1f3f3"/><stop offset="1" stop-color="#d8ddde"/></linearGradient><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .055"/></feComponentTransfer></filter></defs><rect width="700" height="410" fill="url(#bg)"/><rect width="700" height="410" filter="url(#grain)" opacity=".55"/><g>${heroMotif(scene.motif)}</g></svg>`;
+  return {src:'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg),alt:scene.alt};
+}
+'''
+          if old not in s:
+              raise SystemExit('discoverHero anchor not found')
+          s=s.replace(old,new,1)
+          s=s.replace("function insertShell(c){if(document.querySelector('.rm-screening-shell'))return;const hero=discoverHero();", "function insertShell(c){if(document.querySelector('.rm-screening-shell'))return;const hero=heroForInstrument(instrumentId);")
+
+          # Canonical identity: one visible block with name + birth + application for all 15.
+          s=s.replace("  const monitoring=adapter.identityProfile==='monitoring_longitudinal';\n  const nameSource=first(a.name),appSource=first(a.application),birthSource=first(a.birth);\n  const showBirth=!monitoring;\n  const showApplication=!monitoring||Boolean(appSource);", "  const monitoring=adapter.identityProfile==='monitoring_longitudinal';\n  const nameSource=first(a.name),appSource=first(a.application),birthSource=first(a.birth);\n  const showBirth=true;\n  const showApplication=true;")
+
+          # Expand duplicate-field hiding, keep sources in DOM for compatibility, and derive legacy age from birth.
+          s=s.replace("function hideDuplicateSource(source){if(!source)return;const box=source.closest('.field,label,.form-group,.patient-info>*,.idgrid>*');if(box&&!box.closest('.rm-identity'))box.style.display='none'}", r'''function legacyIdentityKind(el){
+  if(!el||el.closest('.rm-identity'))return '';
+  const label=el.id?document.querySelector(`label[for="${CSS.escape(el.id)}"]`)?.textContent||'':'';
+  const text=[label,el.getAttribute('aria-label'),el.getAttribute('placeholder'),el.name,el.id,el.closest('label')?.textContent].filter(Boolean).join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  if(/nome\s+completo|full\s*name|patient\s*name|paciente/.test(text))return 'name';
+  if(/data\s+de\s+nascimento|birth\s*date|nascimento/.test(text))return 'birth';
+  if(/data\s+de\s+aplicacao|application\s*date|response\s*date/.test(text))return 'application';
+  if(/(^|\b)idade(\b|$)|(^|\b)age(\b|$)/.test(text))return 'age';
+  return '';
+}
+function legacyFieldBox(source){if(!source)return null;return source.closest('.field,.form-group,.input-group,.input-field,.form-field,.patient-info>*,.idgrid>*,.form-row>*,.identity-grid>*,label')||source}
+function hideDuplicateSource(source){if(!source||source.closest('.rm-identity'))return;const box=legacyFieldBox(source);if(box){box.dataset.rmLegacyIdentity='hidden';box.hidden=true;box.style.setProperty('display','none','important');box.setAttribute('aria-hidden','true')}}
+function ageFromBirth(value){if(!/^\d{4}-\d{2}-\d{2}$/.test(String(value||'')))return '';const b=new Date(value+'T12:00:00');if(Number.isNaN(b.getTime()))return '';const now=new Date();let age=now.getFullYear()-b.getFullYear();const m=now.getMonth()-b.getMonth();if(m<0||(m===0&&now.getDate()<b.getDate()))age--;return age>=0&&age<130?String(age):''}
+function cleanupLegacyIdentity(birthValue=''){
+  const target=resolveTarget()||document;
+  const controls=[...target.querySelectorAll('input,select,textarea')].filter(el=>!el.closest('.rm-identity'));
+  controls.forEach(el=>{const kind=legacyIdentityKind(el);if(!kind)return;if(kind==='age'&&birthValue)setSource(el,ageFromBirth(birthValue));hideDuplicateSource(el)});
+  [...target.querySelectorAll('h1,h2,h3,h4,legend')].forEach(h=>{
+    if(h.closest('.rm-identity')||!/^\s*identifica[cç][aã]o\s*$/i.test(h.textContent||''))return;
+    const block=h.closest('section,fieldset,.card,.panel,.form-section,.patient-info,.identity-section')||h.parentElement;
+    if(!block||block.closest('.rm-identity'))return;
+    const relevant=[...block.querySelectorAll('input,select,textarea')];
+    if(relevant.length&&relevant.every(el=>Boolean(legacyIdentityKind(el)))){block.dataset.rmLegacyIdentity='hidden';block.hidden=true;block.style.setProperty('display','none','important');block.setAttribute('aria-hidden','true')}
+    else if(!relevant.length){h.hidden=true;h.style.setProperty('display','none','important');h.setAttribute('aria-hidden','true')}
+  });
+}''')
+
+          s=s.replace("    setSource(nameSource,n.value);if(b)setSource(birthSource,b.value);if(d)setSource(appSource,d.value);\n    if(!monitoring&&mount.form){ensureHidden(mount.form,'rm_full_name',n.value);ensureHidden(mount.form,'rm_birth_date',b?.value||'');ensureHidden(mount.form,'rm_application_date',d?.value||'')}", "    setSource(nameSource,n.value);if(b)setSource(birthSource,b.value);if(d)setSource(appSource,d.value);\n    cleanupLegacyIdentity(b?.value||'');\n    if(mount.form){ensureHidden(mount.form,'rm_full_name',n.value);ensureHidden(mount.form,'rm_birth_date',b?.value||'');ensureHidden(mount.form,'rm_application_date',d?.value||'')}")
+          s=s.replace("  hideDuplicateSource(nameSource);if(b)hideDuplicateSource(birthSource);if(d)hideDuplicateSource(appSource);", "  hideDuplicateSource(nameSource);if(b)hideDuplicateSource(birthSource);if(d)hideDuplicateSource(appSource);cleanupLegacyIdentity(b?.value||'');")
+          s=s.replace("  new MutationObserver(()=>{removeWhatsApp();hideLegacyResults()}).observe(document.body,{childList:true,subtree:true});", "  new MutationObserver(()=>{removeWhatsApp();hideLegacyResults();cleanupLegacyIdentity(identityState.birthDate||'')}).observe(document.body,{childList:true,subtree:true});")
+          p.write_text(s,encoding='utf-8')
+
+          # CSS: hero like approved reference, consistent split, grayscale art panel, single identity card.
+          p=Path('assets/screening-system-v2.css')
+          c=p.read_text(encoding='utf-8')
+          c=c.replace('.rm-screening-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);min-height:330px;', '.rm-screening-hero{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(300px,.87fr);min-height:360px;')
+          c=c.replace('.rm-screening-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(.98)}', '.rm-screening-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.03)}')
+          c += '\n/* v2.3 — identidade canônica única e supressão visual dos blocos legados duplicados. */\n[data-rm-legacy-identity="hidden"]{display:none!important;visibility:hidden!important}\n.rm-identity{margin-top:28px}\n@media(max-width:800px){.rm-screening-hero{min-height:0}.rm-screening-visual{min-height:240px}}\n'
+          p.write_text(c,encoding='utf-8')
+
+          # Cache bust shared loader/import so all 15 pages consume the new runtime immediately.
+          p=Path('assets/screening-uniformity-v1.js')
+          u=p.read_text(encoding='utf-8').replace('screening-system-v2.js?v=2.2.1-decoupled','screening-system-v2.js?v=2.3.0').replace("version:'2.2.1-decoupled-loading'","version:'2.3.0-loading'")
+          p.write_text(u,encoding='utf-8')
+          p=Path('assets/screening-uniformity-v1.css')
+          u=p.read_text(encoding='utf-8').replace('screening-system-v2.css?v=2.2.1','screening-system-v2.css?v=2.3.0')
+          p.write_text(u,encoding='utf-8')
+          PY
+
+      - name: Add regression test for 15 visual identities
+        run: |
+          cat > tests/visual-identity-15.test.mjs <<'NODE'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const js=fs.readFileSync('assets/screening-system-v2.js','utf8');
+          const css=fs.readFileSync('assets/screening-system-v2.css','utf8');
+          const loader=fs.readFileSync('assets/screening-uniformity-v1.js','utf8');
+          const ids=['geral','tdah','bipolar','borderline','narcisismo','impulsividade','esquemas','modos','necessidades','codependencia','icaps','risco','humor','ansiedade','autoestima'];
+          assert.doesNotThrow(()=>new Function(js),'shared runtime must remain valid JS');
+          for(const id of ids) assert.match(js,new RegExp(`\\b${id}:\\{motif:`),`hero scene missing: ${id}`);
+          assert.equal((js.match(/motif:'/g)||[]).length,15,'exactly 15 distinct hero scene declarations required');
+          assert.match(js,/heroForInstrument\(instrumentId\)/,'hero must be deterministic per instrument');
+          assert.match(js,/showBirth=true/,'birth must be visible once in canonical identity');
+          assert.match(js,/showApplication=true/,'application date must be visible once in canonical identity');
+          assert.match(js,/cleanupLegacyIdentity/,'legacy duplicate cleanup missing');
+          assert.match(js,/ageFromBirth/,'legacy age compatibility missing');
+          assert.match(css,/\[data-rm-legacy-identity="hidden"\]/,'legacy identity hide rule missing');
+          assert.match(css,/filter:grayscale\(1\)/,'hero visual panel should match monochrome reference');
+          assert.match(loader,/screening-system-v2\.js\?v=2\.3\.0/,'loader cache-bust missing');
+          console.log('VISUAL_IDENTITY_15_PASS');
+          NODE
+          node tests/visual-identity-15.test.mjs
+          node tests/bdi2-content-lock.test.mjs
+          node tests/hero-variants.test.mjs
+          node tests/branded-questionnaires.test.mjs
+          node tests/ordered-transport-v31.test.mjs
+
+      - name: Commit visual identity update
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/screening-system-v2.js assets/screening-system-v2.css assets/screening-uniformity-v1.js assets/screening-uniformity-v1.css tests/visual-identity-15.test.mjs
+          git commit -m 'Unifica banner e identificação nos 15 rastreios'
+          git push
