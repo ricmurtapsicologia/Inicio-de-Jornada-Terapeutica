@@ -111,6 +111,7 @@ body.rm-screening-v2 .rm-story{
   line-height:1.58;
 }
 body.rm-screening-v2 .rm-screening-visual{
+  position:relative;
   min-height:330px;
   background:#dfe9e7;
 }
@@ -139,6 +140,24 @@ body.rm-screening-v2 .rm-screening-visual::after{
   background:linear-gradient(0deg,rgba(4,24,29,.15),transparent 52%);
   pointer-events:none;
 }
+.rm-photo-credit{
+  position:absolute;
+  right:10px;
+  bottom:9px;
+  z-index:3;
+  display:inline-flex;
+  align-items:center;
+  min-height:26px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:rgba(6,25,31,.62);
+  color:rgba(255,255,255,.88)!important;
+  font:650 .68rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  text-decoration:none;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.rm-photo-credit:hover,.rm-photo-credit:focus-visible{background:rgba(6,25,31,.82);color:#fff!important}
 
 /* Variações discretas de marca por tema; a fotografia é sempre real. */
 body.rm-screening-v2 .rm-screening-hero[data-rm-variant="tdah"] .rm-screening-copy{background:linear-gradient(135deg,#0d3143,#1a5968)}
@@ -152,6 +171,9 @@ body.rm-screening-v2 .rm-screening-hero[data-rm-variant="necessidades"] .rm-scre
 body.rm-screening-v2 .rm-screening-hero[data-rm-variant="codependencia"] .rm-screening-copy{background:linear-gradient(135deg,#3e3138,#6c5962)}
 body.rm-screening-v2 .rm-screening-hero[data-rm-variant="icaps"] .rm-screening-copy{background:linear-gradient(135deg,#203647,#4f6778)}
 body.rm-screening-v2 .rm-screening-hero[data-rm-variant="risco"] .rm-screening-copy{background:linear-gradient(135deg,#173834,#46665d)}
+body.rm-screening-v2 .rm-screening-hero[data-rm-variant="humor"] .rm-screening-copy{background:linear-gradient(135deg,#26394b,#536c82)}
+body.rm-screening-v2 .rm-screening-hero[data-rm-variant="ansiedade"] .rm-screening-copy{background:linear-gradient(135deg,#173d47,#4d7378)}
+body.rm-screening-v2 .rm-screening-hero[data-rm-variant="autoestima"] .rm-screening-copy{background:linear-gradient(135deg,#403547,#735f78)}
 
 /* ---------- Saneamento visual de resíduos legados ---------- */
 body.rm-photo-heroes main>.hero:not(.rm-screening-hero),
@@ -187,9 +209,10 @@ body.rm-photo-heroes img[data-rm-legacy-image="hidden"]{
   body.rm-screening-v2 .rm-screening-shell{width:min(calc(100% - 16px),1120px);border-radius:20px}
   body.rm-screening-v2 .rm-screening-visual{min-height:220px}
   body.rm-screening-v2 .rm-screening-copy{padding:25px 20px 30px}
+  .rm-photo-credit{right:8px;bottom:8px}
 }
 @media(prefers-reduced-motion:reduce){
   #rmClinicalSplash{transition:none}
   .rm-clinical-opening-loader{animation:none;background:#fff}
 }
-@media print{#rmClinicalSplash{display:none!important}}
+@media print{#rmClinicalSplash{display:none!important}.rm-photo-credit{display:none!important}}
