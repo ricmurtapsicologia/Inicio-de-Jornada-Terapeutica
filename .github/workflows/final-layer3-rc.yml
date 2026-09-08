@@ -31,8 +31,12 @@ jobs:
           (async()=>{
             const browser=await chromium.launch({headless:true});
             for(const viewport of [{name:'desktop',width:1440,height:1000},{name:'mobile',width:390,height:844}]){
-              const page=await browser.newPage({viewport:{width:viewport.width,height:viewport.height}});
-              const errors=[]; page.on('console',m=>{if(m.type()==='error')errors.push(m.text())}); page.on('pageerror',e=>errors.push(String(e)));
+              const context=await browser.newContext({viewport:{width:viewport.width,height:viewport.height}});
+              const page=await context.newPage();
+              const errors=[];
+              page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+              page.on('pageerror',e=>errors.push(String(e)));
+
               await page.goto('http://127.0.0.1:4173/index.html',{waitUntil:'networkidle'});
               const journeyCount=await page.locator('#screeningCanonicalGrid .form-btn').count();
               const resourcesCount=await page.locator('#otherResourcesGrid .form-btn').count();
@@ -44,6 +48,7 @@ jobs:
               const axeJourney=await new AxeBuilder({page}).analyze();
               const badJourney=axeJourney.violations.filter(v=>['critical','serious'].includes(v.impact));
               if(badJourney.length) throw new Error(`${viewport.name}: Journey axe ${badJourney.map(v=>v.id).join(',')}`);
+
               await page.goto('http://127.0.0.1:4173/painel-rastreios/index.html',{waitUntil:'networkidle'});
               if(await page.locator('.card').count()!==15) throw new Error(`${viewport.name}: Panel count`);
               if(await page.locator('#filters .filter').count()!==10) throw new Error(`${viewport.name}: filter count`);
@@ -60,7 +65,7 @@ jobs:
               const badPanel=axePanel.violations.filter(v=>['critical','serious'].includes(v.impact));
               if(badPanel.length) throw new Error(`${viewport.name}: Panel axe ${badPanel.map(v=>v.id).join(',')}`);
               if(errors.length) throw new Error(`${viewport.name}: console errors ${errors.join(' | ')}`);
-              await page.close();
+              await context.close();
             }
             await browser.close();
             console.log('FINAL_LAYER3_PASS desktop+mobile · 15/15 · axe serious/critical=0 · filters/search/overflow OK');
