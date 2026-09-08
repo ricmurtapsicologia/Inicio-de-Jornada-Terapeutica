@@ -27,7 +27,8 @@ x=ctx.scoreScreeningV3_('esquemas',labels(108,5)); assert.ok(x.subscales.every(s
 x=ctx.scoreScreeningV3_('modos',Array.from({length:124},()=>nrec(1))); assert.equal(x.subscales.length,14);
 x=ctx.scoreScreeningV3_('necessidades',labels(36,0)); assert.equal(x.subscales.length,9);
 x=ctx.scoreScreeningV3_('codependencia',labels(40,0)); assert.equal(x.subscales[0].rawScore,20); assert.equal(x.subscales[1].rawScore,20);
-x=ctx.scoreScreeningV3_('icaps',labels(60,0)); assert.equal(x.subscales.length,6); assert.equal(x.subscales[0].rawScore,0);
+// ICAPS é SCALE 1–5 no Google Forms real; 1 deve normalizar para 0/100.
+x=ctx.scoreScreeningV3_('icaps',Array.from({length:60},()=>nrec(1))); assert.equal(x.subscales.length,6); assert.equal(x.subscales[0].rawScore,0);
 
 let bdi=labels(21,0); x=ctx.scoreScreeningV3_('humor',bdi); assert.equal(x.rawScore,0); assert.equal(x.classification,'mínimo');
 bdi=labels(21,3); bdi[15]=rec(5); bdi[17]=rec(5); x=ctx.scoreScreeningV3_('humor',bdi); assert.equal(x.rawScore,63); assert.equal(x.classification,'grave'); assert.ok(x.riskFlags.includes('SUICIDE_ITEM_HIGH'));
