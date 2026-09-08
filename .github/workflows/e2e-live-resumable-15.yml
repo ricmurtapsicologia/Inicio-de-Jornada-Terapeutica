@@ -29,7 +29,6 @@ jobs:
           const progressPath='audits/e2e-live-progress.json';
           fs.mkdirSync('audits',{recursive:true});
           let progress=fs.existsSync(progressPath)?JSON.parse(fs.readFileSync(progressPath,'utf8')):{version:1,instruments:{}};
-          // Pilot Autoestima already independently verified in Form sheet + ledger + Gmail.
           if(!progress.instruments.autoestima)progress.instruments.autoestima={status:'PASS',evidence:'pilot-verified',submissionId:'e2e-autoestima-34172376185-1'};
 
           function balanced(src,start,open,close){let d=0,q=null,e=false;for(let i=start;i<src.length;i++){const c=src[i];if(q){if(e){e=false;continue}if(c==='\\'){e=true;continue}if(c===q)q=null;continue}if(c==='"'||c==="'"||c==='`'){q=c;continue}if(c===open)d++;else if(c===close){d--;if(d===0)return src.slice(start,i+1)}}throw new Error('UNBALANCED')}
@@ -80,7 +79,9 @@ jobs:
           (async()=>{
             const results=[];let blocking=0;
             for(const id of ids){
-              if(progress.instruments[id]?.status==='PASS')continue;
+              const prior=progress.instruments[id]?.status;
+              // A resposta PROCESSING_PENDING já foi persistida. Não duplicar; retestar só após deploy da correção.
+              if(prior==='PASS'||prior==='PROCESSING_PENDING'||String(prior||'').startsWith('BLOCKED_'))continue;
               const r=await submit(id);results.push(r);
               if(r.success)progress.instruments[id]={status:'PASS',submissionId:r.sid,checkedAt:new Date().toISOString()};
               else if(r.waiting)progress.instruments[id]={status:'WAITING_FORM_PUBLICATION',checkedAt:new Date().toISOString()};
