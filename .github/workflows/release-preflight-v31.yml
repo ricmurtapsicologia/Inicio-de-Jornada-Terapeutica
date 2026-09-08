@@ -8,6 +8,7 @@ on:
       - 'apps-script/**'
       - 'assets/**'
       - 'tests/**'
+      - 'audits/e2e-post-sanitize-15.json'
       - 'index.html'
       - 'painel-rastreios/**'
       - '.github/workflows/release-preflight-v31.yml'
@@ -70,14 +71,16 @@ jobs:
           if(!bundle.includes("'EMAIL_SENT','COMPLETE'"))throw new Error('bundle pipeline drift');
           console.log('CLEAN_BACKEND_BUNDLE_PASS');
           NODE
-      - name: Client remains disabled until post-cleanup live E2E
+      - name: Client enabled only after certified post-cleanup E2E
         run: |
           node - <<'NODE'
           const fs=require('fs');
           const t=JSON.parse(fs.readFileSync('assets/screening-transport-v3.json','utf8'));
-          if(t.enabled!==false)throw new Error('transport client must remain disabled until post-cleanup live E2E');
+          const e=JSON.parse(fs.readFileSync('audits/e2e-post-sanitize-15.json','utf8'));
+          if(e.summary?.total!==15||e.summary?.pass!==15||e.summary?.fail!==0)throw new Error('post-cleanup E2E certification must be 15/15');
+          if(t.enabled!==true)throw new Error('transport client must be enabled after certified 15/15 E2E');
           if(!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(String(t.bridgeUrl||'')))throw new Error('deployed Web App bridge URL required');
-          console.log('CLIENT_BLOCKED_PENDING_POST_CLEANUP_E2E');
+          console.log('CLIENT_ENABLED_AFTER_E2E_15_15');
           NODE
       - name: No secrets in public source
         run: |
