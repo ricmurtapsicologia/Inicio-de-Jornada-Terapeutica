@@ -1,4 +1,5 @@
 name: Final layer 3 audit RC
+# rerun after removing redundant Font Awesome JS kit
 
 on:
   push:
