@@ -195,6 +195,14 @@ body.rm-photo-heroes img[data-rm-legacy-image="hidden"]{
   display:none!important;
 }
 
+/* Borderline legado: remove a faixa superior antiga e o botão 188 flutuante.
+   O hero canônico compartilhado passa a ser a abertura da página, como nos demais rastreios. */
+body:has(> .panic-fab) > header,
+body:has(> .panic-fab) > .panic-fab{
+  display:none!important;
+  visibility:hidden!important;
+}
+
 /* ---------- Mobile first ---------- */
 @media(max-width:800px){
   body.rm-screening-v2 .rm-screening-hero{grid-template-columns:1fr;min-height:0}
