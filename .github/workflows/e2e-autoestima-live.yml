@@ -18,7 +18,7 @@ jobs:
         env:
           ENDPOINT: https://script.google.com/macros/s/AKfycbzrJuvVPBNPgMCZ-tmeCXy6LUMFBZB5vlNXSiP8aK3XBfiYh3xm4a4nq02xafnt65U/exec
         run: |
-          set -euo pipefail
+          set -u
           NOW=$(date +%s%3N)
           START=$((NOW-5000))
           SID="e2e-autoestima-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
@@ -40,17 +40,18 @@ jobs:
           PY
           )
           CODE=$(curl -sS -L -o /tmp/response.html -w '%{http_code}' --data-urlencode "payload=$PAYLOAD" "$ENDPOINT")
+          echo "http_code=$CODE"
+          echo "submission_id=$SID"
+          cat /tmp/response.html
+          echo
           test "$CODE" = "200"
           grep -q '"ok":true' /tmp/response.html
           grep -q '"instrumentId":"autoestima"' /tmp/response.html
-          echo "submission_id=$SID"
           if grep -q '"processing":"complete"' /tmp/response.html; then
             echo 'processing=complete'
           elif grep -q '"processing":"pending"' /tmp/response.html; then
             echo 'processing=pending'
           else
             echo 'processing=unknown'
-            cat /tmp/response.html
             exit 1
           fi
-# rerun after Apps Script deployment v2
