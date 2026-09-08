@@ -6,6 +6,9 @@ on:
     paths:
       - '.github/workflows/final-sanitize-catalog-rc.yml'
       - 'tools/final_sanitize_catalog_backend.py'
+      - 'tests/branded-questionnaires.test.mjs'
+      - 'tests/screening-pipeline-v3-static.test.mjs'
+      - 'tests/screening-report-integrations-v3-static.test.mjs'
 
 permissions:
   contents: write
