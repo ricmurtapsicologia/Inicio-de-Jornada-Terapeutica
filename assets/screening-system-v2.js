@@ -72,7 +72,7 @@ function legacyIdentityKind(el){
   if(!el||el.closest('.rm-identity'))return '';
   const label=el.id?document.querySelector(`label[for="${CSS.escape(el.id)}"]`)?.textContent||'':'';
   const text=[label,el.getAttribute('aria-label'),el.getAttribute('placeholder'),el.name,el.id,el.closest('label')?.textContent].filter(Boolean).join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-  if(/nome\s+completo|full\s*name|patient\s*name|paciente/.test(text))return 'name';
+  if(/nome\s+completo|full\s*name|patient\s*name|nome\s+do\s+paciente/.test(text)||/^(paciente|patientname|fullname|fullName|nome|name)$/i.test(String(el.id||'')))return 'name';
   if(/data\s+de\s+nascimento|birth\s*date|nascimento/.test(text))return 'birth';
   if(/data\s+de\s+aplicacao|application\s*date|response\s*date/.test(text))return 'application';
   if(/(^|\b)idade(\b|$)|(^|\b)age(\b|$)/.test(text))return 'age';
@@ -82,7 +82,7 @@ function legacyFieldBox(source){return source?.closest('.field,.form-group,.inpu
 function hideDuplicateSource(source){if(!source||source.closest('.rm-identity'))return;const box=legacyFieldBox(source);if(box){box.dataset.rmLegacyIdentity='hidden';box.hidden=true;box.style.setProperty('display','none','important');box.setAttribute('aria-hidden','true')}}
 function ageFromBirth(value){if(!/^\d{4}-\d{2}-\d{2}$/.test(String(value||'')))return '';const b=new Date(value+'T12:00:00');if(Number.isNaN(b.getTime()))return '';const now=new Date();let age=now.getFullYear()-b.getFullYear();const m=now.getMonth()-b.getMonth();if(m<0||(m===0&&now.getDate()<b.getDate()))age--;return age>=0&&age<130?String(age):''}
 function cleanupLegacyIdentity(birthValue=''){
-  const target=resolveTarget()||document;
+  const target=document;
   [...target.querySelectorAll('input,select,textarea')].filter(el=>!el.closest('.rm-identity')).forEach(el=>{const kind=legacyIdentityKind(el);if(!kind)return;if(kind==='age'&&birthValue)setSource(el,ageFromBirth(birthValue));hideDuplicateSource(el)});
   [...target.querySelectorAll('h1,h2,h3,h4,legend')].forEach(h=>{if(h.closest('.rm-identity')||!/^\s*identifica[cç][aã]o\s*$/i.test(h.textContent||''))return;const block=h.closest('section,fieldset,.card,.panel,.form-section,.patient-info,.identity-section')||h.parentElement;if(!block||block.closest('.rm-identity'))return;const controls=[...block.querySelectorAll('input,select,textarea')];if(controls.length&&controls.every(el=>Boolean(legacyIdentityKind(el)))){block.dataset.rmLegacyIdentity='hidden';block.hidden=true;block.style.setProperty('display','none','important');block.setAttribute('aria-hidden','true')}else if(!controls.length){h.hidden=true;h.style.setProperty('display','none','important')}});
 }
