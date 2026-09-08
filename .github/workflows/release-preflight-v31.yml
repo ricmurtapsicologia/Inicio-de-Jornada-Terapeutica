@@ -32,17 +32,18 @@ jobs:
       - run: node tests/bdi2-content-lock.test.mjs
       - run: node tests/hero-variants.test.mjs
       - run: node tests/branded-questionnaires.test.mjs
-      - name: Release remains disabled before live E2E
+      - name: Client remains disabled until E2E 15/15
         run: |
           node - <<'NODE'
           const fs=require('fs');
           const t=JSON.parse(fs.readFileSync('assets/screening-transport-v3.json','utf8'));
-          if(t.enabled!==false||t.bridgeUrl!=='')throw new Error('transport must remain disabled before live E2E');
+          if(t.enabled!==false)throw new Error('transport client must remain disabled until E2E 15/15');
+          if(!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(String(t.bridgeUrl||'')))throw new Error('deployed Web App bridge URL required');
           const p=JSON.parse(fs.readFileSync('assets/screening-public-experience-v2.json','utf8'));
           const ids=Object.keys(p.instruments||{});
           if(ids.length!==15)throw new Error('expected 15 instruments');
-          for(const id of ids)if(p.instruments[id].productionReady!==false)throw new Error('productionReady must remain false: '+id);
-          console.log('RELEASE_DISABLED_UNTIL_LIVE_E2E_PASS');
+          for(const id of ids)if(p.instruments[id].productionReady!==false)throw new Error('productionReady must remain false until final certification: '+id);
+          console.log('CLIENT_DISABLED_WITH_LIVE_WEBAPP_UNTIL_E2E_15_PASS');
           NODE
       - name: No secrets in public source
         run: |
