@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const VERSION='3.1.1-specific-heroes';
+const VERSION='3.1.2-specific-heroes';
 const REPOS={
   'Rastreioclinico':'geral','rastreioTDAH':'tdah','tab-bateria-integrada':'bipolar',
   'Inventario-de-Tracos-Borderline':'borderline','bateria.narcisismo':'narcisismo',
