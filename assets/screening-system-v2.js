@@ -25,28 +25,7 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 function today(){const d=new Date();const local=new Date(d.getTime()-d.getTimezoneOffset()*60000);return local.toISOString().slice(0,10)}
 function removeSplash(){document.querySelectorAll('#splash,.splash,[class*="splash-screen" i],[id*="splash-screen" i]').forEach(n=>n.remove());document.querySelectorAll('#mainContent,main,.container').forEach(n=>{n.classList.add('show');n.hidden=false})}
 function removeWhatsApp(){document.querySelectorAll('a[href*="wa.me"],a[href*="whatsapp" i],[id*="whats" i],[class*="whats" i]').forEach(n=>n.remove())}
-const HERO_SCENES=Object.freeze({
-  geral:{alt:'Visão ampla do momento emocional.',art:'<circle cx="350" cy="205" r="118"/><circle cx="350" cy="205" r="62"/><path d="M75 300 C190 105 510 105 625 300"/>'},
-  tdah:{alt:'Atenção, organização e foco.',art:'<circle cx="350" cy="205" r="48"/><path d="M90 90 L350 205 M130 300 L350 205 M260 70 L350 205 M575 105 L350 205 M590 300 L350 205"/>'},
-  bipolar:{alt:'Oscilações de humor, energia e ritmo.',art:'<path d="M55 150 C125 55 195 55 265 150 S405 245 475 150 S585 55 645 150"/><path d="M55 285 C125 220 195 220 265 285 S405 350 475 285 S585 220 645 285"/>'},
-  borderline:{alt:'Emoções, identidade e relações.',art:'<ellipse cx="285" cy="205" rx="135" ry="155"/><ellipse cx="430" cy="205" rx="135" ry="155"/><path d="M357 50 C325 150 325 260 357 360"/>'},
-  narcisismo:{alt:'Autoimagem, reconhecimento e reflexo.',art:'<path d="M155 78 Q292 108 325 205 Q292 302 155 332"/><path d="M545 78 Q408 108 375 205 Q408 302 545 332"/><path d="M350 48 L350 362"/>'},
-  impulsividade:{alt:'Decisão, planejamento e controle de impulsos.',art:'<path d="M80 300 L250 120 L310 208 L420 85 L402 220 L620 145"/><path d="M85 338 L270 250 L360 305 L600 255"/>'},
-  esquemas:{alt:'Padrões emocionais em camadas.',art:'<path d="M95 305 C205 222 490 222 605 305"/><path d="M125 250 C230 178 465 178 575 250"/><path d="M165 195 C265 138 425 138 535 195"/>'},
-  modos:{alt:'Diferentes estados emocionais e modos de enfrentamento.',art:'<path d="M130 292 L205 105 L350 62 L505 118 L580 300 L410 350 L240 340 Z"/><path d="M205 105 L350 215 L505 118 M130 292 L350 215 L580 300 M240 340 L350 215 L410 350"/>'},
-  necessidades:{alt:'Necessidades emocionais, raízes e sustentação.',art:'<path d="M350 62 L350 205"/><path d="M350 205 C290 245 248 290 210 352 M350 205 C320 270 320 315 315 360 M350 205 C410 245 455 295 492 350"/><path d="M350 205 C280 170 230 140 170 112 M350 205 C422 168 475 138 542 110"/>'},
-  codependencia:{alt:'Autonomia, limites e cuidado nas relações.',art:'<ellipse cx="258" cy="210" rx="112" ry="145"/><ellipse cx="458" cy="210" rx="112" ry="145"/><path d="M315 212 C350 193 367 193 400 212"/>'},
-  icaps:{alt:'Clareza para decisões importantes no relacionamento.',art:'<path d="M115 344 C130 240 210 130 330 78"/><path d="M585 344 C570 240 490 130 370 78"/><path d="M350 65 L350 345"/>'},
-  risco:{alt:'Segurança emocional e proteção no momento atual.',art:'<path d="M350 88 L290 330 L410 330 Z"/><path d="M350 115 L350 300"/><path d="M350 95 L180 55 M350 95 L520 55"/>'},
-  humor:{alt:'Acompanhamento do humor ao longo do tempo.',art:'<path d="M60 260 C155 232 245 286 340 260 S535 232 640 260"/><path d="M60 185 C155 157 245 211 340 185 S535 157 640 185"/><circle cx="500" cy="105" r="48"/>'},
-  ansiedade:{alt:'Sinais de ansiedade e tensão.',art:'<path d="M80 118 C160 58 220 330 300 270 S440 70 620 135"/><path d="M80 285 C160 345 225 82 305 145 S445 332 620 270"/><path d="M350 52 L350 358"/>'},
-  autoestima:{alt:'Autopercepção, forma e reflexo.',art:'<path d="M210 85 C126 144 132 292 230 338 C315 377 405 320 414 228 C422 144 341 74 260 96"/><path d="M490 118 C561 170 555 279 482 323 C423 358 365 327 344 278"/><path d="M350 65 L350 350"/>'}
-});
-function heroForInstrument(id){
-  const scene=HERO_SCENES[id]||HERO_SCENES.geral;
-  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 410"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#f2f3f3"/><stop offset="1" stop-color="#d7dcdd"/></linearGradient><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2"/><feComponentTransfer><feFuncA type="table" tableValues="0 .05"/></feComponentTransfer></filter></defs><rect width="700" height="410" fill="url(#g)"/><rect width="700" height="410" filter="url(#n)" opacity=".6"/><g fill="none" stroke="#3d4346" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".78">${scene.art}</g><path d="M350 46 L350 364" fill="none" stroke="#8b6d4b" stroke-width="2.5" opacity=".75"/></svg>`;
-  return {src:'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg),alt:scene.alt};
-}
+function heroForInstrument(){return null}
 function hideLegacyPresentation(){
   ['header.hero','.banner-wrap','section.intro','.instrument-hero'].forEach(sel=>document.querySelectorAll(sel).forEach(n=>{if(!n.closest('.rm-screening-shell'))n.hidden=true}));
   document.querySelectorAll('h1,h2,.technical-label,.instrument-name').forEach(h=>{
