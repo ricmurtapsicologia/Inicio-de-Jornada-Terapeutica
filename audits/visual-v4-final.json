@@ -1,0 +1,139 @@
+{
+  "status": "PASS",
+  "version": "4.0.0",
+  "totalInstruments": 15,
+  "uniqueHeroes": 15,
+  "splashMinMs": 1850,
+  "canonicalHeroSource": "local repository assets",
+  "legacySvgGenerator": false,
+  "repoSanitizationCommits": {
+    "geral": "d20a6fb8c6a28931aba17dbcda63725f0af70080",
+    "tdah": "e0ddfad7ebdf8d9c63151bb4bd8b67915340d08a",
+    "bipolar": "9a01d9349e987074fe989d0e278795438ea992ec",
+    "borderline": "bf1b425b98867d9bb70c4e325c62d5d08cf6da50",
+    "narcisismo": "829d222ee03d5a5052df006381d99a98ba61529d",
+    "impulsividade": "ac50759546b83dda16a370b3e01b1823d4e6863c",
+    "esquemas": "cedf7530e5582c602270eab57e7074f7584fd76c",
+    "modos": "b2934a186da442f9616e7b122473c4b13d857b5b",
+    "necessidades": "712809069d7d0472f287b03ed1677e1961f7cc7a",
+    "codependencia": "39f9baf034350214bccf6d921c4f9c951e55f31f",
+    "icaps": "acb797b218526807ad59f46e809afb09ddcd8c78",
+    "risco": "8c4b6bbe593bf7a926f7c78dd0512a8bd49940fe"
+  },
+  "heroes": [
+    {
+      "id": "geral",
+      "title": "RAC-5TR — Rastreio Autoaplicável Clínico",
+      "path": "assets/heroes/geral.jpg",
+      "bytes": 657282,
+      "sha256": "bf8d9e6aabee11597f23715a994aef25e5016ef4ea4b7e1db2fd3fdd8f9f1cc8"
+    },
+    {
+      "id": "tdah",
+      "title": "EIR-TDAH-A — Escala Integrada de Rastreio para TDAH",
+      "path": "assets/heroes/tdah.jpg",
+      "bytes": 255514,
+      "sha256": "e4534d058bd8f1801d1c78bf0e44302803e99874905030fac5340965e1d94d9d"
+    },
+    {
+      "id": "bipolar",
+      "title": "Bateria de Rastreio — Transtorno Afetivo Bipolar (TAB)",
+      "path": "assets/heroes/bipolar.jpg",
+      "bytes": 90339,
+      "sha256": "5ae0c70564a71ceb11a94d4771389042c0bbf802fa5b19775976fb0d88672cb7"
+    },
+    {
+      "id": "borderline",
+      "title": "Inventário de Traços Borderline",
+      "path": "assets/heroes/borderline.jpg",
+      "bytes": 156623,
+      "sha256": "b43dcc58574c353bcc0a79daf09e8bb05b7390b6dfd63f2721ef080f4086000b"
+    },
+    {
+      "id": "narcisismo",
+      "title": "Bateria de Rastreio — Traços Narcisistas",
+      "path": "assets/heroes/narcisismo.jpg",
+      "bytes": 84400,
+      "sha256": "eb9335c086dec08e98e9b9bf59b56cbee52e5eb2a9dd89d7c620839e57bdf574"
+    },
+    {
+      "id": "impulsividade",
+      "title": "Barratt Impulsiveness Scale — BIS-11",
+      "path": "assets/heroes/impulsividade.jpg",
+      "bytes": 599899,
+      "sha256": "8e22f2ece4c93929d0b0a733012db25f9c0aca9347932b80d7c4d3c4fb4c253d"
+    },
+    {
+      "id": "esquemas",
+      "title": "Mapa de Esquemas — Inventário de Padrões Emocionais",
+      "path": "assets/heroes/esquemas.jpg",
+      "bytes": 554195,
+      "sha256": "8c152b3917aa2d45bda3e0d80a8f48742b6321aa0453648799c1a25671c49963"
+    },
+    {
+      "id": "modos",
+      "title": "SMI 1.1 — Inventário de Modos Esquemáticos",
+      "path": "assets/heroes/modos.jpg",
+      "bytes": 236668,
+      "sha256": "1d30aeae57572fad6c39ba0c9cb2edda2f5da509081bd9c1b87681132b1e4588"
+    },
+    {
+      "id": "necessidades",
+      "title": "Escala de Rastreio de Necessidades Emocionais",
+      "path": "assets/heroes/necessidades.jpg",
+      "bytes": 213105,
+      "sha256": "70e0b4e4b2e3d6904f408c79af2e81445201812c50e87994f8ffcafeb4ae17d0"
+    },
+    {
+      "id": "codependencia",
+      "title": "Escala de Dependência e Codependência Emocional",
+      "path": "assets/heroes/codependencia.jpg",
+      "bytes": 171107,
+      "sha256": "29db58c8c1243fcb9944788f1d038d28d5aef33acd9920e55d8bd4cb6673e3f2"
+    },
+    {
+      "id": "icaps",
+      "title": "ICAPS — Inventário Clínico para Avaliação de Prontidão para Separação",
+      "path": "assets/heroes/icaps.jpg",
+      "bytes": 233553,
+      "sha256": "b41146ca9a462eb5a08f7673398f83fcaf1ebda1c4b9cf460b14f555f4019cea"
+    },
+    {
+      "id": "risco",
+      "title": "EIR-RS — Escala Integrada de Risco de Suicídio",
+      "path": "assets/heroes/risco.jpg",
+      "bytes": 737178,
+      "sha256": "aeee031cb83df5ae4f36ea28c6d50c9b812edd21dc557e23ba4c66ffac182ab7"
+    },
+    {
+      "id": "humor",
+      "title": "Inventário de Depressão de Beck — BDI-II",
+      "path": "assets/heroes/humor.jpg",
+      "bytes": 206889,
+      "sha256": "0d19b0408a36cf8d4e84afc2791f33862d6f381d83d4b9d165cd0034a0528f6e"
+    },
+    {
+      "id": "ansiedade",
+      "title": "Monitoramento de Ansiedade — estrutura HAM-A (autorrelato adaptado)",
+      "path": "assets/heroes/ansiedade.jpg",
+      "bytes": 304570,
+      "sha256": "d11835b633cda8de3669600db1778c5f225655c7ccd841f1de1f3f2c756cdcd1"
+    },
+    {
+      "id": "autoestima",
+      "title": "Escala de Autoestima de Rosenberg — RSES-BR",
+      "path": "assets/heroes/autoestima.jpg",
+      "bytes": 340768,
+      "sha256": "f345b8b7c0bf536b7985b16da3be172b581a13af1937a0f3543d48418d65e1c1"
+    }
+  ],
+  "gates": [
+    "15/15 heroes locais",
+    "15/15 hashes únicos",
+    "nomes clínicos sincronizados catálogo/hero",
+    "HERO_SCENES removido",
+    "v3 visual removido",
+    "splash única e clínica",
+    "cache-bust v4"
+  ]
+}

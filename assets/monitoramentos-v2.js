@@ -21,7 +21,7 @@ const schemas={
     ]
   },
   humor:{
-    title:'Humor e sintomas depressivos',eyebrow:'Jornada Terapêutica · Monitoramento',
+    title:'Inventário de Depressão de Beck — BDI-II',eyebrow:'Jornada Terapêutica · Monitoramento',
     intro:'Considere como você tem se sentido nas últimas duas semanas, incluindo hoje. Em cada grupo, escolha a alternativa que melhor descreve seu momento atual.',
     endpoint:ENDPOINT+'1FAIpQLSfOwfOe9OAx_XgnsEMa8FzV2QJR8-ZkHmGD2gWEOcBeK41Odw/formResponse',
     safetyEntry:'1525923391',
@@ -51,7 +51,7 @@ const schemas={
     ]
   },
   ansiedade:{
-    title:'Monitoramento de Ansiedade',eyebrow:'Jornada Terapêutica · Monitoramento',
+    title:'Monitoramento de Ansiedade — estrutura HAM-A (autorrelato adaptado)',eyebrow:'Jornada Terapêutica · Monitoramento',
     intro:'Para cada situação, indique a intensidade percebida no seu momento atual. O objetivo é acompanhar mudanças ao longo do processo terapêutico.',
     endpoint:ENDPOINT+'1FAIpQLSdCuc1WnzTjMbRSyNmS5kuyG1NsaG95zMDO0v0GMABH8zodhg/formResponse',
     fields:[
@@ -73,7 +73,7 @@ const schemas={
     ]
   },
   autoestima:{
-    title:'Monitoramento de Autoestima',eyebrow:'Jornada Terapêutica · Monitoramento',
+    title:'Escala de Autoestima de Rosenberg — RSES-BR',eyebrow:'Jornada Terapêutica · Monitoramento',
     intro:'Leia cada afirmação e escolha a alternativa que melhor representa como você se percebe neste momento.',
     endpoint:ENDPOINT+'1FAIpQLScu5CuRbE_UB829g4GqzMJyfm6J6sEdfw_xPUPEA3yMy6-6aw/formResponse',
     fields:[
