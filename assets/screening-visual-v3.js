@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const VERSION='3.0.1-photo-heroes-15';
+const VERSION='3.1.0-specific-heroes';
 const REPOS={
   'Rastreioclinico':'geral','rastreioTDAH':'tdah','tab-bateria-integrada':'bipolar',
   'Inventario-de-Tracos-Borderline':'borderline','bateria.narcisismo':'narcisismo',
@@ -8,32 +8,39 @@ const REPOS={
   'rastreiomodosesquematicos':'modos','Escala-de-Necessidades-Emocionais':'necessidades',
   'Escala-de-Co-Depenpencia-Emocional':'codependencia','ICAPS':'icaps','TriagemRiscoSuicidio':'risco'
 };
-const PHOTO_BASE='https://images.unsplash.com/';
-const PHOTO_ARGS='?auto=format&fit=crop&w=1800&q=88';
-const PHOTOS=Object.freeze({
-  geral:{id:'photo-1494790108377-be9c29b29330',alt:'Pessoa em momento de reflexão e autocuidado.'},
-  tdah:{id:'photo-1455390582262-044cdead277a',alt:'Pessoa organizando tarefas e escrevendo em um caderno.'},
-  bipolar:{id:'photo-1506126613408-eca07ce68773',alt:'Pessoa em ambiente calmo, voltada ao equilíbrio e à autorregulação.'},
-  borderline:{id:'photo-1544005313-94ddf0286df2',alt:'Pessoa em retrato sereno e contemplativo.'},
-  narcisismo:{id:'photo-1524504388940-b1c1722653e1',alt:'Pessoa em retrato natural relacionado à autoimagem e percepção de si.'},
-  impulsividade:{id:'photo-1507003211169-0a1dd7228f2d',alt:'Pessoa em pausa reflexiva antes de tomar decisões.'},
-  esquemas:{id:'photo-1516321318423-f06f85e504b3',alt:'Pessoa registrando e organizando pensamentos em contexto cotidiano.'},
-  modos:{id:'photo-1487412720507-e7ab37603c6f',alt:'Pessoa em ambiente acolhedor de reflexão psicológica.'},
-  necessidades:{id:'photo-1508214751196-bcfd4ca60f91',alt:'Pessoa em contexto acolhedor relacionado a necessidades emocionais e autocuidado.'},
-  codependencia:{id:'photo-1529156069898-49953e39b3ac',alt:'Pessoas em interação, representando vínculos, limites e autonomia nas relações.'},
-  icaps:{id:'photo-1521737604893-d14cc237f11d',alt:'Pessoas conversando e ponderando decisões importantes.'},
-  risco:{id:'photo-1500534314209-a25ddb2bd429',alt:'Caminho aberto em ambiente natural, associado a proteção, continuidade e possibilidade de cuidado.'},
-  humor:{id:'photo-1500648767791-00dcc994a43e',alt:'Pessoa em retrato natural para acompanhamento do humor e do estado emocional.'},
-  ansiedade:{id:'photo-1527980965255-d3b416303d12',alt:'Pessoa em momento de pausa e reflexão, associado à observação de sinais de ansiedade.'},
-  autoestima:{id:'photo-1534528741775-53994a69daeb',alt:'Pessoa em retrato natural relacionado à autopercepção e autoestima.'}
+const SHARED_BASE='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/heroes/';
+const UNSPLASH_BASE='https://images.unsplash.com/';
+const UNSPLASH_ARGS='?auto=format&fit=crop&w=1800&q=88';
+const HEROES=Object.freeze({
+  geral:{src:SHARED_BASE+'geral.webp',alt:'Painel simbólico de rastreio emocional com sono, energia, atenção, emoções e relações.',credit:false},
+  tdah:{src:SHARED_BASE+'tdah.webp',alt:'Mesa de organização e foco com planner, timer, tarefas e elementos de manejo atencional.',credit:false},
+  bipolar:{src:SHARED_BASE+'bipolar.webp',alt:'Diário de acompanhamento do humor com ritmos de sono, energia, relações e autocuidado.',credit:false},
+  borderline:{src:SHARED_BASE+'borderline.webp',alt:'Composição terapêutica sobre identidade, intensidade emocional e padrões relacionais, com espelho segmentado e símbolos de vínculo.',credit:false},
+  narcisismo:{src:SHARED_BASE+'narcisismo.webp',alt:'Composição sobre autoimagem, percepção de si e relação entre o eu e os outros.',credit:false},
+  impulsividade:{src:SHARED_BASE+'impulsividade.webp',alt:'Composição sobre pausa, escolha, tempo de resposta e autorregulação.',credit:false},
+  esquemas:{src:SHARED_BASE+'esquemas.webp',alt:'Mapa visual de esquemas centrais ligados a proteção, vulnerabilidade, autonomia, desempenho e pertencimento.',credit:false},
+  modos:{src:SHARED_BASE+'modos.webp',alt:'Cartões terapêuticos representando modos vulnerável, impulsivo, crítico, protetor e adulto saudável.',credit:false},
+  necessidades:{src:SHARED_BASE+'necessidades.webp',alt:'Cartões de necessidades emocionais: segurança, autonomia, conexão, espontaneidade, limites e autocuidado.',credit:false},
+  rac5tr:{src:SHARED_BASE+'rac5tr.webp',alt:'Instrumento clínico multidimensional com domínios de humor, sono, cognição, relações e funcionamento.',credit:false},
+  codependencia:{src:`${UNSPLASH_BASE}photo-1529156069898-49953e39b3ac${UNSPLASH_ARGS}`,alt:'Pessoas em interação, representando vínculos, limites e autonomia nas relações.',credit:true},
+  icaps:{src:`${UNSPLASH_BASE}photo-1521737604893-d14cc237f11d${UNSPLASH_ARGS}`,alt:'Pessoas conversando e ponderando decisões importantes.',credit:true},
+  risco:{src:`${UNSPLASH_BASE}photo-1500534314209-a25ddb2bd429${UNSPLASH_ARGS}`,alt:'Caminho aberto em ambiente natural, associado a proteção, continuidade e possibilidade de cuidado.',credit:true},
+  humor:{src:`${UNSPLASH_BASE}photo-1500648767791-00dcc994a43e${UNSPLASH_ARGS}`,alt:'Acompanhamento do humor e do estado emocional.',credit:true},
+  ansiedade:{src:`${UNSPLASH_BASE}photo-1527980965255-d3b416303d12${UNSPLASH_ARGS}`,alt:'Pausa e reflexão associadas à observação de sinais de ansiedade.',credit:true},
+  autoestima:{src:`${UNSPLASH_BASE}photo-1534528741775-53994a69daeb${UNSPLASH_ARGS}`,alt:'Autopercepção e autoestima.',credit:true}
 });
 function instrument(){
   const seg=location.pathname.split('/').filter(Boolean)[0]||'';
   if(seg==='Inicio-de-Jornada-Terapeutica')return new URLSearchParams(location.search).get('instrument')||'geral';
   return REPOS[seg]||'geral';
 }
+function resolveInstrument(){
+  const id=instrument();
+  if(id==='geral' && /RAC-5TR|Rastreio Autoaplicável Clínico/i.test(document.body.innerText||'')) return 'rac5tr';
+  return id;
+}
 function splash(){return document.getElementById('rmClinicalSplash')}
-function photoFor(id){const p=PHOTOS[id]||PHOTOS.geral;return {src:`${PHOTO_BASE}${p.id}${PHOTO_ARGS}`,alt:p.alt}}
+function heroFor(id){return HEROES[id]||HEROES.geral}
 function updateSplashTitle(){
   const s=splash();if(!s)return;
   const h=document.querySelector('.rm-screening-shell h1');
@@ -75,8 +82,11 @@ function stripLegacyBackgrounds(){
     el.style.setProperty('background-image','none','important');
   });
 }
-function ensureCredit(visual){
-  if(!visual||visual.querySelector('.rm-photo-credit'))return;
+function setCredit(visual,hero){
+  if(!visual)return;
+  const old=visual.querySelector('.rm-photo-credit');
+  if(old)old.remove();
+  if(!hero.credit)return;
   const a=document.createElement('a');
   a.className='rm-photo-credit';
   a.href='https://unsplash.com/license';
@@ -90,8 +100,8 @@ function applyPhotoHero(){
   const shell=document.querySelector('.rm-screening-shell');
   if(!shell)return false;
   document.body.classList.add('rm-photo-heroes');
-  const id=instrument();
-  const hero=photoFor(id);
+  const id=resolveInstrument();
+  const hero=heroFor(id);
   const visual=shell.querySelector('.rm-screening-visual');
   const img=visual?.querySelector('img');
   if(img){
@@ -100,11 +110,11 @@ function applyPhotoHero(){
     img.loading='eager';
     img.decoding='async';
     img.referrerPolicy='strict-origin-when-cross-origin';
-    img.title='Fotografia: Unsplash · licença Unsplash';
-    img.dataset.photoSource='Unsplash';
-    img.dataset.photoLicense='Unsplash License';
+    img.title='Imagem temática do rastreio';
+    img.dataset.photoSource=hero.credit?'Unsplash':'Richelmy Murta · Psicologia Clínica';
+    img.dataset.photoLicense=hero.credit?'Unsplash License':'Asset próprio do projeto';
   }
-  ensureCredit(visual);
+  setCredit(visual,hero);
   updateSplashTitle();
   removeLegacyImageNodes();
   stripLegacyBackgrounds();
