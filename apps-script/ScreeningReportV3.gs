@@ -23,11 +23,17 @@ function buildScreeningClinicalReport_(data) {
     reportRow_('Versão/contrato', instrument.version || 'vigente')
   ].join('')));
 
-  sections.push(reportSection_('Completude e validade técnica', [
-    reportRow_('Status', result.valid === false ? 'Inválido / incompleto' : 'Válido para interpretação'),
+  sections.push(reportSection_('Completude técnica', [
+    reportRow_('Status', result.valid === false ? 'Incompleto para processamento' : 'Completo para processamento'),
     reportRow_('Itens respondidos', reportCount_(result.answeredCount, result.totalCount)),
     result.missingCount != null ? reportRow_('Itens ausentes', result.missingCount) : '',
     result.validityNote ? reportParagraph_(result.validityNote) : ''
+  ].join('')));
+
+  sections.push(reportSection_('Qualidade interpretativa', [
+    reportRow_('Classe de evidência interna', result.evidenceClass || '—'),
+    reportRow_('Status interpretativo', result.evidenceStatus || 'Interpretação contextual'),
+    result.evidenceNote ? reportParagraph_(result.evidenceNote) : ''
   ].join('')));
 
   sections.push(reportSection_('Resultado geral', [
@@ -47,7 +53,8 @@ function buildScreeningClinicalReport_(data) {
   }
 
   if (Array.isArray(result.indicators) && result.indicators.length) {
-    sections.push(reportSection_('Indicadores clinicamente relevantes', reportList_(result.indicators)));
+    const title = result.urgent === true ? 'Sinais de segurança — revisão prioritária' : 'Indicadores clinicamente relevantes';
+    sections.push(reportSection_(title, reportList_(result.indicators)));
   }
 
   if (Array.isArray(result.noteworthyResponses) && result.noteworthyResponses.length) {

@@ -1,0 +1,188 @@
+{
+  "version": "5.0.0",
+  "generatedBy": "tools/canonicalize_screenings_v5.py",
+  "scope": "Jornada Terapêutica + 15 rastreios",
+  "principles": [
+    "um hero por página",
+    "nome idêntico entre Jornada e hero",
+    "imagem semanticamente relacionada ao construto",
+    "sem ponto de corte inventado",
+    "rastreio não equivale a diagnóstico",
+    "alto risco nunca classificado automaticamente como ausência de risco"
+  ],
+  "heroes": [
+    {
+      "id": "geral",
+      "name": "RAC-5TR",
+      "file": "assets/heroes/geral.jpg",
+      "bytes": 579189,
+      "sha256": "d823da15dcfdc8b5545870712829ee09e2388f4c60f6de0eaf4b8f5ac98fae0c",
+      "alt": "Checklist e materiais de avaliação clínica organizados sobre uma mesa, sem retratos.",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Exploratório/descritivo",
+      "evidenceNote": "Instrumento integrativo próprio; usar como organização dimensional, sem corte diagnóstico."
+    },
+    {
+      "id": "tdah",
+      "name": "TDAH Adulto — EIR-TDAH-A",
+      "file": "assets/heroes/tdah.jpg",
+      "bytes": 968231,
+      "sha256": "1ae6f7618752a5dcf1f7e40fe8b32f204a31ae3815ab7362e95c31f87b0f3277",
+      "alt": "Mesa de trabalho com agenda, lembretes e organização de tarefas, sem retratos.",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Exploratório/descritivo",
+      "evidenceNote": "Rastreio dimensional próprio; não equivale a ASRS, DIVA-5 ou diagnóstico de TDAH."
+    },
+    {
+      "id": "bipolar",
+      "name": "Bipolaridade — TAB",
+      "file": "assets/heroes/bipolar.jpg",
+      "bytes": 193875,
+      "sha256": "c16cfd66bfcf543e430983134c991abd92334875bcb53c493e20843eb4ebd358",
+      "alt": "Calendário e relógio representando ritmo, sono e curso temporal, sem retratos.",
+      "evidenceClass": "B",
+      "interpretiveStatus": "Triagem composta contextual",
+      "evidenceNote": "Integra componentes de rastreio conhecidos; interpretação depende de curso temporal, prejuízo e diagnóstico diferencial."
+    },
+    {
+      "id": "borderline",
+      "name": "Traços Borderline",
+      "file": "assets/heroes/borderline.jpg",
+      "bytes": 799098,
+      "sha256": "8a202756532717018f8b87042ea86037264b5f083c85cd51ea3f0947464b8f4e",
+      "alt": "Espelho fragmentado representando identidade e integração de experiências, sem retratos.",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Provisório/dimensional",
+      "evidenceNote": "Instrumento local sem ponto de corte psicométrico validado; interpretar apenas de forma dimensional."
+    },
+    {
+      "id": "narcisismo",
+      "name": "Traços Narcísicos",
+      "file": "assets/heroes/narcisismo.jpg",
+      "bytes": 1001109,
+      "sha256": "148b07640882e5dc8b81c5d42d17367ce448570e6fd743046b15b5148bcb0d89",
+      "alt": "Espelho e objetos de autorrepresentação em composição sóbria, sem retratos.",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Provisório/dimensional",
+      "evidenceNote": "Bateria local integrada; não converter contagens e médias em probabilidade diagnóstica."
+    },
+    {
+      "id": "impulsividade",
+      "name": "Impulsividade — BIS-11",
+      "file": "assets/heroes/impulsividade.jpg",
+      "bytes": 836008,
+      "sha256": "ca857fc03bc00f6681caa6ee9c6f67528e1bbff459124ad6778222034f772b5d",
+      "alt": "Ampulheta representando a pausa entre impulso, decisão e ação, sem retratos.",
+      "evidenceClass": "A",
+      "interpretiveStatus": "Padronizado/dimensional",
+      "evidenceNote": "BIS-11 com escore total e fatores; sem ponto de corte diagnóstico automático."
+    },
+    {
+      "id": "esquemas",
+      "name": "Esquemas",
+      "file": "assets/heroes/esquemas.jpg",
+      "bytes": 153855,
+      "sha256": "4ec2a79ccc5097397c24549cb48804107918c02dd5e291fe5671d0484ecc7cb9",
+      "alt": "Quadro com cartões agrupados representando padrões recorrentes e formulação, sem retratos.",
+      "evidenceClass": "B",
+      "interpretiveStatus": "Clínico/operacional",
+      "evidenceNote": "Mapeamento item→esquema versionado; faixas são operacionais e exigem formulação clínica."
+    },
+    {
+      "id": "modos",
+      "name": "Modos Esquemáticos",
+      "file": "assets/heroes/modos.jpg",
+      "bytes": 450696,
+      "sha256": "03fedc3092af4d89933edd002249c022a42288837ea185a81c61e257f451d463",
+      "alt": "Mesa de formulação com cartões e estados organizados, sem retratos.",
+      "evidenceClass": "B",
+      "interpretiveStatus": "Clínico/dimensional",
+      "evidenceNote": "SMI em perfil dimensional; percentuais não devem ser tratados como gravidade diagnóstica."
+    },
+    {
+      "id": "necessidades",
+      "name": "Necessidades Emocionais",
+      "file": "assets/heroes/necessidades.jpg",
+      "bytes": 785889,
+      "sha256": "b337265807a208897a5a8be9259945f49ad0221d83d9c90cc5881054f6c02fa5",
+      "alt": "Caderno em ambiente acolhedor representando segurança, vínculo e cuidado, sem retratos.",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Exploratório/descritivo",
+      "evidenceNote": "Escala clínica local; priorizar perfil relativo dos domínios, não rótulos de deficiência."
+    },
+    {
+      "id": "codependencia",
+      "name": "Codependência",
+      "file": "assets/heroes/codependencia.jpg",
+      "bytes": 226136,
+      "sha256": "a7f569bbee35f945bde7212d06dbaa948fa7c36f8bed2d3ca8524009e369af95",
+      "alt": "Nó em cordas representando vínculo, limites e autonomia, sem retratos.",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Exploratório/descritivo",
+      "evidenceNote": "Dois blocos descritivos, sem ponto de corte validado no sistema."
+    },
+    {
+      "id": "icaps",
+      "name": "ICAPS — Prontidão para Separação",
+      "file": "assets/heroes/icaps.jpg",
+      "bytes": 115760,
+      "sha256": "40e571d4ca1cbb809417c887c304607d0386d2d5f635beee0b4a92fff9d15778",
+      "alt": "Sinalização de duas direções representando decisão e prontidão para mudança, sem retratos.",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Clínico local/descritivo",
+      "evidenceNote": "Seis dimensões 0–100; não determina decisão conjugal e não possui ponto de corte psicométrico validado."
+    },
+    {
+      "id": "risco",
+      "name": "Risco Suicida — EIR-RS",
+      "file": "assets/heroes/risco.jpg",
+      "bytes": 377596,
+      "sha256": "825eec3937dca4a418e26bb9e1caffa1f5b31dff033abb70e11ca5528951bcc2",
+      "alt": "Telefone e bloco de plano de segurança em mesa de apoio, sem imagens de método ou gatilho.",
+      "evidenceClass": "D",
+      "interpretiveStatus": "Alta criticidade/revisão obrigatória",
+      "evidenceNote": "Instrumento local de apoio. Nunca deve declarar ausência de risco nem substituir avaliação clínica de risco."
+    },
+    {
+      "id": "humor",
+      "name": "Depressão — BDI-II",
+      "file": "assets/heroes/humor.jpg",
+      "bytes": 206889,
+      "sha256": "0d19b0408a36cf8d4e84afc2791f33862d6f381d83d4b9d165cd0034a0528f6e",
+      "alt": "Imagem sóbria de baixa energia e recolhimento usada no BDI-II, preservada por adequação clínica.",
+      "evidenceClass": "A",
+      "interpretiveStatus": "Padronizado",
+      "evidenceNote": "BDI-II: escore de intensidade; qualquer endosso do item de suicídio exige avaliação contextual."
+    },
+    {
+      "id": "ansiedade",
+      "name": "Ansiedade",
+      "file": "assets/heroes/ansiedade.jpg",
+      "bytes": 351410,
+      "sha256": "0f857d2242942870ceb9fd95a5cf5480aacd391a5ceb416cff132cc9698e8130",
+      "alt": "Fio emaranhado representando tensão, antecipação e dificuldade de relaxamento, sem retratos.",
+      "evidenceClass": "B",
+      "interpretiveStatus": "Adaptação de autorrelato",
+      "evidenceNote": "Estrutura HAM-A adaptada para autorrelato; usar longitudinalmente, sem importar automaticamente gravidade da escala clinician-rated."
+    },
+    {
+      "id": "autoestima",
+      "name": "Autoestima — RSES",
+      "file": "assets/heroes/autoestima.jpg",
+      "bytes": 646838,
+      "sha256": "af187e45c3bb7a4f154bea861f54440346e5f1d93d5805bd3796eb3d6d17663e",
+      "alt": "Caderno de autorreflexão e flores em composição neutra, sem retratos.",
+      "evidenceClass": "A",
+      "interpretiveStatus": "Padronizado/contínuo",
+      "evidenceNote": "Rosenberg: escore contínuo; priorizar contexto e comparação longitudinal, sem corte clínico universal."
+    }
+  ],
+  "globalGates": {
+    "heroCount": 15,
+    "uniqueHeroHashes": 15,
+    "nameCount": 15,
+    "noLegacySvgGenerator": true,
+    "patientDiagnosticResultPolicy": "NO_SCORES_OR_DIAGNOSTIC_INTERPRETATION",
+    "productionReleasePolicy": "Somente após Forms + scorer + E2E por instrumento; nenhum productionReady foi promovido por inferência."
+  }
+}

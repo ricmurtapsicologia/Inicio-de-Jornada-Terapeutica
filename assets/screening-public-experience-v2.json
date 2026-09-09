@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "2.1.0",
+  "schemaVersion": "2.2.0",
   "designSystem": "RM Clinical Screening System v2",
   "technicalLabelsInternalOnly": true,
   "patientResultPolicy": "NO_SCORES_OR_DIAGNOSTIC_INTERPRETATION",
@@ -38,7 +38,7 @@
   },
   "instruments": {
     "geral": {
-      "publicName": "RAC-5TR — Rastreio Autoaplicável Clínico",
+      "publicName": "RAC-5TR",
       "eyebrow": "Rastreio clínico · visão geral",
       "story": "Algumas mudanças aparecem primeiro no sono, na energia, na atenção, nas emoções ou na forma de se relacionar. Este rastreio organiza esses sinais para orientar o que merece ser aprofundado em sessão.",
       "intro": "Responda pensando em como você vem funcionando no período indicado em cada pergunta. O objetivo é organizar informações para a conversa clínica, não definir um diagnóstico.",
@@ -50,10 +50,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Exploratório/descritivo",
+      "evidenceNote": "Instrumento integrativo próprio; usar como organização dimensional, sem corte diagnóstico."
     },
     "tdah": {
-      "publicName": "EIR-TDAH-A — Escala Integrada de Rastreio para TDAH",
+      "publicName": "TDAH Adulto — EIR-TDAH-A",
       "eyebrow": "Rastreio clínico · funcionamento cotidiano",
       "story": "Rotina, foco, organização, controle de impulsos e história de desenvolvimento podem formar padrões diferentes. O questionário ajuda a organizar essas dimensões sem antecipar uma conclusão.",
       "intro": "Considere situações reais do cotidiano e a frequência com que cada descrição se aplica. Responda também os itens de história de vida conforme o período indicado.",
@@ -65,10 +68,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Exploratório/descritivo",
+      "evidenceNote": "Rastreio dimensional próprio; não equivale a ASRS, DIVA-5 ou diagnóstico de TDAH."
     },
     "bipolar": {
-      "publicName": "Bateria de Rastreio — Transtorno Afetivo Bipolar (TAB)",
+      "publicName": "Bipolaridade — TAB",
       "eyebrow": "Rastreio clínico · variações ao longo do tempo",
       "story": "Mudanças marcantes de energia, sono, ritmo, atividade e humor precisam ser entendidas pelo curso temporal, e não por uma resposta isolada.",
       "intro": "Ao responder, diferencie mudanças realmente fora do seu funcionamento habitual de oscilações comuns ligadas ao contexto.",
@@ -80,10 +86,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "B",
+      "interpretiveStatus": "Triagem composta contextual",
+      "evidenceNote": "Integra componentes de rastreio conhecidos; interpretação depende de curso temporal, prejuízo e diagnóstico diferencial."
     },
     "borderline": {
-      "publicName": "Inventário de Traços Borderline",
+      "publicName": "Traços Borderline",
       "eyebrow": "Rastreio clínico · padrões emocionais e relacionais",
       "story": "A forma como emoções intensas, vínculos, autoimagem e impulsos se organizam pode revelar padrões relevantes para o cuidado psicológico.",
       "intro": "Responda pelo padrão que melhor representa seu funcionamento, sem transformar uma experiência isolada em característica permanente.",
@@ -95,10 +104,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Provisório/dimensional",
+      "evidenceNote": "Instrumento local sem ponto de corte psicométrico validado; interpretar apenas de forma dimensional."
     },
     "narcisismo": {
-      "publicName": "Bateria de Rastreio — Traços Narcisistas",
+      "publicName": "Traços Narcísicos",
       "eyebrow": "Rastreio clínico · padrões de funcionamento interpessoal",
       "story": "Autoimagem, necessidade de reconhecimento, reação a críticas, empatia e posição nas relações podem variar de forma adaptativa ou gerar dificuldades.",
       "intro": "Responda como você costuma funcionar nas relações e situações de avaliação, evitando responder pela imagem que gostaria de transmitir.",
@@ -110,10 +122,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Provisório/dimensional",
+      "evidenceNote": "Bateria local integrada; não converter contagens e médias em probabilidade diagnóstica."
     },
     "impulsividade": {
-      "publicName": "Barratt Impulsiveness Scale — BIS-11",
+      "publicName": "Impulsividade — BIS-11",
       "eyebrow": "Rastreio clínico · autorregulação",
       "story": "Algumas decisões acontecem rapidamente; outras exigem planejamento e capacidade de sustentar o foco. O objetivo é mapear esse equilíbrio no cotidiano.",
       "intro": "Responda pela frequência com que cada afirmação descreve seu modo habitual de agir e pensar.",
@@ -125,10 +140,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "A",
+      "interpretiveStatus": "Padronizado/dimensional",
+      "evidenceNote": "BIS-11 com escore total e fatores; sem ponto de corte diagnóstico automático."
     },
     "esquemas": {
-      "publicName": "Mapa de Esquemas — Inventário de Padrões Emocionais",
+      "publicName": "Esquemas",
       "eyebrow": "Terapia do Esquema · padrões de longa duração",
       "story": "Certas maneiras de perceber a si mesmo, os outros e as relações podem reaparecer em contextos diferentes. Mapear essas repetições ajuda a formular o tratamento.",
       "intro": "Responda considerando padrões que se repetem ao longo do tempo e em diferentes situações, não apenas um evento recente.",
@@ -140,10 +158,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "B",
+      "interpretiveStatus": "Clínico/operacional",
+      "evidenceNote": "Mapeamento item→esquema versionado; faixas são operacionais e exigem formulação clínica."
     },
     "modos": {
-      "publicName": "SMI 1.1 — Inventário de Modos Esquemáticos",
+      "publicName": "Modos Esquemáticos",
       "eyebrow": "Terapia do Esquema · estados e respostas",
       "story": "Em situações difíceis, diferentes estados emocionais e formas de enfrentamento podem assumir o comando. O rastreio organiza esses padrões para discussão terapêutica.",
       "intro": "Responda considerando o quanto cada frase descreve estados que aparecem em você, especialmente quando emoções importantes são ativadas.",
@@ -155,10 +176,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "B",
+      "interpretiveStatus": "Clínico/dimensional",
+      "evidenceNote": "SMI em perfil dimensional; percentuais não devem ser tratados como gravidade diagnóstica."
     },
     "necessidades": {
-      "publicName": "Escala de Rastreio de Necessidades Emocionais",
+      "publicName": "Necessidades Emocionais",
       "eyebrow": "Terapia do Esquema · necessidades emocionais",
       "story": "Segurança, vínculo, autonomia, validação, expressão e limites são experiências fundamentais. O questionário ajuda a observar onde há recursos e onde pode existir maior fragilidade.",
       "intro": "Responda sobre como essas necessidades costumam ser vividas por você, considerando relações e situações relevantes.",
@@ -170,10 +194,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Exploratório/descritivo",
+      "evidenceNote": "Escala clínica local; priorizar perfil relativo dos domínios, não rótulos de deficiência."
     },
     "codependencia": {
-      "publicName": "Escala de Dependência e Codependência Emocional",
+      "publicName": "Codependência",
       "eyebrow": "Rastreio clínico · funcionamento relacional",
       "story": "Cuidar, pedir ajuda, decidir sozinho e colocar limites formam um equilíbrio. Este rastreio observa como esse equilíbrio aparece em suas relações.",
       "intro": "Responda pensando no seu funcionamento habitual nas relações importantes, e não apenas em um conflito recente.",
@@ -185,10 +212,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Exploratório/descritivo",
+      "evidenceNote": "Dois blocos descritivos, sem ponto de corte validado no sistema."
     },
     "icaps": {
-      "publicName": "ICAPS — Inventário Clínico para Avaliação de Prontidão para Separação",
+      "publicName": "ICAPS — Prontidão para Separação",
       "eyebrow": "Rastreio clínico · contexto conjugal",
       "story": "Decisões conjugais importantes ficam mais claras quando necessidades, limites, segurança, vínculo e capacidade de mudança são examinados de forma organizada.",
       "intro": "Responda considerando seu momento atual e o padrão real da relação. O instrumento organiza informações para reflexão clínica e não decide por você.",
@@ -200,10 +230,13 @@
       "collectorReady": false,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "C",
+      "interpretiveStatus": "Clínico local/descritivo",
+      "evidenceNote": "Seis dimensões 0–100; não determina decisão conjugal e não possui ponto de corte psicométrico validado."
     },
     "risco": {
-      "publicName": "EIR-RS — Escala Integrada de Risco de Suicídio",
+      "publicName": "Risco Suicida — EIR-RS",
       "eyebrow": "Rastreio clínico · segurança",
       "story": "Algumas respostas exigem cuidado imediato, independentemente de qualquer pontuação. Este fluxo existe para organizar sinais de segurança e orientar avaliação profissional.",
       "intro": "Responda com franqueza e considere exatamente o período indicado. Se o preenchimento aumentar sofrimento ou houver risco atual, interrompa e procure ajuda imediata.",
@@ -216,10 +249,13 @@
       "scorerValidated": false,
       "productionReady": false,
       "dedicatedSafetyFlow": true,
-      "identityProfile": "screening_canonical"
+      "identityProfile": "screening_canonical",
+      "evidenceClass": "D",
+      "interpretiveStatus": "Alta criticidade/revisão obrigatória",
+      "evidenceNote": "Instrumento local de apoio. Nunca deve declarar ausência de risco nem substituir avaliação clínica de risco."
     },
     "humor": {
-      "publicName": "Inventário de Depressão de Beck — BDI-II",
+      "publicName": "Depressão — BDI-II",
       "eyebrow": "Monitoramento clínico · últimas duas semanas",
       "story": "Mudanças no humor, interesse, energia, sono e percepção de si podem ser acompanhadas ao longo do tratamento para revelar tendências que uma conversa isolada não mostra.",
       "intro": "Escolha, em cada grupo, a alternativa que melhor descreve como você tem se sentido nas últimas duas semanas, incluindo hoje.",
@@ -233,10 +269,13 @@
       "productionReady": false,
       "containsSafetyItem": true,
       "identityProfile": "monitoring_longitudinal",
-      "contentLocked": true
+      "contentLocked": true,
+      "evidenceClass": "A",
+      "interpretiveStatus": "Padronizado",
+      "evidenceNote": "BDI-II: escore de intensidade; qualquer endosso do item de suicídio exige avaliação contextual."
     },
     "ansiedade": {
-      "publicName": "Monitoramento de Ansiedade — estrutura HAM-A (autorrelato adaptado)",
+      "publicName": "Ansiedade",
       "eyebrow": "Monitoramento clínico · sintomas atuais",
       "story": "Ansiedade pode aparecer no pensamento, no corpo, no sono e no comportamento. O monitoramento ajuda a acompanhar como essas dimensões variam durante o tratamento.",
       "intro": "Indique a intensidade percebida em cada situação usando o mesmo referencial ao longo do questionário.",
@@ -248,10 +287,13 @@
       "collectorReady": true,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "monitoring_longitudinal"
+      "identityProfile": "monitoring_longitudinal",
+      "evidenceClass": "B",
+      "interpretiveStatus": "Adaptação de autorrelato",
+      "evidenceNote": "Estrutura HAM-A adaptada para autorrelato; usar longitudinalmente, sem importar automaticamente gravidade da escala clinician-rated."
     },
     "autoestima": {
-      "publicName": "Escala de Autoestima de Rosenberg — RSES-BR",
+      "publicName": "Autoestima — RSES",
       "eyebrow": "Monitoramento clínico · autopercepção",
       "story": "A forma como uma pessoa se avalia pode oscilar com experiências, relações e fases do tratamento. Este monitoramento acompanha essa percepção ao longo do tempo.",
       "intro": "Leia cada afirmação e escolha a alternativa que melhor representa como você se percebe neste momento.",
@@ -263,7 +305,10 @@
       "collectorReady": true,
       "scorerValidated": false,
       "productionReady": false,
-      "identityProfile": "monitoring_longitudinal"
+      "identityProfile": "monitoring_longitudinal",
+      "evidenceClass": "A",
+      "interpretiveStatus": "Padronizado/contínuo",
+      "evidenceNote": "Rosenberg: escore contínuo; priorizar contexto e comparação longitudinal, sem corte clínico universal."
     }
   }
 }

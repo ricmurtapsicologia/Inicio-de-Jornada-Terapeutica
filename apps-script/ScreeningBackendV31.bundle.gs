@@ -246,7 +246,7 @@ const SCREENING_SCHEMAS_CONFIG_V3 = Object.freeze({"schemas":[{"id":"PE","nome":
  * - todo resultado é rastreio/monitoramento, nunca diagnóstico isolado.
  */
 
-const SCREENING_SCORING_VERSION = '3.0.0-rc';
+const SCREENING_SCORING_VERSION = '3.1.0';
 
 function scoreScreeningV3_(instrumentId, records) {
   const id = String(instrumentId || '').toLowerCase();
@@ -328,55 +328,57 @@ function scoreTdahV3_(r){
   return {sourceMode:'DESCRIPTIVE_ONLY',classification:'Sem corte diagnóstico',subscales:sub,clinicalMeaning:'Perfil dimensional de atenção, impulsividade, regulação, funcionamento e história. A antiga classificação DSM-like não foi reintroduzida.',caveats:['Não equivale a ASRS, DIVA ou diagnóstico de TDAH.']};
 }
 
-// 3. Bateria bipolar: porta literalmente MDQ/HCL-32/BSDS/MINI da página clínica vigente.
+// 3. Bateria bipolar: componentes de triagem; convergência exige curso temporal e diagnóstico diferencial.
 function scoreBipolarV3_(r){
   if(r.length!==77) throw new Error('BIPOLAR_COUNT:'+r.length);
   let p=0;
   const mdqItems=r.slice(p,p+13);p+=13; const mdqSim=r[p++],mdqImp=r[p++];
   const mdqYes=mdqItems.filter(scYes_).length, simult=scYes_(mdqSim), imp=String(mdqImp.response||'').toLowerCase();
-  const mdqMeets=mdqYes>=8 && simult && (imp.indexOf('moderado')>=0||imp.indexOf('grave')>=0);
+  const mdqMeets=mdqYes>=7 && simult && (imp.indexOf('moderado')>=0||imp.indexOf('grave')>=0);
   const hcl=r.slice(p,p+32);p+=32; const hclYes=hcl.filter(scYes_).length;
-  const hclTier=hclYes>=19?'compatível':(hclYes>=14?'atenção':'baixo');
+  const hclReference=hclYes>=14?'acima de limiar de referência para aprofundamento':'abaixo do limiar de referência';
   const bs=r.slice(p,p+19);p+=19; const bsYes=bs.filter(scYes_).length; const fit=String(r[p++].response||'');
   const fitMap={'Tem tudo ou quase tudo (+6)':6,'Tem mais ou menos (+4)':4,'Tem pouco (+2)':2,'Nada (+0)':0};
-  const bsTotal=bsYes+(fitMap[fit]||0),bsTier=bsTotal>=20?'provável':(bsTotal>=13?'possível':'improvável');
+  const bsTotal=bsYes+(fitMap[fit]||0),bsTier=bsTotal>=20?'faixa de referência elevada':(bsTotal>=13?'faixa intermediária de referência':'abaixo da faixa de referência');
   const mini12=r.slice(p,p+2);p+=2, mini3=r.slice(p,p+7);p+=7, dur=String(r[p++].response||'');
   const gate=mini12.every(scYes_),d3=mini3.filter(scYes_).length,mania=gate&&d3>=3&&dur.indexOf('7')>=0,hypo=gate&&d3>=3&&!mania;
-  return {sourceMode:'SOURCE_DERIVED_CURRENT',classification:(mdqMeets||(hclTier==='compatível')||(bsTier==='provável')||mania||hypo)?'Indicadores convergentes/atencionais':'Sem convergência robusta',subscales:[
-    {title:'MDQ',rawScore:mdqYes,maxScore:13,classification:mdqMeets?'triagem positiva':(mdqYes>=7?'atenção':'abaixo do corte')},
-    {title:'HCL-32',rawScore:hclYes,maxScore:32,classification:hclTier},
+  const convergent=mdqMeets||hclYes>=14||bsTotal>=13||mania||hypo;
+  return {sourceMode:'SCREENING_BATTERY_CONTEXT_DEPENDENT',classification:convergent?'Indicadores para aprofundamento clínico':'Sem convergência clara nos rastreios',subscales:[
+    {title:'MDQ',rawScore:mdqYes,maxScore:13,classification:mdqMeets?'critério de rastreio atendido':'critério de rastreio não atendido'},
+    {title:'HCL-32',rawScore:hclYes,maxScore:32,classification:hclReference},
     {title:'BSDS',rawScore:bsTotal,maxScore:25,classification:bsTier},
-    {title:'MINI módulo bipolar',rawScore:d3,maxScore:7,classification:!gate?'porta de entrada negativa':(mania?'compatível com mania em rastreio':(hypo?'compatível com hipomania em rastreio':'insuficiente'))}
-  ],clinicalMeaning:'Bateria de triagem integrada; convergência aumenta prioridade de aprofundamento do curso temporal e diagnóstico diferencial.',caveats:['Não diagnostica transtorno bipolar isoladamente.']};
+    {title:'MINI — módulo bipolar',rawScore:d3,maxScore:7,classification:!gate?'porta de entrada negativa':(mania||hypo?'respostas que requerem aprofundamento':'respostas insuficientes para o conjunto de referência')}
+  ],clinicalMeaning:'Os instrumentos são triagens. A interpretação depende de episodicidade, duração, mudança do funcionamento habitual, prejuízo, uso de substâncias, sono, medicamentos e diagnóstico diferencial.',caveats:['O limiar do HCL-32 varia conforme população e finalidade; não tratar uma contagem isolada como diagnóstico.','MDQ, HCL-32 e BSDS são instrumentos de rastreio; convergência aumenta prioridade de entrevista clínica, não certeza diagnóstica.']};
 }
 
-// 4. Borderline: regra proporcional v3 vigente; cortes são locais/orientativos, não psicométricos validados.
+// 4. Borderline: perfil dimensional local; cortes proporcionais antigos foram retirados por não serem psicometricamente validados.
 function scoreBorderlineV3_(r){
   if(r.length!==47) throw new Error('BORDERLINE_COUNT:'+r.length);
   const rev={4:1,10:1,16:1,30:1,36:1}; let sum=0;
-  r.forEach(function(x,i){var v=scIdx_(x)+1; if(rev[i+1])v=5-v; sum+=v;});
-  const min=47,max=188,cuts=[118,141,161,176];
-  const cls=sum<=cuts[0]?'baixa':sum<=cuts[1]?'leve':sum<=cuts[2]?'moderada':sum<=cuts[3]?'elevada':'muito elevada';
-  return {sourceMode:'SOURCE_DERIVED_PROVISIONAL',rawScore:sum,maxScore:max,normalizedScore:Math.round((sum-min)/(max-min)*100),classification:'Traços '+cls,subscales:[],clinicalMeaning:'Intensidade dimensional de traços na regra proporcional v3 do sistema.',caveats:['Os cortes proporcionais são orientativos/provisórios e dependem de validação; não equivalem a diagnóstico.'],riskFlags:[]};
+  r.forEach(function(x,i){var v=scIdx_(x)+1;if(rev[i+1])v=5-v;sum+=v;});
+  const min=47,max=188,normalized=Math.round((sum-min)/(max-min)*100);
+  return {sourceMode:'PROVISIONAL_LOCAL_DIMENSIONAL',rawScore:sum,maxScore:max,normalizedScore:normalized,classification:'Perfil dimensional sem corte validado',subscales:[],clinicalMeaning:'O escore descreve intensidade relativa das respostas no instrumento local e deve ser integrado a padrões persistentes, funcionamento, contexto e entrevista clínica.',caveats:['Não há ponto de corte psicométrico validado para converter este escore local em gravidade ou diagnóstico.','Não usar o resultado isoladamente para concluir transtorno de personalidade borderline.'],riskFlags:[]};
 }
 
-// 5. Narcisismo: bateria local NPI/PID-5-BF/FFNI-SF/MINI; mantém faixas da fonte como triagem dimensional.
+// 5. Narcisismo: bateria local integrada; médias e contagens permanecem descritivas, sem probabilidade diagnóstica automática.
 function scoreNarcisismoV3_(r){
   if(r.length!==112) throw new Error('NARC_COUNT:'+r.length); let p=0;
-  const npi=r.slice(p,p+16);p+=16; const npiYes=npi.filter(scYes_).length,npiBand=npiYes>=13?'elevado':(npiYes>=6?'moderado':'baixo');
+  const npi=r.slice(p,p+16);p+=16; const npiYes=npi.filter(scYes_).length;
   const pid=r.slice(p,p+25);p+=25,pidVals=pid.map(function(x){return scNum_(x,0,3);}); const ant=[16,19,21,24,22].map(function(n){return pidVals[n-1];});
-  const pidMean=scMean_(pidVals),antMean=scMean_(ant),band03=function(m){return m>=2.30?'elevado':(m>=2.00?'atencional':'baixo');};
+  const pidMean=scMean_(pidVals),antMean=scMean_(ant);
   const ff=r.slice(p,p+60);p+=60,ffVals=ff.map(function(x){return scNum_(x,1,5);}); [19,27,38].forEach(function(n){ffVals[n-1]=6-ffVals[n-1];});
   const vul=[12,27,42,57,13,28,43,58,14,29,44,59].map(function(n){return n-1;}),vset={};vul.forEach(function(i){vset[i]=1;});
-  const gra=ffVals.filter(function(_,i){return !vset[i];}),ffMean=scMean_(ffVals),vMean=scMean_(vul.map(function(i){return ffVals[i];})),gMean=scMean_(gra),band15=function(m){return m>=2.9?'elevado':(m>=2.2?'moderado':'baixo');};
+  const gra=ffVals.filter(function(_,i){return !vset[i];}),ffMean=scMean_(ffVals),vMean=scMean_(vul.map(function(i){return ffVals[i];})),gMean=scMean_(gra);
   const mini=r.slice(p,p+11),yes=mini.slice(0,9).filter(scYes_).length,perv=scYes_(mini[9]),imp=scYes_(mini[10]);
-  const miniClass=yes>=5&&perv&&imp?'alta probabilidade na triagem':(yes>=3?'traços clinicamente relevantes':'sem indicadores relevantes');
-  return {sourceMode:'SOURCE_DERIVED_LOCAL_BATTERY',classification:(npiBand!=='baixo'||band03(pidMean)!=='baixo'||band15(ffMean)!=='baixo'||miniClass!=='sem indicadores relevantes')?'Indicadores dimensionais presentes':'Sem convergência robusta',subscales:[
-    {title:'NPI-16 local',rawScore:npiYes,maxScore:16,classification:npiBand},
-    {title:'PID-5-BF global',mean:scRound_(pidMean,2),classification:band03(pidMean)},{title:'PID-5-BF antagonismo',mean:scRound_(antMean,2),classification:band03(antMean)},
-    {title:'FFNI-SF total',mean:scRound_(ffMean,2),classification:band15(ffMean)},{title:'FFNI-SF grandioso',mean:scRound_(gMean,2),classification:band15(gMean)},{title:'FFNI-SF vulnerável',mean:scRound_(vMean,2),classification:band15(vMean)},
-    {title:'Critérios centrais autorreferidos',rawScore:yes,maxScore:9,classification:miniClass}
-  ],clinicalMeaning:'Triagem dimensional integrada de grandiosidade, vulnerabilidade, antagonismo e impacto funcional.',caveats:['As faixas locais não substituem avaliação diagnóstica estruturada.']};
+  return {sourceMode:'LOCAL_BATTERY_DESCRIPTIVE',classification:'Perfil dimensional descritivo',subscales:[
+    {title:'NPI-16 — contagem',rawScore:npiYes,maxScore:16,classification:'descritivo'},
+    {title:'PID-5-BF — média global',mean:scRound_(pidMean,2),classification:'descritivo'},
+    {title:'PID-5-BF — antagonismo',mean:scRound_(antMean,2),classification:'descritivo'},
+    {title:'FFNI-SF — média total',mean:scRound_(ffMean,2),classification:'descritivo'},
+    {title:'FFNI-SF — grandiosidade',mean:scRound_(gMean,2),classification:'descritivo'},
+    {title:'FFNI-SF — vulnerabilidade',mean:scRound_(vMean,2),classification:'descritivo'},
+    {title:'Critérios autorreferidos — contagem',rawScore:yes,maxScore:9,classification:(perv&&imp)?'com pervasividade e impacto autorreferidos':'sem confirmação simultânea de pervasividade e impacto'}
+  ],clinicalMeaning:'A bateria organiza dimensões de autoimagem, reconhecimento, grandiosidade, vulnerabilidade, antagonismo e impacto interpessoal. Não estima probabilidade diagnóstica.',caveats:['Faixas locais antigas foram removidas por não constituírem pontos de corte validados.','Traços narcisistas existem dimensionalmente e requerem integração com história, funcionamento, contexto e avaliação clínica.']};
 }
 
 // 6. BIS-11: protocolo de 30 itens, reversões e fatores oficiais.
@@ -401,7 +403,7 @@ function scoreEsquemasV3_(r){
   return {sourceMode:'SOURCE_DERIVED_CURRENT_CONFIGURED',classification:'Perfil de esquemas',subscales:sub,clinicalMeaning:'Esquemas são classificados pela média atual: ativo ≥4, latente ≥2,5, ausente abaixo disso.',caveats:['Configuração item→esquema é versionada separadamente.']};
 }
 
-// 8. Modos: mapeamento vigente SMI 124.
+// 8. Modos: mapeamento vigente SMI 124; percentuais são descritivos, sem faixas automáticas de gravidade.
 function scoreModosV3_(r){
   if(r.length!==124) throw new Error('MODES_COUNT:'+r.length); const v=r.map(function(x){return scNum_(x,1,6);});
   const map={
@@ -413,16 +415,15 @@ function scoreModosV3_(r){
     'Intimidação e Ataque':[1,24,32,53,77,93,99,102,112],'Pais Punitivos':[3,5,9,16,58,72,84,87,94,118],
     'Pais Exigentes/Críticos':[7,23,45,51,82,83,90,104,115,116],'Adulto Saudável':[20,29,62,73,80,85,117,120,121,124]
   };
-  const healthy={'Criança Feliz':1,'Adulto Saudável':1};
-  const sub=Object.keys(map).map(function(name){const items=map[name],total=items.reduce(function(a,n){return a+v[n-1];},0),pct=Math.round(total/(items.length*6)*100);const cls=healthy[name]?(pct>=67?'desenvolvido':pct>=34?'moderado':'pouco desenvolvido'):(pct<34?'leve':pct<67?'moderado':'grave');return {title:name,percent:pct,classification:cls};});
-  return {sourceMode:'SOURCE_DERIVED_CURRENT',classification:'Perfil de modos',subscales:sub,clinicalMeaning:'Percentual por modo conforme mapeamento vigente do SMI na página clínica.',caveats:['Interpretar modos disfuncionais e modos saudáveis em sentidos clínicos distintos.']};
+  const sub=Object.keys(map).map(function(name){const items=map[name],total=items.reduce(function(a,n){return a+v[n-1];},0),pct=Math.round(total/(items.length*6)*100);return {title:name,percent:pct,classification:'percentual descritivo'};});
+  return {sourceMode:'SOURCE_DERIVED_DIMENSIONAL',classification:'Perfil dimensional de modos',subscales:sub,clinicalMeaning:'Percentuais descrevem a presença relativa dos modos no mapeamento vigente. A leitura clínica deve considerar função, contexto, gatilhos e relação entre modos.',caveats:['Faixas automáticas de leve/moderado/grave foram removidas por não serem tratadas como pontos de corte psicométricos validados.','Modos saudáveis e disfuncionais não devem ser interpretados na mesma direção clínica.']};
 }
 
-// 9. Necessidades: 9 domínios x 4, inversões alternadas conforme definição vigente.
+// 9. Necessidades: 9 domínios x 4; escore por domínio permanece descritivo.
 function scoreNecessidadesV3_(r){
   if(r.length!==36) throw new Error('NEEDS_COUNT:'+r.length); const names=['Segurança e Estabilidade','Afeto e Conexão','Validação','Autonomia','Propósito e Direção','Apoio e Suporte','Expressão e Comunicação','Novidade e Desafios','Crescimento e Desenvolvimento'];
-  const sub=[]; for(var d=0;d<9;d++){let vals=[];for(var j=0;j<4;j++){var x=scIdx_(r[d*4+j])+1; if(j===1||j===3)x=6-x;vals.push(x);}var score=vals.reduce(function(a,b){return a+b;},0),cls=score<=8?'necessidade muito fragilizada':score<=13?'parcialmente fragilizada':score<=17?'moderadamente atendida':'bem atendida';sub.push({title:names[d],rawScore:score,maxScore:20,classification:cls});}
-  return {sourceMode:'SOURCE_DERIVED_CURRENT',classification:'Perfil de necessidades',subscales:sub,clinicalMeaning:'Quanto menor o domínio, maior a prioridade clínica potencial de investigação daquela necessidade.',caveats:['Associações desenvolvimentais são hipóteses clínicas, não conclusões automáticas.']};
+  const sub=[]; for(var d=0;d<9;d++){let vals=[];for(var j=0;j<4;j++){var x=scIdx_(r[d*4+j])+1;if(j===1||j===3)x=6-x;vals.push(x);}var score=vals.reduce(function(a,b){return a+b;},0);sub.push({title:names[d],rawScore:score,maxScore:20,percent:Math.round(score/20*100),classification:'perfil descritivo'});}
+  return {sourceMode:'LOCAL_NEEDS_DESCRIPTIVE',classification:'Perfil descritivo de necessidades',subscales:sub,clinicalMeaning:'O perfil mostra diferenças relativas entre domínios para orientar exploração clínica. Não define deficiência, causa desenvolvimental ou diagnóstico.',caveats:['Faixas automáticas de necessidade fragilizada/atendida foram retiradas por ausência de ponto de corte psicométrico validado.','Associações com experiências desenvolvimentais são hipóteses a investigar, não conclusões automáticas.']};
 }
 
 // 10. Codependência: scorer legado foi descartado; apenas dois blocos descritivos 1–5.
@@ -431,12 +432,11 @@ function scoreCodependenciaV3_(r){
   return {sourceMode:'DESCRIPTIVE_ONLY',classification:'Sem ponto de corte validado no sistema atual',subscales:[scDescriptive_('Autonomia e segurança nos vínculos',v.slice(0,20),5),scDescriptive_('Limites, cuidado e reciprocidade',v.slice(20),5)],clinicalMeaning:'Escores descritivos dos dois blocos; maior concordância sinaliza maior concentração dos padrões perguntados.',caveats:['O scoring legado foi deliberadamente removido e não foi restaurado.']};
 }
 
-// 11. ICAPS: 6 dimensões x 10, normalização 0–100; faixas operacionais descritivas.
+// 11. ICAPS: 6 dimensões x 10, normalização 0–100; resultados são dimensionais e não determinam decisão conjugal.
 function scoreIcapsV3_(r){
   if(r.length!==60) throw new Error('ICAPS_COUNT:'+r.length); const names=['Satisfação Conjugal Atual','Ambivalência Decisional','Codependência e Subjugação Pessoal','Traição e Impacto Emocional','Rede de Apoio e Medos Contextuais','Recursos Internos e Prontidão para a Mudança'];
-  const bands=[['Muito baixa','Baixa','Intermediária','Elevada'],['Baixa','Baixa a moderada','Intermediária','Elevada'],['Poucos indicadores','Alguns indicadores','Faixa intermediária','Muitos indicadores'],['Reduzido','Leve a moderado','Intermediário','Elevado'],['Baixa interferência','Baixa a moderada','Intermediária','Elevada'],['Frágeis','Emergentes','Intermediários','Elevados']];
-  const sub=[];for(var d=0;d<6;d++){const vals=r.slice(d*10,d*10+10).map(function(x){return (scNum_(x,1,5)-1)*25;});const score=Math.round(scMean_(vals)),bi=score<=24?0:score<=49?1:score<=74?2:3;sub.push({title:names[d],rawScore:score,maxScore:100,classification:bands[d][bi]});}
-  return {sourceMode:'SOURCE_DERIVED_CURRENT',classification:'Perfil dimensional ICAPS',subscales:sub,clinicalMeaning:'Seis dimensões normalizadas de 0–100 com faixas operacionais descritivas.',caveats:['As faixas não são pontos de corte psicométricos validados e não determinam decisão conjugal.']};
+  const sub=[];for(var d=0;d<6;d++){const vals=r.slice(d*10,d*10+10).map(function(x){return (scNum_(x,1,5)-1)*25;});const score=Math.round(scMean_(vals));sub.push({title:names[d],rawScore:score,maxScore:100,classification:'escore dimensional'});}
+  return {sourceMode:'LOCAL_ICAPS_DIMENSIONAL',classification:'Perfil dimensional ICAPS',subscales:sub,clinicalMeaning:'Seis dimensões normalizadas de 0–100 para organizar a reflexão clínica sobre a relação e a prontidão para mudança.',caveats:['Faixas operacionais foram removidas do relatório automático por não serem pontos de corte psicométricos validados.','O ICAPS não recomenda permanecer ou separar-se e não substitui avaliação clínica do contexto conjugal e de segurança.']};
 }
 
 // 12. BDI-II: 21 grupos; 0–3. Sono/apetite têm duas direções para intensidades 1–3.
@@ -447,10 +447,10 @@ function scoreBdi2V3_(r){
   return {sourceMode:'STANDARD_BDI2',rawScore:total,maxScore:63,classification:cls,subscales:[],clinicalMeaning:'Intensidade global de sintomas depressivos no BDI-II.',riskFlags:flags,caveats:['Resultado deve ser integrado à entrevista clínica; item de suicídio requer avaliação contextual imediata quando endossado.']};
 }
 
-// 13. HAM-A adaptada em autorrelato: 14 itens 0–4, total 0–56.
+// 13. HAM-A adaptada em autorrelato: 14 itens 0–4, total 0–56; uso longitudinal sem faixas clinician-rated automáticas.
 function scoreHamaV3_(r){
-  if(r.length!==14) throw new Error('HAMA_COUNT:'+r.length);const vals=r.map(function(x){return scIdx_(x);}),total=vals.reduce(function(a,b){return a+b;},0);const cls=total<=17?'leve':total<=24?'leve a moderada':total<=30?'moderada a grave':'grave';
-  return {sourceMode:'STANDARD_HAMA_ADAPTED_SELF_REPORT',rawScore:total,maxScore:56,classification:cls,subscales:[],clinicalMeaning:'Intensidade de sintomas ansiosos na estrutura HAM-A.',caveats:['A HAM-A original é clinician-rated; esta aplicação funciona como adaptação de autorrelato/monitoramento.']};
+  if(r.length!==14) throw new Error('HAMA_COUNT:'+r.length);const vals=r.map(function(x){return scIdx_(x);}),total=vals.reduce(function(a,b){return a+b;},0);
+  return {sourceMode:'HAMA_STRUCTURE_ADAPTED_SELF_REPORT',rawScore:total,maxScore:56,classification:'Escore longitudinal de autorrelato',subscales:[],clinicalMeaning:'Escore total para acompanhamento longitudinal de sintomas ansiosos nesta adaptação de autorrelato.',caveats:['A HAM-A original é clinician-rated; faixas de gravidade da aplicação por clínico não foram transferidas automaticamente para esta adaptação.','Priorizar tendência longitudinal, sintomas específicos, prejuízo e entrevista clínica.']};
 }
 
 // 14. Rosenberg: versão brasileira, positivos 1,3,4,7,10; negativos 2,5,6,8,9; escore 0–30.
@@ -459,15 +459,18 @@ function scoreRosenbergV3_(r){
   return {sourceMode:'STANDARD_RSES_BR',rawScore:total,maxScore:30,normalizedScore:scRound_(100*total/30,1),classification:'Escore contínuo',subscales:[],clinicalMeaning:'Quanto maior o escore, maior a autoestima global autorreferida.',caveats:['Sem ponto de corte clínico oficial; priorizar comparação longitudinal e contexto.']};
 }
 
-// 15. EIR-RS: pesos, inversões, proration e overrides exatamente da fonte vigente.
+// 15. EIR-RS: índice técnico local + flags diretos; nunca declara ausência de risco nem substitui avaliação clínica.
 function scoreRiscoV3_(r){
   if(r.length!==18) throw new Error('RISK_COUNT:'+r.length); const ids=['A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','D1','D2','D3','E1','E2','E3','F1','F2'],critical={A3:1,B3:1,B4:1,C2:1,D3:1},invert={F1:1,F2:1};
   const resp={};r.forEach(function(x,i){resp[ids[i]]=scNum_(x,0,4);});let weighted=0,weight=0;ids.forEach(function(id){var v=resp[id];if(invert[id])v=4-v;var w=critical[id]?1.5:1;weighted+=v*w;weight+=w;});
-  let ir=Math.round(weighted*10)/10;const thresholds=[[0,9,'Sem risco'],[10,22,'Risco mínimo'],[23,42,'Risco moderado'],[43,Infinity,'Risco grave']];let cls=scBand_(ir,thresholds);const anyCrit4=Object.keys(critical).some(function(k){return resp[k]===4;}),d2=resp.D2>=3,c1b3=resp.C1>=3&&resp.B3>=2,flags=[];
-  if(anyCrit4){cls='Risco grave';flags.push('CRITICAL_ITEM_4');}if(d2){cls='Risco grave';flags.push('RECENT_ATTEMPT_D2_HIGH');}if(c1b3){const order=['Sem risco','Risco mínimo','Risco moderado','Risco grave'];cls=order[Math.min(order.indexOf(cls)+1,3)];flags.push('MEANS_PLUS_PLAN');}
+  const ir=Math.round(weighted*10)/10,flags=[];
   if(['A1','A2','A3','A4'].some(function(k){return resp[k]>=1;}))flags.push('SUICIDAL_IDEATION_PRESENT');
-  if(cls==='Risco moderado'||cls==='Risco grave')flags.push('CLINICAL_ALERT_REQUIRED');
-  return {sourceMode:'SOURCE_DERIVED_CURRENT_HIGH_STAKES',rawScore:ir,maxScore:82,classification:cls,subscales:[],clinicalMeaning:'Índice integrado de risco com ponderação de itens críticos e regras automáticas de elevação.',riskFlags:flags,caveats:['Risco suicida exige avaliação clínica contextual; qualquer sinal de iminência prevalece sobre o escore.']};
+  if(Object.keys(critical).some(function(k){return resp[k]>=3;}))flags.push('CRITICAL_ITEM_HIGH');
+  if(Object.keys(critical).some(function(k){return resp[k]===4;}))flags.push('CRITICAL_ITEM_4');
+  if(resp.D2>=3)flags.push('RECENT_ATTEMPT_D2_HIGH');
+  if(resp.C1>=3&&resp.B3>=2)flags.push('MEANS_PLUS_PLAN');
+  if(flags.length)flags.push('CLINICAL_ALERT_REQUIRED');
+  return {sourceMode:'LOCAL_HIGH_STAKES_REVIEW_REQUIRED',rawScore:ir,maxScore:82,classification:'Avaliação clínica contextual obrigatória',subscales:[],clinicalMeaning:'O índice técnico organiza respostas, mas a decisão clínica deve priorizar ideação, intenção, plano/meios, tentativas recentes, fatores de proteção, acesso a suporte e sinais de iminência.',riskFlags:Array.from(new Set(flags)),caveats:['Este instrumento local não possui validação suficiente para afirmar “sem risco” com base em escore.','Qualquer sinal de iminência, intenção, plano, meios disponíveis ou tentativa recente prevalece sobre o índice numérico e requer avaliação clínica imediata.']};
 }
 
 /* ===== ScreeningReportV3.gs ===== */
@@ -496,11 +499,17 @@ function buildScreeningClinicalReport_(data) {
     reportRow_('Versão/contrato', instrument.version || 'vigente')
   ].join('')));
 
-  sections.push(reportSection_('Completude e validade técnica', [
-    reportRow_('Status', result.valid === false ? 'Inválido / incompleto' : 'Válido para interpretação'),
+  sections.push(reportSection_('Completude técnica', [
+    reportRow_('Status', result.valid === false ? 'Incompleto para processamento' : 'Completo para processamento'),
     reportRow_('Itens respondidos', reportCount_(result.answeredCount, result.totalCount)),
     result.missingCount != null ? reportRow_('Itens ausentes', result.missingCount) : '',
     result.validityNote ? reportParagraph_(result.validityNote) : ''
+  ].join('')));
+
+  sections.push(reportSection_('Qualidade interpretativa', [
+    reportRow_('Classe de evidência interna', result.evidenceClass || '—'),
+    reportRow_('Status interpretativo', result.evidenceStatus || 'Interpretação contextual'),
+    result.evidenceNote ? reportParagraph_(result.evidenceNote) : ''
   ].join('')));
 
   sections.push(reportSection_('Resultado geral', [
@@ -520,7 +529,8 @@ function buildScreeningClinicalReport_(data) {
   }
 
   if (Array.isArray(result.indicators) && result.indicators.length) {
-    sections.push(reportSection_('Indicadores clinicamente relevantes', reportList_(result.indicators)));
+    const title = result.urgent === true ? 'Sinais de segurança — revisão prioritária' : 'Indicadores clinicamente relevantes';
+    sections.push(reportSection_(title, reportList_(result.indicators)));
   }
 
   if (Array.isArray(result.noteworthyResponses) && result.noteworthyResponses.length) {
@@ -734,21 +744,39 @@ function screeningSubmissionRef_(submissionId) {
  */
 
 const SCREENING_INSTRUMENT_META_V3 = Object.freeze({
-  geral:{name:'Rastreio Clínico Geral',shortName:'Geral',version:'RC-2026'},
-  tdah:{name:'Atenção, organização e impulsividade no dia a dia',shortName:'TDAH',version:'RC-2026'},
-  bipolar:{name:'Oscilações de humor, energia e ritmo',shortName:'Bipolaridade',version:'RC-2026'},
-  borderline:{name:'Emoções, identidade e relações',shortName:'Borderline',version:'RC-2026'},
-  narcisismo:{name:'Autoimagem, reconhecimento e relações',shortName:'Narcisismo',version:'RC-2026'},
-  impulsividade:{name:'Barratt Impulsiveness Scale – BIS-11',shortName:'BIS-11',version:'BIS-11'},
-  esquemas:{name:'Mapa de Esquemas',shortName:'Esquemas',version:'RC-2026'},
-  modos:{name:'Modos Esquemáticos',shortName:'Modos',version:'RC-2026'},
-  necessidades:{name:'Escala de Necessidades Emocionais',shortName:'Necessidades',version:'RC-2026'},
-  codependencia:{name:'Autonomia, limites e cuidado nas relações',shortName:'Relações',version:'RC-2026'},
-  icaps:{name:'ICAPS – Inventário Clínico para Avaliação de Prontidão para Separação',shortName:'ICAPS',version:'2.0.0'},
-  humor:{name:'Inventário de Depressão de Beck – BDI-II',shortName:'BDI-II',version:'conteúdo vigente bloqueado'},
-  ansiedade:{name:'Monitoramento de Ansiedade – estrutura HAM-A',shortName:'Ansiedade',version:'autorrelato adaptado'},
-  autoestima:{name:'Escala de Autoestima de Rosenberg',shortName:'Autoestima',version:'RSES-BR'},
-  risco:{name:'EIR-RS – Escala Integrada de Risco de Suicídio',shortName:'Risco suicida',version:'vigente'}
+  geral:{name:"RAC-5TR",shortName:"RAC-5TR",version:"RC-2026"},
+  tdah:{name:"TDAH Adulto — EIR-TDAH-A",shortName:"TDAH Adulto — EIR-TDAH-A",version:"RC-2026"},
+  bipolar:{name:"Bipolaridade — TAB",shortName:"Bipolaridade — TAB",version:"RC-2026"},
+  borderline:{name:"Traços Borderline",shortName:"Traços Borderline",version:"RC-2026"},
+  narcisismo:{name:"Traços Narcísicos",shortName:"Traços Narcísicos",version:"RC-2026"},
+  impulsividade:{name:"Impulsividade — BIS-11",shortName:"Impulsividade — BIS-11",version:"BIS-11"},
+  esquemas:{name:"Esquemas",shortName:"Esquemas",version:"RC-2026"},
+  modos:{name:"Modos Esquemáticos",shortName:"Modos Esquemáticos",version:"RC-2026"},
+  necessidades:{name:"Necessidades Emocionais",shortName:"Necessidades Emocionais",version:"RC-2026"},
+  codependencia:{name:"Codependência",shortName:"Codependência",version:"RC-2026"},
+  icaps:{name:"ICAPS — Prontidão para Separação",shortName:"ICAPS — Prontidão para Separação",version:"2.0.0"},
+  risco:{name:"Risco Suicida — EIR-RS",shortName:"Risco Suicida — EIR-RS",version:"RC-2026"},
+  humor:{name:"Depressão — BDI-II",shortName:"Depressão — BDI-II",version:"BDI-II"},
+  ansiedade:{name:"Ansiedade",shortName:"Ansiedade",version:"autorrelato adaptado"},
+  autoestima:{name:"Autoestima — RSES",shortName:"Autoestima — RSES",version:"RSES-BR"},
+});
+
+const SCREENING_EVIDENCE_V5 = Object.freeze({
+  geral:{evidenceClass:"C",status:"Exploratório/descritivo",note:"Instrumento integrativo próprio; usar como organização dimensional, sem corte diagnóstico."},
+  tdah:{evidenceClass:"C",status:"Exploratório/descritivo",note:"Rastreio dimensional próprio; não equivale a ASRS, DIVA-5 ou diagnóstico de TDAH."},
+  bipolar:{evidenceClass:"B",status:"Triagem composta contextual",note:"Integra componentes de rastreio conhecidos; interpretação depende de curso temporal, prejuízo e diagnóstico diferencial."},
+  borderline:{evidenceClass:"C",status:"Provisório/dimensional",note:"Instrumento local sem ponto de corte psicométrico validado; interpretar apenas de forma dimensional."},
+  narcisismo:{evidenceClass:"C",status:"Provisório/dimensional",note:"Bateria local integrada; não converter contagens e médias em probabilidade diagnóstica."},
+  impulsividade:{evidenceClass:"A",status:"Padronizado/dimensional",note:"BIS-11 com escore total e fatores; sem ponto de corte diagnóstico automático."},
+  esquemas:{evidenceClass:"B",status:"Clínico/operacional",note:"Mapeamento item→esquema versionado; faixas são operacionais e exigem formulação clínica."},
+  modos:{evidenceClass:"B",status:"Clínico/dimensional",note:"SMI em perfil dimensional; percentuais não devem ser tratados como gravidade diagnóstica."},
+  necessidades:{evidenceClass:"C",status:"Exploratório/descritivo",note:"Escala clínica local; priorizar perfil relativo dos domínios, não rótulos de deficiência."},
+  codependencia:{evidenceClass:"C",status:"Exploratório/descritivo",note:"Dois blocos descritivos, sem ponto de corte validado no sistema."},
+  icaps:{evidenceClass:"C",status:"Clínico local/descritivo",note:"Seis dimensões 0–100; não determina decisão conjugal e não possui ponto de corte psicométrico validado."},
+  risco:{evidenceClass:"D",status:"Alta criticidade/revisão obrigatória",note:"Instrumento local de apoio. Nunca deve declarar ausência de risco nem substituir avaliação clínica de risco."},
+  humor:{evidenceClass:"A",status:"Padronizado",note:"BDI-II: escore de intensidade; qualquer endosso do item de suicídio exige avaliação contextual."},
+  ansiedade:{evidenceClass:"B",status:"Adaptação de autorrelato",note:"Estrutura HAM-A adaptada para autorrelato; usar longitudinalmente, sem importar automaticamente gravidade da escala clinician-rated."},
+  autoestima:{evidenceClass:"A",status:"Padronizado/contínuo",note:"Rosenberg: escore contínuo; priorizar contexto e comparação longitudinal, sem corte clínico universal."},
 });
 
 function runScreeningPostProcessingV3_(context) {
@@ -775,6 +803,7 @@ function screeningReportInputFromScoreV3_(payload,score,records) {
     return {name:x.title||x.name||'Domínio',score:val,classification:x.classification||''};
   });
   const flags=(score.riskFlags||[]).slice();
+  const evidence=SCREENING_EVIDENCE_V5[payload.instrumentId]||{evidenceClass:'C',status:'Interpretação contextual',note:'Integrar com entrevista clínica.'};
   const urgent=flags.some(function(f){return ['CLINICAL_ALERT_REQUIRED','SUICIDE_ITEM_ENDORSED','SUICIDE_ITEM_HIGH','CRITICAL_ITEM_4','RECENT_ATTEMPT_D2_HIGH','SUICIDAL_IDEATION_PRESENT'].indexOf(f)>=0;});
   return {
     submissionId:payload.submissionId,
@@ -795,6 +824,9 @@ function screeningReportInputFromScoreV3_(payload,score,records) {
       clinicalMeaning:score.clinicalMeaning||'',
       limitations:(score.caveats||[]).slice(),
       scoringContract:(score.sourceMode||'UNSPECIFIED')+' · '+(score.scoringVersion||SCREENING_SCORING_VERSION),
+      evidenceClass:evidence.evidenceClass,
+      evidenceStatus:evidence.status,
+      evidenceNote:evidence.note,
       technicalNote:'Processamento automatizado após persistência confirmada no Google Forms.',
       urgent:urgent
     }
