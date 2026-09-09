@@ -3,7 +3,7 @@
 window.RM_SCREENING_V3_CLIENT=true;
 const SRC='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-system-v2.js?v=2.3.0';
 const SUBMIT='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-submit-v3.js?v=3.1.0';
-const VISUAL='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-visual-v3.js?v=3.0.1-photo-heroes-15';
+const VISUAL='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-visual-v3.js?v=3.1.0-specific-heroes';
 window.__RM_PENDING_DELIVERY=window.__RM_PENDING_DELIVERY||[];
 window.__RM_CLINICAL_SPLASH_STARTED=Date.now();
 
