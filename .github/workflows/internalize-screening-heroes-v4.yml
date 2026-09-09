@@ -1,0 +1,187 @@
+name: Internalize Screening Heroes v4
+
+on:
+  push:
+    paths:
+      - '.github/workflows/internalize-screening-heroes-v4.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  visual-sanitize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Internalizar 15 heroes temáticos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/heroes audits
+          get() {
+            id="$1"; ref="$2"
+            url="https://unsplash.com/photos/${ref}/download?force=true&w=1600"
+            echo "Baixando $id <- $ref"
+            curl -fL --retry 4 --retry-delay 2 -A 'Mozilla/5.0 (RM-Clinical-AssetBot/4.0)' "$url" -o "assets/heroes/${id}.jpg"
+            test "$(wc -c < "assets/heroes/${id}.jpg")" -gt 30000
+            file "assets/heroes/${id}.jpg" | grep -Eqi 'JPEG|PNG|WebP|image'
+          }
+          get geral R2TRrQQxzzw
+          get tdah X1LldBURy08
+          get bipolar KnVUtC5bl_A
+          get borderline MPnaAHRj6J0
+          get narcisismo WTZZomyqaoA
+          get impulsividade jRKOG8ZJLI0
+          get esquemas 73gTXm5oPas
+          get modos VrCf2Kv2ixE
+          get necessidades EpKToE_6RoI
+          get codependencia M1IDH7G6Lqk
+          get icaps fmyZcoCaSac
+          get risco JeGbEkarsZA
+          get humor 5MHVf2LWOfY
+          get ansiedade Gbt5epx-1W8
+          get autoestima tLkGm_nN7mA
+
+      - name: Gerar camada visual canônica e remover gerador legado
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib, re, hashlib
+          root=pathlib.Path('.')
+          names={
+            'geral':'RAC-5TR — Rastreio Autoaplicável Clínico',
+            'tdah':'EIR-TDAH-A — Escala Integrada de Rastreio para TDAH',
+            'bipolar':'Bateria de Rastreio — Transtorno Afetivo Bipolar (TAB)',
+            'borderline':'Inventário de Traços Borderline',
+            'narcisismo':'Bateria de Rastreio — Traços Narcisistas',
+            'impulsividade':'Barratt Impulsiveness Scale — BIS-11',
+            'esquemas':'Mapa de Esquemas — Inventário de Padrões Emocionais',
+            'modos':'SMI 1.1 — Inventário de Modos Esquemáticos',
+            'necessidades':'Escala de Rastreio de Necessidades Emocionais',
+            'codependencia':'Escala de Dependência e Codependência Emocional',
+            'icaps':'ICAPS — Inventário Clínico para Avaliação de Prontidão para Separação',
+            'risco':'EIR-RS — Escala Integrada de Risco de Suicídio',
+            'humor':'Inventário de Depressão de Beck — BDI-II',
+            'ansiedade':'Monitoramento de Ansiedade — estrutura HAM-A (autorrelato adaptado)',
+            'autoestima':'Escala de Autoestima de Rosenberg — RSES-BR'
+          }
+          cfg=root/'assets/screening-public-experience-v2.json'
+          data=json.loads(cfg.read_text(encoding='utf-8'))
+          for k,v in names.items():
+              if k in data.get('instruments',{}): data['instruments'][k]['publicName']=v
+          cfg.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          sysf=root/'assets/screening-system-v2.js'
+          s=sysf.read_text(encoding='utf-8')
+          s2=re.sub(r"const HERO_SCENES=Object\.freeze\(\{.*?\}\);\nfunction heroForInstrument\(id\)\{.*?\}\nfunction hideLegacyPresentation", "function heroForInstrument(){return null}\nfunction hideLegacyPresentation", s, flags=re.S)
+          if s2==s:
+              raise SystemExit('Falha ao remover HERO_SCENES legado')
+          sysf.write_text(s2,encoding='utf-8')
+
+          mon=root/'monitoramento.html'
+          if mon.exists():
+              m=mon.read_text(encoding='utf-8')
+              m=re.sub(r'screening-uniformity-v1\.css\?v=[^\"\']+', 'screening-uniformity-v1.css?v=4.0.0', m)
+              m=re.sub(r'screening-uniformity-v1\.js\?v=[^\"\']+', 'screening-uniformity-v1.js?v=4.0.0', m)
+              mon.write_text(m,encoding='utf-8')
+
+          manifest={'version':'4.0.0','total':15,'heroes':[]}
+          for k in names:
+              p=root/f'assets/heroes/{k}.jpg'
+              b=p.read_bytes()
+              manifest['heroes'].append({'id':k,'file':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'title':names[k]})
+          (root/'audits/visual-identity-15-v4.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+          cat > assets/screening-visual-v4.js <<'JS'
+          (()=>{
+          'use strict';
+          const VERSION='4.0.0-canonical-local-heroes';
+          const BASE='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/heroes/';
+          const REPOS={'Rastreioclinico':'geral','rastreioTDAH':'tdah','tab-bateria-integrada':'bipolar','Inventario-de-Tracos-Borderline':'borderline','bateria.narcisismo':'narcisismo','Rastreio-de-Impulsividade':'impulsividade','rastreio.de.esquemas':'esquemas','rastreiomodosesquematicos':'modos','Escala-de-Necessidades-Emocionais':'necessidades','Escala-de-Co-Depenpencia-Emocional':'codependencia','ICAPS':'icaps','TriagemRiscoSuicidio':'risco'};
+          const HEROES={
+            geral:{file:'geral.jpg',alt:'Mesa de avaliação e reflexão clínica, sem pessoas.'},
+            tdah:{file:'tdah.jpg',alt:'Planejamento e organização de tarefas em ambiente de trabalho, sem pessoas.'},
+            bipolar:{file:'bipolar.jpg',alt:'Caderno aberto representando ritmo e passagem do tempo, sem pessoas.'},
+            borderline:{file:'borderline.jpg',alt:'Composição com espelho e elementos de autorreflexão, sem pessoas.'},
+            narcisismo:{file:'narcisismo.jpg',alt:'Peça de xadrez em composição de autoimagem, posição e reconhecimento, sem pessoas.'},
+            impulsividade:{file:'impulsividade.jpg',alt:'Ampulheta representando pausa entre impulso e ação, sem pessoas.'},
+            esquemas:{file:'esquemas.jpg',alt:'Raízes expostas representando padrões de longa duração, sem pessoas.'},
+            modos:{file:'modos.jpg',alt:'Máscaras teatrais representando diferentes estados e modos, sem pessoas.'},
+            necessidades:{file:'necessidades.jpg',alt:'Broto emergindo do solo representando necessidades de desenvolvimento e cuidado, sem pessoas.'},
+            codependencia:{file:'codependencia.jpg',alt:'Nó em corda representando vínculo, autonomia e limites, sem pessoas.'},
+            icaps:{file:'icaps.jpg',alt:'Placa indicando duas direções, representando avaliação estruturada de decisões, sem pessoas.'},
+            risco:{file:'risco.jpg',alt:'Farol costeiro representando orientação, proteção e continuidade, sem pessoas.'},
+            humor:{file:'humor.jpg',alt:'Janela com chuva representando observação do humor e sintomas depressivos, sem pessoas.'},
+            ansiedade:{file:'ansiedade.jpg',alt:'Fios entrelaçados representando tensão e complexidade dos sinais de ansiedade, sem pessoas.'},
+            autoestima:{file:'autoestima.jpg',alt:'Espelho com composição floral representando autopercepção e autoestima, sem pessoas.'}
+          };
+          function instrument(){const seg=location.pathname.split('/').filter(Boolean)[0]||'';if(seg==='Inicio-de-Jornada-Terapeutica')return new URLSearchParams(location.search).get('instrument')||'geral';return REPOS[seg]||'geral'}
+          function splash(){return document.getElementById('rmClinicalSplash')}
+          function updateSplashTitle(){const s=splash(),h=document.querySelector('.rm-screening-shell h1'),t=s?.querySelector('[data-rm-splash-instrument]');if(h&&t){t.textContent=h.textContent.trim();t.hidden=false}}
+          function closeSplash(){const s=splash();if(!s)return;const started=Number(window.__RM_CLINICAL_SPLASH_STARTED||Date.now()),wait=Math.max(0,1850-(Date.now()-started));setTimeout(()=>{s.classList.add('rm-splash-leaving');setTimeout(()=>s.remove(),320)},wait)}
+          function removeLegacy(){const shell=document.querySelector('.rm-screening-shell');document.querySelectorAll('main>.hero,.container>.hero,.wrapper>.hero,.hero-banner,.legacy-hero,.instrument-hero,.hero-image,.banner-image,.banner-wrap').forEach(el=>{if(shell&&shell.contains(el))return;el.remove()});document.querySelectorAll('img[src*="pinimg.com"],img[src*="images.unsplash.com"]').forEach(img=>{if(shell&&shell.contains(img))return;const host=img.closest('.hero,.banner,.cover,.hero-banner,.banner-wrap,.instrument-hero,.hero-image,.banner-image');if(host)host.remove()})}
+          function apply(){const shell=document.querySelector('.rm-screening-shell');if(!shell)return false;const id=instrument(),hero=HEROES[id]||HEROES.geral,v=shell.querySelector('.rm-screening-visual'),img=v?.querySelector('img');if(img){img.src=BASE+hero.file+'?v=4.0.0';img.alt=hero.alt;img.loading='eager';img.decoding='async';img.removeAttribute('title')}else if(v){const n=document.createElement('img');n.src=BASE+hero.file+'?v=4.0.0';n.alt=hero.alt;n.loading='eager';n.decoding='async';v.appendChild(n)}updateSplashTitle();removeLegacy();document.body.classList.add('rm-canonical-heroes-v4');return true}
+          function boot(){if(apply()){closeSplash();return}const obs=new MutationObserver(()=>{if(apply()){obs.disconnect();closeSplash()}});obs.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>{obs.disconnect();apply();closeSplash()},5000)}
+          window.RM_SCREENING_VISUAL_V4={version:VERSION,refresh:apply};
+          if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+          })();
+          JS
+
+          cat > assets/screening-visual-v4.css <<'CSS'
+          :root{--rm-v4-navy:#0b2830;--rm-v4-teal:#155c5c}
+          #rmClinicalSplash{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 50% 22%,rgba(42,132,127,.23),transparent 38%),linear-gradient(145deg,#071d24 0%,#0b3038 54%,#155c5c 100%);color:#fff;opacity:1;transition:opacity .3s ease,visibility .3s ease}#rmClinicalSplash.rm-splash-leaving{opacity:0;visibility:hidden;pointer-events:none}.rm-clinical-opening-card{width:min(90vw,500px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}.rm-clinical-mark{width:82px;height:82px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);border-radius:23px;background:rgba(255,255,255,.10);box-shadow:0 24px 70px rgba(0,0,0,.27);font:800 1.45rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.04em;margin-bottom:12px}.rm-clinical-opening-kicker{margin:0;color:#bcd9d7;font:.8rem/1.2 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:800;letter-spacing:.16em;text-transform:uppercase}#rmClinicalSplash h1{margin:4px 0 0;max-width:470px;font:800 clamp(1.65rem,6vw,2.55rem)/1.05 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.04em;text-wrap:balance}#rmClinicalSplash p{margin:4px 0 0;max-width:420px;color:#d8e9e8;font:450 .98rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.rm-clinical-opening-loader{width:52px;height:3px;border-radius:99px;margin-top:15px;background:linear-gradient(90deg,rgba(255,255,255,.18),#fff,rgba(255,255,255,.18));background-size:200% 100%;animation:rm-clinical-loading 1.1s linear infinite}@keyframes rm-clinical-loading{to{background-position:-200% 0}}
+          body.rm-screening-v2 .rm-screening-shell{width:min(calc(100% - 28px),1120px);border:1px solid rgba(18,50,58,.07);box-shadow:0 26px 70px rgba(18,50,58,.13)}body.rm-screening-v2 .rm-screening-hero{grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr);min-height:410px;background:linear-gradient(135deg,var(--rm-v4-navy),var(--rm-v4-teal))}body.rm-screening-v2 .rm-screening-copy{position:relative;z-index:2;padding:clamp(30px,5vw,60px)}body.rm-screening-v2 .rm-screening-copy h1{max-width:16ch;font-size:clamp(2rem,4.6vw,3.45rem);line-height:1.03;letter-spacing:-.045em}body.rm-screening-v2 .rm-story{max-width:56ch;font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.58}body.rm-screening-v2 .rm-screening-visual{position:relative;min-height:330px;background:#dfe9e7;overflow:hidden}body.rm-screening-v2 .rm-screening-visual img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:none!important;transform:scale(1.002)}body.rm-screening-v2 .rm-screening-visual:before{content:"";position:absolute;inset:0 auto 0 0;width:18%;z-index:1;background:linear-gradient(90deg,rgba(11,40,48,.30),rgba(11,40,48,.04),transparent);pointer-events:none}.rm-photo-credit{display:none!important}
+          body.rm-screening-v2 .rm-screening-hero[data-rm-variant="tdah"]{background:linear-gradient(135deg,#0d3143,#1a5968)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="bipolar"]{background:linear-gradient(135deg,#253044,#445d6d)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="borderline"]{background:linear-gradient(135deg,#382b36,#65505d)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="narcisismo"]{background:linear-gradient(135deg,#2f3340,#59606f)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="impulsividade"]{background:linear-gradient(135deg,#26382f,#4d6756)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="esquemas"]{background:linear-gradient(135deg,#173b3b,#416968)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="modos"]{background:linear-gradient(135deg,#303746,#596678)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="necessidades"]{background:linear-gradient(135deg,#294239,#557565)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="codependencia"]{background:linear-gradient(135deg,#3e3138,#6c5962)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="icaps"]{background:linear-gradient(135deg,#203647,#4f6778)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="risco"]{background:linear-gradient(135deg,#173834,#46665d)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="humor"]{background:linear-gradient(135deg,#26394b,#536c82)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="ansiedade"]{background:linear-gradient(135deg,#173d47,#4d7378)}body.rm-screening-v2 .rm-screening-hero[data-rm-variant="autoestima"]{background:linear-gradient(135deg,#403547,#735f78)}
+          @media(max-width:800px){body.rm-screening-v2 .rm-screening-hero{grid-template-columns:1fr;min-height:0}body.rm-screening-v2 .rm-screening-visual{order:-1;min-height:245px;max-height:320px}body.rm-screening-v2 .rm-screening-copy{padding:28px 24px 34px}body.rm-screening-v2 .rm-screening-copy h1{max-width:19ch;font-size:clamp(1.9rem,8.4vw,2.85rem)}}@media(max-width:480px){#rmClinicalSplash{padding:18px}.rm-clinical-mark{width:74px;height:74px;border-radius:20px}body.rm-screening-v2 .rm-screening-shell{width:min(calc(100% - 16px),1120px);border-radius:20px}body.rm-screening-v2 .rm-screening-visual{min-height:215px}body.rm-screening-v2 .rm-screening-copy{padding:24px 20px 29px}}@media(prefers-reduced-motion:reduce){#rmClinicalSplash{transition:none}.rm-clinical-opening-loader{animation:none;background:#fff}}@media print{#rmClinicalSplash{display:none!important}}
+          CSS
+
+          cat > assets/screening-uniformity-v1.js <<'JS'
+          (()=>{
+          'use strict';
+          window.RM_SCREENING_V4_CLIENT=true;
+          const SRC='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-system-v2.js?v=2.4.0-no-svg';
+          const SUBMIT='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-submit-v3.js?v=3.1.0';
+          const VISUAL='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-visual-v4.js?v=4.0.0';
+          window.__RM_PENDING_DELIVERY=window.__RM_PENDING_DELIVERY||[];window.__RM_CLINICAL_SPLASH_STARTED=Date.now();
+          function mountClinicalSplash(){if(document.getElementById('rmClinicalSplash')||!document.body)return;document.querySelectorAll('#splash,.splash,[class*="splash-screen" i],[id*="splash-screen" i]').forEach(n=>n.remove());const s=document.createElement('div');s.id='rmClinicalSplash';s.setAttribute('role','status');s.setAttribute('aria-live','polite');s.setAttribute('aria-label','Preparando instrumento clínico');s.innerHTML='<div class="rm-clinical-opening-card"><div class="rm-clinical-mark" aria-hidden="true">RM</div><p class="rm-clinical-opening-kicker">Richelmy Murta · Psicologia Clínica</p><h1>Rastreio clínico</h1><p data-rm-splash-instrument hidden></p><p>Preparando o instrumento para preenchimento.</p><div class="rm-clinical-opening-loader" aria-hidden="true"></div></div>';document.body.appendChild(s)}
+          if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mountClinicalSplash,{once:true});else mountClinicalSplash();
+          if(!window.RMScreeningUI)window.RMScreeningUI={version:'2.4.0-loading',confirmDelivery(d={}){window.__RM_PENDING_DELIVERY.push(d)},getIdentity(){return {}}};
+          function add(src,mark){if(document.querySelector(`script[${mark}]`))return;const s=document.createElement('script');s.src=src;s.defer=true;s.setAttribute(mark,'true');document.head.appendChild(s)}
+          add(SRC,'data-rm-screening-v2');add(SUBMIT,'data-rm-submit-v3');add(VISUAL,'data-rm-visual-v4');
+          })();
+          JS
+
+          cat > assets/screening-uniformity-v1.css <<'CSS'
+          @import url('https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-system-v2.css?v=2.4.0-no-svg');
+          @import url('https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/screening-visual-v4.css?v=4.0.0');
+          CSS
+
+          rm -f assets/screening-visual-v3.js assets/screening-visual-v3.css
+
+      - name: Gate de zero resíduos ativos
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find assets/heroes -maxdepth 1 -type f -name '*.jpg' | wc -l)" -eq 15
+          ! grep -RniE 'images\.unsplash\.com|pinimg\.com' assets/screening-visual-v4.js assets/screening-visual-v4.css assets/screening-uniformity-v1.js assets/screening-uniformity-v1.css
+          ! grep -q 'const HERO_SCENES' assets/screening-system-v2.js
+          grep -q 'Preparando o instrumento para preenchimento' assets/screening-uniformity-v1.js
+          grep -q 'screening-visual-v4' assets/screening-uniformity-v1.js
+          grep -q 'RAC-5TR — Rastreio Autoaplicável Clínico' assets/screening-public-experience-v2.json
+
+      - name: Commit canônico
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m 'feat(rastreios): 15 heroes locais, nomes clínicos e splash v4'
+          git push
