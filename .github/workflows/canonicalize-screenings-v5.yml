@@ -25,29 +25,29 @@ jobs:
           mkdir -p assets/heroes
           get(){
             id="$1"; photo="$2";
-            url="https://unsplash.com/photos/${photo}/download?force=true&w=1800"
+            url="https://images.unsplash.com/${photo}?auto=format&fit=crop&w=1800&q=88"
             echo "hero $id <- $photo"
-            curl -fL --retry 5 --retry-all-errors --retry-delay 2 -A 'Mozilla/5.0 RM-Clinical-Curation/5.0' "$url" -o "assets/heroes/${id}.jpg.tmp"
+            curl -fL --retry 4 --retry-all-errors --retry-delay 2 -A 'Mozilla/5.0 RM-Clinical-Curation/5.0' "$url" -o "assets/heroes/${id}.jpg.tmp"
             test "$(wc -c < "assets/heroes/${id}.jpg.tmp")" -gt 30000
             file "assets/heroes/${id}.jpg.tmp" | grep -Eqi 'JPEG|PNG|WebP|image'
             mv "assets/heroes/${id}.jpg.tmp" "assets/heroes/${id}.jpg"
           }
-          get geral VKnmszzzTig
-          get tdah J7vp4RK-FPY
-          get bipolar YKyyz4T3Rr4
-          get borderline ndMmX66tWHQ
-          get narcisismo 6oXtCQ3klIc
-          get impulsividade jRKOG8ZJLI0
-          get esquemas JXyY3jRV9oI
-          get modos VrCf2Kv2ixE
-          get necessidades ho3E9RiZRWw
-          get codependencia M1IDH7G6Lqk
-          get icaps WexSW1s6XaE
-          get risco wYxHJr_9OVw
-          # humor/BDI-II: preservado; usuário aprovou a imagem vigente.
+          get geral photo-1753715613651-749ef230482c
+          get tdah photo-1766555766657-ea8f81a67934
+          get bipolar photo-1775590766125-3b49bece6c22
+          get borderline photo-1717435212223-98994b9f8f7f
+          get narcisismo photo-1759171069440-81acbd3a4257
+          get impulsividade photo-1753620033339-0caedb79ce03
+          get esquemas photo-1677506048148-0c914dd8197b
+          get modos photo-1717078279011-b0e9ae2a3a71
+          get necessidades photo-1743385779405-4e131c2b7d3d
+          get codependencia photo-1724246067186-329e027eb629
+          get icaps photo-1740319259776-6d109e33730f
+          get risco photo-1713826691124-770a12d1dedb
+          # BDI-II: preservar a imagem vigente, já aprovada.
           test -s assets/heroes/humor.jpg
-          get ansiedade oPRd3ID4aUw
-          get autoestima AofgbZrFyGA
+          get ansiedade photo-1782070331586-cd832b23a434
+          get autoestima photo-1723754166046-6d55777d54d0
 
       - name: Aplicar naming, scoring, relatório, hero e auditoria
         run: python3 tools/canonicalize_screenings_v5.py
@@ -83,7 +83,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json, pathlib, hashlib, re
+          import json, pathlib
           root=pathlib.Path('.')
           a=json.loads((root/'audits/canonical-screening-v5.json').read_text(encoding='utf-8'))
           assert a['globalGates']['heroCount']==15
@@ -91,7 +91,6 @@ jobs:
           assert a['globalGates']['nameCount']==15
           assert a['globalGates']['noLegacySvgGenerator'] is True
           cfg=json.loads((root/'assets/screening-public-experience-v2.json').read_text(encoding='utf-8'))
-          cat=(root/'assets/screening-catalog-v3.js').read_text(encoding='utf-8')
           vis=(root/'assets/screening-visual-v4.js').read_text(encoding='utf-8')
           score=(root/'apps-script/ScreeningScoringV3.gs').read_text(encoding='utf-8')
           assert 'v=5.0.0' in vis
