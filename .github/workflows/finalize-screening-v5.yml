@@ -22,15 +22,8 @@ jobs:
           s=s.replace('screening-public-experience-v2.json?v=4.0.0','screening-public-experience-v2.json?v=5.0.0')
           s=s.replace('screening-adapters-v2.json?v=4.0.0','screening-adapters-v2.json?v=5.0.0')
           p.write_text(s,encoding='utf-8')
-
-          p=Path('assets/screening-uniformity-v1.css');s=p.read_text(encoding='utf-8')
-          s=s.replace('screening-visual-v4.css?v=4.0.0','screening-visual-v4.css?v=5.0.0')
-          p.write_text(s,encoding='utf-8')
-
-          p=Path('assets/screening-uniformity-v1.js');s=p.read_text(encoding='utf-8')
-          s=s.replace('screening-system-v2.js?v=2.4.0-no-svg','screening-system-v2.js?v=2.5.0-v5-clinical')
-          p.write_text(s,encoding='utf-8')
-
+          p=Path('assets/screening-uniformity-v1.css');s=p.read_text(encoding='utf-8').replace('screening-visual-v4.css?v=4.0.0','screening-visual-v4.css?v=5.0.0');p.write_text(s,encoding='utf-8')
+          p=Path('assets/screening-uniformity-v1.js');s=p.read_text(encoding='utf-8').replace('screening-system-v2.js?v=2.4.0-no-svg','screening-system-v2.js?v=2.5.0-v5-clinical');p.write_text(s,encoding='utf-8')
           p=Path('index.html');s=p.read_text(encoding='utf-8')
           hero='https://ricmurtapsicologia.github.io/Inicio-de-Jornada-Terapeutica/assets/heroes/geral.jpg?v=5.0.0'
           s=re.sub(r'<meta\s+property=["\']og:image["\']\s+content=["\'][^"\']+["\']\s*/?>',f'<meta property="og:image" content="{hero}" />',s,count=1,flags=re.I)
@@ -38,14 +31,14 @@ jobs:
           s=re.sub(r'\s*<link\s+rel=["\']icon["\']\s+href=["\']https://i\.pinimg\.com/[^"\']+["\']\s*/?>','',s,flags=re.I)
           p.write_text(s,encoding='utf-8')
           PY
-      - name: Gate de resíduos e sintaxe
+      - name: Gate canônico de cache e sintaxe
         run: |
           set -euo pipefail
-          ! grep -R "i.pinimg.com" index.html assets/screening-*.js assets/screening-*.css || false
           grep -q 'screening-public-experience-v2.json?v=5.0.0' assets/screening-system-v2.js
           grep -q 'screening-adapters-v2.json?v=5.0.0' assets/screening-system-v2.js
           grep -q 'screening-visual-v4.css?v=5.0.0' assets/screening-uniformity-v1.css
           grep -q 'screening-system-v2.js?v=2.5.0-v5-clinical' assets/screening-uniformity-v1.js
+          ! grep -R 'pinimg.com\|images.unsplash.com\|pexels.com\|pixabay.com' assets/screening-visual-v4.js assets/screening-uniformity-v1.js assets/screening-uniformity-v1.css
           node -e "new Function(require('fs').readFileSync('assets/screening-system-v2.js','utf8'));new Function(require('fs').readFileSync('assets/screening-uniformity-v1.js','utf8'))"
       - name: Commit
         run: |
