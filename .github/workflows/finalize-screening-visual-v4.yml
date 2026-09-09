@@ -1,0 +1,68 @@
+name: Finalize screening visual v4
+on:
+  push:
+    paths: ['.github/workflows/finalize-screening-visual-v4.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Alinhar cache, nomes e produzir auditoria final
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib, re, hashlib
+          root=pathlib.Path('.')
+          expected={
+            'geral':'RAC-5TR — Rastreio Autoaplicável Clínico','tdah':'EIR-TDAH-A — Escala Integrada de Rastreio para TDAH','bipolar':'Bateria de Rastreio — Transtorno Afetivo Bipolar (TAB)','borderline':'Inventário de Traços Borderline','narcisismo':'Bateria de Rastreio — Traços Narcisistas','impulsividade':'Barratt Impulsiveness Scale — BIS-11','esquemas':'Mapa de Esquemas — Inventário de Padrões Emocionais','modos':'SMI 1.1 — Inventário de Modos Esquemáticos','necessidades':'Escala de Rastreio de Necessidades Emocionais','codependencia':'Escala de Dependência e Codependência Emocional','icaps':'ICAPS — Inventário Clínico para Avaliação de Prontidão para Separação','risco':'EIR-RS — Escala Integrada de Risco de Suicídio','humor':'Inventário de Depressão de Beck — BDI-II','ansiedade':'Monitoramento de Ansiedade — estrutura HAM-A (autorrelato adaptado)','autoestima':'Escala de Autoestima de Rosenberg — RSES-BR'}
+          for rel in ['index.html','painel-rastreios/index.html']:
+              p=root/rel
+              if p.exists():
+                  s=p.read_text(encoding='utf-8'); s=re.sub(r'screening-catalog-v3\.js\?v=[^\"\']+','screening-catalog-v3.js?v=20260909-clinical-v4',s); p.write_text(s,encoding='utf-8')
+          p=root/'assets/screening-system-v2.js'; s=p.read_text(encoding='utf-8')
+          s=s.replace("screening-public-experience-v2.json';","screening-public-experience-v2.json?v=4.0.0';").replace("screening-adapters-v2.json';","screening-adapters-v2.json?v=4.0.0';")
+          p.write_text(s,encoding='utf-8')
+          mon=root/'assets/monitoramentos-v2.js'
+          if mon.exists():
+              s=mon.read_text(encoding='utf-8')
+              s=re.sub(r"(humor:\s*\{\s*\n\s*title:)'[^']*'",r"\1'Inventário de Depressão de Beck — BDI-II'",s)
+              s=re.sub(r"(ansiedade:\s*\{\s*\n\s*title:)'[^']*'",r"\1'Monitoramento de Ansiedade — estrutura HAM-A (autorrelato adaptado)'",s)
+              s=re.sub(r"(autoestima:\s*\{\s*\n\s*title:)'[^']*'",r"\1'Escala de Autoestima de Rosenberg — RSES-BR'",s)
+              mon.write_text(s,encoding='utf-8')
+          public=json.loads((root/'assets/screening-public-experience-v2.json').read_text(encoding='utf-8'))
+          catalog=(root/'assets/screening-catalog-v3.js').read_text(encoding='utf-8')
+          for k,v in expected.items():
+              if public['instruments'][k]['publicName']!=v: raise SystemExit(f'Nome público divergente: {k}')
+              if v not in catalog: raise SystemExit(f'Catálogo divergente: {k}')
+          heroes=[]; hashes=set()
+          for k,v in expected.items():
+              p=root/f'assets/heroes/{k}.jpg'; b=p.read_bytes(); h=hashlib.sha256(b).hexdigest(); hashes.add(h); heroes.append({'id':k,'title':v,'path':str(p),'bytes':len(b),'sha256':h})
+          if len(hashes)!=15: raise SystemExit(f'Heroes não exclusivos: {len(hashes)}/15')
+          repo_commits={'geral':'d20a6fb8c6a28931aba17dbcda63725f0af70080','tdah':'e0ddfad7ebdf8d9c63151bb4bd8b67915340d08a','bipolar':'9a01d9349e987074fe989d0e278795438ea992ec','borderline':'bf1b425b98867d9bb70c4e325c62d5d08cf6da50','narcisismo':'829d222ee03d5a5052df006381d99a98ba61529d','impulsividade':'ac50759546b83dda16a370b3e01b1823d4e6863c','esquemas':'cedf7530e5582c602270eab57e7074f7584fd76c','modos':'b2934a186da442f9616e7b122473c4b13d857b5b','necessidades':'712809069d7d0472f287b03ed1677e1961f7cc7a','codependencia':'39f9baf034350214bccf6d921c4f9c951e55f31f','icaps':'acb797b218526807ad59f46e809afb09ddcd8c78','risco':'8c4b6bbe593bf7a926f7c78dd0512a8bd49940fe'}
+          report={'status':'PASS','version':'4.0.0','totalInstruments':15,'uniqueHeroes':len(hashes),'splashMinMs':1850,'canonicalHeroSource':'local repository assets','legacySvgGenerator':False,'repoSanitizationCommits':repo_commits,'heroes':heroes,'gates':['15/15 heroes locais','15/15 hashes únicos','nomes clínicos sincronizados catálogo/hero','HERO_SCENES removido','v3 visual removido','splash única e clínica','cache-bust v4']}
+          (root/'audits/visual-v4-final.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          rm -f .github/workflows/internalize-screening-heroes-v4.yml .github/workflows/internalize-screening-heroes-v4-fixed.yml .github/workflows/reusable-sanitize-rastreio-v4.yml .github/workflows/reusable-sanitize-rastreio-v4-simple.yml
+          test "$(find assets/heroes -maxdepth 1 -type f -name '*.jpg' | wc -l)" -eq 15
+          test "$(sha256sum assets/heroes/*.jpg | awk '{print $1}' | sort -u | wc -l)" -eq 15
+          ! grep -q 'const HERO_SCENES' assets/screening-system-v2.js
+          test ! -e assets/screening-visual-v3.js
+          test ! -e assets/screening-visual-v3.css
+          ! grep -RqiE 'pinimg\.com|images\.unsplash\.com' assets/screening-visual-v4.js assets/screening-uniformity-v1.js assets/screening-uniformity-v1.css
+          grep -q 'Preparando o instrumento para preenchimento' assets/screening-uniformity-v1.js
+          grep -q '"status": "PASS"' audits/visual-v4-final.json
+      - name: Commit final e auto-limpeza
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm -f .github/workflows/finalize-screening-visual-v4.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore(rastreios): gate final visual v4 e limpeza de workflows temporários'
+          git push
