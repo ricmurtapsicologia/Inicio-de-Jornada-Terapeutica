@@ -115,6 +115,7 @@ function postOrdered(form,id,responses){
   pendingTimer=setTimeout(()=>{
     if(!pendingId)return;
     pendingId='';setBusy(pendingButton,false);showError(form,'O envio não pôde ser confirmado. Verifique sua conexão e tente novamente.');
+    window.dispatchEvent(new CustomEvent('rm:screening-submit-failed',{detail:{instrumentId:id,reason:'timeout'}}));
   },25000);
 }
 
@@ -136,6 +137,7 @@ window.addEventListener('message',event=>{
     return;
   }
   pendingId='';lastAttempt=null;setBusy(pendingButton,false);if(form)showError(form,data.message||'Não foi possível confirmar o registro. Tente novamente.');
+  window.dispatchEvent(new CustomEvent('rm:screening-submit-failed',{detail:{instrumentId:id,reason:'rejected'}}));
 });
 
 Promise.all([
