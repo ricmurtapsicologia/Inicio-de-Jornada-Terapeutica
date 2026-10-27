@@ -7,9 +7,9 @@ for(const id of ids) assert.ok(new RegExp(`${id}:\\s*score`, 'i').test(src),`sco
 assert.match(src,/DESCRIPTIVE_ONLY/);
 assert.match(src,/STANDARD_BIS11/);
 assert.match(src,/STANDARD_BDI2/);
-assert.match(src,/STANDARD_HAMA_ADAPTED_SELF_REPORT/);
+assert.match(src,/HAMA_STRUCTURE_ADAPTED_SELF_REPORT/);
 assert.match(src,/STANDARD_RSES_BR/);
-assert.match(src,/SOURCE_DERIVED_CURRENT_HIGH_STAKES/);
+assert.match(src,/LOCAL_HIGH_STAKES_REVIEW_REQUIRED/);
 assert.ok(!/percentileRank|percentile\s*=|simulatedPercentile/i.test(src),'não restaurar percentil simulado');
 assert.ok(!/Quadro Clínico Mais Provável|diagnóstico provável/i.test(src),'scorer não pode emitir diagnóstico');
 assert.match(src,/SCREENING_SCHEMAS_CONFIG_V3/);
