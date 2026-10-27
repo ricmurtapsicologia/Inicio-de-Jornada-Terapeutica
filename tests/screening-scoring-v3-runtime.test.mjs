@@ -33,11 +33,11 @@ x=ctx.scoreScreeningV3_('icaps',Array.from({length:60},()=>nrec(1))); assert.equ
 let bdi=labels(21,0); x=ctx.scoreScreeningV3_('humor',bdi); assert.equal(x.rawScore,0); assert.equal(x.classification,'mínimo');
 bdi=labels(21,3); bdi[15]=rec(5); bdi[17]=rec(5); x=ctx.scoreScreeningV3_('humor',bdi); assert.equal(x.rawScore,63); assert.equal(x.classification,'grave'); assert.ok(x.riskFlags.includes('SUICIDE_ITEM_HIGH'));
 
-x=ctx.scoreScreeningV3_('ansiedade',labels(14,0)); assert.equal(x.rawScore,0); x=ctx.scoreScreeningV3_('ansiedade',labels(14,4)); assert.equal(x.rawScore,56); assert.equal(x.classification,'grave');
+x=ctx.scoreScreeningV3_('ansiedade',labels(14,0)); assert.equal(x.rawScore,0); x=ctx.scoreScreeningV3_('ansiedade',labels(14,4)); assert.equal(x.rawScore,56); assert.equal(x.classification,'Escore longitudinal de autorrelato');
 
 let rs=labels(10,0); [2,5,6,8,9].forEach(i=>rs[i-1]=rec(3)); x=ctx.scoreScreeningV3_('autoestima',rs); assert.equal(x.rawScore,30);
 rs=labels(10,3); [2,5,6,8,9].forEach(i=>rs[i-1]=rec(0)); x=ctx.scoreScreeningV3_('autoestima',rs); assert.equal(x.rawScore,0);
 
-let risk=Array.from({length:18},()=>nrec(0)); risk[16]=nrec(4); risk[17]=nrec(4); x=ctx.scoreScreeningV3_('risco',risk); assert.equal(x.rawScore,0); assert.equal(x.classification,'Sem risco');
-risk=Array.from({length:18},()=>nrec(4)); risk[16]=nrec(0); risk[17]=nrec(0); x=ctx.scoreScreeningV3_('risco',risk); assert.equal(x.rawScore,82); assert.equal(x.classification,'Risco grave'); assert.ok(x.riskFlags.includes('CLINICAL_ALERT_REQUIRED')); assert.ok(x.riskFlags.includes('SUICIDAL_IDEATION_PRESENT'));
+let risk=Array.from({length:18},()=>nrec(0)); risk[16]=nrec(4); risk[17]=nrec(4); x=ctx.scoreScreeningV3_('risco',risk); assert.equal(x.rawScore,0); assert.equal(x.classification,'Avaliação clínica contextual obrigatória');
+risk=Array.from({length:18},()=>nrec(4)); risk[16]=nrec(0); risk[17]=nrec(0); x=ctx.scoreScreeningV3_('risco',risk); assert.equal(x.rawScore,82); assert.equal(x.classification,'Avaliação clínica contextual obrigatória'); assert.ok(x.riskFlags.includes('CLINICAL_ALERT_REQUIRED')); assert.ok(x.riskFlags.includes('SUICIDAL_IDEATION_PRESENT'));
 console.log('SCREENING_SCORING_V3_RUNTIME_PASS');
