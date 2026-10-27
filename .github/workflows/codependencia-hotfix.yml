@@ -1,0 +1,24 @@
+name: Codependency isolated clinical hotfix
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apps-script/**'
+      - 'assets/screening-*'
+      - 'tests/codependencia-safety.test.mjs'
+      - 'tests/ordered-transport-v31.test.mjs'
+      - '.github/workflows/codependencia-hotfix.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  codependencia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/codependencia-safety.test.mjs
+      - run: node tests/ordered-transport-v31.test.mjs
+      - run: node tests/screening-scoring-v3-runtime.test.mjs
