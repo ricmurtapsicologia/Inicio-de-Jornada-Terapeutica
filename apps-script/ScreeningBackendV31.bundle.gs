@@ -57,6 +57,11 @@ function doPost(e) {
     const cacheKey='screening:'+payload.instrumentId+':'+payload.submissionId;
     if(cache.get(cacheKey)) return screeningBridgeHtml_({ok:true,duplicate:true,submissionId:payload.submissionId,instrumentId:payload.instrumentId});
 
+    // Fail-closed release flag is checked server-side, not inferred from public JS.
+    if(payload.instrumentId==='codependencia' &&
+       PropertiesService.getScriptProperties().getProperty('SCREENING_CODEPENDENCIA_ENABLED')!=='true') {
+      throw new Error('INSTRUMENT_NOT_RELEASED:codependencia');
+    }
     const instrument=SCREENING_BRIDGE.INSTRUMENTS[payload.instrumentId];
     const formId=PropertiesService.getScriptProperties().getProperty(instrument.formProperty);
     if(!formId) throw new Error('FORM_ID_NOT_CONFIGURED:'+payload.instrumentId);
@@ -129,6 +134,17 @@ function buildScreeningOrderedContract_(form) {
 
 function validateScreeningOrderedPayload_(payload,contract) {
   if(payload.responses.length!==contract.clinical.length) throw new Error('RESPONSE_COUNT_MISMATCH:'+payload.responses.length+':'+contract.clinical.length);
+  if(payload.instrumentId==='codependencia'){
+    if(contract.clinical.length!==40) throw new Error('CODEP_CONTRACT_COUNT');
+    const allowed=['Discordo Totalmente','Discordo','Neutro','Concordo','Concordo Totalmente'];
+    contract.clinical.forEach(function(entry,i){
+      if(allowed.indexOf(String(payload.responses[i]))<0)throw new Error('CODEP_ANSWER_INVALID:'+String(i+1));
+      if(entry.type!==FormApp.ItemType.LIST)throw new Error('CODEP_ITEM_TYPE_MISMATCH:'+String(i+1));
+      const options=entry.item.asListItem().getChoices().map(function(c){return c.getValue();});
+      if(options.length!==allowed.length||options.some(function(v,j){return v!==allowed[j];}))
+        throw new Error('CODEP_CHOICE_CONTRACT_MISMATCH:'+String(i+1));
+    });
+  }
   const identity=payload.identity||{};
   ['name','birthDate','applicationDate'].forEach(function(key){
     const entry=contract.identity[key];
@@ -202,7 +218,7 @@ function screeningSafeError_(err) { return err&&err.message?String(err.message).
 function screeningBridgeHtml_(data) {
   const message=Object.assign({type:SCREENING_BRIDGE.MESSAGE_TYPE},data||{});
   const json=JSON.stringify(message).replace(/</g,'\\u003c');
-  const html='<!doctype html><html><head><meta charset="utf-8"></head><body><script>try{parent.postMessage('+json+',"*");}catch(e){}</script></body></html>';
+  const html='<!doctype html><html><head><meta charset="utf-8"></head><body><script>try{parent.postMessage('+json+',"https://ricmurtapsicologia.github.io");}catch(e){}</script></body></html>';
   return HtmlService.createHtmlOutput(html).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 

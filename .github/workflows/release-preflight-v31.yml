@@ -46,6 +46,7 @@ jobs:
           console.log('CANONICAL_15_SURFACES_PASS');
           NODE
       - run: node tests/ordered-transport-v31.test.mjs
+      - run: node tests/codependencia-safety.test.mjs
       - run: node tests/screening-bridge-v3-static.test.mjs
       - run: node tests/screening-postprocessing-v3-static.test.mjs
       - run: node tests/screening-pipeline-v3-static.test.mjs

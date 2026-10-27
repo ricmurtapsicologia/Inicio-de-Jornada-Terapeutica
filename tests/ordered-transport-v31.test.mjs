@@ -37,7 +37,7 @@ assert.match(client,/responses/);
 assert.match(client,/audits\/mirror-specs/);
 assert.match(client,/ICAPS\/data\/icaps-v2\.json/);
 assert.match(client,/field_card_order/);
-assert.match(uniformity,/RM_SCREENING_V3_CLIENT=true/);
+assert.match(uniformity,/RM_SCREENING_V5_CLIENT=true/);
 assert.match(uniformity,/screening-submit-v3\.js/);
 assert.match(legacy,/if\(window\.RM_SCREENING_V3_CLIENT===true\)return/);
 

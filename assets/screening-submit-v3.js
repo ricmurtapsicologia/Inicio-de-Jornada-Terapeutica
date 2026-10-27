@@ -8,7 +8,7 @@ const REPOS={
 };
 const MONITOR_COUNTS={humor:21,ansiedade:14,autoestima:10};
 const startedAt=Date.now();
-let pendingId='',pendingButton=null,pendingTimer=null,transportConfig=null,specCache={};
+let pendingId='',pendingButton=null,pendingTimer=null,transportConfig=null,specCache={},lastAttempt=null;
 
 function instrumentId(){
   const seg=location.pathname.split('/').filter(Boolean)[0]||'';
@@ -59,6 +59,18 @@ function valueForCard(card){
   const control=card.querySelector('input:not([type="hidden"]),select,textarea');
   return control?control.value:'';
 }
+function requiredAt(form,spec,i){
+  if(spec.mode==='field_card_order')return Boolean(form.querySelectorAll('.field-card')[i]?.querySelector('[required]'));
+  return [...form.elements].some(el=>el.name===spec.keys[i] && el.required);
+}
+function validateResponses(form,spec,id,values){
+  if(values.length!==spec.expectedCount)return false;
+  return values.every((v,i)=>{
+    if(requiredAt(form,spec,i)&&blank(v))return false;
+    if(id==='codependencia'&&!/^[1-5]$/.test(String(v)))return false;
+    return true;
+  });
+}
 function collectResponses(form,spec){
   if(spec.mode==='field_card_order'){
     const cards=[...form.querySelectorAll('.field-card')];
@@ -82,7 +94,6 @@ function ensureSink(){
   return sink;
 }
 function postOrdered(form,id,responses){
-  pendingId=uuid();
   pendingButton=form.querySelector('button[type="submit"],input[type="submit"]');
   setBusy(pendingButton,true);
   const rawIdentity=window.RMScreeningUI?.getIdentity?.()||{};
@@ -91,6 +102,9 @@ function postOrdered(form,id,responses){
     birthDate:String(rawIdentity.birthDate||'').trim(),
     applicationDate:String(rawIdentity.applicationDate||today()).trim()
   };
+  const signature=JSON.stringify({instrumentId:id,identity,responses});
+  pendingId=lastAttempt?.signature===signature?lastAttempt.id:uuid();
+  lastAttempt={signature,id:pendingId};
   const payload={version:VERSION,instrumentId:id,submissionId:pendingId,startedAt,submittedAt:Date.now(),identity,responses};
   const sink=ensureSink();
   const transport=document.createElement('form');
@@ -101,10 +115,16 @@ function postOrdered(form,id,responses){
   pendingTimer=setTimeout(()=>{
     if(!pendingId)return;
     pendingId='';setBusy(pendingButton,false);showError(form,'O envio não pôde ser confirmado. Verifique sua conexão e tente novamente.');
+    window.dispatchEvent(new CustomEvent('rm:screening-submit-failed',{detail:{instrumentId:id,reason:'timeout'}}));
   },25000);
 }
 
 window.addEventListener('message',event=>{
+  // Only the transport iframe, running on Google's trusted script origins,
+  // may confirm a clinical submission. SubmissionId alone is insufficient.
+  const sink=document.getElementById('rm-screening-v3-sink');
+  if(!sink || event.source!==sink.contentWindow)return;
+  if(!/^https:\/\/(?:[a-z0-9-]+\.)*googleusercontent\.com$/i.test(event.origin) && event.origin!=='https://script.google.com')return;
   const data=event.data;
   if(!data||data.type!=='RM_SCREENING_SUBMIT_RESULT'||!pendingId||data.submissionId!==pendingId)return;
   clearTimeout(pendingTimer);
@@ -112,19 +132,30 @@ window.addEventListener('message',event=>{
   const spec=specCache[id];
   const form=spec?document.querySelector(spec.formSelector):null;
   if(data.ok===true){
-    const confirmed=pendingId;pendingId='';
+    const confirmed=pendingId;pendingId='';lastAttempt=null;
     window.RMScreeningUI?.confirmDelivery?.({instrumentId:id,submissionId:confirmed,receipt:'apps_script_ordered_v31',processing:data.processing||'complete'});
     return;
   }
-  pendingId='';setBusy(pendingButton,false);if(form)showError(form,data.message||'Não foi possível confirmar o registro. Tente novamente.');
+  pendingId='';lastAttempt=null;setBusy(pendingButton,false);if(form)showError(form,data.message||'Não foi possível confirmar o registro. Tente novamente.');
+  window.dispatchEvent(new CustomEvent('rm:screening-submit-failed',{detail:{instrumentId:id,reason:'rejected'}}));
 });
 
 Promise.all([
   fetch(TRANSPORT_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('TRANSPORT_CONFIG_'+r.status);return r.json();}),
   Promise.resolve(instrumentId()).then(async id=>({id,spec:id?await loadSpec(id):null}))
-]).then(([cfg,loaded])=>{
+]).then(async ([cfg,loaded])=>{
   transportConfig=cfg;
   if(!loaded.id||!loaded.spec)return;
+  // Instrument-specific release gate: an enabled transport is not a release
+  // authorization for a questionnaire that has not completed clinical E2E.
+  if(loaded.id==='codependencia'){
+    const [p,a]=await Promise.all([
+      fetch(HUB+'assets/screening-public-experience-v2.json?v=5.0.0',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('CLINICAL_GATE_CONFIG');return r.json();}),
+      fetch(HUB+'assets/screening-adapters-v2.json?v=5.0.0',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('CLINICAL_GATE_ADAPTER');return r.json();})
+    ]);
+    const c=p.instruments?.codependencia, adapter=a.instruments?.codependencia;
+    if(c?.collectorReady!==true || c?.scorerValidated!==true || c?.productionReady!==true || adapter?.submissionSupported!==true)return;
+  }
   if(!cfg.enabled||cfg.version!==VERSION||!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:\?.*)?$/i.test(String(cfg.bridgeUrl||'')))return;
   const form=document.querySelector(loaded.spec.formSelector);
   if(!form)return;
@@ -134,9 +165,16 @@ Promise.all([
     event.preventDefault();event.stopImmediatePropagation();
     try{
       const responses=collectResponses(form,loaded.spec);
-      if(responses.length!==loaded.spec.expectedCount||responses.some((v,i)=>blank(v)&&form.querySelectorAll('[required]').length&&false))throw new Error('RESPONSE_COLLECTION_INVALID');
-      postOrdered(form,loaded.id,responses);
+      if(!validateResponses(form,loaded.spec,loaded.id,responses))throw new Error('RESPONSE_COLLECTION_INVALID');
+      // The public select uses numeric values; the canonical Google Form stores
+      // the textual choice labels. Match the exact frozen 40-item Form contract.
+      const canonical=loaded.id==='codependencia'
+        ? responses.map(v=>['Discordo Totalmente','Discordo','Neutro','Concordo','Concordo Totalmente'][Number(v)-1])
+        : responses;
+      postOrdered(form,loaded.id,canonical);
     }catch(err){setBusy(pendingButton,false);showError(form,'Revise as respostas antes de concluir o rastreio.');console.error('SCREENING_V3_COLLECT:'+String(err&&err.message||err));}
   },true);
+  window.RM_SCREENING_V3_CLIENT_READY=true;
+  window.dispatchEvent(new CustomEvent('rm:screening-bridge-ready',{detail:{instrumentId:loaded.id}}));
 }).catch(err=>console.error('SCREENING_V3_CLIENT:'+String(err&&err.message||err)));
 })();
