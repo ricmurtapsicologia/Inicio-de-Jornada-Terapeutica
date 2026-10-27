@@ -164,7 +164,12 @@ Promise.all([
     try{
       const responses=collectResponses(form,loaded.spec);
       if(!validateResponses(form,loaded.spec,loaded.id,responses))throw new Error('RESPONSE_COLLECTION_INVALID');
-      postOrdered(form,loaded.id,responses);
+      // The public select uses numeric values; the canonical Google Form stores
+      // the textual choice labels. Match the exact frozen 40-item Form contract.
+      const canonical=loaded.id==='codependencia'
+        ? responses.map(v=>['Discordo Totalmente','Discordo','Neutro','Concordo','Concordo Totalmente'][Number(v)-1])
+        : responses;
+      postOrdered(form,loaded.id,canonical);
     }catch(err){setBusy(pendingButton,false);showError(form,'Revise as respostas antes de concluir o rastreio.');console.error('SCREENING_V3_COLLECT:'+String(err&&err.message||err));}
   },true);
   window.RM_SCREENING_V3_CLIENT_READY=true;
