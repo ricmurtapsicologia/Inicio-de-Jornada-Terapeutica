@@ -61,7 +61,8 @@ function valueForCard(card){
 }
 function collectResponses(form,spec){
   if(spec.mode==='field_card_order'){
-    const cards=[...form.querySelectorAll('.field-card')];
+    // Os cards de identificação não fazem parte da matriz de respostas clínicas.
+    const cards=[...form.querySelectorAll('fieldset.field-card')];
     if(cards.length!==spec.expectedCount) throw new Error('CARD_COUNT:'+cards.length+':'+spec.expectedCount);
     return cards.map(valueForCard);
   }
@@ -106,6 +107,8 @@ function postOrdered(form,id,responses){
 
 window.addEventListener('message',event=>{
   const data=event.data;
+  const sink=document.getElementById('rm-screening-v3-sink');
+  if(!sink||event.source!==sink.contentWindow)return;
   if(!data||data.type!=='RM_SCREENING_SUBMIT_RESULT'||!pendingId||data.submissionId!==pendingId)return;
   clearTimeout(pendingTimer);
   const id=instrumentId();
@@ -134,9 +137,11 @@ Promise.all([
     event.preventDefault();event.stopImmediatePropagation();
     try{
       const responses=collectResponses(form,loaded.spec);
-      if(responses.length!==loaded.spec.expectedCount||responses.some((v,i)=>blank(v)&&form.querySelectorAll('[required]').length&&false))throw new Error('RESPONSE_COLLECTION_INVALID');
+      if(responses.length!==loaded.spec.expectedCount||responses.some(blank))throw new Error('RESPONSE_COLLECTION_INVALID');
       postOrdered(form,loaded.id,responses);
     }catch(err){setBusy(pendingButton,false);showError(form,'Revise as respostas antes de concluir o rastreio.');console.error('SCREENING_V3_COLLECT:'+String(err&&err.message||err));}
   },true);
+  window.RM_SCREENING_TRANSPORT_READY=true;
+  window.dispatchEvent(new CustomEvent('rm:screening-transport-ready',{detail:{instrumentId:loaded.id,version:VERSION}}));
 }).catch(err=>console.error('SCREENING_V3_CLIENT:'+String(err&&err.message||err)));
 })();
