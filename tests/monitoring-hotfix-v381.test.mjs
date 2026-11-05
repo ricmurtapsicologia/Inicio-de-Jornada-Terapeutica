@@ -26,6 +26,10 @@ for(const [id,expected] of Object.entries({humor:21,ansiedade:14,autoestima:10})
     assert.equal(config[id].scorerValidated,false);
   });
 }
+test('opção de risco não contém formulação ambígua',()=>{
+  assert.equal(monitoring.includes("'Gostaria de matar.'"),false);
+  assert.ok(monitoring.includes("'Gostaria de me matar.'"));
+});
 test('coletor de respostas ativado e com destino Google Apps Script',()=>{
   assert.equal(transport.enabled,true);
   assert.equal(transport.version,'screening-bridge-v3.1');
