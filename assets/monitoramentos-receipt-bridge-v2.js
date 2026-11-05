@@ -1,6 +1,7 @@
 (()=>{
 'use strict';
-if(window.RM_SCREENING_V3_CLIENT===true)return;
+// O transporte v3 é a única origem de comprovante nos monitoramentos atuais.
+if(window.RM_SCREENING_V3_CLIENT===true||window.RM_SCREENING_V5_CLIENT===true)return;
 
 const sink=document.querySelector('.collection-sink');
 const instrumentId=new URLSearchParams(location.search).get('instrument')||'';
