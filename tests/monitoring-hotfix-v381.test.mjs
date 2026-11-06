@@ -35,6 +35,10 @@ test('coletor de respostas ativado e com destino Google Apps Script',()=>{
   assert.equal(transport.version,'screening-bridge-v3.1');
   assert.match(transport.bridgeUrl,/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/);
 });
+test('formulário não usa envio legado se transporte verificado falhar',()=>{
+  assert.ok(monitoring.includes("verifiedTransportRequired=['humor','ansiedade','autoestima']"));
+  assert.ok(monitoring.includes('if(verifiedTransportRequired){event.preventDefault();'));
+});
 test('somente fieldsets clínicos e respostas não vazias são transmitidos',()=>{
   assert.ok(submit.includes("querySelectorAll('fieldset.field-card')"));
   assert.ok(submit.includes('responses.some(blank)'));
