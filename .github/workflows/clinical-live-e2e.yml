@@ -38,6 +38,30 @@ jobs:
             const sample=ix>=0?phtml.slice(Math.max(0,ix-140),ix+320).replace(/<[^>]+>/g,' ').replace(/\s+/g,' '):'message-type-absent';
             console.log('ANAMNESE_BRIDGE_INVALID_POST '+JSON.stringify({status:p.status,finalHost:new URL(p.url).hostname,bodyChars:phtml.length,hasMessage:ix>=0,preview:sample.slice(0,370)}));
 
+            // Uma única submissão sintética para distinguir gravação real de falha no iframe.
+            const stamp='TESTE E2E NAO E PACIENTE '+process.env.GITHUB_RUN_ID;
+            const answers={
+              'Nome completo':stamp,
+              'Idade':'30',
+              'O que fez você procurar terapia neste momento?':'TESTE TECNICO NAO CLINICO',
+              'Se você pudesse me ajudar a compreender o que está mais difícil atualmente, o que me contaria?':'DADO FICTICIO PARA TESTE',
+              'Quanto essa situação tem afetado sua vida atualmente?':'0',
+              'Em quais áreas da sua vida você percebe maior impacto atualmente?':['Emoções ou humor'],
+              'Quando essas dificuldades aparecem, o que costuma acontecer com você?':'TESTE TECNICO - SEM SINTOMAS',
+              'Você já fez psicoterapia anteriormente?':'Não',
+              'Faz uso atualmente de algum medicamento que considere relevante me informar?':'Não',
+              'Se nosso trabalho estiver fazendo diferença na sua vida, o que você gostaria de perceber diferente daqui a alguns meses?':'TESTE TECNICO',
+              'Existe neste momento alguma situação urgente relacionada à sua segurança ou à segurança de outra pessoa que você considere importante que eu saiba antes da sessão?':'Não'
+            };
+            const payload={version:'anamnese-v2',formId:'1fg3ZNgCfkbk4pEJaiNt3xY5vellVGI_129lDx8v-aPI',submissionId:'e2e-backend-'+process.env.GITHUB_RUN_ID,startedAt:Date.now()-20000,submittedAt:Date.now(),answers};
+            const v=await fetch(url,{method:'POST',headers:{'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({payload:JSON.stringify(payload)}),redirect:'follow',signal:AbortSignal.timeout(30000)});
+            const vh=await v.text();
+            const k=vh.indexOf('ANAMNESE_SUBMIT_RESULT');
+            const snippet=k>=0?vh.slice(Math.max(0,k-160),k+360).replace(/<[^>]+>/g,' ').replace(/\s+/g,' '):'message-type-absent';
+            console.log('ANAMNESE_BRIDGE_VALID_POST '+JSON.stringify({status:v.status,finalHost:new URL(v.url).hostname,marker:stamp,bodyChars:vh.length,hasMessage:k>=0,preview:snippet.slice(0,450)}));
+            if(!vh.includes('\\x22ok\\x22:true'))process.exitCode=1;
+
+
           }catch(e){console.log('ANAMNESE_BRIDGE_GET '+JSON.stringify({error:String(e).slice(0,200)}));process.exitCode=1;}
           JS
       - name: Live browser smoke without new submissions
