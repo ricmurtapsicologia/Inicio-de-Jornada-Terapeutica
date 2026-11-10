@@ -31,6 +31,13 @@ jobs:
             const html=await r.text();
             const result={status:r.status,finalHost:new URL(r.url).hostname,bridgeMessage:html.includes('ANAMNESE_SUBMIT_RESULT'),authRequired:/sign in|login|accounts.google.com|access denied/i.test(html),unavailable:/script function not found|file not found|unable to open|não foi possível/i.test(html),bodyChars:html.length,preview:html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').slice(0,200)};
             console.log('ANAMNESE_BRIDGE_GET '+JSON.stringify(result));
+
+            const p=await fetch(url,{method:'POST',headers:{'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({payload:'{}'}),redirect:'follow',signal:AbortSignal.timeout(20000)});
+            const phtml=await p.text();
+            const ix=phtml.indexOf('ANAMNESE_SUBMIT_RESULT');
+            const sample=ix>=0?phtml.slice(Math.max(0,ix-140),ix+320).replace(/<[^>]+>/g,' ').replace(/\s+/g,' '):'message-type-absent';
+            console.log('ANAMNESE_BRIDGE_INVALID_POST '+JSON.stringify({status:p.status,finalHost:new URL(p.url).hostname,bodyChars:phtml.length,hasMessage:ix>=0,preview:sample.slice(0,370)}));
+
           }catch(e){console.log('ANAMNESE_BRIDGE_GET '+JSON.stringify({error:String(e).slice(0,200)}));process.exitCode=1;}
           JS
       - name: Live browser smoke without new submissions
