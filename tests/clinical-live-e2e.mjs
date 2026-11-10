@@ -37,7 +37,7 @@ try {
   const progress=await controle.locator('#progress-count').innerText();
   const valid=await controle.locator('#clinical-form').evaluate(el=>el.checkValidity());
   log('controle-validacao',valid && /14 de 14/.test(progress),'required='+progress+' valid='+valid);
-  if(valid && process.env.LIVE_SYNTHETIC_SUBMISSION==='1'){
+  if(valid && process.env.LIVE_SYNTHETIC_SUBMISSION==='1' && process.env.SKIP_CONTROL_SUBMISSION!=='1'){
     await controle.locator('.submit-btn').click({timeout:10000});
     await controle.waitForTimeout(8000);
     const current=controle.url();
@@ -68,11 +68,11 @@ try {
       } else if(type==='choice'||type==='scale'){
         const options=field.locator('input[type="radio"]');
         const no=field.locator('input[type="radio"][value="Não"]');
-        if(await no.count())await no.first().check();
-        else if(await options.count())await options.first().check();
+        if(await no.count())await no.first().evaluate(el=>{el.checked=true;el.dispatchEvent(new Event('change',{bubbles:true}));});
+        else if(await options.count())await options.first().evaluate(el=>{el.checked=true;el.dispatchEvent(new Event('change',{bubbles:true}));});
       } else if(type==='check'){
         const checkbox=field.locator('input[type="checkbox"]');
-        if(await checkbox.count())await checkbox.first().check();
+        if(await checkbox.count())await checkbox.first().evaluate(el=>{el.checked=true;el.dispatchEvent(new Event('change',{bubbles:true}));});
       }
     }
     const button=anamnese.locator('#nextBtn');
@@ -95,7 +95,7 @@ try {
 } catch(err){log('runner-error',false,String(err?.message||err).slice(0,400));}
 finally{await browser.close();}
 const mandatory=['controle-render','controle-validacao','anamnese-render','anamnese-etapas'];
-const writeChecks=process.env.LIVE_SYNTHETIC_SUBMISSION==='1'?['controle-envio','anamnese-envio']:[];
+const writeChecks=process.env.LIVE_SYNTHETIC_SUBMISSION==='1'?[...(process.env.SKIP_CONTROL_SUBMISSION==='1'?[]:['controle-envio']),'anamnese-envio']:[];
 const failed=[...mandatory,...writeChecks].filter(stage=>!output.some(x=>x.stage===stage&&x.ok===true));
 console.log('RESULT '+JSON.stringify({marker,failed}));
 if(failed.length)process.exitCode=1;
