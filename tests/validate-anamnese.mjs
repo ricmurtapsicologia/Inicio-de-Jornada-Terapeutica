@@ -51,4 +51,7 @@ const successPos=bridge.indexOf("return bridgeHtml_({ ok: true, submissionId: pa
 if(submitPos<0||successPos<0||submitPos>successPos) throw new Error('Bridge sinaliza sucesso antes de salvar no Forms');
 if(!bridge.includes('HtmlService.XFrameOptionsMode.ALLOWALL')) throw new Error('Bridge não está liberado para iframe de transporte');
 if(!bridge.includes("CacheService.getScriptCache()")) throw new Error('Idempotência por submissionId ausente');
+if(config.includes('dispatchInternalConfirmation')||config.includes("mode: 'no-cors'")||config.includes('showConfirmed')) throw new Error('Confirmação artificial de anamnese não pode voltar');
+if(!page.includes('data.ok===true&&(!activeSubmissionId||data.submissionId!==activeSubmissionId)')) throw new Error('Sucesso exige recibo correlacionado ao envio');
+if(page.includes("const sandboxOrigin=event.origin==='null'")) throw new Error('Origem null irrestrita não é confiável');
 console.log('Anamnese gate: PASS — 38 perguntas, catálogo compartilhado, Forms oficial, endpoint /exec, reenvio idempotente, timeout progressivo e bridge consistente.');

@@ -88,7 +88,7 @@
 
   <footer class="footer shell">© 2026 | Richelmy Murta - Psicólogo Clínico | Pós-graduado em Terapias Cognitivo-Comportamentais</footer>
 
-<script src="./anamnese-config.js"></script>
+<script src="./anamnese-config.js?v=20261110-confirmed-response"></script>
 <script>
 (() => {
   'use strict';
@@ -266,13 +266,15 @@
     const iframe=document.getElementById('anamneseTransport');
     const sourceMatches=event.source===iframe?.contentWindow;
     const googleOrigin=event.origin==='https://script.google.com'||event.origin==='https://script.googleusercontent.com'||event.origin.endsWith('.googleusercontent.com');
-    const sandboxOrigin=event.origin==='null';
-    if(!sourceMatches&&!googleOrigin&&!sandboxOrigin)return;
-    if(data.ok&&data.submissionId&&activeSubmissionId&&data.submissionId!==activeSubmissionId)return;
+    // Somente a janela de transporte ou um domínio do Apps Script pode responder.
+    // Um sucesso exige o submissionId exato do envio em andamento.
+    if(!sourceMatches&&!googleOrigin)return;
+    if(!sending)return;
+    if(data.ok===true&&(!activeSubmissionId||data.submissionId!==activeSubmissionId))return;
 
     clearSubmitTimers();
     sending=false;
-    if(data.ok){
+    if(data.ok===true){
       submitted=true;
       document.getElementById('anamneseForm').classList.add('hidden');
       document.querySelector('.progress-wrap').classList.add('hidden');

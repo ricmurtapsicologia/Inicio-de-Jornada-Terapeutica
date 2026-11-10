@@ -57,5 +57,13 @@ test('coleta depende da prontidão do transporte, sem autorizar escore',()=>{
 test('HTML usa os módulos do hotfix sem cache legado',()=>{
   assert.ok(uniform.includes('2.5.1-monitoring-v381'));
   assert.ok(uniform.includes('3.1.1-monitoring-v381'));
-  assert.ok(page.includes('5.0.1-monitoring-v381'));
+  assert.ok(page.includes('5.0.2-controle-hotfix'));
+});
+
+test('cadastro de continuidade não inicializa motor de rastreios ausente',()=>{
+  assert.ok(uniform.includes("get('instrument')==='controle')return"));
+});
+test('cadastro mostra confirmação oficial do Google em vez de sucesso por iframe',()=>{
+  assert.ok(monitoring.includes("key==='controle'?'_self':'clinical-collection-sink'"));
+  assert.ok(monitoring.includes("if(key==='controle'||verifiedTransportRequired||!submitted)return"));
 });
