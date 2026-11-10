@@ -1,0 +1,24 @@
+name: Clinical live E2E synthetic verification
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/clinical-live-e2e.yml'
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      LIVE_SYNTHETIC_SUBMISSION: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated headless browser test dependency
+        run: npm install --no-save --no-package-lock playwright@1.57.0
+      - name: Live browser E2E (fictitious records only)
+        run: node tests/clinical-live-e2e.mjs
