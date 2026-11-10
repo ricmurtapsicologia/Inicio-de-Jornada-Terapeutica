@@ -13,6 +13,7 @@ jobs:
     timeout-minutes: 8
     env:
       LIVE_SYNTHETIC_SUBMISSION: '1'
+      SKIP_CONTROL_SUBMISSION: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
