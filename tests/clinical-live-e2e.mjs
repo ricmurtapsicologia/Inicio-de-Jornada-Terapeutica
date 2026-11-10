@@ -48,7 +48,7 @@ try {
   await controle.close();
   const anamnese=await context.newPage();
   const aRes=await anamnese.goto(base+'anamnese.html?test=1',{waitUntil:'domcontentloaded',timeout:45000});
-  await anamnese.waitForSelector('#formCard .field',{timeout:20000});
+  await anamnese.waitForSelector('#formCard .field',{state:'attached',timeout:20000});
   log('anamnese-render',aRes?.status()===200,'HTTP='+aRes?.status());
   const fallbackVisible=await anamnese.locator('#officialFormFallback:not(.hidden)').count();
   const oldWizardHidden=await anamnese.locator('#anamneseForm.hidden').count();
