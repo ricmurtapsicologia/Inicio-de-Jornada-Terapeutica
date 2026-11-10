@@ -55,3 +55,5 @@ if(config.includes('dispatchInternalConfirmation')||config.includes("mode: 'no-c
 if(!page.includes('data.ok===true&&(!activeSubmissionId||data.submissionId!==activeSubmissionId)')) throw new Error('Sucesso exige recibo correlacionado ao envio');
 if(page.includes("const sandboxOrigin=event.origin==='null'")) throw new Error('Origem null irrestrita não é confiável');
 console.log('Anamnese gate: PASS — 38 perguntas, catálogo compartilhado, Forms oficial, endpoint /exec, reenvio idempotente, timeout progressivo e bridge consistente.');
+if(!config.includes('ANAMNESE_BRIDGE_ENABLED = false')) throw new Error('Backend sem E2E não pode ser reabilitado automaticamente');
+if(!page.includes('id="officialFormFallback"') || !page.includes('1FAIpQLSdq_O3PzOusN_Kn-hQm6B-MV6958Ry7VgR-kOTv9PZyaja8xA')) throw new Error('Formulário oficial de contingência ausente');

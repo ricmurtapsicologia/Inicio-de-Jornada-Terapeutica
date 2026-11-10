@@ -50,7 +50,12 @@ try {
   const aRes=await anamnese.goto(base+'anamnese.html?test=1',{waitUntil:'domcontentloaded',timeout:45000});
   await anamnese.waitForSelector('#formCard .field',{timeout:20000});
   log('anamnese-render',aRes?.status()===200,'HTTP='+aRes?.status());
+  const fallbackVisible=await anamnese.locator('#officialFormFallback:not(.hidden)').count();
+  const oldWizardHidden=await anamnese.locator('#anamneseForm.hidden').count();
+  const officialLink=await anamnese.locator('#officialFormLink').getAttribute('href');
+  log('anamnese-contingencia',fallbackVisible===1 && oldWizardHidden===1 && officialLink.includes('/forms/d/e/'),'fallback='+fallbackVisible+' wizardHidden='+oldWizardHidden);
   let countSteps=0; let sent=false; let failure='';
+  if(!fallbackVisible){
   for(let k=0;k<20;k++){
     const fields=anamnese.locator('#formCard .field');
     for(let i=0;i<await fields.count();i++){
@@ -86,6 +91,7 @@ try {
     await anamnese.waitForTimeout(80);
   }
   log('anamnese-etapas',sent && countSteps>=8,'steps='+countSteps+' submitClicked='+sent+' '+failure);
+  }
   if(sent&&process.env.LIVE_SYNTHETIC_SUBMISSION==='1'){
     const success=await anamnese.locator('#successPanel:not(.hidden)').waitFor({timeout:45000}).then(()=>true).catch(()=>false);
     const err=await anamnese.locator('#submitStatus').innerText().catch(()=> '');
@@ -94,8 +100,8 @@ try {
   await anamnese.close();
 } catch(err){log('runner-error',false,String(err?.message||err).slice(0,400));}
 finally{await browser.close();}
-const mandatory=['controle-render','controle-validacao','anamnese-render','anamnese-etapas'];
-const writeChecks=process.env.LIVE_SYNTHETIC_SUBMISSION==='1'?[...(process.env.SKIP_CONTROL_SUBMISSION==='1'?[]:['controle-envio']),'anamnese-envio']:[];
+const mandatory=['controle-render','controle-validacao','anamnese-render','anamnese-contingencia'];
+const writeChecks=process.env.LIVE_SYNTHETIC_SUBMISSION==='1'?[...(process.env.SKIP_CONTROL_SUBMISSION==='1'?[]:['controle-envio'])]:[];
 const failed=[...mandatory,...writeChecks].filter(stage=>!output.some(x=>x.stage===stage&&x.ok===true));
 console.log('RESULT '+JSON.stringify({marker,failed}));
 if(failed.length)process.exitCode=1;

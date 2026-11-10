@@ -59,6 +59,13 @@
       </div>
     </section>
 
+    <section class="card hidden" id="officialFormFallback" role="status" aria-live="polite">
+      <p class="eyebrow">Canal oficial para recebimento</p>
+      <h2>Preencha sua anamnese no Google Forms</h2>
+      <p>Para garantir o registro das respostas, o preenchimento está sendo realizado temporariamente pelo formulário oficial. Você poderá responder com tranquilidade e receber a confirmação diretamente do Google Forms.</p>
+      <a class="btn btn-primary" id="officialFormLink" href="https://docs.google.com/forms/d/e/1FAIpQLSdq_O3PzOusN_Kn-hQm6B-MV6958Ry7VgR-kOTv9PZyaja8xA/viewform" target="_blank" rel="noopener noreferrer">Abrir anamnese oficial</a>
+      <p class="help">O preenchimento será feito em uma nova página. Nenhuma resposta é enviada por esta tela.</p>
+    </section>
     <div class="progress-wrap">
       <div class="progress-row"><span id="progressText">Etapa 1</span><span id="progressPercent">0%</span></div>
       <progress class="progress" id="progressBar" max="100" value="0" aria-label="Progresso da anamnese">0%</progress>
@@ -88,7 +95,16 @@
 
   <footer class="footer shell">© 2026 | Richelmy Murta - Psicólogo Clínico | Pós-graduado em Terapias Cognitivo-Comportamentais</footer>
 
-<script src="./anamnese-config.js?v=20261110-confirmed-response"></script>
+<script src="./anamnese-config.js?v=20261110-official-form-fallback"></script>
+<script>
+(function(){
+  if(window.ANAMNESE_BRIDGE_ENABLED!==false)return;
+  document.querySelector('.progress-wrap')?.classList.add('hidden');
+  document.getElementById('anamneseForm')?.classList.add('hidden');
+  const alternative=document.getElementById('officialFormFallback');
+  alternative?.classList.remove('hidden');
+})();
+</script>
 <script>
 (() => {
   'use strict';
@@ -227,6 +243,7 @@
   }
 
   function submit(){
+    if(window.ANAMNESE_BRIDGE_ENABLED===false)return;
     if(sending)return;
     const honeypot=document.querySelector('input[name="website"]')?.value||'';
     if(honeypot)return;
