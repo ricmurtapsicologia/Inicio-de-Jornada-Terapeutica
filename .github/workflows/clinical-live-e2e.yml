@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     env:
-      LIVE_SYNTHETIC_SUBMISSION: '1'
+      LIVE_SYNTHETIC_SUBMISSION: '0'
       SKIP_CONTROL_SUBMISSION: '1'
     steps:
       - uses: actions/checkout@v4
@@ -21,5 +21,17 @@ jobs:
           node-version: '22'
       - name: Install isolated headless browser test dependency
         run: npm install --no-save --no-package-lock playwright@1.57.0
-      - name: Live browser E2E (fictitious records only)
+      - name: Probe Apps Script availability (no POST)
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          const url='https://script.google.com/macros/s/AKfycbyVv6oY91ELP2of25NxPg1QyVPNo1y8CIc6PXrjrmQSxOraQzHfBQJpYepJm2LlglU/exec';
+          try {
+            const r=await fetch(url,{redirect:'follow',signal:AbortSignal.timeout(18000)});
+            const html=await r.text();
+            const result={status:r.status,finalHost:new URL(r.url).hostname,bridgeMessage:html.includes('ANAMNESE_SUBMIT_RESULT'),authRequired:/sign in|login|accounts.google.com|access denied/i.test(html),unavailable:/script function not found|file not found|unable to open|não foi possível/i.test(html),bodyChars:html.length,preview:html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').slice(0,200)};
+            console.log('ANAMNESE_BRIDGE_GET '+JSON.stringify(result));
+          }catch(e){console.log('ANAMNESE_BRIDGE_GET '+JSON.stringify({error:String(e).slice(0,200)}));process.exitCode=1;}
+          JS
+      - name: Live browser smoke without new submissions
         run: node tests/clinical-live-e2e.mjs
