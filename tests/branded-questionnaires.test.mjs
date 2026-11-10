@@ -21,7 +21,9 @@ assert.match(host,/monitoramentos-v2\.css/,'host CSS system missing');
 assert.match(host,/monitoramentos-v2\.js/,'host runtime missing');
 assert.doesNotMatch(js,/\/viewform/i,'runtime must never navigate to native Forms view');
 assert.equal((js.match(/\/formResponse/g)||[]).length,4,'exactly four existing collectors must remain wired in the branded runtime');
-assert.match(js,/target=\"clinical-collection-sink\"/,'submission must stay inside the branded host');
+// Somente o cadastro navega ao próprio Google Forms para apresentar o recibo oficial.
+assert.match(js,/target="\\$\\{key==='controle'\\?'_self':'clinical-collection-sink'\\}"/,'intake must navigate to official Forms confirmation; other instruments keep technical sink');
+assert.match(js,/if\\(key==='controle'\\|\\|verifiedTransportRequired\\|\\|!submitted\\)return;/,'intake must not report success from iframe load');
 assert.match(js,/não estabelece diagnóstico/i,'non-diagnostic disclaimer missing');
 assert.match(js,/Atenção à sua segurança/,'safety response for mood item missing');
 assert.match(js,/risk|risco|intenção de se ferir/i,'safety guidance must be explicit');
